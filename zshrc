@@ -33,6 +33,9 @@ fi
 if [ -d /usr/local/share/npm/bin ]; then
   PATH=$PATH:/usr/local/share/npm/bin
 fi
+if [ -f $HOME/.dnx/dnvm/dnvm.sh ]; then
+  source $HOME/.dnx/dnvm/dnvm.sh
+fi
 
 # Titling
 # Set title to: "<user>@<hostname> | <process>:<dir>"
