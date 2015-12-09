@@ -48,6 +48,8 @@ cinst notepadplusplus.install -y
 Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles}\Notepad++\notepad++.exe"
 cinst SublimeText3 -y
 Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles}\Sublime Text 3\sublime_text.exe"
+Install-ChocolateyFileAssociation ".txt" "$env:programFiles\Sublime Text 3\sublime_text.exe"
+Install-ChocolateyFileAssociation ".log" "$env:programFiles\Sublime Text 3\sublime_text.exe"
 cinst visualstudiocode -y
 cinst visualstudio2015community -y -packageParameters "--Features SQL"
 Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles(x86)}\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe"
