@@ -54,7 +54,6 @@ cinst visualstudiocode -y
 cinst visualstudio2015community -y -packageParameters "--Features SQL"
 Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles(x86)}\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe"
 Write-Host "<<<< Development"
-
 Write-Host "<< Install software"
 
 Write-Host ">> Folders"
@@ -67,6 +66,7 @@ Write-Host "<< Folders"
 Write-Host ">> Git config"
 git config --global user.name $name
 git config --global user.email $email
+git config --global push.default simple
 git config --global merge.tool p4merge
 git config --global diff.guitool p4merge
 git config --global difftool.p4merge.path "C:/Program Files/Perforce/p4merge.exe"
