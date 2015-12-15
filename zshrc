@@ -85,7 +85,6 @@ fi
 
 # Aliases
 alias grep="grep --color=auto"   # Color grep
-alias less="less -N"             # Line numbers in less
 # OS X specific aliases
 if [[ `uname` == "Darwin" ]] then
 	alias ls="ls -FG"            # BSD ls color, human readable
