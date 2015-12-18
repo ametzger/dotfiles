@@ -53,6 +53,8 @@ Install-ChocolateyFileAssociation ".log" "$env:programFiles\Sublime Text 3\subli
 cinst visualstudiocode -y
 cinst visualstudio2015community -y -packageParameters "--Features SQL"
 Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles(x86)}\Microsoft Visual Studio 14.0\Common7\IDE\devenv.exe"
+cinst linqpad --version 5.02.03 -y
+Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles(x86)}\LINQPad5\LINQPad.exe"
 Write-Host "<<<< Development"
 Write-Host "<< Install software"
 
