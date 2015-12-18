@@ -46,6 +46,7 @@ cinst Git-Credential-Manager-for-Windows -y
 cinst nodejs.install -y
 cinst notepadplusplus.install -y
 Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles}\Notepad++\notepad++.exe"
+cinst atom -y
 cinst SublimeText3 -y
 Install-ChocolateyPinnedTaskBarItem "${env:ProgramFiles}\Sublime Text 3\sublime_text.exe"
 Install-ChocolateyFileAssociation ".txt" "$env:programFiles\Sublime Text 3\sublime_text.exe"
