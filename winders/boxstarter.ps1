@@ -13,7 +13,7 @@ choco feature enable -n=autoUninstaller -y
 Write-Host "<< Chocolatey"
 
 Write-Host ">> Windows config"
-Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowFileExtensions
+Set-WindowsExplorerOptions -DisableShowHiddenFilesFoldersDrives -EnableShowFileExtensions
 Set-TaskbarOptions -Size Small -Lock -Dock Top
 Set-CornerNavigationOptions -DisableUpperRightCornerShowCharms -DisableUpperLeftCornerSwitchApps -DisableUsePowerShellOnWinX
 Set-StartScreenOptions -EnableBootToDesktop -EnableDesktopBackgroundOnStart -EnableShowStartOnActiveScreen
