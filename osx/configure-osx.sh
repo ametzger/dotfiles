@@ -12,5 +12,5 @@ chflags nohidden ~/Library
 mkdir ~/Desktop/Screenshots
 defaults write com.apple.screencapture location ~/Desktop/Screenshots
 
-echo "install brew"
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+#echo "install brew"
+#ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
