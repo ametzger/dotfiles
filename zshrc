@@ -51,6 +51,11 @@ function preexec() {
   title "$1" "$USER@%m" "%35<...<%~"
 }
 
+# fpath
+if [ -d /usr/local/share/zsh/site-functions ]; then
+  export FPATH=/usr/local/share/zsh/site-functions:$FPATH
+fi
+
 # Prompt
 # Git stuff
 source ~/.zsh/git-prompt/zshrc.sh
@@ -141,3 +146,4 @@ bindkey "^[[B" history-search-forward
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 export MONO_MANAGED_WATCHER=disabled
 [ -s "/Users/ametzger/.dnx/dnvm/dnvm.sh" ] && . "/Users/ametzger/.dnx/dnvm/dnvm.sh" # Load dnvm
+
