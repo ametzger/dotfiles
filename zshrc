@@ -45,7 +45,10 @@ function title() {
   print -Pn "\e]2;$2 | $a:$3\a"
 }
 function precmd() {
-  title "zsh" "$USER@%m" "%55<...<%~"
+    title "zsh" "$USER@%m" "%55<...<%~"
+    if [[ `uname` == "Darwin" ]]; then
+        print -Pn "\033]1;%~\007"
+    fi
 }
 function preexec() {
   title "$1" "$USER@%m" "%35<...<%~"
