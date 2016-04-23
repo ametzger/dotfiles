@@ -36,6 +36,9 @@ fi
 if [ -f $HOME/.dnx/dnvm/dnvm.sh ]; then
   source $HOME/.dnx/dnvm/dnvm.sh
 fi
+if [ -d /usr/local/share/dotnet/bin ]; then
+  PATH=$PATH:/usr/local/share/dotnet/bin
+fi
 
 # Titling
 # Set title to: "<user>@<hostname> | <process>:<dir>"
