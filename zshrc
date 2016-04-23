@@ -145,8 +145,3 @@ zstyle ':completion:*' word true
 # Keybindings
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
-
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-export MONO_MANAGED_WATCHER=disabled
-[ -s "/Users/ametzger/.dnx/dnvm/dnvm.sh" ] && . "/Users/ametzger/.dnx/dnvm/dnvm.sh" # Load dnvm
-
