@@ -36,9 +36,12 @@ fi
 if [ -f $HOME/.dnx/dnvm/dnvm.sh ]; then
   source $HOME/.dnx/dnvm/dnvm.sh
 fi
-if [ -d /usr/local/share/dotnet/bin ]; then
-  PATH=$PATH:/usr/local/share/dotnet/bin
+if [ -d /usr/local/share/dotnet ]; then
+  PATH=$PATH:/usr/local/share/dotnet
 fi
+#if [ -d $HOME/.rbenv/shims ]; then
+#  source $HOME/.rbenv/completions/rbenv.zsh
+#fi
 
 # Titling
 # Set title to: "<user>@<hostname> | <process>:<dir>"
@@ -56,6 +59,8 @@ function precmd() {
 function preexec() {
   title "$1" "$USER@%m" "%35<...<%~"
 }
+
+eval "$(rbenv init -)"
 
 # fpath
 if [ -d /usr/local/share/zsh/site-functions ]; then
