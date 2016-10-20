@@ -21,3 +21,5 @@ do
   ln -s $cwd/$f ~/.$f
 done
 
+echo "Linking ~/.config/fish/config.fish => $cwd/config.fish"
+ln -s $cwd/config.fish ~/.config/fish/config.fish
