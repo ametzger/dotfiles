@@ -106,8 +106,7 @@ if has('gui_running')
     set guifont=Monaco:h12
   endif
 else
-  " If we're just in a terminal, use gummybears
-  colorscheme gummybears
+  colorscheme darkblue
 endif
 
 " == Weird File Syntax
