@@ -1,6 +1,9 @@
-;(set-frame-font "Input Mono Regular-13")
-;(set-default-font "-*-Input Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-;(set-face-attribute 'default nil :font "Input Mono Regular-12" :height 100)
-(set-face-attribute 'default nil :font "Input-10")
-
-
+(cond
+ ((find-font (font-spec :name "Input"))
+  (set-frame-font "Input-12"))
+ ((find-font (font-spec :name "Input Mono"))
+  (set-frame-font "Input Mono-12"))
+ ((find-font (font-spec :name "Monaco"))
+  (set-frame-font "Monaco-12"))
+ ((find-font (font-spec :name "Consolas"))
+  (set-frame-font "Consolas-12")))
