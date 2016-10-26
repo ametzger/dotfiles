@@ -1,4 +1,10 @@
-# requires PSReadLine (https://github.com/lzybkr/PSReadLine) via PsGet (http://psget.net/)
+﻿
+
+# Chocolatey profile
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
+}
 
 if ($host.Name -eq 'ConsoleHost')
 {
@@ -11,4 +17,6 @@ if ($host.Name -eq 'ConsoleHost')
 	
 	Set-PSReadlineKeyHandler -Key Shift+Ctrl+C -Function Copy
 	Set-PSReadlineKeyHandler -Key Ctrl+V -Function Paste
+	
+	Set-Theme Agnoster
 }
