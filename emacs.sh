@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+  #!/usr/bin/env bash
 
 brew install --with-cocoa emacs
 pushd ~/proj
