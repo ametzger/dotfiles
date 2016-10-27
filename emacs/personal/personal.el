@@ -1,9 +1,25 @@
-;; add line numbers to emacs
-;; based on https://www.emacswiki.org/emacs/LineNumbers
+;;; Alex Metzger emacs config
+;;; for use with bbatsov's Prelude
+;;; https://github.com/bbatsov/prelude
 
+; disable auto save
+(setq auto-save-default nil)
+; disable guru (warnings when arrow keys are used)
+(setq prelude-guru nil)
+
+; initialize packages
+(prelude-require-package 'solarized-theme)
+(prelude-require-package 'csharp-mode)
 (prelude-require-package 'hlinum)
 
-;; click on a line to select
+; custom file extension mappings
+(add-to-list 'auto-mode-alist '("\\.cake\\'" . csharp-mode))
+(add-to-list 'auto-mode-alist '("\\.fish\\'" . shell-script-mode))
+
+; add line numbers
+; based on https://www.emacswiki.org/emacs/LineNumbers
+
+; click on a line to select
 (eval-after-load 'linum
   '(progn
      (defvar *linum-mdown-line* nil)
@@ -43,10 +59,25 @@
      (global-set-key (kbd "<left-margin> <mouse-1>") 'mu-select-linum)
      (global-set-key (kbd "<left-margin> <drag-mouse-1>") 'mu-select-linum)))
 
-;; include a line between the numbers and the buffer
+; include a line between the numbers and the buffer
 (setq linum-format "%4d \u2502")
-
 (global-linum-mode t)
-
-;; hlinum highlights the current line in linenum
 (hlinum-activate)
+
+; remap super => control on mac
+(if (eq system-type 'darwin)
+    (setq mac-command-modifier 'control))
+
+; when org-mode starts, expand all nodes
+(setq org-startup-folded nil)
+
+; configure Input Mono font with fallbacks
+(cond
+ ((find-font (font-spec :name "Input"))
+  (set-frame-font "Input-12"))
+ ((find-font (font-spec :name "Input Mono"))
+  (set-frame-font "Input Mono-12"))
+ ((find-font (font-spec :name "Monaco"))
+  (set-frame-font "Monaco-12"))
+ ((find-font (font-spec :name "Consolas"))
+  (set-frame-font "Consolas-12")))
