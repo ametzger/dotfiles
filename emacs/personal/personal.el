@@ -14,6 +14,7 @@
 (prelude-require-package 'solarized-theme)
 (prelude-require-package 'csharp-mode)
 (prelude-require-package 'hlinum)
+(prelude-require-package 'ag)
 
 ; custom file extension mappings
 (add-to-list 'auto-mode-alist '("\\.cake\\'" . csharp-mode))
