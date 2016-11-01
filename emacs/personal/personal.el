@@ -8,17 +8,19 @@
 (setq prelude-guru nil)
 ;; disable emacs lisp linting
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
-;(setq prelude-flyspell nil)
+(setq prelude-flyspell nil)
 
 ;; initialize packages
 (prelude-require-package 'solarized-theme)
 (prelude-require-package 'csharp-mode)
+(prelude-require-package 'json-mode)
 (prelude-require-package 'hlinum)
 (prelude-require-package 'ag)
 
 ;; custom file extension mappings
 (add-to-list 'auto-mode-alist '("\\.cake\\'" . csharp-mode))
-(add-to-list 'auto-mode-alist '("\\.fish\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\\.fish\\'" . fish-mode))
+(add-to-list 'auto-mode-alist '("\\.linq\\'" . csharp-mode))
 
 ;; add line numbers
 ;; based on https://www.emacswiki.org/emacs/LineNumbers
@@ -105,3 +107,14 @@
                            (:eval (if (buffer-file-name)
                                       (abbreviate-file-name (buffer-file-name))
                                     "%b"))))
+
+;; 4 spaces for indentation
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq standard-indent 4)
+
+;; json indent to four spaces
+(add-hook 'json-mode-hook
+          (lambda ()
+            (make-local-variable 'js-indent-level)
+            (setq js-indent-level 4)))
