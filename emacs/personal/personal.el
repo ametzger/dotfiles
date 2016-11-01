@@ -88,18 +88,23 @@
  ((find-font (font-spec :name "Consolas"))
   (set-frame-font "Consolas-12")))
 
-;; C-c C-k to pull current line to kill ring
-(defun copy-line (&optional arg)
-  "Do a kill-line but copy rather than kill.  This function directly calls
-    kill-line, so see documentation of kill-line for how to use it including prefix
-    argument and relevant variables.  This function works by temporarily making the
-    buffer read-only."
-  (interactive "P")
-  (let ((buffer-read-only t)
-        (kill-read-only-ok t))
-    (kill-line arg)))
+;; duplicate current line
+(defun duplicate-current-line (&optional n)
+  "duplicate current line, make more than 1 copy given a numeric argument"
+  (interactive "p")
+  (save-excursion
+    (let ((nb (or n 1))
+    	  (current-line (thing-at-point 'line)))
+      ;; when on last line, insert a newline first
+      (when (or (= 1 (forward-line 1)) (eq (point) (point-max)))
+    	(insert "\n"))
+      
+      ;; now insert as many time as requested
+      (while (> n 0)
+    	(insert current-line)
+    	(decf n)))))
 
-(global-set-key (kbd "\C-c\C-k") 'copy-line)
+(global-set-key (kbd "\C-c\C-k") 'duplicate-current-line)
 
 ;; simple title
 (setq frame-title-format '(""
