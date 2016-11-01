@@ -40,6 +40,7 @@
 	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 	up = pull --ff-only --all -p
 	recent = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+	f = fetch -p
 [pull]
 	ff = only
 [filter "lfs"]
@@ -48,8 +49,24 @@
 	required = true
 [merge]
 	tool = p4merge
+	#tool = ediff
 [mergetool]
 	keepBackup = false
 [diff]
 	tool = p4merge
 	algorithm = patience
+
+[mergetool.ediff]
+    cmd = emacs --eval \"\
+(progn\
+  (defun ediff-write-merge-buffer ()\
+    (let ((file ediff-merge-store-file))\
+      (set-buffer ediff-buffer-C)\
+      (write-region (point-min) (point-max) file)\
+      (message \\\"Merge buffer saved in: %s\\\" file)\
+      (set-buffer-modified-p nil)\
+      (sit-for 1)))\
+  (setq ediff-quit-hook 'kill-emacs\
+        ediff-quit-merge-hook 'ediff-write-merge-buffer)\
+  (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\"\
+                                   \\\"$BASE\\\" nil \\\"$MERGED\\\"))\"
