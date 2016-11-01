@@ -123,3 +123,8 @@
           (lambda ()
             (make-local-variable 'js-indent-level)
             (setq js-indent-level 4)))
+
+;; map left super key on Winders
+(when (eq system-type 'windows-nt)
+  (setq w32-pass-lwindow-to-system nil)
+  (setq w32-lwindow-modifier 'super))
