@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2016-11-02 14:48:39" build="160619">
+		<key name=".Vanilla" modified="2016-11-02 16:59:24" build="160619">
 			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
 			<value name="StartTasksFile" type="string" data=""/>
@@ -293,8 +293,8 @@
 			<value name="JumpListAutoUpdate" type="hex" data="00"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
-				<line data="{Shells::PowerShell (Admin)}"/>
 				<line data="{Bash::Git bash}"/>
+				<line data="{Shells::PowerShell (Admin)}"/>
 				<line data="{Shells::PowerShell}"/>
 				<line data="{Shells::VS2015}"/>
 				<line data="{Shells::cmd}"/>
