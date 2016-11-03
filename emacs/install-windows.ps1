@@ -14,7 +14,7 @@ If ((Test-Path -Path $preludeDirectory) -eq 0)
 	Remove-Item -Recurse personal
 	$configDir = $codeDirectory+"\config\emacs"
 	New-Item -Path personal -ItemType SymbolicLink -Value $configDir+"\personal"
-	New-Item -Path prelude-modules.el -ItemType SymbolicLink -Value $configDir+"\prelude-modules.el"
+	# New-Item -Path prelude-modules.el -ItemType SymbolicLink -Value $configDir+"\prelude-modules.el"
 }
 
 Write-Host Creating .emacs.d symlinks...
