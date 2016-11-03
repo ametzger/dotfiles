@@ -80,13 +80,13 @@
 ;; configure Input Mono font with fallbacks
 (cond
  ((find-font (font-spec :name "Input"))
-  (set-frame-font "Input-11"))
+  (set-frame-font "Input-10"))
  ((find-font (font-spec :name "Input Mono"))
-  (set-frame-font "Input Mono-11"))
+  (set-frame-font "Input Mono-10"))
  ((find-font (font-spec :name "Monaco"))
-  (set-frame-font "Monaco-11"))
+  (set-frame-font "Monaco-10"))
  ((find-font (font-spec :name "Consolas"))
-  (set-frame-font "Consolas-11")))
+  (set-frame-font "Consolas-10")))
 
 ;; duplicate current line
 (defun duplicate-current-line (&optional n)
