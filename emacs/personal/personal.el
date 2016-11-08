@@ -78,15 +78,18 @@
 (setq org-startup-folded nil)
 
 ;; configure Input Mono font with fallbacks
-(cond
- ((find-font (font-spec :name "Input"))
-  (set-frame-font "Input-10"))
- ((find-font (font-spec :name "Input Mono"))
-  (set-frame-font "Input Mono-10"))
- ((find-font (font-spec :name "Monaco"))
-  (set-frame-font "Monaco-10"))
- ((find-font (font-spec :name "Consolas"))
-  (set-frame-font "Consolas-10")))
+(let (font-face font-size)
+  (setq font-face (cond
+                   ((find-font (font-spec :name "Input"))
+                    "Input")
+                   ((find-font (font-spec :name "Input Mono"))
+                    "Input Mono")
+                   ((find-font (font-spec :name "Monaco"))
+                    "Monaco")
+                   ((find-font (font-spec :name "Consolas"))
+                    "Consolas")))
+  (setq font-size (if (eq system-type 'darwin) "12" "10"))
+  (set-frame-font (concat font-face "-" font-size)))
 
 ;; duplicate current line
 (defun duplicate-current-line (&optional n)
