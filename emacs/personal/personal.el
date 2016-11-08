@@ -128,3 +128,9 @@
 (when (eq system-type 'windows-nt)
   (setq w32-pass-lwindow-to-system nil)
   (setq w32-lwindow-modifier 'super))
+
+;; live regex search
+(require 'visual-regexp)
+(define-key global-map (kbd "C-c C-r") 'vr/replace)
+(define-key global-map (kbd "C-c C-q") 'vr/query-replace)
+(define-key global-map (kbd "C-c C-t") 'vr/mc-mark)
