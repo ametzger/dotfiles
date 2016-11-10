@@ -70,10 +70,6 @@
 ;; (global-linum-mode t)
 ;; (hlinum-activate)
 
-;; remap super => control on mac
-(if (eq system-type 'darwin)
-    (setq mac-command-modifier 'control))
-
 ;; when org-mode starts, expand all nodes
 (setq org-startup-folded nil)
 
@@ -131,6 +127,10 @@
 (when (eq system-type 'windows-nt)
   (setq w32-pass-lwindow-to-system nil)
   (setq w32-lwindow-modifier 'super))
+
+;; remap super => control on mac
+(if (eq system-type 'darwin)
+    (setq mac-command-modifier 'control))
 
 ;; live regex search
 (require 'visual-regexp)
