@@ -137,3 +137,6 @@
 (define-key global-map (kbd "C-c C-r") 'vr/replace)
 (define-key global-map (kbd "C-c C-q") 'vr/query-replace)
 (define-key global-map (kbd "C-c C-t") 'vr/mc-mark)
+
+;; disable whitespace mode
+(setq prelude-whitespace nil)
