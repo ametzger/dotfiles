@@ -5,9 +5,9 @@ set -g -x fish_greeting ''
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 
 # add ~/bin to PATH if it exists
-if test -d ~/bin
+if test -d $HOME/bin
     #echo "Adding ~/bin to PATH"
-    set -g fish_user_paths "~/bin" $fish_user_paths
+    set -g fish_user_paths "$HOME/bin" $fish_user_paths
 end
 
 alias e "emacsclient -nac"
