@@ -60,7 +60,7 @@ function preexec() {
   title "$1" "$USER@%m" "%35<...<%~"
 }
 
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 
 # fpath
 if [ -d /usr/local/share/zsh/site-functions ]; then
