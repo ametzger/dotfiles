@@ -140,3 +140,7 @@
 
 ;; disable whitespace mode
 (setq prelude-whitespace nil)
+
+
+;; disable scrach message on startup
+(setq initial-scratch-message nil)
