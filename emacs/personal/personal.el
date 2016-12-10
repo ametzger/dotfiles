@@ -85,7 +85,9 @@
                    ((find-font (font-spec :name "Consolas"))
                     "Consolas")))
   (setq font-size (if (eq system-type 'darwin) "12" "10"))
-  (set-frame-font (concat font-face "-" font-size)))
+  (if
+      (not (eq system-type 'gnu/linux))
+      (set-frame-font (concat font-face "-" font-size))))
 
 ;; duplicate current line
 (defun duplicate-current-line (&optional n)
@@ -133,7 +135,7 @@
     (setq mac-command-modifier 'control))
 
 ;; live regex search
-(require 'visual-regexp)
+(prelude-require-package 'visual-regexp)
 (define-key global-map (kbd "C-c C-r") 'vr/replace)
 (define-key global-map (kbd "C-c C-q") 'vr/query-replace)
 (define-key global-map (kbd "C-c C-t") 'vr/mc-mark)
