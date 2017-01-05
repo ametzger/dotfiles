@@ -101,6 +101,13 @@ fi
 
 # Aliases
 alias grep="grep --color=auto"   # Color grep
+
+# emacs aliases
+alias e='emacsclient -t'
+alias ec='emacsclient -c'
+alias vim='emacsclient -t'
+alias vi='emacsclient -t'
+
 # OS X specific aliases
 if [[ `uname` == "Darwin" ]] then
 	alias ls="ls -FG"            # BSD ls color, human readable
