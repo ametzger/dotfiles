@@ -129,9 +129,7 @@ autoload -U insert-files
 zle -N insert-files
 autoload -U predict-on
 zle -N predict-on
-# SSH completion stuff
-local knownhosts
-knownhosts=(${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*})
+
 # Modules
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty
@@ -147,7 +145,6 @@ zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*' add-space true
 zstyle ':completion:*:processes' command 'ps axjf'
 zstyle ':completion:*:processes-names' command 'ps axho command'
-zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=( $((($#PREFIX+$#SUFFIX)/3 )) numeric )'
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
@@ -156,6 +153,14 @@ zstyle ':completion:*' substitute 1
 zstyle ':completion:*' use-compctl true
 zstyle ':completion:*' verbose true
 zstyle ':completion:*' word true
+
+# ssh completion
+if [[ -f ~/.ssh/known_hosts ]]; then
+    local knownhosts
+    knownhosts=(${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*})
+    zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
+fi
+
 
 # Keybindings
 bindkey "^[[A" history-search-backward
