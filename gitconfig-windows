@@ -72,3 +72,5 @@
         ediff-quit-merge-hook 'ediff-write-merge-buffer)\
   (ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\"\
                                    \\\"$BASE\\\" nil \\\"$MERGED\\\"))\"
+[rebase]
+	autoStash = true
