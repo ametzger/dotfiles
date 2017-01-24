@@ -20,3 +20,6 @@ if ($host.Name -eq 'ConsoleHost')
 	
 	Set-Theme Agnoster
 }
+
+$Host.PrivateData.DebugBackgroundColor = "Black"
+$Host.PrivateData.ErrorBackgroundColor = "Black"
