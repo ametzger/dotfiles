@@ -1,3 +1,5 @@
+# -*- mode: shell-script -*-
+
 # Options
 setopt autocd autopushd pushdtohome pushdignoredups
 setopt noclobber nobeep nohup
