@@ -2,7 +2,7 @@
 	name = Alex Metzger
 	email = asm@litmus.com
 [core]
-	editor = 'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin
+	editor = 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin
 	whitespace = trailing-space,space-before-tab,-indent-with-non-tab
 	filemode = false
 	autocrlf = true
