@@ -55,7 +55,7 @@
 	<key>HideScrollbar</key>
 	<false/>
 	<key>HideTab</key>
-	<false/>
+	<true/>
 	<key>HideTabNumber</key>
 	<true/>
 	<key>HighlightTabLabels</key>
@@ -131,13 +131,15 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>431 364 620 392 0 0 1440 878 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 184 918 498 0 0 1440 878 </string>
+	<string>269 184 796 473 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>143 5 1297 873 0 0 1440 878 </string>
+	<string>49 5 1329 873 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>302 15 1113 828 0 0 1440 878 </string>
+	<string>775 80 665 798 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>197 48 665 423 0 0 1440 878 </string>
+	<string>-585 -851 665 873 0 0 1440 878 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>69 5 1369 873 0 0 1440 878 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -995,7 +997,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-10-26T03:50:05Z</date>
+	<date>2017-01-23T19:59:35Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1003,11 +1005,11 @@
 	<key>ShowFullScreenTabBar</key>
 	<false/>
 	<key>ShowPaneTitles</key>
-	<true/>
+	<false/>
 	<key>SmartPlacement</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.13349861212265801</real>
+	<real>0.10000000000000001</real>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
@@ -1041,6 +1043,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>3.0.11</string>
+	<string>3.0.13</string>
 </dict>
 </plist>
