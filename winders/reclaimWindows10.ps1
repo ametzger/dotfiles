@@ -180,8 +180,8 @@ Remove-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Polic
 # Set-NetFirewallProfile -Profile * -Enabled True
  
 # Disable Windows Defender
-# Write-Host "Disabling Windows Defender..."
-# Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender" -Name "DisableAntiSpyware" -Type DWord -Value 1
+Write-Host "Disabling Windows Defender..."
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender" -Name "DisableAntiSpyware" -Type DWord -Value 1
  
 # Enable Windows Defender
 # Remove-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows Defender" -Name "DisableAntiSpyware"
@@ -240,11 +240,11 @@ Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server\W
 # Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\PushNotifications" -Name "ToastEnabled"
  
 # Disable Lock screen
-# Write-Host "Disabling Lock screen..."
-# If (!(Test-Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization")) {
-#   New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" | Out-Null
-# }
-# Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen" -Type DWord -Value 1
+Write-Host "Disabling Lock screen..."
+If (!(Test-Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization")) {
+  New-Item -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" | Out-Null
+}
+Set-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen" -Type DWord -Value 1
  
 # Enable Lock screen
 # Remove-ItemProperty -Path "HKLM:\Software\Policies\Microsoft\Windows\Personalization" -Name "NoLockScreen"
@@ -316,11 +316,11 @@ Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer
 # Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "HideFileExt" -Type DWord -Value 1
  
 # Show hidden files
-Write-Host "Showing hidden files..."
-Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Hidden" -Type DWord -Value 1
+# Write-Host "Showing hidden files..."
+# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Hidden" -Type DWord -Value 1
  
 # Hide hidden files
-# Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Hidden" -Type DWord -Value 2
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "Hidden" -Type DWord -Value 2
  
 # Change default Explorer view to "Computer"
 Write-Host "Changing default Explorer view to `"Computer`"..."
@@ -420,28 +420,28 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive" -Nam
 # Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive" -Name "DisableFileSyncNGSC"
  
 # Uninstall OneDrive
-# Write-Host "Uninstalling OneDrive..."
-# Stop-Process -Name OneDrive -ErrorAction SilentlyContinue
-# Start-Sleep -s 3
-# $onedrive = "$env:SYSTEMROOT\SysWOW64\OneDriveSetup.exe"
-# If (!(Test-Path $onedrive)) {
-#     $onedrive = "$env:SYSTEMROOT\System32\OneDriveSetup.exe"
-# }
-# Start-Process $onedrive "/uninstall" -NoNewWindow -Wait
-# Start-Sleep -s 3
-# Stop-Process -Name explorer -ErrorAction SilentlyContinue
-# Start-Sleep -s 3
-# Remove-Item "$env:USERPROFILE\OneDrive" -Force -Recurse -ErrorAction SilentlyContinue
-# Remove-Item "$env:LOCALAPPDATA\Microsoft\OneDrive" -Force -Recurse -ErrorAction SilentlyContinue
-# Remove-Item "$env:PROGRAMDATA\Microsoft OneDrive" -Force -Recurse -ErrorAction SilentlyContinue
-# If (Test-Path "$env:SYSTEMDRIVE\OneDriveTemp") {
-#     Remove-Item "$env:SYSTEMDRIVE\OneDriveTemp" -Force -Recurse -ErrorAction SilentlyContinue
-# }
-# If (!(Test-Path "HKCR:")) {
-#     New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
-# }
-# Remove-Item -Path "HKCR:\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" -Recurse -ErrorAction SilentlyContinue
-# Remove-Item -Path "HKCR:\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" -Recurse -ErrorAction SilentlyContinue
+Write-Host "Uninstalling OneDrive..."
+Stop-Process -Name OneDrive -ErrorAction SilentlyContinue
+Start-Sleep -s 3
+$onedrive = "$env:SYSTEMROOT\SysWOW64\OneDriveSetup.exe"
+If (!(Test-Path $onedrive)) {
+    $onedrive = "$env:SYSTEMROOT\System32\OneDriveSetup.exe"
+}
+Start-Process $onedrive "/uninstall" -NoNewWindow -Wait
+Start-Sleep -s 3
+Stop-Process -Name explorer -ErrorAction SilentlyContinue
+Start-Sleep -s 3
+Remove-Item "$env:USERPROFILE\OneDrive" -Force -Recurse -ErrorAction SilentlyContinue
+Remove-Item "$env:LOCALAPPDATA\Microsoft\OneDrive" -Force -Recurse -ErrorAction SilentlyContinue
+Remove-Item "$env:PROGRAMDATA\Microsoft OneDrive" -Force -Recurse -ErrorAction SilentlyContinue
+If (Test-Path "$env:SYSTEMDRIVE\OneDriveTemp") {
+    Remove-Item "$env:SYSTEMDRIVE\OneDriveTemp" -Force -Recurse -ErrorAction SilentlyContinue
+}
+If (!(Test-Path "HKCR:")) {
+    New-PSDrive -Name HKCR -PSProvider Registry -Root HKEY_CLASSES_ROOT | Out-Null
+}
+Remove-Item -Path "HKCR:\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" -Recurse -ErrorAction SilentlyContinue
+Remove-Item -Path "HKCR:\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}" -Recurse -ErrorAction SilentlyContinue
  
 # Install OneDrive
 # $onedrive = "$env:SYSTEMROOT\SysWOW64\OneDriveSetup.exe"
@@ -463,7 +463,7 @@ Get-AppxPackage "Microsoft.MicrosoftSolitaireCollection" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.Office.OneNote" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.People" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.SkypeApp" | Remove-AppxPackage
-# Get-AppxPackage "Microsoft.Windows.Photos" | Remove-AppxPackage
+Get-AppxPackage "Microsoft.Windows.Photos" | Remove-AppxPackage
 Get-AppxPackage "Microsoft.WindowsAlarms" | Remove-AppxPackage
 # Get-AppxPackage "Microsoft.WindowsCamera" | Remove-AppxPackage
 Get-AppxPackage "microsoft.windowscommunicationsapps" | Remove-AppxPackage
@@ -523,8 +523,8 @@ Get-AppxPackage "king.com.CandyCrushSodaSaga" | Remove-AppxPackage
 # dism /online /Enable-Feature /FeatureName:MediaPlayback /Quiet /NoRestart
  
 # Uninstall Work Folders Client
-# Write-Host "Uninstalling Work Folders Client..."
-# dism /online /Disable-Feature /FeatureName:WorkFolders-Client /Quiet /NoRestart
+Write-Host "Uninstalling Work Folders Client..."
+dism /online /Disable-Feature /FeatureName:WorkFolders-Client /Quiet /NoRestart
  
 # Install Work Folders Client
 # dism /online /Enable-Feature /FeatureName:WorkFolders-Client /Quiet /NoRestart
