@@ -167,4 +167,8 @@ fi
 # Keybindings
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
-eval $(/usr/libexec/path_helper -s)
+
+if [ -f /usr/libexec/path_helper ]; then
+    eval $(/usr/libexec/path_helper -s)
+fi
+
