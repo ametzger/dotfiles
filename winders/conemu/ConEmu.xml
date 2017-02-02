@@ -662,19 +662,19 @@
 					<value name="Count" type="long" data="2"/>
 					<value name="Cmd2" type="string" data="&quot;%windir%\syswow64\cmd.exe&quot; /k &quot;&quot;%ConEmuBaseDir%\CmdInit.cmd&quot; &amp; echo This is 32 bit cmd.exe -new_console:s50V&quot;"/>
 				</key>
-				<key name="Task8" modified="2017-02-02 14:24:16" build="161206">
+				<key name="Task8" modified="2017-02-02 14:35:19" build="161206">
 					<value name="Name" type="string" data="{Layouts::Dev}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data="/icon &quot;powershell.exe&quot; /dir &quot;C:\dev&quot; /single"/>
 					<value name="Cmd1" type="string" data="&gt;*-cur_console:d:C:\dev\litmus powershell.exe"/>
 					<value name="Active" type="long" data="1"/>
-					<value name="Count" type="long" data="3"/>
+					<value name="Count" type="long" data="4"/>
 					<value name="Cmd2" type="string" data="* -cur_console:s1T50H -cur_console:d:C:\dev powershell.exe"/>
 					<value name="Cmd3" type="string" data="* -cur_console:s2T50V -cur_console:d:C:\dev powershell.exe"/>
-					<value name="Cmd4" type="string" data="-cur_console:d:C:\dev &quot;%ConEmuDir%\..\Git\git-cmd.exe&quot; --no-cd --command=usr/bin/bash.exe -l -i"/>
+					<value name="Cmd4" type="string" data="-cur_console:d -cur_console:C:&quot;C:\dev\config\winders\conemu\ubuntu.ico&quot; C:\Windows\System32\bash.exe ~"/>
 				</key>
-				<key name="Task9" modified="2017-02-02 14:24:16" build="161206">
+				<key name="Task9" modified="2017-02-02 14:35:19" build="161206">
 					<value name="Name" type="string" data="{Bash::Git bash}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -685,7 +685,7 @@
 					<value name="Cmd2" type="string" data="* -cur_console:s1T50H -cur_console:d:C:\dev powershell.exe"/>
 					<value name="Cmd3" type="string" data="-cur_console:s2T50V -cur_console:d:C:\dev &quot;%ConEmuDir%\..\Git\git-cmd.exe&quot; --no-cd --command=usr/bin/bash.exe -l -i"/>
 				</key>
-				<key name="Task10" modified="2017-02-02 14:24:16" build="161206">
+				<key name="Task10" modified="2017-02-02 14:35:19" build="161206">
 					<value name="Name" type="string" data="{Bash::Ubuntu}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -694,7 +694,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task11" modified="2017-02-02 14:24:16" build="161206">
+				<key name="Task11" modified="2017-02-02 14:35:19" build="161206">
 					<value name="Name" type="string" data="{Helper::Show ANSI colors}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -703,7 +703,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task12" modified="2017-02-02 14:24:16" build="161206">
+				<key name="Task12" modified="2017-02-02 14:35:19" build="161206">
 					<value name="Name" type="string" data="{Tools::Chocolatey (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -722,10 +722,10 @@
 					<value name="Count" type="long" data="1"/>
 				</key>
 			</key>
-			<key name="Apps" modified="2017-02-02 14:24:16" build="161206">
+			<key name="Apps" modified="2017-02-02 14:35:19" build="161206">
 				<value name="Count" type="long" data="0"/>
 			</key>
-			<key name="Colors" modified="2017-02-02 14:24:16" build="161206">
+			<key name="Colors" modified="2017-02-02 14:35:19" build="161206">
 				<value name="Count" type="long" data="0"/>
 			</key>
 			<value name="KillSshAgent" type="hex" data="01"/>
