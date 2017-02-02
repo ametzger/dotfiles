@@ -1,3 +1,5 @@
+# -*- mode: gitconfig -*-
+
 [user]
 	name = Alex Metzger
 	email = asm@litmus.com
@@ -42,7 +44,7 @@
 	recent = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 	f = fetch -p
 	c = commit -m
-	dammit = !git add -A && git commit -am \":herb:\" && git push
+	dammit = !git add -A && git commit -am \":shit:\" && git push
 [pull]
 	ff = only
 [filter "lfs"]
