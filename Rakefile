@@ -6,7 +6,7 @@ end
 
 desc "Install symlinks from #{Dir.pwd}/dotfiles to ~/"
 task :install do
-  home = File.expand_path("~")
+  home = Dir.home
 
   puts "installing dotfiles into #{home}"
   
