@@ -15,7 +15,7 @@ task :install do
   
   config_dir = File.join(home, ".config")
 
-  Dir.mkdir(config_dir) if not Dir.exists?(config_dir) 
+  Dir.mkdir(config_dir) unless Dir.exists?(config_dir) 
   
   Dir["dotfiles/config/fish/*"].each do |p|
     make_symlink(config_dir + "/fish", p, nil)
