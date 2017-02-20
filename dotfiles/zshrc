@@ -1,174 +1,85 @@
-# -*- mode: shell-script -*-
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Options
-setopt autocd autopushd pushdtohome pushdignoredups
-setopt noclobber nobeep nohup
-setopt listtypes extendedglob completeinword alwaystoend markdirs
-setopt hashcmds menucomplete allexport
-setopt extendedhistory histignoredups prompt_subst
-unsetopt bgnice sharehistory correct correctall
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/asm/.oh-my-zsh
 
-# Variables
-# Various necessities
-SHELL=/bin/zsh
-HISTFILE=$HOME/.zhistory
-HISTSIZE=1000
-SAVEHIST=1000
-HOSTNAME="`hostname`"
-PAGER='less'
-EDITOR='/usr/bin/vim'
-TZ="America/New_York"
-TERM="rxvt"
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 
-# use emacs line editing
-bindkey -e
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
-umask 022 # Create files rw-r--r-- (644)
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# Path
-# /usr/local/bin is first so Homebrew-installed packages get preference
-PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
-# If ~/bin exists, add it to $PATH
-if [ -d $HOME/bin ]; then
-	PATH=$PATH:$HOME/bin
-fi
-if [ -d /usr/local/share/npm/bin ]; then
-  PATH=$PATH:/usr/local/share/npm/bin
-fi
-if [ -f $HOME/.dnx/dnvm/dnvm.sh ]; then
-  source $HOME/.dnx/dnvm/dnvm.sh
-fi
-if [ -d /usr/local/share/dotnet ]; then
-  PATH=$PATH:/usr/local/share/dotnet
-fi
-#if [ -d $HOME/.rbenv/shims ]; then
-#  source $HOME/.rbenv/completions/rbenv.zsh
-#fi
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-# Titling
-# Set title to: "<user>@<hostname> | <process>:<dir>"
-function title() {
-  a=${(V)1//\%/\%\%}
-  a=$(print -Pn "%40>...>$a" | tr -d "\n")
-  print -Pn "\e]2;$2 | $a:$3\a"
-}
-function precmd() {
-    title "zsh" "$USER@%m" "%55<...<%~"
-    if [[ `uname` == "Darwin" ]]; then
-        print -Pn "\033]1;%~\007"
-    fi
-}
-function preexec() {
-  title "$1" "$USER@%m" "%35<...<%~"
-}
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
 
-#eval "$(rbenv init -)"
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
 
-# fpath
-if [ -d /usr/local/share/zsh/site-functions ]; then
-  export FPATH=/usr/local/share/zsh/site-functions:$FPATH
-fi
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-# Prompt
-# Git stuff
-source ~/.zsh/git-prompt/zshrc.sh
-# Initialize colors
-autoload colors zsh/terminfo
-if [[ "$terminfo[colors]" -ge 8 ]]; then
-   colors
-fi
-# Alias colors to $PR_<color> for prompt
-for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-   eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
-   eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
-   (( count = $count + 1 ))
-done
-PR_NO_COLOR="%{$terminfo[sgr0]%}"
-# Set the OS X term if on OS X, Linux if not
-# Also change colors if we are root
-if [[ `uname` == "Darwin" ]]; then
-	export CLICOLOR=1
-	export LSCOLORS=ExGxFxdxCxDxDxhbadacec
-	PROMPT='$PR_BLUE%2c $PR_NO_COLOR$(git_super_status)%# '
-	# user@host /some/directory%
-	#PROMPT="%{%(#~$PR_RED~$PR_BLUE)%}%n$PR_WHITE@%{%(#~$PR_RED~$PR_BLUE)%}%m %{%(#~$PR_BLUE~$PR_GREEN)%}%2c$PR_NO_COLOR$(git_super_status) %(!.#.%%) "
-elif [[ `hostname` == "komondor" ]]; then
-	# [user@host:/some/directory]%
-	PS1="[%{%(#~$PR_RED~$PR_GREEN)%}%n$PR_WHITE@%{%(#~$PR_RED~$PR_GREEN)%}%m$PR_NO_COLOR:%{%(#~$PR_GREEN~$PR_BLUE)%}%2c$PR_NO_COLOR]%(!.#.%%) "
-else
-	# [user@host:/some/directory]%
-	PS1="[$PR_MAGENTA%n$PR_WHITE@$PR_MAGENTA%m$PR_NO_COLOR:$PR_BLUE%2c$PR_NO_COLOR]%(!.#.%%) "
-fi
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
 
-# Aliases
-alias grep="grep --color=auto"   # Color grep
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# emacs aliases
-alias e='emacsclient -t'
-alias ec='emacsclient -c'
-alias vim='emacsclient -t'
-alias vi='emacsclient -t'
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
 
-# OS X specific aliases
-if [[ `uname` == "Darwin" ]] then
-	alias ls="ls -FG"            # BSD ls color, human readable
-  alias bu="brew update&&brew upgrade"
-fi
-# Linux specific stuff
-if [[ `uname` == "Linux" ]] then
-	alias ls="ls --color -h"                         # color, human units
-	alias au="sudo apt-get update && \
-		sudo apt-get dselect-upgrade"			             # upgrade packages
-fi
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Completion
-autoload -U compinit
-compinit
-autoload -U incremental-complete-word
-zle -N incremental-complete-word
-autoload -U insert-files
-zle -N insert-files
-autoload -U predict-on
-zle -N predict-on
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
 
-# Modules
-zmodload -a zsh/stat stat
-zmodload -a zsh/zpty zpty
-zmodload -a zsh/zprof zprof
-zmodload -ap zsh/mapfile mapfile &>/dev/null
-# Completion options
-bindkey ' ' magic-space
-zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' tag-order '! users' -
-zstyle ':completion:*:default' list-colors '${LS_COLORS}'
-zstyle ':completion:*' completer _complete _list _oldlist _expand _ignored _match _correct _approximate
-zstyle ':completion:*' insert-unambiguous true
-zstyle ':completion:*' add-space true
-zstyle ':completion:*:processes' command 'ps axjf'
-zstyle ':completion:*:processes-names' command 'ps axho command'
-zstyle ':completion:*:cd:*' ignore-parents parent pwd
-zstyle -e ':completion:*:approximate:*' max-errors 'reply=( $((($#PREFIX+$#SUFFIX)/3 )) numeric )'
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' menu select=long-list select=0
-zstyle ':completion:*' substitute 1
-zstyle ':completion:*' use-compctl true
-zstyle ':completion:*' verbose true
-zstyle ':completion:*' word true
+source $ZSH/oh-my-zsh.sh
 
-# ssh completion
-if [[ -f ~/.ssh/known_hosts ]]; then
-    local knownhosts
-    knownhosts=(${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[0-9]*}%%\ *}%%,*})
-    zstyle ':completion:*:(ssh|scp|sftp):*' hosts $knownhosts
-fi
+# User configuration
 
+# export MANPATH="/usr/local/man:$MANPATH"
 
-# Keybindings
-bindkey "^[[A" history-search-backward
-bindkey "^[[B" history-search-forward
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
 
-if [ -f /usr/libexec/path_helper ]; then
-    eval $(/usr/libexec/path_helper -s)
-fi
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
