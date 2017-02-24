@@ -17,6 +17,7 @@ choco install -y fiddler4
 choco install -y Firefox
 choco install -y git.install -params '"/GitAndUnixToolsOnPath"'
 choco install -y GoogleChrome
+choco install -y hackfont
 choco install -y html-tidy
 choco install -y nmap
 choco install -y nodejs.install
