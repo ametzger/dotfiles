@@ -9,7 +9,7 @@ export ZSH=/Users/asm/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
 
-plugins=(brew git zsh-completions)
+plugins=(brew git zsh-completions tmux)
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
