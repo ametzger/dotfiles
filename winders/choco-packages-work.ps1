@@ -20,7 +20,6 @@ $packages = @(
     "nodejs.install"
     "notepadplusplus.install"
     "P4Merge"
-    "pidgin"
     "kitty"
     "putty"
     "putty.portable"
