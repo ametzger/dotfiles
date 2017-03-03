@@ -15,7 +15,15 @@ if (-Not ($userPath -Like '*Perforce*'))
 {
     $p4MergePath = "C:\Program Files (x86)\Perforce"
     Write-Host "Adding $p4MergePath to %PATH%"
-    $updatedPath = "$path;$p4MergePath"
+    $updatedPath = "$userPath;$p4MergePath"
+    Write-Host "Updating %PATH% to $updatedPath"
+    #[Environment]::SetEnvironmentVariable("Path", $updatedPath, [EnvironmentVariableTarget]::User)
+}
+
+If (-Not ($userPath -Like '*C:\bin*'))
+{
+    Write-Host "Adding C:\bin to %PATH%"
+    $updatedPath = "$userPath;C:\bin"
     Write-Host "Updating %PATH% to $updatedPath"
     [Environment]::SetEnvironmentVariable("Path", $updatedPath, [EnvironmentVariableTarget]::User)
-}
+}    
