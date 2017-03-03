@@ -11,11 +11,7 @@
 (setq prelude-flyspell nil)
 
 ;; initialize packages
-(prelude-require-package 'solarized-theme)
-(prelude-require-package 'csharp-mode)
-(prelude-require-package 'json-mode)
-(prelude-require-package 'hlinum)
-(prelude-require-package 'ag)
+(prelude-require-packages '(visual-regexp solarized-theme csharp-mode json-mode hlinum ag powerline))
 
 ;; custom file extension mappings
 (add-to-list 'auto-mode-alist '("\\.cake\\'" . csharp-mode))
@@ -135,7 +131,6 @@
     (setq mac-command-modifier 'control))
 
 ;; live regex search
-(prelude-require-package 'visual-regexp)
 (define-key global-map (kbd "C-c C-r") 'vr/replace)
 (define-key global-map (kbd "C-c C-q") 'vr/query-replace)
 (define-key global-map (kbd "C-c C-t") 'vr/mc-mark)
@@ -146,3 +141,6 @@
 
 ;; disable scrach message on startup
 (setq initial-scratch-message nil)
+
+;; use powerline
+(powerline-default-theme)
