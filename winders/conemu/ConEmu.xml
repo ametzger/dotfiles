@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2017-02-03 16:49:15" build="161206">
+		<key name=".Vanilla" modified="2017-03-03 12:28:15" build="170227">
 			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
 			<value name="StartTasksFile" type="string" data=""/>
@@ -46,7 +46,7 @@
 			<value name="BackColorIdx" type="hex" data="10"/>
 			<value name="PopTextColorIdx" type="hex" data="10"/>
 			<value name="PopBackColorIdx" type="hex" data="10"/>
-			<value name="SingleInstance" type="hex" data="01"/>
+			<value name="SingleInstance" type="hex" data="00"/>
 			<value name="QuakeStyle" type="hex" data="00"/>
 			<value name="KeyboardHooks" type="hex" data="02"/>
 			<value name="UseInjects" type="hex" data="01"/>
@@ -59,7 +59,7 @@
 			<value name="FontSize" type="ulong" data="13"/>
 			<value name="StatusFontHeight" type="long" data="12"/>
 			<value name="TabFontHeight" type="long" data="13"/>
-			<key name="HotKeys" modified="2017-02-02 14:24:16" build="161206">
+			<key name="HotKeys" modified="2017-03-03 12:28:15" build="170227">
 				<value name="MinimizeRestore" type="dword" data="000011c0"/>
 				<value name="KeyMacroVersion" type="hex" data="02"/>
 				<value name="Multi.Modifier" type="dword" data="0000005b"/>
@@ -288,7 +288,7 @@
 			<value name="SuppressBells" type="hex" data="01"/>
 			<value name="ConsoleExceptionHandler" type="hex" data="00"/>
 			<value name="UseClink" type="hex" data="01"/>
-			<value name="StoreTaskbarkTasks" type="hex" data="00"/>
+			<value name="StoreTaskbarkTasks" type="hex" data="01"/>
 			<value name="StoreTaskbarCommands" type="hex" data="00"/>
 			<value name="JumpListAutoUpdate" type="hex" data="00"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
@@ -322,8 +322,8 @@
 			<value name="Multi.Iterate" type="hex" data="01"/>
 			<value name="Multi.SplitWidth" type="hex" data="04"/>
 			<value name="Multi.SplitHeight" type="hex" data="04"/>
-			<value name="FontName" type="string" data="Input"/>
-			<value name="FontName2" type="string" data="Meslo LG M for Powerline"/>
+			<value name="FontName" type="string" data="Meslo LG L DZ for Powerline"/>
+			<value name="FontName2" type="string" data="Literation Mono Powerline"/>
 			<value name="FontAutoSize" type="hex" data="00"/>
 			<value name="FontSizeX" type="ulong" data="0"/>
 			<value name="FontSizeX2" type="ulong" data="0"/>
@@ -350,8 +350,8 @@
 			<value name="Cascaded" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
 			<value name="WindowMode" type="dword" data="00000520"/>
-			<value name="ConWnd X" type="long" data="982"/>
-			<value name="ConWnd Y" type="long" data="-8"/>
+			<value name="ConWnd X" type="long" data="1006"/>
+			<value name="ConWnd Y" type="long" data="16"/>
 			<value name="LastMonitor" type="string" data="0,0,2560,1410"/>
 			<value name="ConWnd Width" type="dword" data="00000058"/>
 			<value name="ConWnd Height" type="dword" data="00000019"/>
@@ -406,8 +406,8 @@
 			<value name="FarGotoEditorPath" type="string" data="far.exe /e%1:%2 &quot;%3&quot;"/>
 			<value name="HighlightMouseRow" type="hex" data="00"/>
 			<value name="HighlightMouseCol" type="hex" data="00"/>
-			<value name="FixFarBorders" type="hex" data="01"/>
-			<value name="Anti-aliasing2" type="hex" data="00"/>
+			<value name="FixFarBorders" type="hex" data="00"/>
+			<value name="Anti-aliasing2" type="hex" data="01"/>
 			<value name="FixFarBordersRanges" type="string" data="2013-25C4;"/>
 			<value name="ExtendUCharMap" type="hex" data="01"/>
 			<value name="EnhanceGraphics" type="hex" data="01"/>
@@ -591,9 +591,9 @@
 			<value name="Update.DownloadPath" type="string" data="%TEMP%\ConEmu"/>
 			<value name="Update.LeavePackages" type="hex" data="00"/>
 			<value name="Update.PostUpdateCmd" type="string" data="echo Last successful update&gt;ConEmuUpdate.info &amp;&amp; date /t&gt;&gt;ConEmuUpdate.info &amp;&amp; time /t&gt;&gt;ConEmuUpdate.info"/>
-			<key name="Tasks" modified="2017-02-02 14:24:16" build="161206">
+			<key name="Tasks" modified="2017-03-03 12:28:15" build="170227">
 				<value name="Count" type="long" data="12"/>
-				<key name="Task1" modified="2017-02-02 14:24:16" build="161206">
+				<key name="Task1" modified="2017-03-03 12:28:15" build="170227">
 					<value name="Name" type="string" data="{Shells::PowerShell}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -604,7 +604,7 @@
 					<value name="Cmd2" type="string" data="* -cur_console:s1T50H -cur_console:d:C:\dev powershell.exe"/>
 					<value name="Cmd3" type="string" data="-cur_console:s2T50V -cur_console:d:C:\dev &quot;%ConEmuDir%\..\Git\git-cmd.exe&quot; --no-cd --command=usr/bin/bash.exe -l -i"/>
 				</key>
-				<key name="Task2" modified="2017-02-02 14:24:16" build="161206">
+				<key name="Task2" modified="2017-03-03 12:28:15" build="170227">
 					<value name="Name" type="string" data="{Shells::PowerShell (Admin)}"/>
 					<value name="Flags" type="dword" data="00000007"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -613,7 +613,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task3" modified="2017-02-02 14:24:16" build="161206">
+				<key name="Task3" modified="2017-03-03 12:28:15" build="170227">
 					<value name="Name" type="string" data="{Shells::cmd}"/>
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -622,7 +622,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task4" modified="2017-02-02 14:24:16" build="161206">
+				<key name="Task4" modified="2017-03-03 12:28:15" build="170227">
 					<value name="Name" type="string" data="{Shells::cmd (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -632,7 +632,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task5" modified="2017-02-02 14:24:16" build="161206">
+				<key name="Task5" modified="2017-03-03 12:28:15" build="170227">
 					<value name="Name" type="string" data="{Shells::VS2015}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -642,7 +642,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd2" type="string" data="&quot;%windir%\syswow64\cmd.exe&quot; /k &quot;&quot;%ConEmuBaseDir%\CmdInit.cmd&quot; &amp; echo This is 32 bit cmd.exe -new_console:s50V&quot;"/>
 				</key>
-				<key name="Task6" modified="2017-02-02 14:24:16" build="161206">
+				<key name="Task6" modified="2017-03-03 12:28:15" build="170227">
 					<value name="Name" type="string" data="{Shells::cmd-32}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -652,7 +652,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd2" type="string" data="&quot;%windir%\syswow64\cmd.exe&quot; /k &quot;&quot;%ConEmuBaseDir%\CmdInit.cmd&quot; &amp; echo This is 32 bit cmd.exe -new_console:s50V&quot;"/>
 				</key>
-				<key name="Task7" modified="2017-02-02 14:24:16" build="161206">
+				<key name="Task7" modified="2017-03-03 12:28:15" build="170227">
 					<value name="Name" type="string" data="{Shells::cmd 64/32}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -662,7 +662,7 @@
 					<value name="Count" type="long" data="2"/>
 					<value name="Cmd2" type="string" data="&quot;%windir%\syswow64\cmd.exe&quot; /k &quot;&quot;%ConEmuBaseDir%\CmdInit.cmd&quot; &amp; echo This is 32 bit cmd.exe -new_console:s50V&quot;"/>
 				</key>
-				<key name="Task8" modified="2017-02-02 14:35:19" build="161206">
+				<key name="Task8" modified="2017-03-03 12:28:15" build="170227">
 					<value name="Name" type="string" data="{Layouts::Dev}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -674,7 +674,7 @@
 					<value name="Cmd3" type="string" data="* -cur_console:s2T50V -cur_console:d:C:\dev powershell.exe"/>
 					<value name="Cmd4" type="string" data="-cur_console:d -cur_console:C:&quot;C:\dev\config\winders\conemu\ubuntu.ico&quot; C:\Windows\System32\bash.exe ~"/>
 				</key>
-				<key name="Task9" modified="2017-02-02 14:35:19" build="161206">
+				<key name="Task9" modified="2017-03-03 12:28:15" build="170227">
 					<value name="Name" type="string" data="{Bash::Git bash}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -685,7 +685,7 @@
 					<value name="Cmd2" type="string" data="* -cur_console:s1T50H -cur_console:d:C:\dev powershell.exe"/>
 					<value name="Cmd3" type="string" data="-cur_console:s2T50V -cur_console:d:C:\dev &quot;%ConEmuDir%\..\Git\git-cmd.exe&quot; --no-cd --command=usr/bin/bash.exe -l -i"/>
 				</key>
-				<key name="Task10" modified="2017-02-02 14:37:35" build="161206">
+				<key name="Task10" modified="2017-03-03 12:28:15" build="170227">
 					<value name="Name" type="string" data="{Bash::Ubuntu}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -694,7 +694,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task11" modified="2017-02-02 14:37:35" build="161206">
+				<key name="Task11" modified="2017-03-03 12:28:15" build="170227">
 					<value name="Name" type="string" data="{Helper::Show ANSI colors}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -703,7 +703,7 @@
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
 				</key>
-				<key name="Task12" modified="2017-02-02 14:37:35" build="161206">
+				<key name="Task12" modified="2017-03-03 12:28:15" build="170227">
 					<value name="Name" type="string" data="{Tools::Chocolatey (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -722,10 +722,10 @@
 					<value name="Count" type="long" data="1"/>
 				</key>
 			</key>
-			<key name="Apps" modified="2017-02-02 14:37:35" build="161206">
+			<key name="Apps" modified="2017-03-03 12:28:15" build="170227">
 				<value name="Count" type="long" data="0"/>
 			</key>
-			<key name="Colors" modified="2017-02-02 14:37:35" build="161206">
+			<key name="Colors" modified="2017-03-03 12:28:15" build="170227">
 				<value name="Count" type="long" data="0"/>
 			</key>
 			<value name="KillSshAgent" type="hex" data="01"/>
