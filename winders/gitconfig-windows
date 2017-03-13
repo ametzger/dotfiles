@@ -45,6 +45,7 @@
 	f = fetch -p
 	c = commit -m
 	dammit = !git add -A && git commit -am \":shit:\" && git push
+	mine = !git lg --author=\"Alex Metzger\"
 [pull]
 	ff = only
 [filter "lfs"]
