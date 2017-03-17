@@ -131,13 +131,13 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>335 416 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>431 364 620 392 0 0 1440 878 </string>
+	<string>430 364 620 392 0 0 1440 878 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>330 176 918 512 0 0 1440 878 </string>
+	<string>330 193 796 473 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>55 462 665 402 0 0 1440 878 </string>
+	<string>46 21 1390 857 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>775 465 665 402 0 0 1440 878 </string>
+	<string>185 66 1138 763 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>671 442 665 402 0 0 1440 878 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -911,6 +911,8 @@
 			<string>/Users/ametzger</string>
 		</dict>
 	</array>
+	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
+	<true/>
 	<key>NoSyncConfirmBeta</key>
 	<true/>
 	<key>NoSyncHaveShownPromoWithId_4</key>
@@ -924,6 +926,10 @@
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
+	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux</key>
+	<true/>
+	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux_selection</key>
 	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
@@ -1001,7 +1007,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-02-20T05:26:52Z</date>
+	<date>2017-03-17T17:18:44Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -1047,6 +1053,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>3.0.13</string>
+	<string>3.0.14</string>
 </dict>
 </plist>

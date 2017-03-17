@@ -9,7 +9,7 @@ export ZSH=/Users/asm/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
 
-plugins=(brew git zsh-completions tmux mix)
+plugins=(brew git zsh-completions tmux mix aws)
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
@@ -33,3 +33,8 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 alias bu="brew update && brew upgrade"
 
 export DEFAULT_USER="asm"
+
+if [[ -f ~/.iterm2_shell_integration.zsh ]]; then
+    source ~/.iterm2_shell_integration.zsh
+fi
+
