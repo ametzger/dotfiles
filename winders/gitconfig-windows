@@ -19,6 +19,7 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	d = diff --ignore-space-at-eol -b -w
+	ds = diff --staged --ignore-space-at-eol -b -w
 	unstage = reset HEAD --
 	undo = checkout --
 	last = log -l HEAD
