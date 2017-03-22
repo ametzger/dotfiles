@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2017-03-20 14:01:53" build="170227">
+		<key name=".Vanilla" modified="2017-03-21 14:49:14" build="170227">
 			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
 			<value name="StartTasksFile" type="string" data=""/>
@@ -293,8 +293,8 @@
 			<value name="JumpListAutoUpdate" type="hex" data="00"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
-				<line data="{Bash::Ubuntu}"/>
 				<line data="{Shells::PowerShell (Admin)}"/>
+				<line data="{Bash::Ubuntu}"/>
 				<line data="&quot;C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -cur_console:f -cur_console:C:powershell.exe"/>
 				<line data="{Layouts::Dev}"/>
 				<line data="{Shells::cmd (Admin)}"/>
