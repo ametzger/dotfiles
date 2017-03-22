@@ -2,34 +2,26 @@
 
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
-export ZSH=/Users/asm/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+if [[ `uname` == "Linux" ]]; then
+    ZSH_THEME="imajes"
+else
+    ZSH_THEME="agnoster"    
+fi
 
-plugins=(brew git zsh-completions tmux mix aws ssh)
+if [[ -n $SSH_CONNECTION ]]; then
+    plugins=(git zsh-completions tmux)
+else
+    plugins=(brew git zsh-completions tmux mix aws ssh)
+fi
+
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias bu="brew update && brew upgrade"
 
 export DEFAULT_USER="asm"
@@ -37,4 +29,3 @@ export DEFAULT_USER="asm"
 if [[ -f ~/.iterm2_shell_integration.zsh ]]; then
     source ~/.iterm2_shell_integration.zsh
 fi
-
