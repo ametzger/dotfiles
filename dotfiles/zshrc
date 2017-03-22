@@ -10,7 +10,7 @@ else
     ZSH_THEME="agnoster"    
 fi
 
-if [[ -n $SSH_CONNECTION ]]; then
+if [[ `uname` == "Linux" ]]; then
     plugins=(git zsh-completions tmux)
 else
     plugins=(brew git zsh-completions tmux mix aws ssh)
