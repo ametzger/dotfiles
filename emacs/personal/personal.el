@@ -144,3 +144,5 @@
 
 ;; use powerline
 (powerline-default-theme)
+
+(require 'prelude-helm-everywhere)
