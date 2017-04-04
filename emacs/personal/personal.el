@@ -17,6 +17,7 @@
 (add-to-list 'auto-mode-alist '("\\.cake\\'" . csharp-mode))
 (add-to-list 'auto-mode-alist '("\\.fish\\'" . fish-mode))
 (add-to-list 'auto-mode-alist '("\\.linq\\'" . csharp-mode))
+(add-to-list 'auto-mode-alist '("\\.tt\\'" . csharp-mode))
 
 ;; add line numbers
 ;; based on https://www.emacswiki.org/emacs/LineNumbers
