@@ -13,7 +13,7 @@ fi
 if [[ `uname` == "Linux" ]]; then
     plugins=(git zsh-completions tmux)
 else
-    plugins=(brew git zsh-completions tmux mix aws ssh lein)
+    plugins=(osx brew git zsh-completions tmux mix aws ssh lein rbenv bundler gem ruby)
 fi
 
 autoload -U compinit && compinit
