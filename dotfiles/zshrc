@@ -11,7 +11,7 @@ else
 fi
 
 if [[ `uname` == "Linux" ]]; then
-    plugins=(git zsh-completions tmux)
+    plugins=(git zsh-completions tmux dnf debian)
 else
     plugins=(osx brew git zsh-completions tmux mix aws ssh lein rbenv bundler gem ruby)
 fi
