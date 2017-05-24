@@ -33,3 +33,7 @@ fi
 if command -v rbenv >/dev/null 2>&1; then
    eval "$(rbenv init -)"
 fi
+
+# if [[ -d /usr/local/share/zsh-completions ]]; then
+#     fpath = (/usr/local/share/zsh-completions $fpath)
+# fi
