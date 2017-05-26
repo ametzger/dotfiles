@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 if [[ `uname` == "Linux" ]]; then
     ZSH_THEME="imajes"
 else
-    ZSH_THEME="agnoster"    
+    ZSH_THEME="agnoster"
 fi
 
 if [[ `uname` == "Linux" ]]; then
@@ -31,13 +31,12 @@ if [[ -f ~/.iterm2_shell_integration.zsh ]]; then
 fi
 
 if command -v rbenv >/dev/null 2>&1; then
-   eval "$(rbenv init -)"
+    eval "$(rbenv init -)"
 fi
 
 if [[ -d ~/proj/go ]]; then
     export GOPATH="$HOME/proj/go"
 fi
-
 
 # if [[ -d /usr/local/share/zsh-completions ]]; then
 #     fpath = (/usr/local/share/zsh-completions $fpath)
