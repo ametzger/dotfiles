@@ -36,6 +36,7 @@ fi
 
 if [[ -d ~/proj/go ]]; then
     export GOPATH="$HOME/proj/go"
+    export PATH="$GOPATH/bin:$PATH"
 fi
 
 # if [[ -d /usr/local/share/zsh-completions ]]; then
