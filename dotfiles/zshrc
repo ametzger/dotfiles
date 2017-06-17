@@ -13,7 +13,7 @@ fi
 if [[ `uname` == "Linux" ]]; then
     plugins=(git zsh-completions tmux dnf debian)
 else
-    plugins=(osx brew git zsh-completions tmux mix aws ssh lein rbenv bundler gem ruby)
+    plugins=(osx brew git zsh-completions tmux mix aws ssh lein rbenv bundler gem ruby python pyenv pip)
 fi
 
 autoload -U compinit && compinit
@@ -33,6 +33,11 @@ fi
 if command -v rbenv >/dev/null 2>&1; then
     eval "$(rbenv init -)"
 fi
+
+if command -v pyenv >/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
 
 if [[ -d ~/proj/go ]]; then
     export GOPATH="$HOME/proj/go"
