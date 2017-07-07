@@ -11,7 +11,7 @@
 (setq prelude-flyspell nil)
 
 ;; initialize packages
-(prelude-require-packages '(visual-regexp solarized-theme csharp-mode json-mode hlinum ag powerline))
+(prelude-require-packages '(visual-regexp solarized-theme csharp-mode json-mode hlinum ag powerline neotree))
 
 ;; custom file extension mappings
 (add-to-list 'auto-mode-alist '("\\.cake\\'" . csharp-mode))
