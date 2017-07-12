@@ -2,7 +2,7 @@
 
 [user]
 	name = Alex Metzger
-	email = asm@litmus.com
+	email = asm@asm.io
 [core]
 	editor = 'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin
 	whitespace = trailing-space,space-before-tab,-indent-with-non-tab
