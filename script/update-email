@@ -2,7 +2,7 @@
 # -*- shell-script -*-
 
 git filter-branch --env-filter '
-OLD_EMAIL="ametzger@ngpvan.com"
+OLD_EMAIL="asm@litmus.com"
 CORRECT_EMAIL="asm@asm.io"
 
 if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
