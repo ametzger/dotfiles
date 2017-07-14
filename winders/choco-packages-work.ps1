@@ -17,9 +17,12 @@ $packages = @(
     "GoogleChrome"
     "hackfont"
     "html-tidy"
+    "jq"
     "nodejs.install"
     "notepadplusplus.install"
     "P4Merge"
+    "pidgin"
+    "python3"
     "kitty"
     "putty"
     "putty.portable"
@@ -29,8 +32,7 @@ $packages = @(
     "screenhero"
     "slack"
     "sysinternals"
-    "terminals"
-    "vlc"
+    "windirstat"
 )
 
 ForEach ($packageName In $packages)
