@@ -1,6 +1,8 @@
 [user]
 	name = Alex Metzger
 	email = asm@asm.io
+[github]
+	user = ametzger
 [credential]
 	helper = osxkeychain
 [core]
