@@ -12,10 +12,10 @@ task :install do
   
   # make symlinks for everything except ~/.config
   Dir["dotfiles/*"].reject { |p| p.end_with? "/config" }.each do |f| make_symlink(home, f, ".") end
-  
-  config_dir = File.join(home, ".config")
 
-  Dir.mkdir(config_dir) unless Dir.exists?(config_dir) 
+  config_dir = File.join(home, ".config")  
+  fish_config_path = File.join(config_dir, "fish")
+  Dir.mkdir(fish_config_path) unless File.exists? fish_config_path 
   
   Dir["dotfiles/config/fish/*"].each do |p|
     make_symlink(config_dir + "/fish", p, nil)
@@ -33,4 +33,13 @@ def make_symlink(dest_base, f, prefix)
   puts "linking #{src} \t => #{dest}"
 
   FileUtils.ln_sf(src, dest)
+end
+
+def make_directory_if_not_exist(path)
+  segment = ""
+  path.split("/").each { |d|
+    segment += d
+    Dir.mkdir segment unless Dir.exists?(segment)
+    segment += '/'
+  }
 end
