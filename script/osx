@@ -36,7 +36,7 @@ defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool 
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true 
 defaults write -g WebKitDeveloperExtras -bool true
 
-echo "set hostname to $HOSTNAME"
+echo "set hostname to $SETUP_HOSTNAME"
 sudo scutil --set ComputerName $SETUP_HOSTNAME
 sudo scutil --set HostName $SETUP_HOSTNAME
 sudo scutil --set LocalHostName $SETUP_HOSTNAME
