@@ -41,4 +41,3 @@ sudo scutil --set ComputerName $SETUP_HOSTNAME
 sudo scutil --set HostName $SETUP_HOSTNAME
 sudo scutil --set LocalHostName $SETUP_HOSTNAME
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $SETUP_HOSTNAME
-
