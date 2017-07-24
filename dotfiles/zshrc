@@ -47,3 +47,7 @@ fi
 # if [[ -d /usr/local/share/zsh-completions ]]; then
 #     fpath = (/usr/local/share/zsh-completions $fpath)
 # fi
+
+if [[ -f ~/.profile-private.sh ]]; then
+    source ~/.profile-private.sh
+fi
