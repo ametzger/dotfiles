@@ -26,7 +26,7 @@ echo "disable press-and-hold"
 defaults write -g ApplePressAndHoldEnabled -bool false
 
 echo "setup key repeat"
-defaults write NSGlobalDomain KeyRepeat -int 0.1
+defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 echo "setup safari"
