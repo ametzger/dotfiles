@@ -9,3 +9,5 @@ export PATH=$HOME/bin:$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH
 if [ -r /etc/bashrc ]; then
     . /etc/bashrc
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

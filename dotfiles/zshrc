@@ -51,3 +51,5 @@ fi
 if [[ -f ~/.profile-private.sh ]]; then
     source ~/.profile-private.sh
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
