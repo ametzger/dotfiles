@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AllowClipboardAccess</key>
+	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>AppleScrollAnimationEnabled</key>
@@ -13,6 +15,8 @@
 	<key>Default Bookmark Guid</key>
 	<string>DA3459E6-F727-466F-A0C1-C568754F3EDA</string>
 	<key>DimInactiveSplitPanes</key>
+	<false/>
+	<key>HideMenuBarInFullscreen</key>
 	<false/>
 	<key>HideTab</key>
 	<true/>
@@ -679,7 +683,7 @@
 			<key>Tags</key>
 			<array/>
 			<key>Terminal Type</key>
-			<string>xterm-256color</string>
+			<string>rxvt</string>
 			<key>Transparency</key>
 			<real>0.076074796597633138</real>
 			<key>Unlimited Scrollback</key>
@@ -1389,8 +1393,16 @@
 	<string>https://iterm2.com/appcasts/final.xml?shard=90</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
+	<key>ShowBookmarkName</key>
+	<false/>
+	<key>ShowPaneTitles</key>
+	<false/>
 	<key>TabStyle</key>
 	<integer>0</integer>
+	<key>TabViewType</key>
+	<integer>0</integer>
+	<key>UseBorder</key>
+	<false/>
 	<key>WindowNumber</key>
 	<false/>
 	<key>WordCharacters</key>
