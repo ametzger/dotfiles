@@ -1,0 +1,32 @@
+{
+	"Variable": {
+		"prefix": "var",
+		"body": [
+			"{{ $1 }}"
+		],
+		"description": "Empty Django variable"
+	},
+	"Block Comment": {
+        "prefix": "bcomment",
+        "description": "Comment block",
+        "body": [
+            "{% comment \"$1\" %}",
+            "$2",
+            "{% endcomment %}"
+        ]
+	},
+	"Comment": {
+        "prefix": "comment",
+        "description": "Single-line comment",
+        "body": [
+            "{# $1 #}"
+        ]
+	},
+	"TODO": {
+        "prefix": "todo",
+        "description": "Single-line TODO",
+        "body": [
+            "{# TODO: $1 #}"
+        ]
+    }
+}

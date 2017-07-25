@@ -1,0 +1,23 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 14,
+    "editor.tabCompletion": true,
+    "workbench.colorTheme": "Solarized Dark",
+    "files.associations": {
+        "zshrc": "shellscript",
+        "gitconfig-windows": "properties"
+    },
+    "workbench.startupEditor": "newUntitledFile",
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "*.pyc": true,
+        "**/__pycache__": true
+    },
+    "python.pythonPath": "/usr/local/opt/pyenv/shims/python",
+    "python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
+}
