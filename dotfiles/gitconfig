@@ -1,3 +1,5 @@
+# -*- mode: gitconfig -*-
+
 [user]
 	name = Alex Metzger
 	email = asm@asm.io
@@ -20,6 +22,7 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	d = diff --ignore-space-at-eol -b -w
+	ds = diff --staged --ignore-space-at-eol -b -w
 	unstage = reset HEAD --
 	undo = checkout --
 	last = log -l HEAD
@@ -42,9 +45,20 @@
 	ours = "!f() { git checkout --ours $@ && git add $@; }; f"
 	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 	up = pull --ff-only --all -p
+	recent = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+	f = fetch -p
+	c = commit -m
+	dammit = !git add -A && git commit -am \":shit:\" && git push
+	mine = !git lg --author=\"Alex Metzger\"
 [pull]
 	ff = only
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[mergetool]
+	keepBackup = false
+[diff]
+	algorithm = patience
+[rebase]
+	autoStash = true
