@@ -3,6 +3,7 @@
     "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 14,
     "editor.tabCompletion": true,
+    "window.title": "${activeEditorLong}${separator}${folderName}${separator}${dirty}",
     "workbench.colorTheme": "Solarized Dark",
     "files.associations": {
         "zshrc": "shellscript",
