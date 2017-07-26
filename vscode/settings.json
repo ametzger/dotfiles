@@ -3,13 +3,16 @@
     "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 14,
     "editor.tabCompletion": true,
+    "editor.rulers": [ 80, 100 ],
     "window.title": "${activeEditorLong}${separator}${folderName}${separator}${dirty}",
+    
     "workbench.colorTheme": "Solarized Dark",
+    "workbench.startupEditor": "newUntitledFile",
+    
     "files.associations": {
         "zshrc": "shellscript",
         "gitconfig-windows": "properties"
     },
-    "workbench.startupEditor": "newUntitledFile",
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -19,6 +22,7 @@
         "*.pyc": true,
         "**/__pycache__": true
     },
+
     "python.pythonPath": "/usr/local/opt/pyenv/shims/python",
     "python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
 }

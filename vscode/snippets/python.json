@@ -1,0 +1,16 @@
+{
+	"TODO": {
+		"prefix": "todo",
+		"body": [
+			"# TODO: $1"
+		],
+		"description": "Add a TODO comment"
+	},
+	"HACK": {
+		"prefix": "hack",
+		"body": [
+			"# HACK: $1"
+		],
+		"description": "Add a HACK comment"
+	}
+}
