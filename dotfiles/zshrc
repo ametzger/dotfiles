@@ -11,16 +11,14 @@ if command -v antibody >/dev/null 2>&1; then
     source <(antibody init)
 fi
 
-[ -f ~/.zsh-plugins.sh ] && source ~/.zsh-plugins.sh
-
 autoload -U compinit && compinit
 
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 alias bu="brew update && brew upgrade"
 
-if [[ -f ~/.iterm2_shell_integration.zsh ]]; then
-    source ~/.iterm2_shell_integration.zsh
+if [[ -f $HOME/.iterm2_shell_integration.zsh ]]; then
+    source $HOME/.iterm2_shell_integration.zsh
 fi
 
 if command -v rbenv >/dev/null 2>&1; then
@@ -31,10 +29,11 @@ if command -v pyenv >/dev/null 2>&1; then
     eval "$(pyenv init -)"
 fi
 
-if [[ -d ~/proj/go ]]; then
+if [[ -d $HOME/proj/go ]]; then
     export GOPATH="$HOME/proj/go"
     export PATH="$GOPATH/bin:$PATH"
 fi
 
-[ -f ~/.profile-private.sh ] && source ~/.profile-private.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.profile-private.sh ] && source ~/.profile-private.sh
+[ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.zsh_plugins.sh ] && source $HOME/.zsh_plugins.sh
