@@ -1,0 +1,2 @@
+#!/usr/bin/env zsh
+antibody bundle <"antibody_bundles.txt" >~/.zsh_plugins.sh
