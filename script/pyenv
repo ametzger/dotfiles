@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+echo "install pyenv to ~/.pyenv"
+
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
