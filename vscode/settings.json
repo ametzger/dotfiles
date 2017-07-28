@@ -3,7 +3,7 @@
     "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 14,
     "editor.tabCompletion": true,
-    "editor.rulers": [ 80, 100 ],
+    "editor.rulers": [ 100 ],
     "window.title": "${activeEditorLong}${separator}${folderName}${separator}${dirty}",
     
     "workbench.colorTheme": "Solarized Dark",
