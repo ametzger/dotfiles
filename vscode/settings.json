@@ -12,7 +12,8 @@
     "files.associations": {
         "zshrc": "shellscript",
         "gitconfig-windows": "properties",
-        "Brewfile": "ruby"
+        "Brewfile": "ruby",
+        "run_process": "shellscript"
     },
     "files.exclude": {
         "**/.git": true,

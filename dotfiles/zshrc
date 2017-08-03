@@ -16,6 +16,8 @@ autoload -U compinit && compinit
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 alias bu="brew update && brew upgrade"
+alias gs="git s"
+alias gd="git d"
 
 if [[ -f $HOME/.iterm2_shell_integration.zsh ]]; then
     source $HOME/.iterm2_shell_integration.zsh
