@@ -42,3 +42,8 @@ fi
 [ -f $HOME/.profile-private.sh ] && source ~/.profile-private.sh
 [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f $HOME/.zsh_plugins.sh ] && source $HOME/.zsh_plugins.sh
+
+if [[ -f $HOME/proj/dotfiles/antibody_bundles.txt ]]; then
+    #echo "antibody init"
+    cat ~/proj/dotfiles/antibody_bundles.txt|antibody bundle
+fi
