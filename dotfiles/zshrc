@@ -7,9 +7,31 @@ export CLICOLOR=true
 
 export EDITOR='code'
 
-if command -v antibody >/dev/null 2>&1; then
-    source <(antibody init)
+if [[ -d ~/.zplug ]]; then
+  export ZPLUG_HOME=~/.zplug
+  source $ZPLUG_HOME/init.zsh
+
+  # zplug "zsh-users/zsh-history-substring-search"
+  zplug "zsh-users/zsh-completions"
+  zplug "zsh-users/zsh-syntax-highlighting"
+  zplug "zsh-users/zsh-autosuggestions"
+  zplug "plugins/history", from:oh-my-zsh
+  zplug "rupa/z", use:z.sh
+
+  zplug "denysdovhan/spaceship-zsh-theme", use:spaceship.zsh, from:github, as:theme
+
+  # Install plugins if there are plugins that have not been installed
+  if ! zplug check; then
+      printf "Install? [y/N]: "
+      if read -q; then
+          echo; zplug install
+      fi
+  fi
+  
+  zplug load
 fi
+
+SPACESHIP_PROMPT_SYMBOL="λ"
 
 autoload -U compinit && compinit
 
@@ -41,9 +63,3 @@ fi
 
 [ -f $HOME/.profile-private.sh ] && source ~/.profile-private.sh
 [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
-[ -f $HOME/.zsh_plugins.sh ] && source $HOME/.zsh_plugins.sh
-
-if [[ -f $HOME/proj/dotfiles/antibody_bundles.txt ]]; then
-    #echo "antibody init"
-    cat ~/proj/dotfiles/antibody_bundles.txt|antibody bundle
-fi
