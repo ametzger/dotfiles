@@ -38,6 +38,8 @@ autoload -U compinit && compinit
 
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
+export HOMEBREW_NO_ANALYTICS=1
+
 alias bu="brew update && brew upgrade"
 alias gs="git s"
 alias gd="git d"
