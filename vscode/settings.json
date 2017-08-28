@@ -26,5 +26,8 @@
     },
 
     "python.pythonPath": "/usr/local/opt/pyenv/shims/python",
-    "python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
+    "python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
+
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false
 }
