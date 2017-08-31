@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+echo "Setting up Sublime Text 3"
+
+SUBLIME_DOTFILES_PATH="`pwd`/sublime"
+
+[ -f ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings ] && echo "Preferences.sublime-settings exists, moving to Preferences.sublime-settings.bak" && mv ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings.bak
+
+DF_PATH="$SUBLIME_DOTFILES_PATH/Preferences.sublime-settings"
+
+echo "Linking ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings => $DF_PATH"
+ln -sf $DF_PATH ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Preferences.sublime-settings
+
+echo "Done"
