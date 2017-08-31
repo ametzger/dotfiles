@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
-echo "install pyenv to ~/.pyenv"
-
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+if [[ ! -d ~/.pyenv ]]; then
+	echo "Installing pyenv to ~/.pyenv"
+	git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+else
+	echo "Pyenv already installed, skipping..."
+fi
