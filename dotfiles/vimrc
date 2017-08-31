@@ -1,1 +1,21 @@
 set nocompatible
+
+set expandtab
+set tabstop=4
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'altercation/vim-colors-solarized'
+
+call plug#end()
+
+set background=dark
+try
+    colorscheme solarized
+catch
+endtry
+
+try
+    set guifont=Operator\ Mono\ Book:h14
+catch
+endtry
