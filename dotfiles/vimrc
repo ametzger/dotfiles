@@ -1,6 +1,8 @@
 set nocompatible
 filetype off
 
+let mapleader=","
+
 set tabstop=4
 set shiftwidth=4
 
@@ -25,11 +27,14 @@ set sidescroll=1
 set expandtab                   " Spaces > tabs
 set nofoldenable                " Disable folding
 set clipboard+=unnamed          " Use system clipboard
+set nobackup
 
 set undodir=~/.vim-undo
 set undofile
 set undolevels=1000  "max number of changes that can be undone
 set undoreload=10000 "max number lines to save for undo on buffer reload
+
+set shortmess+=A
 
 noremap - ddp
 noremap _ ddkP
@@ -42,6 +47,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'jnurmine/Zenburn'
+Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 
@@ -62,7 +68,7 @@ endif
 
 filetype plugin indent on
 
-"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 set encoding=utf-8
 
 try
@@ -71,4 +77,13 @@ try
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 catch
 endtry
+
+" autoreload vimrc
+if has ('autocmd') " Remain compatible with earlier versions
+ augroup vimrc     " Source vim configuration upon save
+    autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
+    autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
+    autocmd! BufWritePost vimrc source $MYVIMRC | echom "Reloaded " . $MYVIMRC | redraw
+  augroup END
+endif " has autocmd
 
