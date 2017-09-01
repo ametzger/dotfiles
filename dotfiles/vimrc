@@ -8,7 +8,6 @@ set mouse=a
 set cursorline                  " Highlight the current line
 set lazyredraw                  " Faster scrolling
 set number                      " Show line number
-"set relativenumber              " Show relative line number
 set showcmd                     " Show current command
 set showmode                    " Show current mode
 set wildmode=longest:list,full  " Autocomplete
@@ -25,7 +24,7 @@ set sidescrolloff=7             " Minimum space on side
 set sidescroll=1
 set expandtab                   " Spaces > tabs
 set nofoldenable                " Disable folding
-"set clipboard+=unnamedplus      " Use system clipboard
+set clipboard+=unnamed          " Use system clipboard
 
 set undodir=~/.vim-undo
 set undofile
