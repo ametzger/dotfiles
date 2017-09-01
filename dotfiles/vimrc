@@ -1,11 +1,45 @@
 set nocompatible
+filetype off
 
-set expandtab
 set tabstop=4
+set shiftwidth=4
+
+set mouse=a
+set cursorline                  " Highlight the current line
+set lazyredraw                  " Faster scrolling
+set number                      " Show line number
+"set relativenumber              " Show relative line number
+set showcmd                     " Show current command
+set showmode                    " Show current mode
+set wildmode=longest:list,full  " Autocomplete
+set wildignore=*.o,*.obj,*~     " Ignore file
+set showmatch                   " highlight matching braces
+set hlsearch                    " Highlight search
+set ignorecase                  " ignore case while searching
+set smartcase                   " unless uppercase explicitly mentioned
+set smartindent                 " indent smartly
+set nowrap                      " Don't wrap text
+set laststatus=2                " Always show statusbar
+set scrolloff=5                 " Minimum space on bottom/top of window
+set sidescrolloff=7             " Minimum space on side
+set sidescroll=1
+set expandtab                   " Spaces > tabs
+set nofoldenable                " Disable folding
+set clipboard+=unnamedplus      " Use system clipboard
+
+set undodir=~/.vim-undo
+set undofile
+set undolevels=1000  "max number of changes that can be undone
+set undoreload=10000 "max number lines to save for undo on buffer reload
+
+noremap - ddp
+noremap _ ddkP
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'vim-scripts/indentpython.vim"        
+Plug 'kien/ctrlp.vim'
 
 call plug#end()
 
@@ -19,3 +53,9 @@ try
     set guifont=Operator\ Mono\ Book:h14
 catch
 endtry
+
+filetype plugin indent on
+
+"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+set encoding=utf-8
+
