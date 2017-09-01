@@ -25,7 +25,7 @@ set sidescrolloff=7             " Minimum space on side
 set sidescroll=1
 set expandtab                   " Spaces > tabs
 set nofoldenable                " Disable folding
-set clipboard+=unnamedplus      " Use system clipboard
+"set clipboard+=unnamedplus      " Use system clipboard
 
 set undodir=~/.vim-undo
 set undofile
@@ -38,24 +38,38 @@ noremap _ ddkP
 call plug#begin('~/.vim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
-Plug 'vim-scripts/indentpython.vim"        
+Plug 'vim-scripts/indentpython.vim'
 Plug 'kien/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'jnurmine/Zenburn'
 
 call plug#end()
 
 set background=dark
-try
-    colorscheme solarized
-catch
-endtry
+if has('gui_running')
+    try
+        colorscheme solarized
+    catch
+    endtry
 
-try
-    set guifont=Operator\ Mono\ Book:h14
-catch
-endtry
+    try
+        set guifont=Operator\ Mono\ Book:h14
+    catch
+    endtry
+else
+    colorscheme zenburn
+endif
 
 filetype plugin indent on
 
 "au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 set encoding=utf-8
+
+try
+    let NERDTreeIgnore=['\.pyc$', '\~$']
+    map <C-n> :NERDTreeToggle<CR>
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+catch
+endtry
 
