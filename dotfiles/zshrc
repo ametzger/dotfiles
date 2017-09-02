@@ -5,7 +5,10 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export LSCOLORS='exfxcxdxbxegedabagacad'
 export CLICOLOR=true
 
-export EDITOR='code'
+bindkey -e
+
+#export EDITOR='code'
+export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a iTerm"'
 
 if [[ -d ~/.zplug ]]; then
   export ZPLUG_HOME=~/.zplug
@@ -66,3 +69,4 @@ fi
 
 [ -f $HOME/.profile-private.sh ] && source ~/.profile-private.sh
 [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
+
