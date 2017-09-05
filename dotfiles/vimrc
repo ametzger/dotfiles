@@ -36,6 +36,9 @@ set undoreload=10000 "max number lines to save for undo on buffer reload
 
 set shortmess+=A
 
+set splitbelow
+set splitright
+
 noremap - ddp
 noremap _ ddkP
 
