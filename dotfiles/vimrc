@@ -28,6 +28,7 @@ set expandtab                   " Spaces > tabs
 set nofoldenable                " Disable folding
 set clipboard+=unnamed          " Use system clipboard
 set nobackup
+set ruler
 
 set undodir=~/.vim-undo
 set undofile
