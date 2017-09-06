@@ -15,7 +15,6 @@ set showmode                    " Show current mode
 set wildmode=longest:list,full  " Autocomplete
 set wildignore=*.o,*.obj,*~     " Ignore file
 set showmatch                   " highlight matching braces
-set hlsearch                    " Highlight search
 set ignorecase                  " ignore case while searching
 set smartcase                   " unless uppercase explicitly mentioned
 set smartindent                 " indent smartly
@@ -40,8 +39,11 @@ set shortmess+=A
 set splitbelow
 set splitright
 
-noremap - ddp
-noremap _ ddkP
+set incsearch
+set hlsearch
+
+"noremap - ddp
+"noremap _ ddkP
 
 call plug#begin('~/.vim/plugged')
 
