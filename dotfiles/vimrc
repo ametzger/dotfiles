@@ -3,8 +3,8 @@ filetype off
 
 let mapleader=","
 
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 
 set mouse=a
 set cursorline                  " Highlight the current line
@@ -105,4 +105,7 @@ if executable('ag')
 endif
 
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+autocmd FileType python setlocal shiftwidth=4 tabstop=4
 
