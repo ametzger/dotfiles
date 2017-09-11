@@ -34,19 +34,24 @@ if [[ -d ~/.zplug ]]; then
   zplug load
 fi
 
+# Spaceship prompt config
 SPACESHIP_PROMPT_SYMBOL="λ"
 SPACESHIP_DOCKER_SHOW=false
+SPACESHIP_VENV_SHOW=false
+SPACESHIP_CONDA_SHOW=false
 
 autoload -U compinit && compinit
 
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
+# vendor exports
 export HOMEBREW_NO_ANALYTICS=1
 export VAGRANT_DEFAULT_PROVIDER="parallels"
 
 alias bu="brew update && brew upgrade"
 alias gs="git s"
 alias gd="git d"
+alias m="python manage.py"
 
 if [[ -f $HOME/.iterm2_shell_integration.zsh ]]; then
     source $HOME/.iterm2_shell_integration.zsh
