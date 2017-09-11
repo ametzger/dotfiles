@@ -25,9 +25,10 @@
         "**/__pycache__": true
     },
 
-    "python.pythonPath": "/usr/local/opt/pyenv/shims/python",
+    "python.pythonPath": "/Users/asm/.pyenv/shims/python",
     "python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
 
     "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false
+    "telemetry.enableTelemetry": false,
+    "vim.disableAnnoyingNeovimMessage": true
 }
