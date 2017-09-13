@@ -57,7 +57,6 @@ if [[ -f $HOME/.iterm2_shell_integration.zsh ]]; then
     source $HOME/.iterm2_shell_integration.zsh
 
     if [ -f ~/bin/iterm-ssh-wrapper ]; then
-      echo "using ssh wrapper"
       alias ssh="~/bin/iterm-ssh-wrapper"
     fi
 
