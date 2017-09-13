@@ -55,6 +55,16 @@ alias m="python manage.py"
 
 if [[ -f $HOME/.iterm2_shell_integration.zsh ]]; then
     source $HOME/.iterm2_shell_integration.zsh
+
+    if [ -f ~/bin/iterm-ssh-wrapper ]; then
+      echo "using ssh wrapper"
+      alias ssh="~/bin/iterm-ssh-wrapper"
+    fi
+
+    # iterm2_print_user_vars() {
+    #   echo 'iterm2_print_user_vars'
+    #   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
+    # }
 fi
 
 if command -v rbenv >/dev/null 2>&1; then
