@@ -38,7 +38,7 @@
 	spull = "!f() { git stash save \"pull: $(date)\" && git pull --rebase $@ && git stash pop; }; f"
 	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
 	this = !git init && git add . && git commit -m \"initial commit\"
-	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\t=> \\2/' | sort
+	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ => \\2/' | sort
 	aliases = !git alias
 	assume = update-index --assume-unchanged
 	unassume = update-index --no-assume-unchanged
