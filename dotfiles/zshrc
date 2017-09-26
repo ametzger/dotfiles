@@ -80,6 +80,11 @@ if [[ -d $HOME/.pyenv ]]; then
     export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
 
+if [[ -d $HOME/.tfenv ]]; then
+  export PATH="$HOME/.tfenv/bin:$PATH"
+fi
+
+
 if [[ -d $HOME/proj/go ]]; then
     export GOPATH="$HOME/proj/go"
     export PATH="$GOPATH/bin:$PATH"
