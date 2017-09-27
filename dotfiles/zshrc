@@ -25,12 +25,12 @@ if [[ -d ~/.zplug ]]; then
 
   # Install plugins if there are plugins that have not been installed
   if ! zplug check; then
-      printf "Install? [y/N]: "
-      if read -q; then
-          echo; zplug install
-      fi
+    printf "Install? [y/N]: "
+    if read -q; then
+      echo; zplug install
+    fi
   fi
-  
+
   zplug load
 fi
 
@@ -54,30 +54,30 @@ alias gd="git d"
 alias m="python manage.py"
 
 if [[ -f $HOME/.iterm2_shell_integration.zsh ]]; then
-    source $HOME/.iterm2_shell_integration.zsh
+  source $HOME/.iterm2_shell_integration.zsh
 
-    if [ -f ~/bin/iterm-ssh-wrapper ]; then
-      alias ssh="~/bin/iterm-ssh-wrapper"
-    fi
+  if [ -f ~/bin/iterm-ssh-wrapper ]; then
+    alias ssh="~/bin/iterm-ssh-wrapper"
+  fi
 
-    # iterm2_print_user_vars() {
-    #   echo 'iterm2_print_user_vars'
-    #   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
-    # }
+  # iterm2_print_user_vars() {
+  #   echo 'iterm2_print_user_vars'
+  #   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
+  # }
 fi
 
 if command -v rbenv >/dev/null 2>&1; then
-    eval "$(rbenv init -)"
+  eval "$(rbenv init -)"
 fi
 
 if [[ -d $HOME/.pyenv ]]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
 
-    export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+
+  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 fi
 
 if [[ -d $HOME/.tfenv ]]; then
@@ -86,8 +86,8 @@ fi
 
 
 if [[ -d $HOME/proj/go ]]; then
-    export GOPATH="$HOME/proj/go"
-    export PATH="$GOPATH/bin:$PATH"
+  export GOPATH="$HOME/proj/go"
+  export PATH="$GOPATH/bin:$PATH"
 fi
 
 [ -f $HOME/.profile-private.sh ] && source ~/.profile-private.sh
