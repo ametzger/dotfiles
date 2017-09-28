@@ -36,7 +36,7 @@ if [[ -d ~/.zplug ]]; then
   zplug "plugins/django", from:oh-my-zsh
   zplug "plugins/httpie", from:oh-my-zsh
   zplug "plugins/pip",    from:oh-my-zsh
-  zplug "plugins/pyenv",  from:oh-my-zsh
+  #zplug "plugins/pyenv",  from:oh-my-zsh
   zplug "plugins/python", from:oh-my-zsh
 
   ## github plugins
