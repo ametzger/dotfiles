@@ -1,26 +1,48 @@
 # -*- shell-script -*-
+# vi: set ft=sh
 
+################################################################################
+#### ASM zshrc #################################################################
+################################################################################
+
+## ~/bin to PATH
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
+## taste the rainbow
 export LSCOLORS='exfxcxdxbxegedabagacad'
 export CLICOLOR=true
 
+## force readline keybinds
 bindkey -e
 
+## editor
 #export EDITOR='code'
 export EDITOR='mvim -f --nomru -c "au VimLeave * !open -a iTerm"'
 
+## zplug
 if [[ -d ~/.zplug ]]; then
   export ZPLUG_HOME=~/.zplug
   source $ZPLUG_HOME/init.zsh
 
+  ## zsh-users plugins
   # zplug "zsh-users/zsh-history-substring-search"
   zplug "zsh-users/zsh-completions"
   zplug "zsh-users/zsh-syntax-highlighting"
   zplug "zsh-users/zsh-autosuggestions"
-  zplug "plugins/history", from:oh-my-zsh
+  
+  ## omz plugins
+  zplug "lib/history",    from:oh-my-zsh
+  zplug "plugins/aws",    from:oh-my-zsh
+  zplug "plugins/django", from:oh-my-zsh
+  zplug "plugins/httpie", from:oh-my-zsh
+  zplug "plugins/pip",    from:oh-my-zsh
+  zplug "plugins/pyenv",  from:oh-my-zsh
+  zplug "plugins/python", from:oh-my-zsh
+
+  ## github plugins
   zplug "rupa/z", use:z.sh
 
+  ## theme
   zplug "denysdovhan/spaceship-zsh-theme", use:spaceship.zsh, from:github, as:theme
 
   # Install plugins if there are plugins that have not been installed
@@ -34,25 +56,41 @@ if [[ -d ~/.zplug ]]; then
   zplug load
 fi
 
-# Spaceship prompt config
+## title
+# see https://github.com/romulomachado/title-tab/blob/master/title-tab.plugin.zsh
+function zsh_title_git_branch {
+  BRANCH_REFS=$(git symbolic-ref HEAD 2>/dev/null) || return
+  GIT_BRANCH="${BRANCH_REFS#refs/heads/}"
+  [ -n "$GIT_BRANCH" ] && echo "($GIT_BRANCH)"
+}
+
+function precmd {
+  print -Pn "\e]1;%~ $(zsh_title_git_branch)\a"
+}
+
+## Spaceship prompt
 SPACESHIP_PROMPT_SYMBOL="λ"
 SPACESHIP_DOCKER_SHOW=false
 SPACESHIP_VENV_SHOW=false
 SPACESHIP_CONDA_SHOW=false
+SPACESHIP_KUBECONTEXT_SHOW=false
+SPACESHIP_BATTERY_SHOW=false
 
 autoload -U compinit && compinit
 
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
-# vendor exports
+## vendor exports
 export HOMEBREW_NO_ANALYTICS=1
 export VAGRANT_DEFAULT_PROVIDER="parallels"
 
+## aliases
 alias bu="brew update && brew upgrade"
 alias gs="git s"
 alias gd="git d"
 alias m="python manage.py"
 
+## iterm2 integration
 if [[ -f $HOME/.iterm2_shell_integration.zsh ]]; then
   source $HOME/.iterm2_shell_integration.zsh
 
