@@ -54,6 +54,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'jnurmine/Zenburn'
 Plug 'scrooloose/nerdcommenter'
+Plug 'chr4/nginx.vim'
 
 call plug#end()
 
