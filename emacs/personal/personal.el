@@ -73,6 +73,8 @@
 ;; configure Input Mono font with fallbacks
 (let (font-face font-size)
   (setq font-face (cond
+                   ((find-font (font-spec :name "Operator Mono"))
+                    "Operator Mono")
                    ((find-font (font-spec :name "Input"))
                     "Input")
                    ((find-font (font-spec :name "Input Mono"))
@@ -81,7 +83,7 @@
                     "Monaco")
                    ((find-font (font-spec :name "Consolas"))
                     "Consolas")))
-  (setq font-size (if (eq system-type 'darwin) "12" "10"))
+  (setq font-size (if (eq system-type 'darwin) "14" "10"))
   (if
       (not (eq system-type 'gnu/linux))
       (set-frame-font (concat font-face "-" font-size))))
@@ -153,3 +155,6 @@
 (define-key helm-map (kbd "C-z") 'helm-select-action)
 
 (global-set-key [f8] 'neotree-toggle)
+
+(setq mouse-wheel-scroll-amount '(1))
+; (setq mouse-wheel-progressive-speed nil)
