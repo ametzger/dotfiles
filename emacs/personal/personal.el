@@ -163,3 +163,5 @@
 
 (setq nord-uniform-mode-lines t)
 (setq nord-region-highlight "snowstorm")
+
+(setq confirm-kill-emacs 'y-or-n-p)
