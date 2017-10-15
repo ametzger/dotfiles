@@ -73,6 +73,8 @@
 ;; configure Input Mono font with fallbacks
 (let (font-face font-size)
   (setq font-face (cond
+                   ((find-font (font-spec :name "Roboto Mono Medium for Powerline"))
+                    "Roboto Mono Medium for Powerline")
                    ((find-font (font-spec :name "Operator Mono"))
                     "Operator Mono")
                    ((find-font (font-spec :name "Input"))

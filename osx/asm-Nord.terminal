@@ -178,7 +178,7 @@
 	<data>
 	YnBsaXN0MDDUAQIDBAUGGBlYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
 	AAGGoKQHCBESVSRudWxs1AkKCwwNDg8QVk5TU2l6ZVhOU2ZGbGFnc1ZOU05hbWVWJGNs
-	YXNzI0AoAAAAAAAAEBCAAoADXxAdUm9ib3RvTW9ub0ZvclBvd2VybGluZS1NZWRpdW3S
+	YXNzI0AqAAAAAAAAEBCAAoADXxAdUm9ib3RvTW9ub0ZvclBvd2VybGluZS1NZWRpdW3S
 	ExQVFlokY2xhc3NuYW1lWCRjbGFzc2VzVk5TRm9udKIVF1hOU09iamVjdF8QD05TS2V5
 	ZWRBcmNoaXZlctEaG1Ryb290gAEIERojLTI3PEJLUltiaXJ0dniYnaixuLvE1tneAAAA
 	AAAAAQEAAAAAAAAAHAAAAAAAAAAAAAAAAAAAAOA=
@@ -194,6 +194,16 @@
 	b3SAAQgRGiMtMjc7QUhOW2KDhYeMl6Coq7TGyc4AAAAAAAABAQAAAAAAAAAZAAAAAAAA
 	AAAAAAAAAAAA0A==
 	</data>
+	<key>ShowActiveProcessInTitle</key>
+	<true/>
+	<key>ShowDimensionsInTitle</key>
+	<false/>
+	<key>ShowShellCommandInTitle</key>
+	<false/>
+	<key>ShowTTYNameInTitle</key>
+	<true/>
+	<key>ShowWindowSettingsNameInTitle</key>
+	<false/>
 	<key>TextBoldColor</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGFRZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -215,7 +225,7 @@
 	<key>UseBrightBold</key>
 	<false/>
 	<key>WindowTitle</key>
-	<string>Nord</string>
+	<string></string>
 	<key>name</key>
 	<string>asm-Nord</string>
 	<key>type</key>
