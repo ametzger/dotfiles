@@ -55,6 +55,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'jnurmine/Zenburn'
 Plug 'scrooloose/nerdcommenter'
 Plug 'chr4/nginx.vim'
+Plug 'dracula/vim'
 
 call plug#end()
 

@@ -146,7 +146,7 @@
 (setq initial-scratch-message nil)
 
 ;; use powerline
-(powerline-default-theme)
+;(powerline-default-theme)
 
 (require 'prelude-helm-everywhere)
 
