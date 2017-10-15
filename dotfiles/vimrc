@@ -56,13 +56,14 @@ Plug 'jnurmine/Zenburn'
 Plug 'scrooloose/nerdcommenter'
 Plug 'chr4/nginx.vim'
 Plug 'dracula/vim'
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
 set background=dark
 if has('gui_running')
     try
-        colorscheme solarized
+        colorscheme nord
     catch
     endtry
 
