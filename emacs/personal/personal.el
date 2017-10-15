@@ -63,8 +63,8 @@
 ;;      (global-set-key (kbd "<left-margin> <drag-mouse-1>") 'mu-select-linum)))
 
 ;; ;; include a line between the numbers and the buffer
-;; (setq linum-format "%4d \u2502")
-;; (global-linum-mode t)
+(setq linum-format "%4d \u2502")
+(global-linum-mode t)
 ;; (hlinum-activate)
 
 ;; when org-mode starts, expand all nodes
@@ -160,3 +160,6 @@
 
 (setq mouse-wheel-scroll-amount '(1))
 ; (setq mouse-wheel-progressive-speed nil)
+
+(setq nord-uniform-mode-lines t)
+(setq nord-region-highlight "snowstorm")
