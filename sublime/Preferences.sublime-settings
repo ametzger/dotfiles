@@ -8,6 +8,7 @@
 	"font_size": 14,
 	"ignored_packages":
 	[
+		"Package Control",
 		"Vintage"
 	],
 	"theme": "Soda Dark.sublime-theme"

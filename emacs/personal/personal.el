@@ -162,6 +162,7 @@
 ; (setq mouse-wheel-progressive-speed nil)
 
 (setq nord-uniform-mode-lines t)
-(setq nord-region-highlight "snowstorm")
+(setq nord-region-highlight "frost")
+(setq nord-comment-brightness 15)
 
 (setq confirm-kill-emacs 'y-or-n-p)
