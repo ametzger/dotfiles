@@ -121,10 +121,14 @@
 (setq standard-indent 4)
 
 ;; json indent to four spaces
-(add-hook 'json-mode-hook
-          (lambda ()
-            (make-local-variable 'js-indent-level)
-            (setq js-indent-level 4)))
+;; (add-hook 'json-mode-hook
+;;           (lambda ()
+;;             (make-local-variable 'js-indent-level)
+;;             (setq js-indent-level 2)))
+
+(setq ruby-indent-level 2)
+(setq js-indent-level 2)
+(setq html-indent-level 2)
 
 ;; map left super key on Winders
 (when (eq system-type 'windows-nt)
@@ -166,3 +170,7 @@
 (setq nord-comment-brightness 15)
 
 (setq confirm-kill-emacs 'y-or-n-p)
+
+;; auto-switch to new panes
+(global-set-key "\C-x2" (lambda () (interactive)(split-window-vertically) (other-window 1)))
+(global-set-key "\C-x3" (lambda () (interactive)(split-window-horizontally) (other-window 1)))
