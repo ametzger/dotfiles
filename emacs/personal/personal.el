@@ -152,7 +152,7 @@
 (setq initial-scratch-message nil)
 
 ;; use powerline
-;(powerline-default-theme)
+(powerline-default-theme)
 
 (require 'prelude-helm-everywhere)
 
@@ -175,27 +175,39 @@
 (global-set-key "\C-x2" (lambda () (interactive)(split-window-vertically) (other-window 1)))
 (global-set-key "\C-x3" (lambda () (interactive)(split-window-horizontally) (other-window 1)))
 
+(show-paren-mode 1)
+
+;; yasnippet
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippets"                 ;; personal snippets
+        "~/proj/vendor/yasnippet-django"))
+(yas-global-mode)
+
 ;; use RipGrep w prelude
 (setq projectile-enable-caching t)
 
-;;; Default rg arguments
-  ;; https://github.com/BurntSushi/ripgrep
-  (when (executable-find "rg")
-    (progn
-      (defconst modi/rg-arguments
-        `("--line-number"                     ; line numbers
-          "--smart-case"
-          "--follow"                          ; follow symlinks
-          "--mmap")                           ; apply memory map optimization when possible
-        "Default rg arguments used in the functions in `projectile' package.")
+;; https://github.com/BurntSushi/ripgrep
+(when (executable-find "rg")
+  (progn
+    (defconst modi/rg-arguments
+      `("--line-number"                     ; line numbers
+        "--smart-case"
+        "--follow"                          ; follow symlinks
+        "--mmap")                           ; apply memory map optimization when possible
+      "Default rg arguments used in the functions in `projectile' package.")
 
-      (defun modi/advice-projectile-use-rg ()
-        "Always use `rg' for getting a list of all files in the project."
-        (mapconcat 'identity
-                   (append '("\\rg") ; used unaliased version of `rg': \rg
-                           modi/rg-arguments
-                           '("--null" ; output null separated results,
-                             "--files")) ; get file names matching the regex '' (all files)
-                   " "))
+    (defun modi/advice-projectile-use-rg ()
+      "Always use `rg' for getting a list of all files in the project."
+      (mapconcat 'identity
+                 (append '("\\rg") ; used unaliased version of `rg': \rg
+                         modi/rg-arguments
+                         '("--null" ; output null separated results,
+                           "--files")) ; get file names matching the regex '' (all files)
+                 " "))
 
-      (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg)))
+    (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg)
+    (setq helm-grep-ag-command "rg --color=always --colors 'match:fg:black' --colors 'match:bg:yellow' --smart-case --no-heading --line-number %s %s %s")
+    (setq helm-grep-ag-pipe-cmd-switches '("--colors 'match:fg:black'" "--colors 'match:bg:yellow'"))))
+
+;; use ripgrep with helm
+
