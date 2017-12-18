@@ -59,7 +59,11 @@
 	required = true
 [mergetool]
 	keepBackup = false
+	keepTemporaries = false
+	prompt = false
 [diff]
 	algorithm = patience
 [rebase]
 	autoStash = true
+[merge]
+	tool = p4merge
