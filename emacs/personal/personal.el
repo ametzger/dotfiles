@@ -260,5 +260,15 @@
 ;; If you prefer fuzzy matching
 (setq helm-swoop-use-fuzzy-match t)
 
-;; If you would like to use migemo, enable helm's migemo feature
 ;; (helm-migemo-mode 1)
+;; If you would like to use migemo, enable helm's migemo feature
+
+(setq desktop-dirname             "~/tmp/emacs-desktop/"
+      desktop-base-file-name      "emacs.desktop"
+      desktop-base-lock-name      "lock"
+      desktop-path                (list desktop-dirname)
+      desktop-save                t
+      desktop-files-not-to-save   "^$" ;reload tramp paths
+      desktop-load-locked-desktop nil
+      desktop-auto-save-timeout   30)
+(desktop-save-mode 1)
