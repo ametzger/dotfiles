@@ -8,7 +8,8 @@
 [credential]
 	helper = osxkeychain
 [core]
-	editor = mvim -f --nomru -c \"au VimLeave * !open -a iTerm\"
+	# editor = mvim -f --nomru -c \"au VimLeave * !open -a iTerm\"
+	editor = emacsclient -nw -t -a=\\\"\\\"
 	whitespace = trailing-space,space-before-tab,-indent-with-non-tab
 	filemode = false
 	excludesfile = ~/.gitignore_global
