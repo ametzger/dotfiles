@@ -46,12 +46,12 @@ if [[ -d ~/.zplug ]]; then
   zplug "denysdovhan/spaceship-zsh-theme", use:spaceship.zsh, from:github, as:theme
 
   # Install plugins if there are plugins that have not been installed
-  if ! zplug check; then
-    printf "Install? [y/N]: "
-    if read -q; then
-      echo; zplug install
-    fi
-  fi
+  # if ! zplug check; then
+  #   printf "Install? [y/N]: "
+  #   if read -q; then
+  #     echo; zplug install
+  #   fi
+  # fi
 
   zplug load
 fi
@@ -69,7 +69,9 @@ function precmd {
 }
 
 ## Spaceship prompt
-SPACESHIP_PROMPT_SYMBOL="λ"
+SPACESHIP_PROMPT_SYMBOL='λ'
+SPACESHIP_CHAR_SYMBOL='λ'
+SPACESHIP_CHAR_SUFFIX=' '
 SPACESHIP_DOCKER_SHOW=false
 SPACESHIP_VENV_SHOW=false
 SPACESHIP_CONDA_SHOW=false
@@ -91,18 +93,18 @@ alias gd="git d"
 alias m="python manage.py"
 
 ## iterm2 integration
-if [[ -f $HOME/.iterm2_shell_integration.zsh ]]; then
-  source $HOME/.iterm2_shell_integration.zsh
+# if [[ -f $HOME/.iterm2_shell_integration.zsh ]]; then
+#   source $HOME/.iterm2_shell_integration.zsh
 
-  if [ -f ~/bin/iterm-ssh-wrapper ]; then
-    alias ssh="~/bin/iterm-ssh-wrapper"
-  fi
+#   if [ -f ~/bin/iterm-ssh-wrapper ]; then
+#     alias ssh="~/bin/iterm-ssh-wrapper"
+#   fi
 
-  # iterm2_print_user_vars() {
-  #   echo 'iterm2_print_user_vars'
-  #   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
-  # }
-fi
+#   # iterm2_print_user_vars() {
+#   #   echo 'iterm2_print_user_vars'
+#   #   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
+#   # }
+# fi
 
 if command -v rbenv >/dev/null 2>&1; then
   eval "$(rbenv init -)"
@@ -122,12 +124,12 @@ if [[ -d $HOME/.tfenv ]]; then
   export PATH="$HOME/.tfenv/bin:$PATH"
 fi
 
-
 if [[ -d $HOME/proj/go ]]; then
   export GOPATH="$HOME/proj/go"
   export PATH="$GOPATH/bin:$PATH"
 fi
 
 [ -f $HOME/.profile-private.sh ] && source ~/.profile-private.sh
-[ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
+
+# [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh 
 
