@@ -5,7 +5,7 @@
 ;; disable auto save
 (setq auto-save-default nil)
 ;; disable guru (warnings when arrow keys are used)
-(setq prelude-guru nil)
+;; (setq prelude-guru nil)
 ;; disable emacs lisp linting
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 (setq prelude-flyspell nil)
@@ -21,7 +21,9 @@
                             neotree
                             dash-at-point
                             iedit
-                            avy))
+                            avy
+                            ace-window))
+
 
 ;; custom file extension mappings
 (add-to-list 'auto-mode-alist '("\\.cake\\'" . csharp-mode))
@@ -81,24 +83,26 @@
 (setq org-startup-folded nil)
 
 ;; configure Input Mono font with fallbacks
-(let (font-face font-size)
-  (setq font-face (cond
-                   ((find-font (font-spec :name "Roboto Mono Medium for Powerline"))
-                    "Roboto Mono Medium for Powerline")
-                   ((find-font (font-spec :name "Operator Mono"))
-                    "Operator Mono")
-                   ((find-font (font-spec :name "Input"))
-                    "Input")
-                   ((find-font (font-spec :name "Input Mono"))
-                    "Input Mono")
-                   ((find-font (font-spec :name "Monaco"))
-                    "Monaco")
-                   ((find-font (font-spec :name "Consolas"))
-                    "Consolas")))
-  (setq font-size (if (eq system-type 'darwin) "14" "10"))
-  (if
-      (not (eq system-type 'gnu/linux))
-      (set-frame-font (concat font-face "-" font-size))))
+(defun asm/setup-font ()
+  (let ((font-face (cond
+                    ((find-font (font-spec :name "Roboto Mono Medium for Powerline"))
+                     "Roboto Mono Medium for Powerline")
+                    ((find-font (font-spec :name "Operator Mono"))
+                     "Operator Mono")
+                    ((find-font (font-spec :name "Input"))
+                     "Input")
+                    ((find-font (font-spec :name "Input Mono"))
+                     "Input Mono")
+                    ((find-font (font-spec :name "Monaco"))
+                     "Monaco")
+                    ((find-font (font-spec :name "Consolas"))
+                     "Consolas")))
+        (font-size (if (eq system-type 'darwin) "14" "10")))
+    
+    (if (not (eq system-type 'gnu/linux))
+        (set-frame-font (concat font-face "-" font-size)))))
+
+(asm/setup-font)
 
 ;; duplicate current line
 (defun duplicate-current-line (&optional n)
@@ -173,7 +177,7 @@
 (global-set-key [f8] 'neotree-toggle)
 
 (setq mouse-wheel-scroll-amount '(1))
-; (setq mouse-wheel-progressive-speed nil)
+                                        ; (setq mouse-wheel-progressive-speed nil)
 
 (setq nord-uniform-mode-lines t)
 (setq nord-region-highlight "frost")
@@ -292,3 +296,21 @@
 (global-set-key (kbd "M-g w") 'avy-goto-word-1)
 (global-set-key (kbd "M-g e") 'avy-goto-word-0)
 (global-set-key (kbd "C-c C-j") 'avy-resume)
+
+
+;; disable background in terminal emacs
+;; TODO this don't work
+(defun on-frame-open (frame)
+  (progn
+    (asm/setup-font)
+    (if (not (display-graphic-p frame))
+        (set-face-background 'default "unspecified-bg" frame))))
+(on-frame-open (selected-frame))
+(add-hook 'after-make-frame-functions 'on-frame-open)
+
+(defun on-after-init ()
+  (progn
+    (asm/setup-font)
+    (unless (display-graphic-p (selected-frame))
+      (set-face-background 'default "unspecified-bg" (selected-frame)))))
+(add-hook 'window-setup-hook 'on-after-init)
