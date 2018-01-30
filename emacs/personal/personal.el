@@ -11,7 +11,17 @@
 (setq prelude-flyspell nil)
 
 ;; initialize packages
-(prelude-require-packages '(visual-regexp solarized-theme csharp-mode json-mode hlinum ag powerline neotree dash-at-point iedit))
+(prelude-require-packages '(visual-regexp
+                            solarized-theme
+                            csharp-mode
+                            json-mode
+                            hlinum
+                            ag
+                            powerline
+                            neotree
+                            dash-at-point
+                            iedit
+                            avy))
 
 ;; custom file extension mappings
 (add-to-list 'auto-mode-alist '("\\.cake\\'" . csharp-mode))
@@ -275,3 +285,10 @@
 
 (setq tramp-default-method "ssh")
 
+(avy-setup-default)
+(global-set-key (kbd "C-:") 'avy-goto-char)
+(global-set-key (kbd "C-'") 'avy-goto-char-2)
+(global-set-key (kbd "M-g f") 'avy-goto-line)
+(global-set-key (kbd "M-g w") 'avy-goto-word-1)
+(global-set-key (kbd "M-g e") 'avy-goto-word-0)
+(global-set-key (kbd "C-c C-j") 'avy-resume)
