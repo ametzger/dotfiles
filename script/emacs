@@ -1,0 +1,28 @@
+# -*- shell-script -*-
+#!/usr/bin/env zsh
+
+echo 'Setting up Emacs...'
+
+if [[ ! -d '~/proj/vendor' ]]; then
+    echo 'Creating ~/proj/vendor directory...'
+    mkdir -p ~/proj/vendor
+fi
+
+if [[ ! -d '~/proj/vendor/prelude' ]]; then
+    echo 'Cloning Prelude to ~/proj/vendor/prelude'
+    git clone https://github.com/bbatsov/prelude.git ~/proj/vendor/prelude
+fi
+
+pushd ~/proj/vendor/prelude
+
+rm -rf personal
+ln -sf ~/proj/dotfiles/emacs/personal ~/proj/vendor/prelude/personal
+
+if [[ -d ~/.emacs.d ]]; then
+    echo 'Backing up existing emacs config to ~/.emacs.d.bak'
+    mv ~/.emacs.d ~/.emacs.d.bak
+fi
+
+ln -sf ~/proj/vendor/prelude ~/.emacs.d
+
+echo 'Done!'
