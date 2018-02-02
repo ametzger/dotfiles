@@ -69,7 +69,7 @@ function precmd {
 }
 
 ## Spaceship prompt
-SPACESHIP_PROMPT_SYMBOL='λ'
+# SPACESHIP_PROMPT_SYMBOL='λ'
 SPACESHIP_CHAR_SYMBOL='λ'
 SPACESHIP_CHAR_SUFFIX=' '
 SPACESHIP_DOCKER_SHOW=false
@@ -91,6 +91,8 @@ alias bu="brew update && brew upgrade"
 alias gs="git s"
 alias gd="git d"
 alias m="python manage.py"
+alias ll='ls -lah'
+alias e='emacsclient -n -t'
 
 ## iterm2 integration
 # if [[ -f $HOME/.iterm2_shell_integration.zsh ]]; then
