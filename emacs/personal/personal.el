@@ -22,7 +22,8 @@
                             dash-at-point
                             iedit
                             avy
-                            ace-window))
+                            ace-window
+                            pyenv-mode))
 
 
 ;; custom file extension mappings
@@ -314,3 +315,21 @@
     (unless (display-graphic-p (selected-frame))
       (set-face-background 'default "unspecified-bg" (selected-frame)))))
 (add-hook 'window-setup-hook 'on-after-init)
+
+
+
+(require 'pyenv-mode)
+
+(pyenv-mode)
+
+(defun projectile-pyenv-mode-set ()
+  "Set pyenv version matching project name."
+  (let ((project (projectile-project-name)))
+    (if (eq project "jellyfish")
+        (pyenv-mode-set "jellyfish-3.4.3"))
+    
+    (if (member project (pyenv-mode-versions))
+        (pyenv-mode-set project)
+      (pyenv-mode-unset))))
+
+(add-hook 'projectile-switch-project-hook 'projectile-pyenv-mode-set)
