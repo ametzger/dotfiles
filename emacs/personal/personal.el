@@ -23,7 +23,8 @@
                             iedit
                             avy
                             ace-window
-                            pyenv-mode))
+                            pyenv-mode
+                            helm-swoop))
 
 
 ;; custom file extension mappings
