@@ -3,9 +3,8 @@
 IgnoreUnknown UseKeychain
 
 Host *
-    AddKeysToAgent yes
-    UseKeychain yes
-    IdentityFile ~/.ssh/id_rsa
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_rsa
 
 Include config.private
-

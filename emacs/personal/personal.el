@@ -152,8 +152,8 @@
   (setq w32-lwindow-modifier 'super))
 
 ;; remap super => control on mac
-(if (eq system-type 'darwin)
-    (setq mac-command-modifier 'control))
+;; (if (eq system-type 'darwin)
+;;     (setq mac-command-modifier 'control))
 
 ;; live regex search
 (define-key global-map (kbd "C-c C-r") 'vr/replace)
@@ -295,6 +295,7 @@
 (global-set-key (kbd "C-:") 'avy-goto-char)
 (global-set-key (kbd "C-'") 'avy-goto-char-2)
 (global-set-key (kbd "M-g f") 'avy-goto-line)
+(global-set-key (kbd "s-l") 'avy-goto-line)
 (global-set-key (kbd "M-g w") 'avy-goto-word-1)
 (global-set-key (kbd "M-g e") 'avy-goto-word-0)
 (global-set-key (kbd "C-c C-j") 'avy-resume)
@@ -334,3 +335,12 @@
       (pyenv-mode-unset))))
 
 (add-hook 'projectile-switch-project-hook 'projectile-pyenv-mode-set)
+
+;; diminishment
+(require 'diminish)
+(diminish 'editorconfig-mode)
+(diminish 'guru-global-mode)
+(diminish 'guru-mode)
+(diminish 'which-key-mode)
+(diminish 'auto-revert-mode)
+(diminish 'helm-mode)
