@@ -107,9 +107,11 @@ alias e='emacsclient -n -t'
 #   #   iterm2_set_user_var gitBranch $((git branch 2> /dev/null) | grep \* | cut -c3-)
 #   # }
 # fi
-
 if [[ -d $HOME/.rbenv ]]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
+    export PATH="$HOME/.rbenv/bin:$PATH"
+fi
+
+if command -v rbenv >/dev/null 2>&1; then
   eval "$(rbenv init -)"
 fi
 
