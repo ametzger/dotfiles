@@ -279,15 +279,15 @@
 ;; (helm-migemo-mode 1)
 ;; If you would like to use migemo, enable helm's migemo feature
 
-(setq desktop-dirname             "~/tmp/emacs-desktop/"
-      desktop-base-file-name      "emacs.desktop"
-      desktop-base-lock-name      "lock"
-      desktop-path                (list desktop-dirname)
-      desktop-save                t
-      desktop-files-not-to-save   "^$" ;reload tramp paths
-      desktop-load-locked-desktop nil
-      desktop-auto-save-timeout   30)
-(desktop-save-mode 1)
+;; (setq desktop-dirname             "~/tmp/emacs-desktop/"
+;;       desktop-base-file-name      "emacs.desktop"
+;;       desktop-base-lock-name      "lock"
+;;       desktop-path                (list desktop-dirname)
+;;       desktop-save                t
+;;       desktop-files-not-to-save   "^$" ;reload tramp paths
+;;       desktop-load-locked-desktop nil
+;;       desktop-auto-save-timeout   30)
+;; (desktop-save-mode 1)
 
 (setq tramp-default-method "ssh")
 
@@ -344,3 +344,10 @@
 (diminish 'which-key-mode)
 (diminish 'auto-revert-mode)
 (diminish 'helm-mode)
+
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ipython . t)))
+
+(setq org-confirm-babel-evaluate nil)
