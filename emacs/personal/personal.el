@@ -131,11 +131,9 @@
                                       (abbreviate-file-name (buffer-file-name))
                                     "%b"))))
 
-;; 4 spaces for indentation
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq standard-indent 4)
-
+(setq-default tab-width 2)
+(setq standard-indent 2)
 ;; json indent to four spaces
 ;; (add-hook 'json-mode-hook
 ;;           (lambda ()
@@ -145,6 +143,8 @@
 (setq ruby-indent-level 2)
 (setq js-indent-level 2)
 (setq html-indent-level 2)
+(setq python-indent-level 4)
+(setq sh-basic-offset 2)
 
 ;; map left super key on Winders
 (when (eq system-type 'windows-nt)
@@ -348,6 +348,7 @@
 
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((ipython . t)))
+ '((ipython . t)
+   (ruby . t)))
 
 (setq org-confirm-babel-evaluate nil)
