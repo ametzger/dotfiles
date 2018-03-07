@@ -140,10 +140,10 @@
 ;;             (make-local-variable 'js-indent-level)
 ;;             (setq js-indent-level 2)))
 
-(setq ruby-indent-level 2)
-(setq js-indent-level 2)
-(setq html-indent-level 2)
-(setq python-indent-level 4)
+(setq ruby-basic-offset 2)
+(setq js-basic-offset 2)
+(setq html-basic-offset 2)
+(setq python-basic-offset 4)
 (setq sh-basic-offset 2)
 
 ;; map left super key on Winders
