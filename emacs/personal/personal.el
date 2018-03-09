@@ -99,7 +99,7 @@
                      "Monaco")
                     ((find-font (font-spec :name "Consolas"))
                      "Consolas")))
-        (font-size (if (eq system-type 'darwin) "14" "10")))
+        (font-size (if (eq system-type 'darwin) "16" "10")))
     
     (if (not (eq system-type 'gnu/linux))
         (set-frame-font (concat font-face "-" font-size)))))
