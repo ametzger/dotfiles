@@ -352,3 +352,5 @@
    (ruby . t)))
 
 (setq org-confirm-babel-evaluate nil)
+
+(global-set-key (kbd "s-d") 'dash-at-point)
