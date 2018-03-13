@@ -5,6 +5,8 @@
 #### ASM zshrc #################################################################
 ################################################################################
 
+# zmodload zsh/zprof
+
 ## ~/bin to PATH
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
 if [[ -d ~/.local/bin ]]; then
@@ -62,22 +64,22 @@ fi
 
 ## title
 # see https://github.com/romulomachado/title-tab/blob/master/title-tab.plugin.zsh
-function zsh_title_git_branch {
-  BRANCH_REFS=$(git symbolic-ref HEAD 2>/dev/null) || return
-  GIT_BRANCH="${BRANCH_REFS#refs/heads/}"
-  [ -n "$GIT_BRANCH" ] && echo "($GIT_BRANCH)"
-}
+# function zsh_title_git_branch {
+#   BRANCH_REFS=$(git symbolic-ref HEAD 2>/dev/null) || return
+#   GIT_BRANCH="${BRANCH_REFS#refs/heads/}"
+#   [ -n "$GIT_BRANCH" ] && echo "($GIT_BRANCH)"
+# }
 
-function precmd {
-  print -Pn "\e]1;%~ $(zsh_title_git_branch)\a"
-}
+# function precmd {
+#   print -Pn "\e]1;%~ $(zsh_title_git_branch)\a"
+# }
 
 ## Spaceship prompt
 # SPACESHIP_PROMPT_SYMBOL='λ'
 SPACESHIP_CHAR_SYMBOL='λ'
 SPACESHIP_CHAR_SUFFIX=' '
 SPACESHIP_DOCKER_SHOW=false
-SPACESHIP_VENV_SHOW=false
+# SPACESHIP_VENV_SHOW=false
 SPACESHIP_CONDA_SHOW=false
 SPACESHIP_KUBECONTEXT_SHOW=false
 SPACESHIP_BATTERY_SHOW=false
@@ -94,7 +96,7 @@ export VAGRANT_DEFAULT_PROVIDER="parallels"
 alias bu="brew update && brew upgrade"
 alias gs="git s"
 alias gd="git d"
-alias m="python manage.py"
+alias m="pipenv run python manage.py"
 alias ll='ls -lah'
 alias e='emacsclient -n -t'
 
@@ -142,4 +144,3 @@ fi
 [ -f $HOME/.profile-private.sh ] && source ~/.profile-private.sh
 
 # [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh 
-
