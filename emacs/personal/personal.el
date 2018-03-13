@@ -161,7 +161,7 @@
 (define-key global-map (kbd "C-c C-t") 'vr/mc-mark)
 
 ;; disable whitespace mode
-(setq prelude-whitespace nil)
+;; (setq prelude-whitespace nil)
 
 
 ;; disable scrach message on startup
@@ -320,9 +320,11 @@
 
 
 
-(require 'pyenv-mode)
-
-(pyenv-mode)
+;; (require 'pyenv-mode)
+;; (pyenv-mode)
+;; (require 'pipenv)
+;;(pipenv-mode)
+;; (add-hook 'python-mode-hook #'pipenv-mode)
 
 (defun projectile-pyenv-mode-set ()
   "Set pyenv version matching project name."
@@ -344,6 +346,9 @@
 (diminish 'which-key-mode)
 (diminish 'auto-revert-mode)
 (diminish 'helm-mode)
+(diminish 'company-mode)
+(diminish 'pipenv-mode)
+(diminish 'anaconda-mode)
 
 
 (org-babel-do-load-languages
@@ -381,3 +386,5 @@
       (if this-win-2nd (other-window 1))))))
 
 (global-set-key (kbd "C-x |") 'asm/toggle-window-split)
+
+(setq vc-follow-symlinks t)
