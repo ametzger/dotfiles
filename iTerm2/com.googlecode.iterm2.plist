@@ -689,9 +689,9 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>3456 1523 796 473 1680 480 3360 1868 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>4230 480 810 1890 1680 480 3360 1868 </string>
+	<string>1680 481 1710 1867 1680 480 3360 1868 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>3049 676 1634 1670 1680 678 3008 1670 </string>
+	<string>1680 481 3360 1867 1680 480 3360 1868 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>3829 1754 650 452 1680 678 3008 1670 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
