@@ -359,6 +359,7 @@
 (setq org-confirm-babel-evaluate nil)
 
 (global-set-key (kbd "s-d") 'dash-at-point)
+(add-to-list 'dash-at-point-mode-alist '(python-mode . "asmdj"))
 
 (defun asm/toggle-window-split ()
   (interactive)
