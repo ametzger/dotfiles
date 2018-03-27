@@ -326,6 +326,9 @@
 ;;(pipenv-mode)
 ;; (add-hook 'python-mode-hook #'pipenv-mode)
 
+;; projectile
+(setq projectile-mode-line '(:eval (format " [%s]" (projectile-project-name))))
+
 (defun projectile-pyenv-mode-set ()
   "Set pyenv version matching project name."
   (let ((project (projectile-project-name)))
