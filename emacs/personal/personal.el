@@ -181,7 +181,7 @@
 (setq mouse-wheel-scroll-amount '(1))
                                         ; (setq mouse-wheel-progressive-speed nil)
 
-(setq nord-uniform-mode-lines t)
+;(setq nord-uniform-mode-lines t)
 (setq nord-region-highlight "frost")
 (setq nord-comment-brightness 15)
 
