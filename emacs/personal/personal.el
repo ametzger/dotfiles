@@ -100,7 +100,7 @@
                     ((find-font (font-spec :name "Consolas"))
                      "Consolas")))
         (font-size (if (eq system-type 'darwin) "16" "10")))
-    
+
     (if (not (eq system-type 'gnu/linux))
         (set-frame-font (concat font-face "-" font-size)))))
 
@@ -116,7 +116,7 @@
       ;; when on last line, insert a newline first
       (when (or (= 1 (forward-line 1)) (eq (point) (point-max)))
     	(insert "\n"))
-      
+
       ;; now insert as many time as requested
       (while (> n 0)
     	(insert current-line)
@@ -331,7 +331,7 @@
   (let ((project (projectile-project-name)))
     (if (eq project "jellyfish")
         (pyenv-mode-set "jellyfish-3.4.3"))
-    
+
     (if (member project (pyenv-mode-versions))
         (pyenv-mode-set project)
       (pyenv-mode-unset))))
@@ -389,3 +389,5 @@
 (global-set-key (kbd "C-x |") 'asm/toggle-window-split)
 
 (setq vc-follow-symlinks t)
+
+(global-set-key (kbd "C-c z") 'zap-to-char)
