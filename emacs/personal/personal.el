@@ -352,7 +352,12 @@
 (diminish 'company-mode)
 (diminish 'pipenv-mode)
 (diminish 'anaconda-mode)
-
+(diminish 'subword-mode)
+(diminish 'smartparens-mode)
+(diminish 'whitespace-mode)
+(diminish 'eldoc-mode)
+(diminish 'prelude-mode)
+(diminish 'beacon-mode)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
