@@ -83,7 +83,7 @@
 ;; (hlinum-activate)
 
 ;; when org-mode starts, expand all nodes
-(setq org-startup-folded nil)
+(setq org-startup-folded t)
 
 ;; configure Input Mono font with fallbacks
 (defun asm/setup-font ()
@@ -107,24 +107,6 @@
 
 (asm/setup-font)
 
-;; duplicate current line
-(defun duplicate-current-line (&optional n)
-  "duplicate current line, make more than 1 copy given a numeric argument"
-  (interactive "p")
-  (save-excursion
-    (let ((nb (or n 1))
-    	  (current-line (thing-at-point 'line)))
-      ;; when on last line, insert a newline first
-      (when (or (= 1 (forward-line 1)) (eq (point) (point-max)))
-    	(insert "\n"))
-
-      ;; now insert as many time as requested
-      (while (> n 0)
-    	(insert current-line)
-    	(decf n)))))
-
-(global-set-key (kbd "\C-c\C-k") 'duplicate-current-line)
-
 ;; simple title
 (setq frame-title-format '(""
                            "emacs - "
@@ -141,11 +123,11 @@
 ;;             (make-local-variable 'js-indent-level)
 ;;             (setq js-indent-level 2)))
 
-(setq ruby-basic-offset 2)
-(setq js-basic-offset 2)
-(setq html-basic-offset 2)
-(setq python-basic-offset 4)
-(setq sh-basic-offset 2)
+(setq-default ruby-basic-offset 2)
+(setq-default js-basic-offset 2)
+(setq-default html-basic-offset 2)
+(setq-default python-basic-offset 4)
+(setq-default sh-basic-offset 2)
 
 ;; map left super key on Winders
 (when (eq system-type 'windows-nt)
