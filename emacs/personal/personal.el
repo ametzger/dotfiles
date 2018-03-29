@@ -103,7 +103,7 @@
         (font-size (if (eq system-type 'darwin) "16" "10")))
 
     (if (not (eq system-type 'gnu/linux))
-        (set-frame-font (concat font-face "-" font-size)))))
+        (set-frame-font (concat font-face "-" font-size) t t)))) ;; keep size, font for new frames
 
 (asm/setup-font)
 
@@ -296,15 +296,12 @@
 ;; TODO this don't work
 (defun on-frame-open (frame)
   (progn
-    (asm/setup-font)
-    (if (not (display-graphic-p frame))
-        (set-face-background 'default "unspecified-bg" frame))))
-(on-frame-open (selected-frame))
+    (unless (display-graphic-p frame)
+      (set-face-background 'default "unspecified-bg" frame))))
 (add-hook 'after-make-frame-functions 'on-frame-open)
 
 (defun on-after-init ()
   (progn
-    (asm/setup-font)
     (unless (display-graphic-p (selected-frame))
       (set-face-background 'default "unspecified-bg" (selected-frame)))))
 (add-hook 'window-setup-hook 'on-after-init)
