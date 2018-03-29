@@ -1,0 +1,6 @@
+#!/usr/bin/env zsh
+# -*- mode: shell-script -*-
+# vi: set ft=sh :
+
+mkdir -p ~/Library/KeyBindings
+ln -sf ~/proj/dotfiles/osx/DefaultKeyBinding.dict ~/Library/KeyBindings/DefaultKeyBinding.dict
