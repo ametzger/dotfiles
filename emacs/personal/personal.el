@@ -123,11 +123,11 @@
 ;;             (make-local-variable 'js-indent-level)
 ;;             (setq js-indent-level 2)))
 
-(setq-default ruby-basic-offset 2)
-(setq-default js-basic-offset 2)
-(setq-default html-basic-offset 2)
-(setq-default python-basic-offset 4)
-(setq-default sh-basic-offset 2)
+(setq ruby-basic-offset 2)
+(setq js-basic-offset 2)
+(setq html-basic-offset 2)
+(setq python-basic-offset 4)
+(setq sh-basic-offset 2)
 
 ;; map left super key on Winders
 (when (eq system-type 'windows-nt)
@@ -171,8 +171,16 @@
 (setq confirm-kill-emacs 'y-or-n-p)
 
 ;; auto-switch to new panes
-(global-set-key "\C-x2" (lambda () (interactive)(split-window-vertically) (other-window 1)))
-(global-set-key "\C-x3" (lambda () (interactive)(split-window-horizontally) (other-window 1)))
+(global-set-key "\C-x2" (lambda ()
+                          (interactive)
+                          (split-window-vertically)
+                          (other-window 1)))
+(global-set-key "\C-x3" (lambda ()
+                          (interactive)
+                          (split-window-horizontally)
+                          (other-window 1)))
+;; auto-switch to new help panes
+(setq help-window-select t)
 
 (show-paren-mode 1)
 
@@ -188,23 +196,23 @@
 ;; https://github.com/BurntSushi/ripgrep
 (when (executable-find "rg")
   (progn
-    (defconst modi/rg-arguments
+    (defconst asm/rg-arguments
       `("--line-number"                     ; line numbers
         "--smart-case"
         "--follow"                          ; follow symlinks
         "--mmap")                           ; apply memory map optimization when possible
       "Default rg arguments used in the functions in `projectile' package.")
 
-    (defun modi/advice-projectile-use-rg ()
+    (defun asm/advice-projectile-use-rg ()
       "Always use `rg' for getting a list of all files in the project."
       (mapconcat 'identity
                  (append '("\\rg") ; used unaliased version of `rg': \rg
-                         modi/rg-arguments
+                         asm/rg-arguments
                          '("--null" ; output null separated results,
                            "--files")) ; get file names matching the regex '' (all files)
                  " "))
 
-    (advice-add 'projectile-get-ext-command :override #'modi/advice-projectile-use-rg)
+    (advice-add 'projectile-get-ext-command :override #'asm/advice-projectile-use-rg)
     (setq helm-grep-ag-command "rg --color=always --colors 'match:fg:black' --colors 'match:bg:yellow' --smart-case --no-heading --line-number %s %s %s")
     (setq helm-grep-ag-pipe-cmd-switches '("--colors 'match:fg:black'" "--colors 'match:bg:yellow'"))))
 
@@ -390,3 +398,16 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+;; Unbind Command-N new-frame
+(global-set-key (kbd "s-n") nil)
+
+;; C-return in isearch selects current match
+(defun asm/isearch-exit-mark-match ()
+  "Exit isearch and mark the current match."
+  (interactive)
+  (isearch-exit)
+  (push-mark isearch-other-end)
+  (activate-mark))
+
+(define-key isearch-mode-map (kbd "<C-return>") #'asm/isearch-exit-mark-match)
