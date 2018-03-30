@@ -20,13 +20,11 @@
                             powerline
                             neotree
                             dash-at-point
-                            iedit
                             avy
                             ace-window
                             pyenv-mode
                             helm-swoop
                             multiple-cursors))
-
 
 ;; custom file extension mappings
 (add-to-list 'auto-mode-alist '("\\.cake\\'" . csharp-mode))
@@ -390,14 +388,16 @@
 
 ;; multi-cursors
 (require 'multiple-cursors)
+(define-key mc/keymap (kbd "<return>") nil)
 (global-set-key (kbd "C-M-S-s-l") 'mc/edit-lines)
 (global-set-key (kbd "H-l") 'mc/edit-lines)
+(global-set-key (kbd "C-;") 'mc/mark-all-like-this-dwim)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; Unbind Command-N new-frame
-(global-set-key (kbd "s-n") nil)
+;(global-set-key (kbd "s-n") nil)
 
 ;; C-return in isearch selects current match
 (defun asm/isearch-exit-mark-match ()
