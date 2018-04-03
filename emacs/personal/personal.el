@@ -77,6 +77,7 @@
 
 ;; ;; include a line between the numbers and the buffer
 (setq linum-format "%4d \u2502")
+(require 'linum-off)
 (global-linum-mode t)
 ;; (hlinum-activate)
 
@@ -384,11 +385,9 @@
 
 (setq vc-follow-symlinks t)
 
-(global-set-key (kbd "C-c z") 'zap-to-char)
-
 ;; multi-cursors
 (require 'multiple-cursors)
-(define-key mc/keymap (kbd "<return>") nil)
+;(define-key mc/keymap (kbd "<return>") nil)
 (global-set-key (kbd "C-M-S-s-l") 'mc/edit-lines)
 (global-set-key (kbd "H-l") 'mc/edit-lines)
 (global-set-key (kbd "C-;") 'mc/mark-all-like-this-dwim)
