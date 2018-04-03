@@ -4,8 +4,11 @@
 
 module.exports = {
     config: {
-        fontSize: 12,
-        fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+        fontSize: 16,
+        fontFamily: [
+            'Input Mono',
+            'Roboto Mono Medium for Powerline'
+        ],
         cursorColor: 'rgba(248,28,229,0.8)',
         cursorShape: 'BLOCK',
         cursorBlink: false,
@@ -16,7 +19,7 @@ module.exports = {
         bell: false,
         copyOnSelect: true
     },
-    
+
     plugins: [
         'nord-hyper',
     ],
