@@ -81,8 +81,20 @@
 (global-linum-mode t)
 ;; (hlinum-activate)
 
+;; org-mode
 ;; when org-mode starts, expand all nodes
 (setq org-startup-folded t)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ipython . t)
+   (ruby . t)))
+(setq org-confirm-babel-evaluate nil)
+(setq org-default-notes-file "~/org/main.org")
+
+(global-set-key (kbd "s-t") (lambda ()
+                              (interactive)
+                              (find-file org-default-notes-file)))
 
 ;; configure Input Mono font with fallbacks
 (defun asm/setup-font ()
@@ -345,13 +357,6 @@
 (diminish 'eldoc-mode)
 (diminish 'prelude-mode)
 (diminish 'beacon-mode)
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((ipython . t)
-   (ruby . t)))
-
-(setq org-confirm-babel-evaluate nil)
 
 (global-set-key (kbd "s-d") 'dash-at-point)
 (add-to-list 'dash-at-point-mode-alist '(python-mode . "asmdj"))
