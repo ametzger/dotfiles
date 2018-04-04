@@ -291,7 +291,6 @@
 ;;       desktop-auto-save-timeout   30)
 ;; (desktop-save-mode 1)
 
-(setq tramp-default-method "ssh")
 
 (avy-setup-default)
 (global-set-key (kbd "C-:") 'avy-goto-char)
@@ -412,3 +411,14 @@
   (activate-mark))
 
 (define-key isearch-mode-map (kbd "<C-return>") #'asm/isearch-exit-mark-match)
+
+;; tramp
+(setq tramp-default-method "ssh")
+
+(defun asm/cleanup-tramp-everything ()
+  (interactive)
+  (tramp-cleanup-all-buffers)
+  (tramp-cleanup-all-connections)
+  (message "Cleaned up remote buffers and connections"))
+
+(global-set-key (kbd "C-c q") 'asm/cleanup-tramp-everything)
