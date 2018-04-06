@@ -120,25 +120,15 @@
 
 ;; simple title
 (setq frame-title-format '(""
-                           "emacs - "
+                           "emacs :: "
                            (:eval (if (buffer-file-name)
                                       (abbreviate-file-name (buffer-file-name))
                                     "%b"))))
 
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
+(setq indent-tabs-mode nil)
+(setq tab-width 2)
 (setq standard-indent 2)
-;; json indent to four spaces
-;; (add-hook 'json-mode-hook
-;;           (lambda ()
-;;             (make-local-variable 'js-indent-level)
-;;             (setq js-indent-level 2)))
-
-(setq ruby-basic-offset 2)
-(setq js-basic-offset 2)
-(setq html-basic-offset 2)
-(setq python-basic-offset 4)
-(setq sh-basic-offset 2)
+(setq js-indent-level 2)
 
 ;; map left super key on Winders
 (when (eq system-type 'windows-nt)
