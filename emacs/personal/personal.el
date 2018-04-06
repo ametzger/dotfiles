@@ -5,7 +5,7 @@
 ;; disable auto save
 (setq auto-save-default nil)
 ;; disable guru (warnings when arrow keys are used)
-;; (setq prelude-guru nil)
+(setq prelude-guru nil)
 ;; disable emacs lisp linting
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 (setq prelude-flyspell nil)
