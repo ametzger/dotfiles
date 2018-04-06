@@ -310,9 +310,9 @@
 
 ;; (require 'pyenv-mode)
 ;; (pyenv-mode)
-;; (require 'pipenv)
-;;(pipenv-mode)
-;; (add-hook 'python-mode-hook #'pipenv-mode)
+(require 'pipenv)
+(pipenv-mode)
+(add-hook 'python-mode-hook #'pipenv-mode)
 
 ;; projectile
 (setq projectile-mode-line '(:eval (format " [%s]" (projectile-project-name))))
