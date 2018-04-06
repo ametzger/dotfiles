@@ -219,8 +219,15 @@
 
 (scroll-bar-mode -1)
 
-;; env variables
+;; django stuff
+;; (require 'djangonaut)
+;; (global-djangonaut-mode)
+;; (setq python-shell-extra-pythonpaths '("~/proj/jellyfish"))
+(setq python-shell-process-environment '("DJANGO_SETTINGS_MODULE=jellyfish.settings.dev"))
 (setenv "DJANGO_SETTINGS_MODULE" "jellyfish.settings.dev")
+
+;; disable ein auto-completion
+(setq ein:use-auto-complete nil)
 
 (require 'helm-swoop)
 
