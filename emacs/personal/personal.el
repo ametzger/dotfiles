@@ -125,6 +125,9 @@
                                       (abbreviate-file-name (buffer-file-name))
                                     "%b"))))
 
+;; start new frames default maximized
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 (setq indent-tabs-mode nil)
 (setq tab-width 2)
 (setq standard-indent 2)
@@ -396,6 +399,10 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 
+(global-set-key (kbd "C-S-z") 'zap-up-to-char)
+(global-set-key (kbd "s-z") 'zap-up-to-char)
+(global-unset-key (kbd "C-z"))
+
 ;; Unbind Command-N new-frame
 ;(global-set-key (kbd "s-n") nil)
 
@@ -419,3 +426,8 @@
   (message "Cleaned up remote buffers and connections"))
 
 (global-set-key (kbd "C-c q") 'asm/cleanup-tramp-everything)
+
+;; smartparens
+(require 'smartparens)
+(sp-pair "(" ")" :unless '(sp-point-before-word-p))
+(sp-pair "'" "'" :unless '(sp-point-before-word-p))
