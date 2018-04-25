@@ -180,14 +180,19 @@
 (setq confirm-kill-emacs 'y-or-n-p)
 
 ;; auto-switch to new panes
-(global-set-key "\C-x2" (lambda ()
-                          (interactive)
-                          (split-window-vertically)
-                          (other-window 1)))
-(global-set-key "\C-x3" (lambda ()
-                          (interactive)
-                          (split-window-horizontally)
-                          (other-window 1)))
+(defun asm/split-window-vertically ()
+  (interactive)
+  (split-window-vertically)
+  (other-window 1))
+
+(defun asm/split-window-horizontally ()
+  (interactive)
+  (split-window-horizontally)
+  (other-window 1))
+
+(global-set-key (kbd "C-x 2") 'asm/split-window-vertically)
+(global-set-key (kbd "C-x 3") 'asm/split-window-horizontally)
+
 ;; auto-switch to new help panes
 (setq help-window-select t)
 
