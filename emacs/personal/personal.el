@@ -464,3 +464,9 @@
                                      (buffer-string))))
                 (insert (format "** %s\n\n%s\n\n" file file-contents))))
           (cddr (directory-files dir)))))
+
+(defun asm/org-open-note ()
+  (interactive)
+  (let ((file-to-open (read-file-name "Open org file: " (expand-file-name "~/org/"))))
+    (find-file file-to-open)))
+(global-set-key (kbd "C-c C-n") 'asm/org-open-note)
