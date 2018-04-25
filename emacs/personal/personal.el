@@ -446,3 +446,10 @@
 ;; yafolding
 (add-hook 'prog-mode-hook
           (lambda () (yafolding-mode)))
+
+;; spaceline
+;; (setq powerline-default-separator 'alternate)
+;; (require 'spaceline-config)
+;; (spaceline-spacemacs-theme)
+;; (spaceline-helm-mode)
+
