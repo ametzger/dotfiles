@@ -2,6 +2,10 @@
 ;;; for use with bbatsov's Prelude
 ;;; https://github.com/bbatsov/prelude
 
+;; setup use-package
+;; (eval-when-compile
+;;   (require 'use-package))
+
 ;; disable auto save
 (setq auto-save-default nil)
 ;; disable guru (warnings when arrow keys are used)
@@ -24,7 +28,8 @@
                             ace-window
                             pyenv-mode
                             helm-swoop
-                            multiple-cursors))
+                            multiple-cursors
+                            yafolding))
 
 ;; custom file extension mappings
 (add-to-list 'auto-mode-alist '("\\.cake\\'" . csharp-mode))
@@ -437,3 +442,7 @@
 (sp-pair "'" "'" :unless '(sp-point-before-word-p))
 (sp-pair "[" "]" :unless '(sp-point-before-word-p))
 (sp-pair "{" "}" :unless '(sp-point-before-word-p))
+
+;; yafolding
+(add-hook 'prog-mode-hook
+          (lambda () (yafolding-mode)))
