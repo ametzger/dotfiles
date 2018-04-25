@@ -399,6 +399,10 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 
+; bind M-click to add multi-cursor
+(global-unset-key (kbd "M-<down-mouse-1>"))
+(global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
+
 (global-set-key (kbd "C-S-z") 'zap-up-to-char)
 (global-set-key (kbd "s-z") 'zap-up-to-char)
 (global-unset-key (kbd "C-z"))
