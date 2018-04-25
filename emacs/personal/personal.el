@@ -453,3 +453,14 @@
 ;; (spaceline-spacemacs-theme)
 ;; (spaceline-helm-mode)
 
+;; Insert full directory of files into org buffer
+(defun asm/org-insert-all-files-in-dir ()
+  (interactive)
+  (let ((dir (read-directory-name "Directory to insert: ")))
+    (mapc #'(lambda (file)
+              (let ((file-contents (with-temp-buffer
+                                     (insert-file-contents (concat dir file))
+                                     (indent-region (point-min) (point-max) 3)
+                                     (buffer-string))))
+                (insert (format "** %s\n\n%s\n\n" file file-contents))))
+          (cddr (directory-files dir)))))
