@@ -10,8 +10,15 @@
 (setq auto-save-default nil)
 ;; disable guru (warnings when arrow keys are used)
 (setq prelude-guru nil)
-;; disable emacs lisp linting
+
+;; flycheck
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+(add-hook 'python-mode-hook (lambda ()
+                              (flycheck-mode 1)
+                              (setq flycheck-python-flake8-executable (expand-file-name "~/.local/bin/flake8"))
+                              (setq flycheck-flake8rc ".flake8")
+                              (setq flycheck-checker 'python-flake8)))
+
 (setq prelude-flyspell nil)
 
 ;; initialize packages
@@ -242,6 +249,14 @@
 ;; disable ein auto-completion
 (setq ein:use-auto-complete nil)
 
+;; whitespace-mode
+(setq whitespace-global-modes '(not
+                                org-mode
+                                ein:notebook-multilang-mode
+                                ein:notebook-mumamo-mode
+                                ein:notebook-python-mode
+                                ein:notebook-plain-mode))
+
 (require 'helm-swoop)
 
 ;; Change the keybinds to whatever you like :)
@@ -330,24 +345,17 @@
 
 ;; (require 'pyenv-mode)
 ;; (pyenv-mode)
+
 (require 'pipenv)
 (pipenv-mode)
 (add-hook 'python-mode-hook #'pipenv-mode)
 
+;; TODO: pipenv seems to fuck with flycheck, need to defuckulate
+(setq pipenv-with-flycheck nil)
+
 ;; projectile
 (setq projectile-mode-line '(:eval (format " [%s]" (projectile-project-name))))
 
-(defun projectile-pyenv-mode-set ()
-  "Set pyenv version matching project name."
-  (let ((project (projectile-project-name)))
-    (if (eq project "jellyfish")
-        (pyenv-mode-set "jellyfish-3.4.3"))
-
-    (if (member project (pyenv-mode-versions))
-        (pyenv-mode-set project)
-      (pyenv-mode-unset))))
-
-(add-hook 'projectile-switch-project-hook 'projectile-pyenv-mode-set)
 
 ;; diminishment
 (require 'diminish)
