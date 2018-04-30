@@ -9,9 +9,6 @@
 
 ## ~/bin to PATH
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$PATH
-if [[ -d ~/.local/bin ]]; then
-  export PATH=$HOME/.local/bin:$PATH
-fi
 
 
 ## taste the rainbow
@@ -35,7 +32,7 @@ if [[ -d ~/.zplug ]]; then
   zplug "zsh-users/zsh-completions"
   zplug "zsh-users/zsh-syntax-highlighting"
   zplug "zsh-users/zsh-autosuggestions"
-  
+
   ## omz plugins
   zplug "lib/history",    from:oh-my-zsh
   zplug "plugins/aws",    from:oh-my-zsh
@@ -143,4 +140,9 @@ fi
 
 [ -f $HOME/.profile-private.sh ] && source ~/.profile-private.sh
 
-# [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh 
+# [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
+
+# This should go last, prefer stuff in here to pyenv/rbenv/whatever
+if [[ -d ~/.local/bin ]]; then
+    export PATH=$HOME/.local/bin:$PATH
+fi
