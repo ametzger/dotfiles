@@ -167,7 +167,7 @@
 (setq initial-scratch-message nil)
 
 ;; use powerline
-(powerline-default-theme)
+;; (powerline-default-theme)
 
 (require 'prelude-helm-everywhere)
 
@@ -374,6 +374,8 @@
 (diminish 'eldoc-mode)
 (diminish 'prelude-mode)
 (diminish 'beacon-mode)
+(diminish 'smerge-mode)
+(diminish 'vc-mode)
 
 (global-set-key (kbd "s-d") 'dash-at-point)
 (add-to-list 'dash-at-point-mode-alist '(python-mode . "asmdj"))
@@ -435,8 +437,17 @@
   (isearch-exit)
   (push-mark isearch-other-end)
   (activate-mark))
-
 (define-key isearch-mode-map (kbd "<C-return>") #'asm/isearch-exit-mark-match)
+
+;; (defun asm/isearch-exit-multi-cursor-matches ()
+;;   "Exit isearch and mark the current match, plus multi-cursor the matches."
+;;   (interactive)
+;;   (isearch-exit)
+;;   (push-mark isearch-other-end)
+;;   (activate-mark)
+;;   (mc/mark-all-like-this-dwim))
+;; (define-key isearch-mode-map (kbd "<C-S-return>") #'asm/isearch-exit-multi-cursor-matches)
+
 
 ;; tramp
 (setq tramp-default-method "ssh")
