@@ -494,3 +494,11 @@
   (let ((file-to-open (read-file-name "Open org file: " (expand-file-name "~/org/"))))
     (find-file file-to-open)))
 (global-set-key (kbd "C-c C-n") 'asm/org-open-note)
+
+;; ergodox seems to break insert key? not sure why
+(global-set-key (kbd "C-c C-o") 'overwrite-mode)
+
+;; ace-window
+;; use home row instead of digits
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+(global-set-key (kbd "C-c C-w") 'ace-window)
