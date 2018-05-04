@@ -411,7 +411,7 @@
 
 ;; multi-cursors
 (require 'multiple-cursors)
-;(define-key mc/keymap (kbd "<return>") nil)
+(define-key mc/keymap (kbd "<return>") nil)
 (global-set-key (kbd "C-M-S-s-l") 'mc/edit-lines)
 (global-set-key (kbd "H-l") 'mc/edit-lines)
 (global-set-key (kbd "C-;") 'mc/mark-all-like-this-dwim)
