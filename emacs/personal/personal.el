@@ -99,7 +99,7 @@
 
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((ipython . t)
+ '((ipython . (executable-find "jupyter"))
    (ruby . t)))
 (setq org-confirm-babel-evaluate nil)
 (setq org-default-notes-file "~/org/main.org")
