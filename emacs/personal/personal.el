@@ -457,8 +457,17 @@
   (tramp-cleanup-all-buffers)
   (tramp-cleanup-all-connections)
   (message "Cleaned up remote buffers and connections"))
-
 (global-set-key (kbd "C-c q") 'asm/cleanup-tramp-everything)
+
+;; exclude tramp stuff from recentf
+(defun asm/recentf-exclude-p (file)
+  "A predicate to exclude TRAMP files from recentf."
+  (if (tramp-tramp-file-p file)
+      (let ((tramp-file (tramp-dissect-file-name file)))
+        (if (string-equal "ssh" (tramp-file-name-method tramp-file))
+            (progn (message (format "Not adding TRAMP file %s to recentf" file))
+                   t)))))
+(add-to-list 'recentf-exclude 'asm/recentf-exclude-p)
 
 ;; smartparens
 (require 'smartparens)
