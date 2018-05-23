@@ -91,11 +91,16 @@ export VAGRANT_DEFAULT_PROVIDER="parallels"
 
 ## aliases
 alias bu="brew update && brew upgrade"
+
 alias gs="git s"
 alias gd="git d"
-alias m="pipenv run python manage.py"
+alias gu="git up"
+
 alias ll='ls -lah'
+
 alias e='emacsclient -n -t'
+alias p="pipenv run"
+alias m="p python manage.py"
 
 ## iterm2 integration
 # if [[ -f $HOME/.iterm2_shell_integration.zsh ]]; then
