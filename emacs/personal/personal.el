@@ -511,3 +511,10 @@
 ;; use home row instead of digits
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 (global-set-key (kbd "C-c C-w") 'ace-window)
+
+;; company
+;; disable for org-mode and magit
+(setq company-global-modes
+      '(not org-mode
+            text-mode
+            fundamental-mode))
