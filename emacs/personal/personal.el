@@ -246,8 +246,22 @@
 (setq python-shell-process-environment '("DJANGO_SETTINGS_MODULE=jellyfish.settings.dev"))
 (setenv "DJANGO_SETTINGS_MODULE" "jellyfish.settings.dev")
 
-;; disable ein auto-completion
+;; ein
+;; disable auto-completion
 (setq ein:use-auto-complete nil)
+
+(defun asm/switch-to-first-matching-buffer (regex)
+  (switch-to-buffer
+   (car (remove-if-not
+         (apply-partially #'string-match-p regex)
+         (mapcar #'buffer-name (buffer-list))))))
+
+(defun asm/switch-to-ein-buffer ()
+  (interactive)
+  (asm/switch-to-first-matching-buffer
+   (rx-to-string `(seq bos "*ein: http://" (* any) eos))))
+
+(global-set-key (kbd "C-c C-e") 'asm/switch-to-ein-buffer)
 
 ;; whitespace-mode
 (setq whitespace-global-modes '(not
