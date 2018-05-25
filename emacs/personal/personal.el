@@ -564,7 +564,12 @@
 
 ;; key chords
 (require 'key-chord)
-(key-chord-define-global "ff" 'project-find-file)
-(key-chord-define-global "bb" 'crux-switch-to-previous-buffer)
-(key-chord-define-global "jj" 'helm-mini)
+(key-chord-define-global ";;" 'helm-mini)
+(key-chord-define-global ";f" 'projectile-find-file)
+(key-chord-define-global ":F" 'projectile-find-file-other-window)
+(key-chord-define-global ";g" 'magit-status)
+(key-chord-define-global ";b" 'crux-switch-to-previous-buffer)
+(key-chord-define-global ";w" 'ace-window)
+(key-chord-define-global ";l" 'goto-line)
+(key-chord-define-global ";k" 'avy-goto-line)
 (key-chord-mode +1)
