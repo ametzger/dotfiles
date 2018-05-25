@@ -36,7 +36,8 @@
                             pyenv-mode
                             helm-swoop
                             multiple-cursors
-                            yafolding))
+                            yafolding
+                            key-chord))
 
 ;; custom file extension mappings
 (add-to-list 'auto-mode-alist '("\\.cake\\'" . csharp-mode))
@@ -175,8 +176,36 @@
 (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
 
+;; (defun asm/split-window-prefer-side-by-side (window)
+;;   "Split WINDOW, preferably side by side."
+;;   (let ((split-height-threshold (and (< (window-width window)
+;;                                         split-width-threshold)
+;;                                      split-height-threshold)))
+;;     (split-window-sensibly window)))
+
+;; (setq split-window-preferred-function
+;;       #'asm/split-window-prefer-side-by-side)
+
+(defun asm/helm-find-ace-window (file)
+  "Use ‘ace-window' to select a window to display FILE."
+  (ace-select-window)
+  (find-file file))
+
+(add-to-list 'helm-find-files-actions
+             '("Find File in Ace window" . asm/helm-find-ace-window)
+             :append)
+
+(defun asm/helm-file-run-ace-window ()
+  (interactive)
+  (with-helm-alive-p
+    (helm-exit-and-execute-action 'asm/helm-file-ace-window)))
+
+(define-key helm-find-files-map (kbd "C-c C-c") #'asm/helm-file-run-ace-window)
+
+;; neotree
 (global-set-key [f8] 'neotree-toggle)
 
+;; mouse wheel
 (setq mouse-wheel-scroll-amount '(1))
                                         ; (setq mouse-wheel-progressive-speed nil)
 
@@ -419,7 +448,7 @@
       (select-window first-win)
       (if this-win-2nd (other-window 1))))))
 
-(global-set-key (kbd "C-x |") 'asm/toggle-window-split)
+(global-set-key (kbd "C-c |") 'asm/toggle-window-split)
 
 (setq vc-follow-symlinks t)
 
@@ -532,3 +561,9 @@
       '(not org-mode
             text-mode
             fundamental-mode))
+
+;; key chords
+(require 'key-chord)
+(key-chord-define-global "jj" 'project-find-file)
+(key-chord-define-global "bb" 'crux-switch-to-previous-buffer)
+(key-chord-mode +1)
