@@ -383,7 +383,9 @@
       (set-face-background 'default "unspecified-bg" (selected-frame)))))
 (add-hook 'window-setup-hook 'on-after-init)
 
+;; python stuff
 
+(setq python-fill-docstring-style 'django)
 
 ;; (require 'pyenv-mode)
 ;; (pyenv-mode)
