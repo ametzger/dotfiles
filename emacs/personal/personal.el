@@ -564,6 +564,7 @@
 
 ;; key chords
 (require 'key-chord)
-(key-chord-define-global "jj" 'project-find-file)
+(key-chord-define-global "ff" 'project-find-file)
 (key-chord-define-global "bb" 'crux-switch-to-previous-buffer)
+(key-chord-define-global "jj" 'helm-mini)
 (key-chord-mode +1)
