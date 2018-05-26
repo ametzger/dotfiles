@@ -578,3 +578,22 @@
 (key-chord-mode +1)
 
 (global-set-key (kbd "C-M-<backspace>") 'backward-kill-sentence)
+
+;; Courtesy of Xah Lee http://ergoemacs.org/emacs/emacs_toggle_comment_by_line.html
+(defun asm/comment-sanely ()
+  (interactive)
+  (if (region-active-p)
+      (comment-dwim nil)
+    (let (($lbp (line-beginning-position))
+          ($lep (line-end-position)))
+      (if (eq $lbp $lep)
+          (progn
+            (comment-dwim nil))
+        (if (eq (point) $lep)
+            (progn
+              (comment-dwim nil))
+          (progn
+            (comment-or-uncomment-region $lbp $lep)
+            (forward-line )))))))
+
+(global-set-key (kbd "M-;") 'asm/comment-sanely)
