@@ -111,23 +111,23 @@
 
 ;; configure Input Mono font with fallbacks
 (defun asm/setup-font ()
-  (let ((font-face (cond
-                    ((find-font (font-spec :name "Roboto Mono Medium for Powerline"))
-                     "Roboto Mono Medium for Powerline")
-                    ((find-font (font-spec :name "Operator Mono"))
-                     "Operator Mono")
-                    ((find-font (font-spec :name "Input"))
-                     "Input")
-                    ((find-font (font-spec :name "Input Mono"))
-                     "Input Mono")
-                    ((find-font (font-spec :name "Monaco"))
-                     "Monaco")
-                    ((find-font (font-spec :name "Consolas"))
-                     "Consolas")))
-        (font-size (if (eq system-type 'darwin) "16" "10")))
+  (let ((fonts '("Roboto Mono Medium for Powerline"
+                 "Operator Mono"
+                 "Input"
+                 "Input Mono"
+                 "Monaco"
+                 "Consolas"))
+        (font-size (if (eq system-type 'darwin)
+                       "16"
+                     "10")))
 
-    (if (not (eq system-type 'gnu/linux))
-        (set-frame-font (concat font-face "-" font-size) t t)))) ;; keep size, font for new frames
+    (unless (eq system-type 'gnu/linux)
+      (set-frame-font
+       (seq-some
+        (lambda (font-name)
+          (if (find-font (font-spec :name font-name))
+              (format "%s-%s" font-name font-size)))
+        fonts) t t))))
 
 (asm/setup-font)
 
