@@ -598,3 +598,6 @@
             (forward-line )))))))
 
 (global-set-key (kbd "M-;") 'asm/comment-sanely)
+
+;; Prelude unmarks the region on C-x C-x for some reason
+(advice-remove 'exchange-point-and-mark #'ad-Advice-exchange-point-and-mark)
