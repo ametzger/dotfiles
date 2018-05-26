@@ -575,6 +575,7 @@
 (key-chord-define-global ";l" 'goto-line)
 (key-chord-define-global ";k" 'avy-goto-line)
 (key-chord-define-global ";e" 'asm/switch-to-ein-buffer)
+(key-chord-define-global ";i" 'imenu-anywhere)
 (key-chord-mode +1)
 
 (global-set-key (kbd "C-M-<backspace>") 'backward-kill-sentence)
