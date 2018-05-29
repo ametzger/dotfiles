@@ -21,6 +21,11 @@
 
 (setq prelude-flyspell nil)
 
+;; darwin specific stuff
+(if (eq system-type 'darwin)
+    (progn (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+           (add-to-list 'default-frame-alist '(ns-appearance . dark))))
+
 ;; initialize packages
 (prelude-require-packages '(visual-regexp
                             solarized-theme
