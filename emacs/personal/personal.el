@@ -49,6 +49,7 @@
 (add-to-list 'auto-mode-alist '("\\.fish\\'" . fish-mode))
 (add-to-list 'auto-mode-alist '("\\.linq\\'" . csharp-mode))
 (add-to-list 'auto-mode-alist '("\\.tt\\'" . csharp-mode))
+(add-to-list 'auto-mode-alist '("Pipfile" . json-mode))
 
 ;; add line numbers
 ;; based on https://www.emacswiki.org/emacs/LineNumbers
