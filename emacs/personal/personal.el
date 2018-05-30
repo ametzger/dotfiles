@@ -237,8 +237,14 @@
 (global-set-key [f8] 'neotree-toggle)
 
 ;; mouse wheel
-(setq mouse-wheel-scroll-amount '(1))
+;; (setq mouse-wheel-scroll-amount '(1))
 ;; (setq mouse-wheel-progressive-speed nil)
+(mouse-wheel-mode)
+(setq mouse-wheel-follow-mouse 't)
+(when (fboundp 'pixel-scroll-mode)
+  (pixel-scroll-mode 1))
+
+;; nord theme
 ;; (setq nord-uniform-mode-lines t)
 (setq nord-region-highlight "frost")
 (setq nord-comment-brightness 15)
@@ -415,7 +421,6 @@
 ;; (add-hook 'window-setup-hook 'on-after-init)
 
 ;; python stuff
-
 (setq python-fill-docstring-style 'django)
 
 ;; (require 'pyenv-mode)
