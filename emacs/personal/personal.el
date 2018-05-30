@@ -94,11 +94,16 @@
 ;;      (global-set-key (kbd "<left-margin> <mouse-1>") 'mu-select-linum)
 ;;      (global-set-key (kbd "<left-margin> <drag-mouse-1>") 'mu-select-linum)))
 
-;; ;; include a line between the numbers and the buffer
-(setq linum-format "%4d \u2502")
-(require 'linum-off)
-(global-linum-mode t)
+;; line numbering
+
+;; include a line between the numbers and the buffer
+;; (setq linum-format "%4d \u2502")
+;; (require 'linum-off)
+;; (global-linum-mode t)
 ;; (hlinum-activate)
+
+(add-hook 'prog-mode-hook
+          (lambda () (display-line-numbers-mode t)))
 
 ;; org-mode
 ;; when org-mode starts, expand all nodes
