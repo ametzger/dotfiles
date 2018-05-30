@@ -640,3 +640,5 @@
 (defun asm/imenu-select-hook ()
   (recenter))
 (add-hook 'imenu-after-jump-hook 'asm/imenu-select-hook)
+
+(turn-off-smartparens-strict-mode)
