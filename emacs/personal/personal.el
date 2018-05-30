@@ -596,10 +596,12 @@
 (key-chord-define-global ";g" 'magit-status)
 (key-chord-define-global ";v" 'crux-switch-to-previous-buffer)
 (key-chord-define-global ";;" 'ace-window)
+(key-chord-define-global ";w" 'ace-window) ; muscle memory
 (key-chord-define-global ";l" 'goto-line)
 (key-chord-define-global ";k" 'avy-goto-line)
+(key-chord-define-global ";j" 'org-journal-new-entry)
 (key-chord-define-global ";e" 'asm/switch-to-ein-buffer)
-(key-chord-define-global ";i" 'imenu-anywhere)
+(key-chord-define-global ";i" 'imenu)
 (key-chord-mode +1)
 
 (global-set-key (kbd "C-M-<backspace>") 'backward-kill-sentence)
