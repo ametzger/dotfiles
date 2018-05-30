@@ -42,7 +42,8 @@
                             helm-swoop
                             multiple-cursors
                             yafolding
-                            key-chord))
+                            key-chord
+                            org-journal))
 
 ;; custom file extension mappings
 (add-to-list 'auto-mode-alist '("\\.cake\\'" . csharp-mode))
@@ -137,6 +138,11 @@
 (global-set-key (kbd "s-t") (lambda ()
                               (interactive)
                               (find-file org-default-notes-file)))
+
+;; org-journal
+(setq org-journal-dir "~/org/journal/")
+(global-unset-key (kbd "C-c C-j"))
+(global-set-key (kbd "C-c C-j") 'org-journal-new-entry)
 
 ;; configure Input Mono font with fallbacks
 (defun asm/setup-font ()
@@ -396,7 +402,7 @@
 ;; (desktop-save-mode 1)
 
 
-(avy-setup-default)
+;; (avy-setup-default)
 (global-set-key (kbd "C-:") 'avy-goto-char)
 (global-set-key (kbd "C-'") 'avy-goto-char-2)
 (global-set-key (kbd "M-g f") 'avy-goto-line)
