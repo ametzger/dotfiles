@@ -601,6 +601,8 @@
 (key-chord-define-global ";l" 'goto-line)
 (key-chord-define-global ";k" 'avy-goto-line)
 (key-chord-define-global ";j" 'org-journal-new-entry)
+(key-chord-define-global ";r" 'org-journal-new-entry)
+(key-chord-define-global ";t" 'org-journal-open-previous-entry)
 (key-chord-define-global ";e" 'asm/switch-to-ein-buffer)
 (key-chord-define-global ";i" 'imenu)
 (key-chord-mode +1)
@@ -630,6 +632,9 @@
 (global-unset-key (kbd "C-c o"))
 ;; Prelude unmarks the region on C-x C-x for some reason
 (advice-remove 'exchange-point-and-mark #'ad-Advice-exchange-point-and-mark)
+
+(setq scroll-margin 3)
+(setq recenter-positions '(middle top bottom))
 
 ;; imenu
 (defun asm/imenu-select-hook ()
