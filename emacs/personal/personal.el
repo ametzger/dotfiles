@@ -116,6 +116,24 @@
 (setq org-confirm-babel-evaluate nil)
 (setq org-default-notes-file "~/org/main.org")
 
+;; Insert full directory of files into org buffer
+(defun asm/org-insert-all-files-in-dir ()
+  (interactive)
+  (let ((dir (read-directory-name "Directory to insert: ")))
+    (mapc #'(lambda (file)
+              (let ((file-contents (with-temp-buffer
+                                     (insert-file-contents (concat dir file))
+                                     (indent-region (point-min) (point-max) 3)
+                                     (buffer-string))))
+                (insert (format "** %s\n\n%s\n\n" file file-contents))))
+          (cddr (directory-files dir)))))
+
+(defun asm/org-open-note ()
+  (interactive)
+  (let ((file-to-open (read-file-name "Open org file: " (expand-file-name "~/org/"))))
+    (find-file file-to-open)))
+(global-set-key (kbd "C-c C-n") 'asm/org-open-note)
+
 (global-set-key (kbd "s-t") (lambda ()
                               (interactive)
                               (find-file org-default-notes-file)))
@@ -384,17 +402,17 @@
 
 ;; disable background in terminal emacs
 ;; TODO this don't work
-(defun on-frame-open (frame)
-  (progn
-    (unless (display-graphic-p frame)
-      (set-face-background 'default "unspecified-bg" frame))))
-(add-hook 'after-make-frame-functions 'on-frame-open)
+;; (defun on-frame-open (frame)
+;;   (progn
+;;     (unless (display-graphic-p frame)
+;;       (set-face-background 'default "unspecified-bg" frame))))
+;; (add-hook 'after-make-frame-functions 'on-frame-open)
 
-(defun on-after-init ()
-  (progn
-    (unless (display-graphic-p (selected-frame))
-      (set-face-background 'default "unspecified-bg" (selected-frame)))))
-(add-hook 'window-setup-hook 'on-after-init)
+;; (defun on-after-init ()
+;;   (progn
+;;     (unless (display-graphic-p (selected-frame))
+;;       (set-face-background 'default "unspecified-bg" (selected-frame)))))
+;; (add-hook 'window-setup-hook 'on-after-init)
 
 ;; python stuff
 
@@ -543,24 +561,6 @@
 ;; (spaceline-spacemacs-theme)
 ;; (spaceline-helm-mode)
 
-;; Insert full directory of files into org buffer
-(defun asm/org-insert-all-files-in-dir ()
-  (interactive)
-  (let ((dir (read-directory-name "Directory to insert: ")))
-    (mapc #'(lambda (file)
-              (let ((file-contents (with-temp-buffer
-                                     (insert-file-contents (concat dir file))
-                                     (indent-region (point-min) (point-max) 3)
-                                     (buffer-string))))
-                (insert (format "** %s\n\n%s\n\n" file file-contents))))
-          (cddr (directory-files dir)))))
-
-(defun asm/org-open-note ()
-  (interactive)
-  (let ((file-to-open (read-file-name "Open org file: " (expand-file-name "~/org/"))))
-    (find-file file-to-open)))
-(global-set-key (kbd "C-c C-n") 'asm/org-open-note)
-
 ;; ergodox seems to break insert key? not sure why
 (global-set-key (kbd "C-c C-o") 'overwrite-mode)
 
@@ -612,5 +612,7 @@
 
 (global-set-key (kbd "M-;") 'asm/comment-sanely)
 
+;; prelude haxxx
+(global-unset-key (kbd "C-c o"))
 ;; Prelude unmarks the region on C-x C-x for some reason
 (advice-remove 'exchange-point-and-mark #'ad-Advice-exchange-point-and-mark)
