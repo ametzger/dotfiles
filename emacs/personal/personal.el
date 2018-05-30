@@ -629,3 +629,8 @@
 (global-unset-key (kbd "C-c o"))
 ;; Prelude unmarks the region on C-x C-x for some reason
 (advice-remove 'exchange-point-and-mark #'ad-Advice-exchange-point-and-mark)
+
+;; imenu
+(defun asm/imenu-select-hook ()
+  (recenter))
+(add-hook 'imenu-after-jump-hook 'asm/imenu-select-hook)
