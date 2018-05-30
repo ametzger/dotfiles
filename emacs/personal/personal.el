@@ -108,7 +108,7 @@
 
 ;; org-mode
 ;; when org-mode starts, expand all nodes
-(setq org-startup-folded t)
+(setq org-startup-folded "content")
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -141,6 +141,7 @@
 
 ;; org-journal
 (setq org-journal-dir "~/org/journal/")
+(setq org-journal-hide-entries-p nil)
 (global-unset-key (kbd "C-c C-j"))
 (global-set-key (kbd "C-c C-j") 'org-journal-new-entry)
 
