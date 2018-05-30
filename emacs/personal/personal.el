@@ -144,7 +144,9 @@
 
 ;; simple title
 (setq frame-title-format '(""
-                           "emacs :: "
+                           "emacs@"
+                           system-name
+                           " :: "
                            (:eval (if (buffer-file-name)
                                       (abbreviate-file-name (buffer-file-name))
                                     "%b"))))
