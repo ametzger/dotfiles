@@ -17,6 +17,10 @@ pushd ~/proj/vendor/prelude
 
 rm -rf personal
 ln -sf ~/proj/dotfiles/emacs/personal ~/proj/vendor/prelude/personal
+if [ -f ~/prelude-modules.el ]; then
+    rm -f ~/prelude-modules.el
+fi
+ln -sf ~/proj/dotfiles/emacs/prelude-modules.el ~/proj/vendor/prelude/prelude-modules.el
 
 if [[ -d ~/.emacs.d ]]; then
     echo 'Backing up existing emacs config to ~/.emacs.d.bak'

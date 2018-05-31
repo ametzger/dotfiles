@@ -43,7 +43,9 @@
                             multiple-cursors
                             yafolding
                             key-chord
-                            org-journal))
+                            org-journal
+                            linum-off
+                            pipenv))
 
 ;; custom file extension mappings
 (add-to-list 'auto-mode-alist '("\\.cake\\'" . csharp-mode))
@@ -96,24 +98,24 @@
 ;;      (global-set-key (kbd "<left-margin> <drag-mouse-1>") 'mu-select-linum)))
 
 ;; line numbering
-
-;; include a line between the numbers and the buffer
-;; (setq linum-format "%4d \u2502")
-;; (require 'linum-off)
-;; (global-linum-mode t)
 ;; (hlinum-activate)
 
-(add-hook 'prog-mode-hook
-          (lambda () (display-line-numbers-mode t)))
+(if (fboundp 'display-line-numbers-mode)
+    (add-hook 'prog-mode-hook
+              (lambda () (display-line-numbers-mode t)))
+  (progn
+    (setq linum-format "%4d \u2502")
+    (require 'linum-off)
+    (global-linum-mode t)))
 
 ;; org-mode
 ;; when org-mode starts, expand all nodes
 (setq org-startup-folded "content")
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((ipython . (executable-find "jupyter"))
-   (ruby . t)))
+;; (org-babel-do-load-languages
+;;  'org-babel-load-languages
+;;  '((ipython . (executable-find "jupyter"))
+;;    (ruby . t)))
 (setq org-confirm-babel-evaluate nil)
 (setq org-default-notes-file "~/org/main.org")
 
@@ -433,9 +435,10 @@
 ;; (require 'pyenv-mode)
 ;; (pyenv-mode)
 
-(require 'pipenv)
-(pipenv-mode)
-(add-hook 'python-mode-hook #'pipenv-mode)
+(when (executable-find "pipenv")
+  (require 'pipenv)
+  (pipenv-mode)
+  (add-hook 'python-mode-hook #'pipenv-mode))
 
 ;; TODO: pipenv seems to fuck with flycheck, need to defuckulate
 (setq pipenv-with-flycheck nil)
