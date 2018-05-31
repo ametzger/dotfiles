@@ -608,6 +608,8 @@
 (key-chord-define-global ";t" 'org-journal-open-previous-entry)
 (key-chord-define-global ";e" 'asm/switch-to-ein-buffer)
 (key-chord-define-global ";i" 'imenu)
+(key-chord-define-global ";a" 'imenu)
+(key-chord-define-global ";x" 'prodigy)
 (key-chord-mode +1)
 
 (global-set-key (kbd "C-M-<backspace>") 'backward-kill-sentence)
