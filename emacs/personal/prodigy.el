@@ -2,6 +2,10 @@
 
 (prelude-require-package 'prodigy)
 
+
+(prodigy-define-status :id 'starting :face 'prodigy-yellow-face)
+
+
 (prodigy-define-service
   :name "runserver"
   :command "pipenv"
@@ -11,7 +15,17 @@
   :port 8000
   :tags '(work python)
   :stop-signal 'sigint
-  :ready-message "Quit the server with CONTROL-C."
+  :on-output (lambda (&rest args)
+               (let ((output (plist-get args :output))
+                     (service (plist-get args :service)))
+                 ;;
+                 (cond ((s-matches? "Performing system checks..." output)
+                        (prodigy-set-status service 'starting))
+                       ((s-matches? "Quit the server with CONTROL-C." output)
+                        (prodigy-set-status service 'running))
+                       ((or (s-matches? "Traceback (most recent call last):" output)
+                            (s-matches? "Error:" output))
+                        (prodigy-set-status service 'failed)))))
   :kill-process-buffer-on-stop nil
   :url "http://localhost:8000")
 
@@ -27,15 +41,12 @@
                (let ((output (plist-get args :output))
                      (service (plist-get args :service)))
                  (cond ((s-matches? ": INFO/MainProcess] celery@[a-z-_]+ ready." output)
-                        (prodigy-set-status service 'ready))
+                        (prodigy-set-status service 'running))
                        ((s-matches? "Reloading celery worker..." output)
-                        (prodigy-set-status service 'stopping)))))
+                        (prodigy-set-status service 'starting))
+                       ((s-matches? "Traceback (most recent call last):" output)
+                        (prodigy-set-status service 'failed)))))
   :kill-process-buffer-on-stop nil)
-
-;; (let (token (cdr ein-token-matches))
-;;   ;; If we see the notebook's token, set up ein
-;;   (ein:notebooklist-login "8888" token)
-;;   (prodigy-set-status service 'ready))
 
 (prodigy-define-service
   :name "jupyter notebook"
@@ -54,7 +65,7 @@
                                           (prodigy-set-status service 'ready)
                                           (ein:notebooklist-login jupyter-port jupyter-token)))
                        ((s-matches? "The Jupyter Notebook is running at:" output)
-                        (prodigy-set-status service 'ready))
+                        (prodigy-set-status service 'running))
                        ((s-matches? "received signal [0-9]+, stopping" output)
                         (prodigy-set-status service 'stopping)))))
   :kill-process-buffer-on-stop nil)
