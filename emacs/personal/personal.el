@@ -645,3 +645,7 @@
 (add-hook 'imenu-after-jump-hook 'asm/imenu-select-hook)
 
 (turn-off-smartparens-strict-mode)
+
+(add-hook 'sql-interactive-mode-hook
+          (lambda ()
+            (toggle-truncate-lines t)))
