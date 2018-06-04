@@ -11,6 +11,12 @@
 ;; disable guru (warnings when arrow keys are used)
 (setq prelude-guru nil)
 
+(defun asm/switch-to-first-matching-buffer (regex)
+  (switch-to-buffer
+   (car (remove-if-not
+         (apply-partially #'string-match-p regex)
+         (mapcar #'buffer-name (buffer-list))))))
+
 ;; flycheck
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 (add-hook 'python-mode-hook (lambda ()
@@ -18,6 +24,16 @@
                               (setq flycheck-python-flake8-executable (expand-file-name "~/.local/bin/flake8"))
                               (setq flycheck-flake8rc ".flake8")
                               (setq flycheck-checker 'python-flake8)))
+
+(defun asm/switch-to-flycheck-error-buffer ()
+  (interactive)
+  (asm/switch-to-first-matching-buffer
+   (rx-to-string `(seq bos "*Flycheck errors*" eos))))
+
+(add-hook 'flycheck-list-errors-hook 'asm/switch-to-flycheck-error-buffer)
+
+;; TODO: pipenv seems to fuck with flycheck, need to defuckulate
+(setq pipenv-with-flycheck nil)
 
 (setq prelude-flyspell nil)
 
@@ -141,6 +157,12 @@
                               (interactive)
                               (find-file org-default-notes-file)))
 
+(defun asm/org-mode-hook ()
+  (auto-fill-mode))
+
+(add-hook 'org-mode-hook 'asm/org-mode-hook)
+(add-hook 'org-journal-mode-hook 'asm/org-mode-hook)
+
 ;; org-journal
 (setq org-journal-dir "~/org/journal/")
 (setq org-journal-hide-entries-p nil)
@@ -246,12 +268,12 @@
 (global-set-key [f8] 'neotree-toggle)
 
 ;; mouse wheel
-;; (setq mouse-wheel-scroll-amount '(1))
-;; (setq mouse-wheel-progressive-speed nil)
-(mouse-wheel-mode)
+(setq mouse-wheel-scroll-amount '(1))
+(setq mouse-wheel-progressive-speed nil)
+;; (mouse-wheel-mode)
 (setq mouse-wheel-follow-mouse 't)
-(when (fboundp 'pixel-scroll-mode)
-  (pixel-scroll-mode 1))
+;; (when (fboundp 'pixel-scroll-mode)
+;;   (pixel-scroll-mode 1))
 
 ;; nord theme
 ;; (setq nord-uniform-mode-lines t)
@@ -324,11 +346,6 @@
 ;; disable auto-completion
 (setq ein:use-auto-complete nil)
 
-(defun asm/switch-to-first-matching-buffer (regex)
-  (switch-to-buffer
-   (car (remove-if-not
-         (apply-partially #'string-match-p regex)
-         (mapcar #'buffer-name (buffer-list))))))
 
 (defun asm/switch-to-ein-buffer ()
   (interactive)
@@ -340,6 +357,7 @@
 ;; whitespace-mode
 (setq whitespace-global-modes '(not
                                 org-mode
+                                org-journal-mode
                                 ein:notebook-multilang-mode
                                 ein:notebook-mumamo-mode
                                 ein:notebook-python-mode
@@ -440,9 +458,6 @@
   (pipenv-mode)
   (add-hook 'python-mode-hook #'pipenv-mode))
 
-;; TODO: pipenv seems to fuck with flycheck, need to defuckulate
-(setq pipenv-with-flycheck nil)
-
 ;; projectile
 (setq projectile-mode-line '(:eval (format " [%s]" (projectile-project-name))))
 
@@ -518,7 +533,7 @@
 (global-unset-key (kbd "C-z"))
 
 ;; Unbind Command-N new-frame
-;; (global-set-key (kbd "s-n") nil)
+(global-set-key (kbd "s-n") nil)
 
 ;; C-return in isearch selects current match
 (defun asm/isearch-exit-mark-match ()
@@ -588,6 +603,7 @@
 ;; disable for org-mode and magit
 (setq company-global-modes
       '(not org-mode
+            org-journal-mode
             text-mode
             fundamental-mode))
 
@@ -604,8 +620,7 @@
 (key-chord-define-global ";l" 'goto-line)
 (key-chord-define-global ";k" 'avy-goto-line)
 (key-chord-define-global ";j" 'org-journal-new-entry)
-(key-chord-define-global ";r" 'org-journal-new-entry)
-(key-chord-define-global ";t" 'org-journal-open-previous-entry)
+(key-chord-define-global ";t" 'org-journal-new-entry)
 (key-chord-define-global ";e" 'asm/switch-to-ein-buffer)
 (key-chord-define-global ";i" 'imenu)
 (key-chord-define-global ";a" 'imenu)
@@ -643,7 +658,7 @@
 
 ;; imenu
 (defun asm/imenu-select-hook ()
-  (recenter))
+  (recenter scroll-margin))
 (add-hook 'imenu-after-jump-hook 'asm/imenu-select-hook)
 
 (turn-off-smartparens-strict-mode)
