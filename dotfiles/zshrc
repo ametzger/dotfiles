@@ -143,6 +143,10 @@ if [[ -d $HOME/proj/go ]]; then
   export PATH="$GOPATH/bin:$PATH"
 fi
 
+if command -v thefuck >/dev/null 2>&1; then
+    eval $(thefuck --alias)
+fi
+
 [ -f $HOME/.profile-private.sh ] && source ~/.profile-private.sh
 
 # [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
