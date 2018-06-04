@@ -2,9 +2,7 @@
 
 (prelude-require-package 'prodigy)
 
-
 (prodigy-define-status :id 'starting :face 'prodigy-yellow-face)
-
 
 (prodigy-define-service
   :name "runserver"
@@ -60,12 +58,28 @@
                (let* ((output (plist-get args :output))
                       (service (plist-get args :service))
                       (jupyter-matches (s-match "\\(http://localhost:[0-9]\\{4\\}\\)/\\?token=\\([A-Za-z0-9]+\\)" output)))
-                 (cond (jupyter-matches (let ((jupyter-port (cadr jupyter-matches))
+                 (cond (jupyter-matches (let ((jupyter-url (cadr jupyter-matches))
                                               (jupyter-token (caddr jupyter-matches)))
+                                          (message "Logging into %s with token %s" jupyter-url jupyter-token)
                                           (prodigy-set-status service 'ready)
-                                          (ein:notebooklist-login jupyter-port jupyter-token)))
+                                          (ein:notebooklist-login jupyter-url jupyter-token)))
                        ((s-matches? "The Jupyter Notebook is running at:" output)
                         (prodigy-set-status service 'running))
                        ((s-matches? "received signal [0-9]+, stopping" output)
-                        (prodigy-set-status service 'stopping)))))
+                        (prodigy-set-status service 'stopping))
+                       ((s-contains-p "Serving notebooks from local directory:" output)
+                        (prodigy-set-status service 'starting)))))
+  :kill-process-buffer-on-stop nil)
+
+(prodigy-define-service
+  :name "avexno demo"
+  :command "python2"
+  :args '("-m" "SimpleHTTPServer" "8080")
+  :cwd "~/Dropbox/jelly/Avexno/admin_html"
+  :path '("~/Dropbox/jelly/Avexno/admin_html")
+  :tags '(work python)
+  :stop-signal 'sigint
+  :ready-message "Serving HTTP on 0.0.0.0 port 8080 ..."
+  :port 8080
+  :url "http://localhost:8080"
   :kill-process-buffer-on-stop nil)
