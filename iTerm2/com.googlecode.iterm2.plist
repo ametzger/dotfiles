@@ -691,7 +691,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>1035 1317 796 473 0 0 3360 1868 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 914 3360 954 0 0 3360 1868 </string>
+	<string>0 1868 3360 954 0 0 3360 1868 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>1680 481 3360 1867 1680 480 3360 1868 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1034,7 +1034,7 @@
 			<key>Disable Window Resizing</key>
 			<true/>
 			<key>Flashing Bell</key>
-			<true/>
+			<false/>
 			<key>Foreground Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -1458,7 +1458,7 @@
 			<key>Vertical Spacing</key>
 			<real>1</real>
 			<key>Visual Bell</key>
-			<true/>
+			<false/>
 			<key>Window Type</key>
 			<integer>0</integer>
 			<key>Working Directory</key>
@@ -1792,7 +1792,7 @@
 			<key>Disable Window Resizing</key>
 			<true/>
 			<key>Flashing Bell</key>
-			<true/>
+			<false/>
 			<key>Foreground Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -2244,7 +2244,7 @@
 			<key>Vertical Spacing</key>
 			<real>1</real>
 			<key>Visual Bell</key>
-			<true/>
+			<false/>
 			<key>Window Type</key>
 			<integer>2</integer>
 			<key>Working Directory</key>
@@ -2337,7 +2337,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-05-29T15:01:35Z</date>
+	<date>2018-06-14T14:11:56Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>Secure Input</key>
