@@ -169,17 +169,22 @@
 (global-unset-key (kbd "C-c C-j"))
 (global-set-key (kbd "C-c C-j") 'org-journal-new-entry)
 
-;; configure Input Mono font with fallbacks
+;; configure font
 (defun asm/setup-font ()
-  (let ((fonts '("Roboto Mono Medium for Powerline"
-                 "Operator Mono"
+  (let ((fonts '("Operator Mono"
+                 "Roboto Mono Medium for Powerline"
                  "Input"
                  "Input Mono"
                  "Monaco"
                  "Consolas"))
         (font-size (if (eq system-type 'darwin)
-                       "16"
+                       "17"
                      "10")))
+
+    ;; Operator mono italic comments + doc strings
+    (custom-set-faces
+     '(font-lock-comment-face ((t (:foreground "#6d7a96" :slant italic))))
+     '(font-lock-doc-face ((t (:foreground "#6d7a96" :slant italic)))))
 
     (unless (eq system-type 'gnu/linux)
       (set-frame-font
@@ -345,7 +350,7 @@
 ;; ein
 ;; disable auto-completion
 (setq ein:use-auto-complete nil)
-
+(add-hook 'ein:notebook-mode-hook (lambda () (display-line-numbers-mode nil)))
 
 (defun asm/switch-to-ein-buffer ()
   (interactive)
