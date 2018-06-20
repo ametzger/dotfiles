@@ -83,3 +83,22 @@
   :port 8080
   :url "http://localhost:8080"
   :kill-process-buffer-on-stop nil)
+
+;; (prodigy-define-service
+;;   :name "skipper"
+;;   :command "pipenv"
+;;   :args '("run" "flask" "run")
+;;   :cwd "~/proj/jellyfish"
+;;   :path '("~/proj/jellyfish")
+;;   :tags '(work python)
+;;   :stop-signal 'sigint
+;;   :on-output (lambda (&rest args)
+;;                (let ((output (plist-get args :output))
+;;                      (service (plist-get args :service)))
+;;                  (cond ((s-matches? ": INFO/MainProcess] celery@[a-z-_]+ ready." output)
+;;                         (prodigy-set-status service 'running))
+;;                        ((s-matches? "Reloading celery worker..." output)
+;;                         (prodigy-set-status service 'starting))
+;;                        ((s-matches? "Traceback (most recent call last):" output)
+;;                         (prodigy-set-status service 'failed)))))
+;;   :kill-process-buffer-on-stop nil)
