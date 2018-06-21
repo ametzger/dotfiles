@@ -181,10 +181,11 @@
                        "17"
                      "10")))
 
-    ;; Operator mono italic comments + doc strings
+    ;; Operator mono italic comments + doc strings + keywords (e.g. defun)
     (custom-set-faces
      '(font-lock-comment-face ((t (:foreground "#6d7a96" :slant italic))))
-     '(font-lock-doc-face ((t (:foreground "#6d7a96" :slant italic)))))
+     '(font-lock-doc-face ((t (:foreground "#6d7a96" :slant italic))))
+     '(font-lock-keyword-face ((t (:foreground "#81A1C1" :slant italic)))))
 
     (unless (eq system-type 'gnu/linux)
       (set-frame-font
