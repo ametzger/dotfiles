@@ -682,3 +682,6 @@
 
 (global-set-key (kbd "C-h v") #'helpful-variable)
 (global-set-key (kbd "C-h k") #'helpful-key)
+
+(add-hook 'web-mode-hook
+          (lambda () (setq web-mode-markup-indent-offset 2)))
