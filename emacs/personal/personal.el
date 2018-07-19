@@ -19,6 +19,10 @@
 
 ;; flycheck
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+
+(if (executable-find "mypy")
+    (require 'flycheck-mypy))
+
 (add-hook 'python-mode-hook (lambda ()
                               (flycheck-mode 1)
                               (setq flycheck-python-flake8-executable (expand-file-name "~/.local/bin/flake8"))
@@ -61,7 +65,8 @@
                             key-chord
                             org-journal
                             linum-off
-                            pipenv))
+                            pipenv
+                            helpful))
 
 ;; custom file extension mappings
 (add-to-list 'auto-mode-alist '("\\.cake\\'" . csharp-mode))
@@ -351,7 +356,7 @@
 ;; ein
 ;; disable auto-completion
 (setq ein:use-auto-complete nil)
-(add-hook 'ein:notebook-mode-hook (lambda () (display-line-numbers-mode nil)))
+(add-hook 'ein:notebook-mode-hook (lambda () (display-line-numbers-mode 0)))
 
 (defun asm/switch-to-ein-buffer ()
   (interactive)
@@ -621,7 +626,6 @@
 (key-chord-define-global ";s" 'helm-projectile-ag)
 (key-chord-define-global ";g" 'magit-status)
 (key-chord-define-global ";v" 'crux-switch-to-previous-buffer)
-(key-chord-define-global ";;" 'ace-window)
 (key-chord-define-global ";w" 'ace-window) ; muscle memory
 (key-chord-define-global ";l" 'goto-line)
 (key-chord-define-global ";k" 'avy-goto-line)
@@ -672,3 +676,9 @@
 (add-hook 'sql-interactive-mode-hook
           (lambda ()
             (toggle-truncate-lines t)))
+;; helpful
+;; from https://github.com/Wilfred/helpful#usage
+(global-set-key (kbd "C-h f") #'helpful-callable)
+
+(global-set-key (kbd "C-h v") #'helpful-variable)
+(global-set-key (kbd "C-h k") #'helpful-key)
