@@ -355,8 +355,11 @@
 
 ;; ein
 ;; disable auto-completion
-(setq ein:use-auto-complete nil)
-(add-hook 'ein:notebook-mode-hook (lambda () (display-line-numbers-mode 0)))
+(setq ein:use-auto-complete 0)
+(add-hook 'ein:notebook-mode-hook
+          (lambda ()
+            (display-line-numbers-mode 0)
+            (whitespace-mode 0)))
 
 (defun asm/switch-to-ein-buffer ()
   (interactive)
@@ -684,4 +687,5 @@
 (global-set-key (kbd "C-h k") #'helpful-key)
 
 (add-hook 'web-mode-hook
-          (lambda () (setq web-mode-markup-indent-offset 2)))
+          (lambda ()
+            (setq web-mode-markup-indent-offset 2)))
