@@ -689,3 +689,6 @@
 (add-hook 'web-mode-hook
           (lambda ()
             (setq web-mode-markup-indent-offset 2)))
+
+;; magit
+(setq vc-handled-backends nil)
