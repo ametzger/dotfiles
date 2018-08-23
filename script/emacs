@@ -3,12 +3,12 @@
 
 echo 'Setting up Emacs...'
 
-if [[ ! -d '~/proj/vendor' ]]; then
+if [ ! -d '~/proj/vendor' ]; then
     echo 'Creating ~/proj/vendor directory...'
     mkdir -p ~/proj/vendor
 fi
 
-if [[ ! -d '~/proj/vendor/prelude' ]]; then
+if [ ! -d '~/proj/vendor/prelude' ]; then
     echo 'Cloning Prelude to ~/proj/vendor/prelude'
     git clone https://github.com/bbatsov/prelude.git ~/proj/vendor/prelude
 fi
