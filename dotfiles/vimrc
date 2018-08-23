@@ -55,24 +55,25 @@ Plug 'scrooloose/nerdtree'
 Plug 'jnurmine/Zenburn'
 Plug 'scrooloose/nerdcommenter'
 Plug 'chr4/nginx.vim'
-Plug 'dracula/vim'
-Plug 'arcticicestudio/nord-vim'
+" Plug 'dracula/vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+" Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
 set background=dark
 if has('gui_running')
     try
-        colorscheme nord
+        colorscheme dracula
     catch
     endtry
 
     try
-        set guifont=Operator\ Mono\ Book:h14
+        set guifont=Operator\ Mono\ Book:h17
     catch
     endtry
 else
-    colorscheme zenburn
+    colorscheme dracula
 endif
 
 filetype plugin indent on
