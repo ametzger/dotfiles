@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
+	"color_scheme": "Packages/Dracula Color Scheme/Dracula.tmTheme",
 	"folder_exclude_patterns":
 	[
 		"__pycache__"
@@ -8,8 +8,7 @@
 	"font_size": 14,
 	"ignored_packages":
 	[
-		"Package Control",
 		"Vintage"
 	],
-	"theme": "Soda Dark.sublime-theme"
+	"theme": "Soda Dark 3.sublime-theme"
 }

@@ -101,6 +101,7 @@ alias ll='ls -lah'
 alias e='emacsclient -n -t'
 alias p="pipenv run"
 alias m="p python manage.py"
+alias tf="terraform"
 
 ## iterm2 integration
 # if [[ -f $HOME/.iterm2_shell_integration.zsh ]]; then
