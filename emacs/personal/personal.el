@@ -218,6 +218,8 @@
 (setq tab-width 2)
 (setq standard-indent 2)
 (setq js-indent-level 2)
+(setq nginx-indent-level 2)
+
 
 ;; map left super key on Winders
 (when (eq system-type 'windows-nt)
@@ -369,6 +371,8 @@
 (global-set-key (kbd "C-c C-e") 'asm/switch-to-ein-buffer)
 
 ;; whitespace-mode
+(setq whitespace-style '(faces))
+
 (setq whitespace-global-modes '(not
                                 org-mode
                                 org-journal-mode
