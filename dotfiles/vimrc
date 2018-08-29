@@ -56,15 +56,15 @@ Plug 'jnurmine/Zenburn'
 Plug 'scrooloose/nerdcommenter'
 Plug 'chr4/nginx.vim'
 " Plug 'dracula/vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
-" Plug 'arcticicestudio/nord-vim'
+" Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'arcticicestudio/nord-vim'
 
 call plug#end()
 
 set background=dark
 if has('gui_running')
     try
-        colorscheme dracula
+        colorscheme nord
     catch
     endtry
 
@@ -73,7 +73,7 @@ if has('gui_running')
     catch
     endtry
 else
-    colorscheme dracula
+    colorscheme nord
 endif
 
 filetype plugin indent on
