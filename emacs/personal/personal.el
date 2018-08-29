@@ -220,7 +220,6 @@
 (setq js-indent-level 2)
 (setq nginx-indent-level 2)
 
-
 ;; map left super key on Winders
 (when (eq system-type 'windows-nt)
   (setq w32-pass-lwindow-to-system nil)
@@ -229,6 +228,9 @@
 ;; remap super => control on mac
 ;; (if (eq system-type 'darwin)
 ;;     (setq mac-command-modifier 'control))
+
+(if (eq system-type 'darwin)
+    (setq ns-use-srgb-colorspace nil))
 
 ;; live regex search
 (define-key global-map (kbd "C-c C-r") 'vr/replace)
@@ -452,6 +454,13 @@
 
 
 ;; disable background in terminal emacs
+(defun asm/on-frame-open (&optional frame)
+  "If the FRAME created in terminal don't load background color."
+  (unless (display-graphic-p frame)
+    (set-face-background 'default "unspecified-bg" frame)))
+
+(add-hook 'after-make-frame-functions 'asm/on-frame-open)
+
 ;; TODO this don't work
 ;; (defun on-frame-open (frame)
 ;;   (progn
