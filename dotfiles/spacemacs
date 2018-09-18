@@ -332,23 +332,16 @@ you should place your code here."
   (if (eq system-type 'darwin)
       (progn (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
              (add-to-list 'default-frame-alist '(ns-appearance . dark))
-             (setq ns-use-srgb-colorspace t)
-             (setq ns-use-proxy-icon nil)))
+             (setq ns-use-srgb-colorspace t
+                   ns-use-proxy-icon nil)))
 
-  (setq magit-repository-directories '("~/proj/"))
-  (setq nord-region-highlight "frost")
-  (setq nord-comment-brightness 15)
-
-  (setq confirm-kill-emacs 'y-or-n-p)
-
-  (setq frame-title-format nil)
-  ;; (setq frame-title-format '(""
-  ;;                            "emacs@"
-  ;;                            system-name
-  ;;                            " :: "
-  ;;                            (:eval (if (buffer-file-name)
-  ;;                                       (abbreviate-file-name (buffer-file-name))
-  ;;                                     "%b"))))
+  (setq magit-repository-directories '("~/proj/")
+        nord-region-highlight "frost"
+        nord-comment-brightness 15
+        confirm-kill-emacs 'y-or-n-p
+        frame-title-format nil
+        vc-follow-symlinks t
+        scroll-margin 3)
 
   (custom-set-faces
    '(font-lock-comment-face ((t (:foreground "#6d7a96" :slant italic))))
