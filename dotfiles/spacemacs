@@ -315,6 +315,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq-default js2-basic-offset 2
                 js-indent-level 2
+                web-mode-markup-indent-offset 2
                 flycheck-python-flake8-executable (expand-file-name "~/.pyenv/shims/flake8")
                 flycheck-flake8rc ".flake8"
                 flycheck-python-pycompile-executable (expand-file-name "~/.pyenv/shims/python")
