@@ -42,11 +42,9 @@ values."
      markdown
      syntax-checking
      dash
-     docker
      nginx
      terraform
      tmux
-     vagrant
      (shell :variables
             shell-default-position 'bottom
             shell-default-height 30
@@ -343,6 +341,11 @@ you should place your code here."
         frame-title-format nil
         vc-follow-symlinks t
         scroll-margin 3)
+
+  (global-set-key [(meta shift up)] 'move-text-up)
+  (global-set-key [(meta shift down)] 'move-text-down)
+
+  (add-to-list 'dash-at-point-mode-alist '(python-mode . "asmdj"))
 
   (custom-set-faces
    '(font-lock-comment-face ((t (:foreground "#6d7a96" :slant italic))))
