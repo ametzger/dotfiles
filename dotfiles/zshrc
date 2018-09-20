@@ -151,6 +151,10 @@ if [[ -d $HOME/proj/go ]]; then
   export PATH="$GOPATH/bin:$PATH"
 fi
 
+if [[ -d "/Applications/VMWare Fusion.app/Contents/Library" ]]; then
+  export PATH="$PATH:/Applications/VMWare Fusion.app/Contents/Library"
+fi
+
 if command -v thefuck >/dev/null 2>&1; then
     eval $(thefuck --alias)
 fi
