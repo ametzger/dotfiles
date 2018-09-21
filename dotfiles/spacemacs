@@ -106,7 +106,7 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'vim
+   dotspacemacs-editing-style 'hybrid
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -182,7 +182,7 @@ values."
    dotspacemacs-display-default-layout nil
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-resume-layouts t
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
@@ -317,8 +317,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
                 flycheck-python-flake8-executable (expand-file-name "~/.pyenv/shims/flake8")
                 flycheck-flake8rc ".flake8"
                 flycheck-python-pycompile-executable (expand-file-name "~/.pyenv/shims/python")
-                flycheck-python-mypy-executable (expand-file-name "~/.pyenv/shims/mypy"))
-  )
+                flycheck-python-mypy-executable (expand-file-name "~/.pyenv/shims/mypy")
+                confirm-kill-emacs 'y-or-n-p
+                python-fill-docstring-style 'django)
+  (add-to-list 'dash-at-point-mode-alist '(python-mode . "asmdj")))
 
 
 (defun dotspacemacs/user-config ()
@@ -345,33 +347,13 @@ you should place your code here."
   (global-set-key [(meta shift up)] 'move-text-up)
   (global-set-key [(meta shift down)] 'move-text-down)
 
-  (add-to-list 'dash-at-point-mode-alist '(python-mode . "asmdj"))
-
   (custom-set-faces
    '(font-lock-comment-face ((t (:foreground "#6d7a96" :slant italic))))
    '(font-lock-doc-face ((t (:foreground "#6d7a96" :slant italic))))
-   '(font-lock-keyword-face ((t (:foreground "#81A1C1" :slant italic)))))
-  )
+   '(font-lock-keyword-face ((t (:foreground "#81A1C1" :slant italic))))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-names-vector
-   ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
- '(package-selected-packages
-   '(yasnippet-snippets web-beautify livid-mode skewer-mode simple-httpd js2-refactor multiple-cursors js2-mode js-doc company-tern tern coffee-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode company-anaconda anaconda-mode pythonic xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help yaml-mode vagrant-tramp vagrant terraform-mode hcl-mode nginx-mode jinja2-mode helm-dash dockerfile-mode docker json-mode tablist docker-tramp json-snatcher json-reformat dash-at-point company-ansible ansible-doc ansible powerline spinner hydra parent-mode projectile helm-gitignore gh-md pkg-info epl flx smartparens iedit anzu evil goto-chg undo-tree highlight f dash s bind-map bind-key packed helm avy helm-core async popup unfill smeargle orgit mwim markdown-toc markdown-mode magit-gitflow helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit ghub with-editor auto-yasnippet ac-ispell auto-complete nord-theme yasnippet mmm-mode company-statistics company ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(font-lock-comment-face ((t (:foreground "#6d7a96" :slant italic))))
- '(font-lock-doc-face ((t (:foreground "#6d7a96" :slant italic))))
- '(font-lock-keyword-face ((t (:foreground "#81A1C1" :slant italic)))))
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
