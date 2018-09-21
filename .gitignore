@@ -6,3 +6,4 @@ dotfiles/ssh/config.private
 dotfiles/ssh/id_rsa*
 dotfiles/ssh/*.pem
 dotfiles/ssh/known_hosts
+dotfiles/ssh/authorized_keys
