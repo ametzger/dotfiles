@@ -7,7 +7,7 @@ set tabstop=2
 set shiftwidth=2
 
 set mouse=a
-set cursorline                  " Highlight the current line
+" set cursorline                  " Highlight the current line
 set lazyredraw                  " Faster scrolling
 set number relativenumber       " Show line number
 set showcmd                     " Show current command
@@ -124,4 +124,29 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
+
+" insert mode
+imap <C-b> <Left>
+imap <C-f> <Right>
+imap <C-e> <End>
+imap <C-d> <Del>
+imap <C-h> <BS>
+imap <C-w> <Esc>ddi
+
+" command line mode
+cmap <C-p> <Up>
+cmap <C-n> <Down>
+cmap <C-b> <Left>
+cmap <C-f> <Right>
+cmap <C-a> <Home>
+cmap <C-e> <End>
+cnoremap <C-d> <Del>
+cnoremap <C-h> <BS>
+cnoremap <C-k> <C-f>D<C-c><C-c>:<Up>
+
+" command-T window
+let g:CommandTCursorLeftMap  = ['<Left>',  '<C-b>']
+let g:CommandTCursorRightMap = ['<Right>', '<C-f>']
+let g:CommandTBackspaceMap   = ['<BS>',    '<C-h>']
+let g:CommandTDeleteMap      = ['<Del>',   '<C-d>']
 
