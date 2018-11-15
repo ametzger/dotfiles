@@ -602,7 +602,7 @@
 	<key>HotKeyTogglesWindow</key>
 	<true/>
 	<key>Hotkey</key>
-	<false/>
+	<true/>
 	<key>HotkeyChar</key>
 	<integer>32</integer>
 	<key>HotkeyCode</key>
@@ -610,7 +610,7 @@
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>HotkeyModifiers</key>
-	<integer>524288</integer>
+	<integer>524608</integer>
 	<key>JobName</key>
 	<true/>
 	<key>LeftOption</key>
@@ -620,8 +620,10 @@
 	<key>MaxVertically</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/proj/dotfiles/iTerm2</string>
+	<string>~/Desktop</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
+	<string>{712, 448}</string>
+	<key>NSNavPanelExpandedSizeForSaveMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
@@ -657,11 +659,11 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>2402 106 807 94 0 0 3360 1868 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>682 589 620 392 0 0 1920 1178 </string>
+	<string>1370 1107 620 392 0 0 3360 1868 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>962 262 770 429 0 0 3360 1868 </string>
+	<string>962 242 796 486 0 0 3360 1890 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1675 1868 0 0 3360 1868 </string>
+	<string>0 1868 3360 676 0 0 3360 1868 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>247 132 650 452 0 0 1920 1178 </string>
 	<key>NeverWarnAboutMeta</key>
@@ -1012,8 +1014,34 @@
 			</dict>
 			<key>Guid</key>
 			<string>DA3459E6-F727-466F-A0C1-C568754F3EDA</string>
+			<key>Has Hotkey</key>
+			<false/>
 			<key>Horizontal Spacing</key>
 			<real>0.99597609186746983</real>
+			<key>HotKey Activated By Modifier</key>
+			<false/>
+			<key>HotKey Alternate Shortcuts</key>
+			<array/>
+			<key>HotKey Characters</key>
+			<string>	</string>
+			<key>HotKey Characters Ignoring Modifiers</key>
+			<string>	</string>
+			<key>HotKey Key Code</key>
+			<integer>48</integer>
+			<key>HotKey Modifier Activation</key>
+			<integer>0</integer>
+			<key>HotKey Modifier Flags</key>
+			<integer>524288</integer>
+			<key>HotKey Window Animates</key>
+			<true/>
+			<key>HotKey Window AutoHides</key>
+			<true/>
+			<key>HotKey Window Dock Click Action</key>
+			<integer>0</integer>
+			<key>HotKey Window Floats</key>
+			<true/>
+			<key>HotKey Window Reopens On Activation</key>
+			<false/>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Jobs to Ignore</key>
@@ -1785,7 +1813,7 @@
 			<key>HotKey Alternate Shortcuts</key>
 			<array/>
 			<key>HotKey Characters</key>
-			<string> </string>
+			<string> </string>
 			<key>HotKey Characters Ignoring Modifiers</key>
 			<string> </string>
 			<key>HotKey Key Code</key>
@@ -1793,7 +1821,7 @@
 			<key>HotKey Modifier Activation</key>
 			<integer>0</integer>
 			<key>HotKey Modifier Flags</key>
-			<integer>524288</integer>
+			<integer>786432</integer>
 			<key>HotKey Window Animates</key>
 			<true/>
 			<key>HotKey Window AutoHides</key>
@@ -2233,6 +2261,8 @@
 	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
+	<key>NoSyncSaveDocumentAsPathSet_saveDocumentAs:</key>
+	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>555365720.65638697</real>
 	<key>OpenArrangementAtStartup</key>
@@ -2295,7 +2325,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-09-18T21:56:47Z</date>
+	<date>2018-10-23T16:55:52Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -2319,7 +2349,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.2.0</string>
+	<string>3.2.3</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
