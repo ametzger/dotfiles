@@ -30,10 +30,14 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(ruby
+   '(go
+     html
+     ruby
      yaml
-     sql
-     python
+     (python :variables
+             python-backend 'anaconda
+             python-auto-set-local-pyenv-version 'on-project-switch
+             python-auto-set-local-pyvenv-virtualenv nil)
      helm
      auto-completion
      better-defaults
@@ -44,6 +48,7 @@ values."
      dash
      nginx
      terraform
+     docker
      tmux
      (shell :variables
             shell-default-position 'bottom
@@ -136,11 +141,16 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Operator Mono"
-                               :size 17
-                               :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
+   dotspacemacs-default-font (let ((fonts '("Operator Mono"
+                                            "Roboto Mono for Powerline"
+                                            "Source Code Pro")))
+                               (mapcar (lambda (font)
+                                         `(,font
+                                           :size 17
+                                           :weight normal
+                                           :width normal
+                                           :powerline-scale 1.1))
+                                       fonts))
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -163,7 +173,7 @@ values."
    ;; and TAB or <C-m> and RET.
    ;; In the terminal, these pairs are generally indistinguishable, so this only
    ;; works in the GUI. (default nil)
-   dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-distinguish-gui-tab t
    ;; If non nil `Y' is remapped to `y$' in Evil states. (default nil)
    dotspacemacs-remap-Y-to-y$ nil
    ;; If non-nil, the shift mappings `<' and `>' retain visual state if used
@@ -182,7 +192,7 @@ values."
    dotspacemacs-display-default-layout nil
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts t
+   dotspacemacs-auto-resume-layouts nil
    ;; Size (in MB) above which spacemacs will prompt to open the large file
    ;; literally to avoid performance issues. Opening a file literally means that
    ;; no major mode or minor modes are active. (default is 1)
@@ -269,7 +279,7 @@ values."
                           markdown-mode
                           org-mode
                           text-mode
-      :size-limit-kb 1000) 
+      :size-limit-kb 1000)
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -300,7 +310,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'changed
    dotspacemacs-mode-line-theme '(spacemacs :separator slant :separator-scale 1.5)
    ))
 
@@ -314,13 +324,17 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq-default js2-basic-offset 2
                 js-indent-level 2
                 web-mode-markup-indent-offset 2
+                web-mode-code-indent-offset 2
+                web-mode-css-indent-offset 2
+                web-mode-sql-indent-offset 2
+                web-mode-enable-auto-indentation nil
                 flycheck-python-flake8-executable (expand-file-name "~/.pyenv/shims/flake8")
                 flycheck-flake8rc ".flake8"
                 flycheck-python-pycompile-executable (expand-file-name "~/.pyenv/shims/python")
                 flycheck-python-mypy-executable (expand-file-name "~/.pyenv/shims/mypy")
                 confirm-kill-emacs 'y-or-n-p
                 python-fill-docstring-style 'django)
-  (add-to-list 'dash-at-point-mode-alist '(python-mode . "asmdj")))
+  )
 
 
 (defun dotspacemacs/user-config ()
@@ -339,7 +353,6 @@ you should place your code here."
   (setq magit-repository-directories '("~/proj/")
         nord-region-highlight "frost"
         nord-comment-brightness 15
-        confirm-kill-emacs 'y-or-n-p
         frame-title-format nil
         vc-follow-symlinks t
         scroll-margin 3)
@@ -367,7 +380,7 @@ This function is called at the very end of Spacemacs initialization."
  '(ansi-color-names-vector
    ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(package-selected-packages
-   '(seeing-is-believing rvm ruby-tools ruby-test-mode ruby-refactor ruby-hash-syntax rubocop rspec-mode robe rbenv rake minitest helm-gtags ggtags enh-ruby-mode counsel-gtags chruby bundler inf-ruby yasnippet-snippets web-beautify livid-mode skewer-mode simple-httpd js2-refactor multiple-cursors js2-mode js-doc company-tern tern coffee-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode company-anaconda anaconda-mode pythonic xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help yaml-mode vagrant-tramp vagrant terraform-mode hcl-mode nginx-mode jinja2-mode helm-dash dockerfile-mode docker json-mode tablist docker-tramp json-snatcher json-reformat dash-at-point company-ansible ansible-doc ansible powerline spinner hydra parent-mode projectile helm-gitignore gh-md pkg-info epl flx smartparens iedit anzu evil goto-chg undo-tree highlight f dash s bind-map bind-key packed helm avy helm-core async popup unfill smeargle orgit mwim markdown-toc markdown-mode magit-gitflow helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit ghub with-editor auto-yasnippet ac-ispell auto-complete nord-theme yasnippet mmm-mode company-statistics company ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+   '(lsp-go lsp-mode helm-gtags godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc ggtags flycheck-gometalinter flycheck-golangci-lint counsel-gtags company-go go-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode impatient-mode htmlize helm-css-scss haml-mode emmet-mode counsel-css company-web web-completion-data add-node-modules-path yasnippet-snippets web-beautify livid-mode skewer-mode simple-httpd js2-refactor multiple-cursors js2-mode js-doc company-tern tern coffee-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode company-anaconda anaconda-mode pythonic xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help yaml-mode vagrant-tramp vagrant terraform-mode hcl-mode nginx-mode jinja2-mode helm-dash dockerfile-mode docker json-mode tablist docker-tramp json-snatcher json-reformat dash-at-point company-ansible ansible-doc ansible powerline spinner hydra parent-mode projectile helm-gitignore gh-md pkg-info epl flx smartparens iedit anzu evil goto-chg undo-tree highlight f dash s bind-map bind-key packed helm avy helm-core async popup unfill smeargle orgit mwim markdown-toc markdown-mode magit-gitflow helm-company helm-c-yasnippet gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link fuzzy flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit ghub with-editor auto-yasnippet ac-ispell auto-complete nord-theme yasnippet mmm-mode company-statistics company ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
