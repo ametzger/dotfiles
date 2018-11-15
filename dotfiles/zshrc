@@ -105,9 +105,10 @@ alias gu="git up"
 alias ll='ls -lah'
 
 alias vim='nvim'
-alias e='emacsclient -nw'
+alias e='emacsclient -n'
 alias p="pipenv run"
 alias m="p python manage.py"
+alias sp="m shell_plus"
 alias tf="terraform"
 
 ## iterm2 integration
