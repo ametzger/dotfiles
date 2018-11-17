@@ -128,10 +128,15 @@ autocmd FileType python setlocal shiftwidth=4 tabstop=4
 " insert mode
 imap <C-b> <Left>
 imap <C-f> <Right>
+imap <C-a> <Home>
 imap <C-e> <End>
 imap <C-d> <Del>
 imap <C-h> <BS>
 imap <C-w> <Esc>ddi
+imap <C-_> <Esc>ui
+imap <M-d> <Esc>dwi
+imap <M-b> <Esc>bi
+imap <M-f> <Esc>wi
 
 " command line mode
 cmap <C-p> <Up>
