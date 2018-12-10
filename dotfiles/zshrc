@@ -91,14 +91,23 @@ PURE_GIT_PULL=0
 autoload -U compinit && compinit
 
 export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
+## OS-specific
+case `uname` in
+  Darwin)
+    export HOMEBREW_NO_ANALYTICS=1
+    export VAGRANT_DEFAULT_PROVIDER="parallels"
+
+    alias bu="brew update && brew upgrade"
+  ;;
+  Linux)
+    export VAGRANT_DEFAULT_PROVIDER="libvirt"
+  ;;
+esac
 
 ## vendor exports
-export HOMEBREW_NO_ANALYTICS=1
-export VAGRANT_DEFAULT_PROVIDER="parallels"
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 
 ## aliases
-alias bu="brew update && brew upgrade"
 
 alias gs="git s"
 alias gd="git d"
