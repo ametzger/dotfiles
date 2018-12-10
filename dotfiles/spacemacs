@@ -366,7 +366,10 @@ you should place your code here."
   (global-set-key [(meta shift up)] 'move-text-up)
   (global-set-key [(meta shift down)] 'move-text-down)
 
-  (custom-set-faces
+  (define-key evil-insert-state-map (kbd "<C-return>") "\C-e\C-j")
+  (define-key evil-insert-state-map (kbd "<S-return>") "\C-a\C-o")
+
+   (custom-set-faces
    '(font-lock-comment-face ((t (:foreground "#6d7a96" :slant italic))))
    '(font-lock-doc-face ((t (:foreground "#6d7a96" :slant italic))))
    '(font-lock-keyword-face ((t (:foreground "#81A1C1" :slant italic))))))
