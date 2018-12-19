@@ -95,6 +95,7 @@ export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 case `uname` in
   Darwin)
     export HOMEBREW_NO_ANALYTICS=1
+    export HOMEBREW_INSTALL_CLEANUP=1 
     export VAGRANT_DEFAULT_PROVIDER="parallels"
 
     alias bu="brew update && brew upgrade"
