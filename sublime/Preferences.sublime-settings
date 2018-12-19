@@ -1,11 +1,11 @@
 {
-	"color_scheme": "Packages/Dracula Color Scheme/Dracula.tmTheme",
+	"color_scheme": "Packages/nord-sublime-text/Nord.tmTheme",
 	"folder_exclude_patterns":
 	[
 		"__pycache__"
 	],
 	"font_face": "Operator Mono",
-	"font_size": 14,
+	"font_size": 16,
 	"ignored_packages":
 	[
 		"Vintage"
