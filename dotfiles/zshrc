@@ -99,6 +99,12 @@ case `uname` in
     export VAGRANT_DEFAULT_PROVIDER="parallels"
 
     alias bu="brew update && brew upgrade"
+
+    # See https://github.com/pyenv/pyenv/issues/1219
+
+    if command -v xcrun >/dev/null 2>&1; then
+      export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+    fi
   ;;
   Linux)
     export VAGRANT_DEFAULT_PROVIDER="libvirt"
