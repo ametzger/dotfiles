@@ -48,8 +48,8 @@ set hlsearch
 call plug#begin('~/.vim/plugged')
 
 Plug 'haya14busa/incsearch.vim'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'kien/ctrlp.vim'
+"Plug 'vim-scripts/indentpython.vim'
+"Plug 'kien/ctrlp.vim'
 "Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
@@ -57,6 +57,7 @@ Plug 'chr4/nginx.vim'
 " Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'arcticicestudio/nord-vim'
 Plug 'PeterRincker/vim-argumentative'
+Plug '/usr/local/opt/fzf'
 
 call plug#end()
 
@@ -72,6 +73,8 @@ map *  <Plug>(incsearch-nohl-*)
 map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
+
+nnoremap <C-p> :FZF<Cr>
 
 set background=dark
 if has('gui_running')

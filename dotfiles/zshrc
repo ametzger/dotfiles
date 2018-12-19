@@ -177,9 +177,17 @@ fi
 
 [ -f $HOME/.profile-private.sh ] && source ~/.profile-private.sh
 
-# [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
 
 # This should go last, prefer stuff in here to pyenv/rbenv/whatever
 if [[ -d ~/.local/bin ]]; then
     export PATH=$HOME/.local/bin:$PATH
 fi
+
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+
