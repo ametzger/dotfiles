@@ -88,3 +88,6 @@ flycheck_*.el
 
 # directory configuration
 .dir-locals.el
+
+# jetbrains crap
+.idea
