@@ -120,7 +120,7 @@ alias gs="git s"
 alias gd="git d"
 alias gu="git up"
 
-alias ll='ls -lah'
+alias ll='exa -lah'
 
 alias vim='nvim'
 alias e='emacsclient -n'
@@ -190,11 +190,4 @@ fi
 if [[ -d ~/.local/bin ]]; then
     export PATH=$HOME/.local/bin:$PATH
 fi
-
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
 
