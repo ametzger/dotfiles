@@ -55,7 +55,7 @@ values."
      (shell :variables
             shell-default-position 'bottom
             shell-default-height 30
-            shell-default-term-shell "/usr/local/bin/zsh")
+            shell-default-shell 'eshell)
      javascript
      elixir
      )
