@@ -190,4 +190,4 @@ fi
 if [[ -d ~/.local/bin ]]; then
     export PATH=$HOME/.local/bin:$PATH
 fi
-source "${HOME}/.jellyfish/environment"
+[ -f "${HOME}/.jellyfish/environment" ] && source "${HOME}/.jellyfish/environment"
