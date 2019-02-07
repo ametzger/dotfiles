@@ -41,7 +41,7 @@ set splitright
 
 set incsearch
 set hlsearch
-
+set inccommand=nosplit
 "noremap - ddp
 "noremap _ ddkP
 
@@ -140,6 +140,7 @@ imap <C-_> <Esc>ui
 imap <M-d> <Esc>dwi
 imap <M-b> <Esc>bi
 imap <M-f> <Esc>wi
+inoremap <C-k> l<Esc>d$a
 
 " command line mode
 cmap <C-p> <Up>
