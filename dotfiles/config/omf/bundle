@@ -1,0 +1,12 @@
+package aws
+package bang-bang
+package brew
+package emacs
+package grc
+package local-config
+package osx
+package pyenv
+package rbenv
+package z
+theme default
+theme eden
