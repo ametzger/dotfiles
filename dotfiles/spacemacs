@@ -213,7 +213,7 @@ values."
    dotspacemacs-helm-resize nil
    ;; if non nil, the helm header is hidden when there is only one source.
    ;; (default nil)
-   dotspacemacs-helm-no-header nil
+   dotspacemacs-helm-no-header t
    ;; define the position to display `helm', options are `bottom', `top',
    ;; `left', or `right'. (default 'bottom)
    dotspacemacs-helm-position 'bottom
@@ -301,7 +301,7 @@ values."
    dotspacemacs-highlight-delimiters 'all
    ;; If non nil, advise quit functions to keep server open when quitting.
    ;; (default nil)
-   dotspacemacs-persistent-server nil
+   dotspacemacs-persistent-server t
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    ;; (default '("ag" "pt" "ack" "grep"))
@@ -315,7 +315,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup 'changed
+   dotspacemacs-whitespace-cleanup 'all
    dotspacemacs-mode-line-theme '(spacemacs :separator slant :separator-scale 1.5)
    ))
 
@@ -373,10 +373,15 @@ you should place your code here."
   (define-key evil-insert-state-map (kbd "<C-o>") "\C-e\C-j")
   (define-key evil-insert-state-map (kbd "<C-S-o>") "\C-a\C-o")
 
+  ;; Start the server unless one is already running
+  (unless (server-running-p)
+    (server-start))
+
+  ;; italic keywords and comments for Operator Mono
    (custom-set-faces
-   '(font-lock-comment-face ((t (:foreground "#6d7a96" :slant italic))))
-   '(font-lock-doc-face ((t (:foreground "#6d7a96" :slant italic))))
-   '(font-lock-keyword-face ((t (:foreground "#81A1C1" :slant italic))))))
+    '(font-lock-comment-face ((t (:foreground "#6d7a96" :slant italic))))
+    '(font-lock-doc-face ((t (:foreground "#6d7a96" :slant italic))))
+    '(font-lock-keyword-face ((t (:foreground "#81A1C1" :slant italic))))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -391,11 +396,13 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ruby-hash-syntax forge eyebrowse evil-nerd-commenter eval-sexp-fu ein editorconfig doom-modeline eldoc-eval docker aggressive-indent smartparens elixir-mode flycheck company helm helm-core magit f simple-httpd powerline evil goto-chg yasnippet-snippets yapfify yaml-mode xterm-color ws-butler writeroom-mode winum which-key websocket web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill undo-tree toc-org tagedit tablist symon string-inflection spaceline-all-the-icons smeargle slim-mode shrink-path shell-pop seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor rubocop rspec-mode robe restart-emacs rbenv rake rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode prettier-js popwin pippel pipenv pip-requirements persp-mode password-generator paradox overseer org-bullets open-junk-file ob-ipython ob-elixir nord-theme nginx-mode neotree nameless mwim multi-term move-text mmm-mode minitest markdown-toc magit-svn magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc jinja2-mode indent-guide importmagic impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation highlight helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-dash helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-commit ghub gh-md fuzzy font-lock+ flycheck-pos-tip flycheck-mix flycheck-credo flx-ido fill-column-indicator fancy-battery expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-numbers evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump dotenv-mode dockerfile-mode docker-tramp diminish define-word dash-at-point cython-mode counsel-projectile company-web company-terraform company-tern company-statistics company-go company-ansible company-anaconda column-enforce-mode closql clean-aindent-mode chruby centered-cursor-mode bundler auto-yasnippet auto-highlight-symbol auto-compile ansible-doc ansible alchemist ace-window ace-link ace-jump-helm-line ac-ispell)))
+   '(insert-shebang helm-gtags ggtags flycheck-bashate fish-mode counsel-gtags company-shell ruby-hash-syntax forge eyebrowse evil-nerd-commenter eval-sexp-fu ein editorconfig doom-modeline eldoc-eval docker aggressive-indent smartparens elixir-mode flycheck company helm helm-core magit f simple-httpd powerline evil goto-chg yasnippet-snippets yapfify yaml-mode xterm-color ws-butler writeroom-mode winum which-key websocket web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill undo-tree toc-org tagedit tablist symon string-inflection spaceline-all-the-icons smeargle slim-mode shrink-path shell-pop seeing-is-believing scss-mode sass-mode rvm ruby-tools ruby-test-mode ruby-refactor rubocop rspec-mode robe restart-emacs rbenv rake rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode prettier-js popwin pippel pipenv pip-requirements persp-mode password-generator paradox overseer org-bullets open-junk-file ob-ipython ob-elixir nord-theme nginx-mode neotree nameless mwim multi-term move-text mmm-mode minitest markdown-toc magit-svn magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc jinja2-mode indent-guide importmagic impatient-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation highlight helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-git-grep helm-flx helm-descbinds helm-dash helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gitignore-templates gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-commit ghub gh-md fuzzy font-lock+ flycheck-pos-tip flycheck-mix flycheck-credo flx-ido fill-column-indicator fancy-battery expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-numbers evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump dotenv-mode dockerfile-mode docker-tramp diminish define-word dash-at-point cython-mode counsel-projectile company-web company-terraform company-tern company-statistics company-go company-ansible company-anaconda column-enforce-mode closql clean-aindent-mode chruby centered-cursor-mode bundler auto-yasnippet auto-highlight-symbol auto-compile ansible-doc ansible alchemist ace-window ace-link ace-jump-helm-line ac-ispell)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(font-lock-comment-face ((t (:foreground "#6d7a96" :slant italic))))
+ '(font-lock-doc-face ((t (:foreground "#6d7a96" :slant italic))))
+ '(font-lock-keyword-face ((t (:foreground "#81A1C1" :slant italic)))))
 )
