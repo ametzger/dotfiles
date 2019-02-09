@@ -30,7 +30,8 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(ansible
+   '(shell-scripts
+     ansible
      go
      html
      ruby
@@ -55,7 +56,7 @@ values."
      (shell :variables
             shell-default-position 'bottom
             shell-default-height 30
-            shell-default-shell 'eshell)
+            shell-default-term-shell "/usr/local/bin/fish")
      javascript
      elixir
      )
@@ -333,6 +334,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
                 web-mode-css-indent-offset 2
                 web-mode-sql-indent-offset 2
                 web-mode-enable-auto-indentation nil
+                fish-indent-offset 2
+                sh-basic-offset 2
                 flycheck-python-flake8-executable (expand-file-name "~/.pyenv/shims/flake8")
                 flycheck-flake8rc ".flake8"
                 flycheck-python-pycompile-executable (expand-file-name "~/.pyenv/shims/python")
