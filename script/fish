@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# -*- mode: shell-script -*-
+
+curl -L https://get.oh-my.fish | fish
