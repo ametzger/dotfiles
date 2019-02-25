@@ -7,6 +7,7 @@ package local-config
 package osx
 package pyenv
 package rbenv
+package rustup
 package z
 theme default
 theme eden
