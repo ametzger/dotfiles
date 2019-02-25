@@ -8,8 +8,8 @@ you too can have a MacBook or Windows machine setup just the way I like it.
 
 ## MacOS install
 
-To install on MacOS, clone this repo and run `script/setup` to setup basic CLI
-tools (zsh, git, etc). There are various scripts in the `script` subdirectory
+To install on MacOS, clone this repo and run `bin/setup` to setup basic CLI
+tools (zsh, git, etc). There are various scripts in the `bin` subdirectory
 to configure various tools I have used at one time or another.
 
 ## Windows install
