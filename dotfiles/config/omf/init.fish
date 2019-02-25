@@ -17,6 +17,10 @@ if test -d $HOME/.local/bin
   set -g fish_user_paths "$HOME/.local/bin" $fish_user_paths
 end
 
+# VMWare Fusion utils (e.g. vmrun)
+if test -d "/Applications/VMWare Fusion.app/Contents/Library"
+  set -g fish_user_paths "/Applications/VMWare Fusion.app/Contents/Library"
+end
 
 # Baseline #####################################################################
 set -gx LSCOLORS 'exfxcxdxbxegedabagacad'
