@@ -3,6 +3,7 @@ package bang-bang
 package brew
 package emacs
 package grc
+package https://github.com/wfscheper/plugin-docker
 package local-config
 package osx
 package pyenv
