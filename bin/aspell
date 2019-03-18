@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# -*- shell-script -*-
+set -e
+
+echo '==> Install aspell...'
+
+brew install aspell
+
+echo '==> Done!'
+
+echo '==> Downloading dictionaries to ~/Library/Spelling...'
+
+pushd ~/Library/Spelling
+wget https://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_US.dic
+wget https://cgit.freedesktop.org/libreoffice/dictionaries/plain/en/en_US.aff
+popd
+
+echo '==> Done!'
