@@ -38,6 +38,7 @@ set -gx default_user asm
 # Vendor #######################################################################
 if test -d $HOME/proj/go
   set -gx GOPATH $HOME/proj/go
+  set -g fish_user_paths "$GOPATH/bin"
 end
 
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT true
