@@ -8,18 +8,22 @@ set -g -x fish_greeting ''
 
 # Paths ########################################################################
 # add ~/bin to PATH if it exists
-if test -d $HOME/bin
+if test -d "$HOME/bin"
   set -g fish_user_paths "$HOME/bin" $fish_user_paths
 end
 
 # add ~/.local/bin to PATH if it exists
-if test -d $HOME/.local/bin
+if test -d "$HOME/.local/bin"
   set -g fish_user_paths "$HOME/.local/bin" $fish_user_paths
 end
 
 # VMWare Fusion utils (e.g. vmrun)
 if test -d "/Applications/VMWare Fusion.app/Contents/Library"
-  set -g fish_user_paths "/Applications/VMWare Fusion.app/Contents/Library"
+  set -g fish_user_paths "/Applications/VMWare Fusion.app/Contents/Library" $fish_user_paths
+end
+
+if test -d "/usr/local/sbin"
+  set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 end
 
 # Baseline #####################################################################
@@ -38,7 +42,7 @@ set -gx default_user asm
 # Vendor #######################################################################
 if test -d $HOME/proj/go
   set -gx GOPATH $HOME/proj/go
-  set -g fish_user_paths "$GOPATH/bin"
+  set -g fish_user_paths "$GOPATH/bin" $fish_user_paths
 end
 
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT true
