@@ -5,6 +5,8 @@
 	email = asm@asm.io
 [github]
 	user = ametzger
+[gitlab]
+	user = ametzger
 [credential]
 	helper = osxkeychain
 [core]
@@ -15,8 +17,8 @@
 	excludesfile = ~/.gitignore_global
 [push]
 	default = simple
-[help]
-	autocorrect = 1
+# [help]
+# 	autocorrect = 1
 [color]
 	ui = auto
 [log]
@@ -26,34 +28,19 @@
 	d = diff --ignore-space-at-eol -b -w
 	ds = diff --staged --ignore-space-at-eol -b -w
 	unstage = reset HEAD --
-	undo = checkout --
-	last = log -l HEAD
-	olog = log --oneline
-	oo = log --oneline -15
-	amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
 	s = status -sb
-	a = add
-	hunk = add -p
-	master = checkout master
-	spush = "!f() { git commit -m $@ && git stash save push: $(date) && git pull --rebase && git push && git stash pop; }; f"
-	spull = "!f() { git stash save \"pull: $(date)\" && git pull --rebase $@ && git stash pop; }; f"
-	ignore = !([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
-	this = !git init && git add . && git commit -m \"initial commit\"
 	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ => \\2/' | sort
 	aliases = !git alias
 	assume = update-index --assume-unchanged
 	unassume = update-index --no-assume-unchanged
 	assumed = !git ls-files -v | grep ^h | cut -c 3-
-	ours = "!f() { git checkout --ours $@ && git add $@; }; f"
-	theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
 	up = pull --ff-only --all -p
 	recent = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
-	f = fetch -p
-	c = commit -m
-	dammit = !git add -A && git commit -am \":shit:\" && git push
 	mine = !git lg --author=\"Alex Metzger\"
 [pull]
 	ff = only
+[branch]
+	autoSetupMerge = always
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
