@@ -49,8 +49,6 @@ set -gx DOTNET_CLI_TELEMETRY_OPTOUT true
 
 
 # Aliases ######################################################################
-alias ll "exa -lah"
-
 # Better editors
 alias vim "nvim"
 
@@ -60,7 +58,10 @@ alias m "pipenv run python manage.py"
 alias sp "pipenv run python manage.py shell_plus"
 
 alias tf "terraform"
-
+if type -q exa
+  alias ls exa
+  alias ll "exa -lah"
+end
 
 # Private ######################################################################
 if test -e $HOME/.profile-private.sh
