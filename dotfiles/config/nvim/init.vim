@@ -58,6 +58,7 @@ Plug 'chr4/nginx.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug '/usr/local/opt/fzf'
+Plug 'tpope/vim-abolish'
 
 call plug#end()
 
