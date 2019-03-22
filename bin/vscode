@@ -4,14 +4,19 @@
 echo 'Setting up Visual Studio Code'
 
 [ -f ~/Library/Application\ Support/Code/User/settings.json ] && mv ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json.bak
+[ -f ~/Library/Application\ Support/Code/User/keybindings.json ] && mv ~/Library/Application\ Support/Code/User/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json.bak
 [ -d ~/Library/Application\ Support/Code/User/snippets ] && mv ~/Library/Application\ Support/Code/User/snippets ~/Library/Application\ Support/Code/User/snippets.bak
 
 VSCODE_BASE_PATH="`pwd`/vscode"
 SETTINGS_JSON_PATH=$VSCODE_BASE_PATH/settings.json
+KEYBINDINGS_JSON_PATH=$VSCODE_BASE_PATH/keybindings.json
 SNIPPETS_PATH=$VSCODE_BASE_PATH/snippets
 
 echo "Link $SETTINGS_JSON_PATH => ~/Library/Application\ Support/Code/User/settings.json"
 ln -sf $SETTINGS_JSON_PATH ~/Library/Application\ Support/Code/User/settings.json
+
+echo "Link $KEYBINDINGS_JSON_PATH => ~/Library/Application\ Support/Code/User/keybindings.json"
+ln -sf $KEYBINDINGS_JSON_PATH ~/Library/Application\ Support/Code/User/keybindings.json
 
 echo "Link $SNIPPETS_PATH => ~/Library/Application\ Support/Code/User/snippets"
 ln -sf $SNIPPETS_PATH ~/Library/Application\ Support/Code/User/snippets

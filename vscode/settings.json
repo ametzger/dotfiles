@@ -1,14 +1,14 @@
 // Place your settings in this file to overwrite the default settings
 {
     "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 14,
-    "editor.tabCompletion": true,
-    "editor.rulers": [ 100 ],
+    "editor.fontSize": 16,
+    "editor.tabCompletion": "on",
+    // "editor.rulers": [
+    //     100
+    // ],
     "window.title": "${activeEditorLong}${separator}${folderName}${separator}${dirty}",
-    
-    "workbench.colorTheme": "Dracula Italics",
+    "workbench.colorTheme": "Nord",
     "workbench.startupEditor": "newUntitledFile",
-    
     "files.associations": {
         "zshrc": "shellscript",
         "gitconfig-windows": "properties",
@@ -24,11 +24,14 @@
         "*.pyc": true,
         "**/__pycache__": true
     },
-
     "python.pythonPath": "/Users/asm/.pyenv/shims/python",
-    "python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
-
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_django"
+    ],
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
-    "vim.disableAnnoyingNeovimMessage": true
+    "editor.fontLigatures": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "/Users/asm/.pyenv/shims/flake8"
 }
