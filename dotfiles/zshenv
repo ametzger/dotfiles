@@ -1,0 +1,60 @@
+# -*- shell-script -*-
+## Read for all shells: minimize time-consuming stuff in here.
+
+## $PATH manipulation
+if [[ -d ~/bin ]]; then
+  export PATH="$HOME/bin:$PATH"
+fi
+
+# rbenv
+if [[ -d ~/.rbenv ]]; then
+  export RBENV_ROOT="$HOME/.rbenv"
+  export PATH="$RBENV_ROOT/bin:$PATH"
+fi
+
+# pyenv
+if [[ -d ~/.pyenv ]]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+fi
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+
+# golang
+if [[ -d ~/proj/go ]]; then
+  export GOPATH="$HOME/proj/go"
+  export PATH="$GOPATH/bin:$PATH"
+fi
+
+# rust
+if [[ -d ~/.cargo ]]; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+## editor
+export EDITOR='nvim'
+export VISUAL='nvim'
+
+## less
+# show colors
+export LESS="-R"
+
+## various config
+export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
+export DOTNET_CLI_TELEMETRY_OPTOUT=true
+export PYTHONIOENCODING='UTF-8'
+
+## platform-specific
+OS=$(uname -s); export OS
+if [[ -f ~/.zsh.d/zsh.${OS} ]]; then
+    source ~/.zsh.d/zsh.${OS}
+fi
+
+# This should go last, prefer stuff in here to pyenv/rbenv/whatever
+if [[ -d ~/.local/bin ]]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ '
+[[ ! $TERM == "dumb" ]] && TERM=xterm-256color

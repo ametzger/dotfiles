@@ -1,0 +1,16 @@
+# -*- shell-script -*-
+# Vagrant
+export VAGRANT_DEFAULT_PROVIDER="vmware_desktop"
+
+# XCode funkiness
+if command -v xcrun >/dev/null 2>&1; then
+  export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+fi
+
+# Homebrew
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_INSTALL_CLEANUP=1
+export LDFLAGS="-L/usr/local/lib -L/usr/local/opt/openssl/lib -L/usr/local/opt/zlib/lib"
+export CPPFLAGS="-I/usr/local/include -I/usr/local/opt/openssl/include -I/usr/local/opt/zlib/include"
+export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/zlib/lib/pkgconfig"
+alias bu="brew update && brew upgrade"

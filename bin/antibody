@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# -*- mode: shell-script -*-
+
+antibody bundle < ~/.zsh.d/plugins.txt > ~/.zsh.d/plugins.zsh
