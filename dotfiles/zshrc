@@ -2,7 +2,7 @@
 ## Read for interactive shells
 
 # Handle dumb terms
-[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='% ' && return
 
 ## profiling: uncomment to enable profiling
 # zmodload zsh/zprof
@@ -35,13 +35,20 @@ if command -v bat >/dev/null 2>&1; then
   alias cat='bat'
 fi
 
-alias vim='nvim'
-alias e='emacsclient -n'
+alias em='emacsclient -n'
+alias e='emacsclient -t'
+alias vim='emacsclient -t'
 alias p='pipenv run'
 alias m='p python manage.py'
 alias sp='m shell_plus'
 alias tf='terraform'
 
+## $EDITOR
+# Change editor, visual to emacsclient when running interactively
+EDITOR='emacsclient -t'
+VISUAL='emacsclient -t'
+
+## tools
 if command -v rbenv >/dev/null 2>&1; then
   eval "$(rbenv init -)"
 fi
@@ -56,7 +63,6 @@ fi
 
 [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
 
+## extra env vars
 [ -f $HOME/.profile-private.sh ] && source ~/.profile-private.sh
-
-# zprof
 [ -f "${HOME}/.jellyfish/environment" ] && source "${HOME}/.jellyfish/environment"
