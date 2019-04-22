@@ -2,7 +2,7 @@
 ## Read for interactive shells
 
 # Handle dumb terms
-[[ $TERM == "dumb" ]] && unsetopt zle && PS1='% ' && return
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
 ## profiling: uncomment to enable profiling
 # zmodload zsh/zprof
@@ -65,4 +65,4 @@ fi
 
 ## extra env vars
 [ -f $HOME/.profile-private.sh ] && source ~/.profile-private.sh
-[ -f "${HOME}/.jellyfish/environment" ] && source "${HOME}/.jellyfish/environment"
+[ -f $HOME/.jellyfish/environment ] && source ~/.jellyfish/environment
