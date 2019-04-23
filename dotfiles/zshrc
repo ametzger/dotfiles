@@ -37,7 +37,7 @@ fi
 
 alias em='emacsclient -n'
 alias e='emacsclient -t'
-alias vim='emacsclient -t'
+alias vim='nvim'
 alias p='pipenv run'
 alias m='p python manage.py'
 alias sp='m shell_plus'
