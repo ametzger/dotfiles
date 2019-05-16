@@ -34,17 +34,12 @@ if command -v bat >/dev/null 2>&1; then
 fi
 
 alias em='emacsclient -n'
-alias e='emacsclient -t'
+alias e='nvim'
 alias vim='nvim'
 alias p='pipenv run'
-alias m='p python manage.py'
+alias m='p python manage.py '
 alias sp='m shell_plus'
 alias tf='terraform'
-
-## $EDITOR
-# Change editor, visual to emacsclient when running interactively
-EDITOR='emacsclient -t'
-VISUAL='emacsclient -t'
 
 ## tools
 if command -v rbenv >/dev/null 2>&1; then
@@ -55,6 +50,11 @@ if command -v pyenv >/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+if command -v direnv >/dev/null 2>&1; then
+  export DIRENV_LOG_FORMAT=''
+  eval "$(direnv hook zsh)"
+fi
+
 if [[ -d $NVM_DIR ]]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 fi
@@ -62,5 +62,4 @@ fi
 [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## extra env vars
-[ -f $HOME/.profile-private.sh ] && source ~/.profile-private.sh
-[ -f $HOME/.jellyfish/environment ] && source ~/.jellyfish/environment
+[ -f $HOME/.localrc ] && source ~/.localrc
