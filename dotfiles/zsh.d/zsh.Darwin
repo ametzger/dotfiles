@@ -1,6 +1,8 @@
 # -*- shell-script -*-
 # Vagrant
-export VAGRANT_DEFAULT_PROVIDER="vmware_desktop"
+if type vagrant &>/dev/null; then
+  export VAGRANT_DEFAULT_PROVIDER="vmware_desktop"
+fi
 
 # XCode funkiness
 if command -v xcrun >/dev/null 2>&1; then
@@ -9,11 +11,14 @@ fi
 
 # Homebrew
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+  export HOMEBREW_NO_ANALYTICS=1
+  export HOMEBREW_INSTALL_CLEANUP=1
+
+  BREWROOT="$(brew --prefix)"
+  FPATH="$$BREWROOT/share/zsh/site-functions:$FPATH"
+  export PATH="$BREWROOT/sbin:$PATH"
+  export LDFLAGS="-L$BREWROOT/lib -L$BREWROOT/opt/openssl/lib -L$BREWROOT/opt/zlib/lib"
+  export CPPFLAGS="-I$BREWROOT/include -I$BREWROOT/opt/openssl/include -I$BREWROOT/opt/zlib/include"
+  export PKG_CONFIG_PATH="$BREWROOT/lib/pkgconfig:$BREWROOT/opt/openssl/lib/pkgconfig:$BREWROOT/opt/zlib/lib/pkgconfig"
+  alias bu="brew update && brew upgrade"
 fi
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_INSTALL_CLEANUP=1
-export LDFLAGS="-L/usr/local/lib -L/usr/local/opt/openssl/lib -L/usr/local/opt/zlib/lib"
-export CPPFLAGS="-I/usr/local/include -I/usr/local/opt/openssl/include -I/usr/local/opt/zlib/include"
-export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/zlib/lib/pkgconfig"
-alias bu="brew update && brew upgrade"

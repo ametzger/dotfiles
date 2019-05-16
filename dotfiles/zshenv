@@ -1,11 +1,6 @@
 # -*- shell-script -*-
 ## Read for all shells: minimize time-consuming stuff in here.
 
-## $PATH manipulation
-if [[ -d ~/bin ]]; then
-  export PATH="$HOME/bin:$PATH"
-fi
-
 # rbenv
 if [[ -d ~/.rbenv ]]; then
   export RBENV_ROOT="$HOME/.rbenv"
@@ -51,7 +46,12 @@ if [[ -f ~/.zsh.d/zsh.${OS} ]]; then
     source ~/.zsh.d/zsh.${OS}
 fi
 
+## $PATH manipulation
 # This should go last, prefer stuff in here to pyenv/rbenv/whatever
+if [[ -d ~/bin ]]; then
+  export PATH="$HOME/bin:$PATH"
+fi
+
 if [[ -d ~/.local/bin ]]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
