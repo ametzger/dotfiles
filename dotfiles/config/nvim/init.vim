@@ -59,6 +59,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug '/usr/local/opt/fzf'
 Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-unimpaired'
 
 call plug#end()
 
