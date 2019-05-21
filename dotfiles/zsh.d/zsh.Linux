@@ -1,2 +1,7 @@
 # -*- shell-script -*-
 export VAGRANT_DEFAULT_PROVIDER="libvirt"
+
+GO_ROOT="/usr/local/go"
+if [[ -d "$GO_ROOT" ]]; then
+  export PATH="$GO_ROOT/bin:$PATH"
+fi
