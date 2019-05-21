@@ -5,3 +5,7 @@ GO_ROOT="/usr/local/go"
 if [[ -d "$GO_ROOT" ]]; then
   export PATH="$GO_ROOT/bin:$PATH"
 fi
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
+fi
