@@ -29,6 +29,10 @@ if [[ -d ~/.cargo ]]; then
   export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
+if [[ -d ~/.tfenv ]]; then
+  export PATH="$HOME/.tfenv/bin:$PATH"
+fi
+
 ## editor
 export EDITOR='nvim'
 export VISUAL='nvim'
