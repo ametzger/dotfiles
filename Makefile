@@ -1,7 +1,7 @@
 COLOR_GREEN=$(shell echo "\033[0;32m")
 COLOR_NONE=$(shell echo "\033[0m")
 
-.PHONY: help install antibody vim fish
+.PHONY: help install antibody vim fish tmux pyenv
 
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -36,4 +36,9 @@ fish: ## Install Fish dependencies
 tmux: ## Install tmux dependencies
 	@echo '$(COLOR_GREEN)==> Installing tmux dependencies...$(COLOR_NONE)'
 	@git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	@echo '$(COLOR_GREEN)==> Done!$(COLOR_NONE)'
+
+pyenv: ## Install pyenv
+	@echo '$(COLOR_GREEN)==> Installing pyenv...$(COLOR_NONE)'
+	@git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 	@echo '$(COLOR_GREEN)==> Done!$(COLOR_NONE)'
