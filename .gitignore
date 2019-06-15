@@ -2,9 +2,11 @@
 .DS_Store
 **/*.swp
 
-dotfiles/ssh/config.private
-dotfiles/ssh/id_rsa*
-dotfiles/ssh/*.pem
-dotfiles/ssh/known_hosts
-dotfiles/ssh/authorized_keys
-/dotfiles/zsh.d/plugins.zsh
+
+**/*/id_rsa*
+**/*/*.pem
+**/*/known_hosts
+**/*/authorized_keys
+**/*/plugins.zsh
+*.private
+fish/.config/fish/functions/fisher.fish

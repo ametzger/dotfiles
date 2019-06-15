@@ -1,0 +1,52 @@
+# -*- conf -*-
+
+[flake8]
+#### IGNORED RULES #############################################################
+ignore =
+    # Disable E203: white space before  ':'
+    E203
+    # Disable E501: line too long (81 > 79 characters)
+    E501
+    # Disable E302 expected 2 blank lines, found 1
+    E302
+    # Disable E221: multiple spaces before operator
+    E221
+    # Disable E127: Continuation line over-indented for visual indent
+    E241
+    # Disable E241: Muliple spaces after ','
+    E127
+    # Disable E266: Too many leading '#' for block comment
+    E266
+    # Disable E303: Too many blank lines
+    E303
+    # Disable W503: line break before binary operator
+    W503
+
+#### IGNORED FILES #############################################################
+exclude =
+    # Exclude known non-python files
+    .git
+    .vagrant
+    Brewfile
+    *.md
+    *.css
+    *.scss
+    *.html
+    *.js
+    Vagrantfile
+    scripts
+    *.sh
+
+    # Exclude cached files
+    __pycache__
+    *.pyc
+
+    # Don't inspect migrations
+    migrations
+
+    # Ignore ipython notebooks
+    *.ipynb
+
+    # Ignore static files
+    static
+    staticfiles
