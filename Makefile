@@ -10,11 +10,8 @@ help:
 
 install: ## Setup dotfiles
 ifeq (, $(shell which stow))
-	@echo '$(COLOR_GREEN)==> Installing Stow...$(COLOR_NONE)'
-	brew install stow
+$(error "No stow in $(PATH), may need to brew/apt/yum install")
 endif
 	@echo '$(COLOR_GREEN)==> Linking dotfiles...$(COLOR_NONE)'
-
-	stow --target=$(HOME) alacritty bash emacs-doom emacs-spacemacs fish git misc python ruby ssh tmux vim zsh
-
+	@stow --target=$(HOME) alacritty bash emacs-doom emacs-spacemacs fish git misc python ruby ssh tmux vim zsh
 	@echo '$(COLOR_GREEN)==> Done!$(COLOR_NONE)'
