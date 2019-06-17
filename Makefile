@@ -1,7 +1,7 @@
 COLOR_GREEN=$(shell echo "\033[0;32m")
 COLOR_NONE=$(shell echo "\033[0m")
 
-.PHONY: help install antibody vim fish tmux pyenv
+.PHONY: help install zsh vim fish tmux pyenv
 
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
