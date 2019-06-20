@@ -1,0 +1,32 @@
+---
+- name: Check vendor directory exists
+  stat: path="{{ dotfiles_home }}/proj/vendor"
+  register: vendor_dir
+
+- name: Create vendor directory
+  file:
+    dest: "{{ dotfiles_home }}/proj/vendor"
+    state: directory
+  when: vendor_dir.stat.exists == False
+
+- name: Clone Doom repo
+  git:
+    repo: 'https://github.com/hlissner/doom-emacs.git'
+    dest: "{{ dotfiles_home }}/proj/vendor/doom-emacs"
+
+- name: Link Doom repo
+  file:
+    src: "{{ dotfiles_home }}/proj/vendor/doom-emacs"
+    dest: "{{ dotfiles_home }}/.emacs.d"
+    state: link
+    force: yes
+
+- name: Link Doom config
+  file:
+    src: "{{ dotfiles_root }}/roles/emacs/files/doom"
+    dest: "{{ dotfiles_home }}/.doom.d"
+    state: link
+    force: yes
+
+- name: Initialize Doom
+  shell: "{{ dotfiles_home }}/.emacs.d/bin/doom --yes install"

@@ -1,0 +1,18 @@
+---
+- name: Check if emacs.d repo exists
+  stat: path="{{ dotfiles_home }}/proj/emacs.d"
+  register: config_repo
+
+- name: Clone emacs.d repo
+  git:
+    repo: 'https://github.com/ametzger/emacs.d.git'
+    dest: "{{ dotfiles_home }}/proj/emacs.d"
+  when: config_repo.stat.exists == False
+
+- name: Link repo to ~/.emacs.d
+  file:
+    src: "{{ dotfiles_home }}/proj/emacs.d"
+    dest: "{{ dotfiles_home }}/.emacs.d"
+    state: link
+    force: yes
+

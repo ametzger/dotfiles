@@ -1,3 +1,4 @@
+# -*- yaml -*-
 # vi: set ft=yaml :
 
 dotfiles_home: "{{ '~' | expanduser }}"
@@ -8,3 +9,7 @@ git_email: asm@asm.io
 git_github_username: ametzger
 git_gitlab_username: ametzger
 
+# Which emacs setup to use, can be one of:
+# - personal
+# - doom
+emacs_mode: doom

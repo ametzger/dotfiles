@@ -1,0 +1,14 @@
+---
+- name: Install Emacs
+  dnf:
+    name: emacs
+    state: latest
+  become: yes
+  become_method: sudo
+  when: ansible_os_family == "RedHat"
+
+- import_tasks: personal.yml
+  when: emacs_mode == "personal"
+
+- import_tasks: doom.yml
+  when: emacs_mode == "doom"
