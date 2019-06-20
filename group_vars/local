@@ -12,4 +12,4 @@ git_gitlab_username: ametzger
 # Which emacs setup to use, can be one of:
 # - personal
 # - doom
-emacs_mode: doom
+emacs_mode: personal
