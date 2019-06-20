@@ -71,3 +71,15 @@
 
 - name: Set favorite apps
   shell: gsettings set org.gnome.shell favorite-apps "['com.gexperts.Tilix.desktop', 'emacs.desktop', 'firefox.desktop', 'chromium-browser.desktop']"
+
+- name: show date in top bar
+  shell: gsettings set org.gnome.desktop.interface clock-show-date "true"
+
+- name: show seconds in top bar
+  shell: gsettings set org.gnome.desktop.interface clock-show-seconds "true"
+
+- name: show weekday in top bar
+  shell: gsettings set org.gnome.desktop.interface clock-show-weekday "true"
+
+- name: show battery percentage in top bar
+  shell: gsettings set org.gnome.desktop.interface show-battery-percentage "true"

@@ -6,4 +6,5 @@
     # - { role: tmux, tags: ['tmux'] }
     # - { role: vim, tags: ['vim'] }
     # - { role: docker, tags: ['docker'] }
-    - { role: emacs, tags: ['emacs'] }
+    # - { role: emacs, tags: ['emacs'] }
+    - { role: gnome, tags: ['gnome'] }
