@@ -14,9 +14,7 @@ export CLICOLOR=true
 bindkey -e
 
 ## antigen
-# To manage plugins, update `zsh.d/plugins.txt` then run `bin/antigen`
-# to regenerate this file.
-source ~/.zsh.d/plugins.zsh
+[ -f "$HOME/.zsh_packages" ] && source ~/.zsh_packages
 
 ## Pure prompt
 PURE_GIT_PULL=0

@@ -1,16 +1,13 @@
 # -*- mode: gitconfig -*-
 
 [user]
-	name = Alex Metzger
-	email = asm@asm.io
+	name = {{ git_name }}
+	email = {{ git_email }}
 [github]
-	user = ametzger
+	user = {{ git_github_username }}
 [gitlab]
-	user = ametzger
-[credential]
-	helper = osxkeychain
+	user = {{ git_gitlab_username }}
 [core]
-	# editor = mvim -f --nomru -c \"au VimLeave * !open -a iTerm\"
 	editor = emacsclient -t -a=\\\"\\\"
 	whitespace = trailing-space,space-before-tab,-indent-with-non-tab
 	filemode = false
@@ -20,7 +17,10 @@
 # [help]
 # 	autocorrect = 1
 [color]
-	ui = auto
+        diff = auto
+        status = auto
+        branch = auto
+	ui = true
 [log]
 	decorate = true
 [alias]
@@ -54,5 +54,10 @@
 	algorithm = patience
 [rebase]
 	autoStash = true
+{% if ansible_os_family == 'Darwin' %}
+[credential]
+	helper = osxkeychain
+
 [merge]
 	tool = p4merge
+{% endif %}

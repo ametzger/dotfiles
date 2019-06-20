@@ -1,0 +1,8 @@
+- name: Set up workstation
+  hosts: local
+  roles:
+    # - { role: git, tags: ['git'] }
+    # - { role: zsh, tags: ['zsh'] }
+    # - { role: tmux, tags: ['tmux'] }
+    # - { role: vim, tags: ['vim'] }
+    - { role: docker, tags: ['docker'] }

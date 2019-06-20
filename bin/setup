@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CODE_ROOT="${HOME}/proj"
+DOTFILES_ROOT="${CODE_ROOT}/dotfiles"
+
+cd "${DOTFILES_ROOT}"
+ansible-playbook -i "${DOTFILES_ROOT}/hosts" "${DOTFILES_ROOT}/workstation.yml" --ask-become-pass

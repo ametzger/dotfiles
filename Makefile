@@ -8,12 +8,19 @@ help:
 
 .DEFAULT_GOAL := help
 
+STOW_PACKAGES := alacritty bash emacs-doom emacs-spacemacs fish git misc python ruby ssh tmux vim zsh
+
 install: ## Setup dotfiles
 ifeq (, $(shell which stow))
 $(error "No stow in $(PATH), may need to brew/apt/yum install")
 endif
 	@echo '$(COLOR_GREEN)==> Linking dotfiles...$(COLOR_NONE)'
-	@stow --target=$(HOME) alacritty bash emacs-doom emacs-spacemacs fish git misc python ruby ssh tmux vim zsh
+	@stow --target=$(HOME) $(STOW_PACKAGES)
+	@echo '$(COLOR_GREEN)==> Done!$(COLOR_NONE)'
+
+uninstall: ## Remove dotfiles
+	@echo '$(COLOR_GREEN)==> Removing dotfiles...$(COLOR_NONE)'
+	@stow --target=$(HOME) -D $(STOW_PACKAGES)
 	@echo '$(COLOR_GREEN)==> Done!$(COLOR_NONE)'
 
 zsh: ## Install ZSH dependencies

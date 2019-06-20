@@ -1,0 +1,46 @@
+---
+- name: Install Vim
+  dnf:
+          name: neovim
+          state: latest
+  become: yes
+  when: ansible_os_family == "RedHat"
+
+- name: Check Vim Autoloads directory exists
+  stat: path="{{ dotfiles_home }}/.local/share/nvim/site/autoload"
+  register: autoload_dir
+
+- name: Create Vim Autoload directory
+  file:
+          dest: "{{ dotfiles_home }}/.local/share/nvim/site/autoload"
+          state: directory
+  when: autoload_dir.stat.exists == False
+
+- name: Check Vim Plug installed
+  stat: path="{{ dotfiles_home }}/.local/share/nvim/site/autoload/plug.vim"
+  register: vim_plug_file
+
+- name: Install Vim Plug
+  get_url:
+          url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+          dest: "{{ dotfiles_home }}/.local/share/nvim/site/autoload/plug.vim"
+  when: vim_plug_file.stat.exists == False
+
+- name: Check Vim config directory exists
+  stat: path="{{ dotfiles_home }}/.config/nvim"
+  register: config_dir
+
+- name: Create Vim config directory
+  file:
+          dest: "{{ dotfiles_home }}/.config/nvim"
+          state: directory
+  when: config_dir.stat.exists == False
+
+- name: Link Vim config
+  file:
+          src: "{{ dotfiles_root }}/roles/vim/files/init.vim"
+          dest: "{{ dotfiles_home }}/.config/nvim/init.vim"
+          state: link
+
+- name: Install Vim Plug packages
+  shell: nvim +PlugInstall +qall

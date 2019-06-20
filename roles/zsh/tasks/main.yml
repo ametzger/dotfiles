@@ -1,0 +1,66 @@
+---
+- name: Install ZSH
+  dnf:
+    name: zsh
+    state: latest
+    become: yes
+    become_method: sudo
+    when: ansible_os_family == "RedHat"
+
+- name: Check Antibody installed
+  stat: path=/usr/local/bin/antibody
+  register: antibody_cmd
+
+- name: Install Antibody
+  unarchive:
+    src: https://github.com/getantibody/antibody/releases/download/v4.1.2/antibody_Linux_x86_64.tar.gz
+    dest: /usr/local/bin
+    exclude:
+      - LICENSE.md
+      - README.md
+    remote_src: yes
+    become: yes
+    become_method: sudo
+    when: antibody_cmd.stat.exists == False
+
+      - name: Link ZSH config files
+        file:
+          src: "{{ dotfiles_root }}/roles/zsh/files/{{ item }}"
+          dest: "{{ dotfiles_home }}/.{{ item }}"
+          state: link
+          force: yes
+          loop:
+            - zlogout
+            - zsh.d
+            - zshenv
+            - zshrc
+
+            - name: Generate Antibody package
+              shell: antibody bundle < {{ dotfiles_root }}/roles/zsh/files/zsh.d/plugins.txt
+              register: antibody_bundle
+
+            - name: Install Antibody package
+              copy:
+                content: "{{ antibody_bundle.stdout }}"
+                dest: "{{ dotfiles_home }}/.zsh_packages"
+
+            - name: Check Z directory exists
+              stat: path="{{ dotfiles_home }}/.z"
+              register: z_dir
+
+            - name: Create Z directory
+              file:
+                path: "{{ dotfiles_home }}/.z"
+                state: directory
+                when: z_dir.stat.exists == False
+
+            - name: Find ZSH path
+              shell: which zsh
+              register: zsh_path
+
+            - name: Change default shell to ZSH
+              user:
+                name: "{{ ansible_env.USER }}"
+                shell: "{{ zsh_path.stdout }}"
+                become: yes
+

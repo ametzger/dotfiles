@@ -1,0 +1,26 @@
+---
+- name: Install tmux
+  dnf:
+          name: tmux
+          state: latest
+  become: yes
+  become_method: sudo
+  when: ansible_os_family == "RedHat"
+
+- name: Check if TPM installed
+  stat: path="{{dotfiles_home}}/.tmux/plugins/tpm"
+  register: tpm
+
+- name: Install TPM
+  git:
+          repo: 'https://github.com/tmux-plugins/tpm.git'
+          dest: "{{dotfiles_home}}/.tmux/plugins/tpm"
+  when: tpm.stat.exists == False
+
+- name: Link tmux.conf
+  file:
+          src: "{{dotfiles_root}}/roles/tmux/files/tmux.conf"
+          dest: "{{dotfiles_home}}/.tmux.conf"
+          state: link
+          force: yes
+

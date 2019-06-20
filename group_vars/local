@@ -1,0 +1,10 @@
+# vi: set ft=yaml :
+
+dotfiles_home: "{{ '~' | expanduser }}"
+dotfiles_root: "{{ dotfiles_home }}/proj/dotfiles"
+
+git_name: Alex Metzger
+git_email: asm@asm.io
+git_github_username: ametzger
+git_gitlab_username: ametzger
+

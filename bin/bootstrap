@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "==> Installing prerequisites..."
+sudo dnf install -y git ansible
+
+CODE_ROOT="${HOME}/proj"
+DOTFILES_ROOT="${CODE_ROOT}/dotfiles"
+
+if [ ! -d "$CODE_ROOT" ]; then
+	echo "==> Creating ${CODE_ROOT}..."
+	mkdir "$CODE_ROOT"
+fi
+
+if [ ! -d "${CODE_ROOT}/dotfiles" ]; then
+	echo "==> Cloning dotfiles to ${DOTFILES_ROOT}..."
+	git clone https://github.com/ametzger/dotfiles.git "${DOTFILES_ROOT}"
+fi
+
+echo "==> Setting up workstation..."
+cd "${DOTFILES_ROOT}"
+bash "${DOTFILES_ROOT}/bin/setup"
+
+# echo "==> Installing dotfiles..."
+# if [ -f "${HOME}/.bashrc" && ! -L "${HOME}/.bashrc" ]; then
+# 	mv "${HOME}/.bashrc" "${HOME}/.bashrc.bak"
+# fi
+# make install
