@@ -1,0 +1,73 @@
+---
+- name: Install GNOME packages
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - python3-psutil
+    - tilix
+    - gnome-tweaks
+    - arc-theme
+    - chromium
+  become: yes
+  become_method: sudo
+  when: ansible_os_family == "RedHat"
+
+- name: Set GNOME theme
+  dconf:
+    key: /org/gnome/desktop/interface/gtk-theme
+    value: "'Arc-Dark'"
+
+- name: Set wallpaper location
+  dconf:
+    key: /org/gnome/desktop/background/picture-uri
+    value: "'file://{{ dotfiles_root }}/roles/gnome/files/wallpaper.png'"
+
+- name: Set wallpaper options
+  dconf:
+    key: /org/gnome/desktop/background/picture-options
+    value: "'wallpaper'"
+
+- name: Set lock screen location
+  dconf:
+    key: /org/gnome/desktop/screensaver/picture-uri
+    value: "'file://{{ dotfiles_root }}/roles/gnome/files/wallpaper.png'"
+
+- name: Set lock screen options
+  dconf:
+    key: /org/gnome/desktop/screensaver/picture-options
+    value: "'wallpaper'"
+
+- name: Treat caps lock as ctrl
+  dconf:
+    key: /org/gnome/desktop/input-sources/xkb-options
+    value: "['caps:ctrl_modifier']"
+
+- name: Check Nord Tilix theme exists
+  stat: path="{{ dotfiles_home }}/proj/vendor/nord-tilix"
+  register: nord_tilix_repo
+
+- name: Clone Nord Tilix theme
+  git:
+    repo: 'https://github.com/arcticicestudio/nord-tilix.git'
+    dest: "{{ dotfiles_home }}/proj/vendor/nord-tilix"
+  when: nord_tilix_repo.stat.exists == False
+
+- name: Create nord config dir
+  file:
+    dest: "{{ dotfiles_home }}/.config/tilix/schemes"
+    state: directory
+    force: yes
+
+- name: Link Nord Tilix theme
+  file:
+    src: "{{ dotfiles_home }}/proj/vendor/nord-tilix/src/json/nord.json"
+    dest: "{{ dotfiles_home }}/.config/tilix/schemes/nord.json"
+    state: link
+    force: yes
+
+- name: Set Tilix theme
+  shell: dconf load /com/gexperts/Tilix/ < "{{ dotfiles_root }}/roles/gnome/files/tilix.dconf"
+
+- name: Set favorite apps
+  shell: gsettings set org.gnome.shell favorite-apps "['com.gexperts.Tilix.desktop', 'emacs.desktop', 'firefox.desktop', 'chromium-browser.desktop']"
