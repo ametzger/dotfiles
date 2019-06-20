@@ -21,7 +21,7 @@
 - name: Set wallpaper location
   dconf:
     key: /org/gnome/desktop/background/picture-uri
-    value: "'file://{{ dotfiles_root }}/roles/gnome/files/wallpaper.png'"
+    value: "'file://{{ dotfiles_root }}/roles/linux/files/wallpaper.png'"
 
 - name: Set wallpaper options
   dconf:
@@ -31,7 +31,7 @@
 - name: Set lock screen location
   dconf:
     key: /org/gnome/desktop/screensaver/picture-uri
-    value: "'file://{{ dotfiles_root }}/roles/gnome/files/wallpaper.png'"
+    value: "'file://{{ dotfiles_root }}/roles/linux/files/wallpaper.png'"
 
 - name: Set lock screen options
   dconf:
@@ -67,7 +67,7 @@
     force: yes
 
 - name: Set Tilix theme
-  shell: dconf load /com/gexperts/Tilix/ < "{{ dotfiles_root }}/roles/gnome/files/tilix.dconf"
+  shell: dconf load /com/gexperts/Tilix/ < "{{ dotfiles_root }}/roles/linux/files/tilix.dconf"
 
 - name: Set favorite apps
   shell: gsettings set org.gnome.shell favorite-apps "['com.gexperts.Tilix.desktop', 'emacs.desktop', 'firefox.desktop', 'chromium-browser.desktop']"
