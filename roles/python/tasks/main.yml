@@ -1,0 +1,37 @@
+---
+- name: Install pyenv dependencies
+  dnf:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - make
+    - gcc
+    - zlib-devel
+    - bzip2
+    - bzip2-devel
+    - readline-devel
+    - sqlite
+    - sqlite-devel
+    - openssl-devel
+    - tk-devel
+    - libffi-devel
+  become: yes
+  become_method: sudo
+
+- name: Check pyenv install
+  stat: path="{{ dotfiles_home }}/.pyenv"
+  register: pyenv_dir
+
+- name: Clone pyenv
+  git:
+    repo: 'https://github.com/pyenv/pyenv.git'
+    dest: "{{ dotfiles_home }}/.pyenv"
+
+- name: Install Python
+  shell: |
+    export PATH="{{ dotfiles_home }}/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    pyenv install 3.7.2
+    pyenv global 3.7.2
+  args:
+    executable: /bin/bash
