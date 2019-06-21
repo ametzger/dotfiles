@@ -35,3 +35,25 @@
     pyenv global 3.7.2
   args:
     executable: /bin/bash
+
+- name: Install Python Dependencies
+  shell: |
+    export PATH="{{ dotfiles_home }}/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    pip install -U setuptools pip pipenv flake8 mypy pylint
+  args:
+    executable: /bin/bash
+
+- name: Link flake8 config
+  file:
+    src: "{{ dotfiles_root }}/roles/python/files/flake8"
+    dest: "{{ dotfiles_home }}/.config/flake8"
+    state: link
+    force: yes
+
+- name: Link pylint config
+  file:
+    src: "{{ dotfiles_root }}/roles/python/files/pylintrc"
+    dest: "{{ dotfiles_home }}/.pylintrc"
+    state: link
+    force: yes
