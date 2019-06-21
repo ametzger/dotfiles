@@ -1,0 +1,32 @@
+---
+- name: Install rust dependencies
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  when: ansible_os_family == "RedHat"
+  become: yes
+  become_method: sudo
+  loop:
+    - cmake
+    - libgit2
+    - libgit2-devel
+
+- name: Check cargo installed
+  stat: path="{{ dotfiles_home }}/.cargo"
+  register: cargo_dir
+
+- name: Install rust via rustup
+  shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
+  args:
+    warn: no
+  when: cargo_dir.stat.exists == False
+
+- name: Install nightly rust
+  shell: "~/.cargo/bin/rustup toolchain install nightly-x86_64-unknown-linux-gnu"
+
+- name: Install Cargo packages
+  shell: "~/.cargo/bin/cargo {{ item.toolchain }} install --force {{ item.package }}"
+  loop:
+    - { package: exa, toolchain: "" }
+    - { package: rustfmt, toolchain: "" }
+    - { package: racer, toolchain: "+nightly" }
