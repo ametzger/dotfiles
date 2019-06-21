@@ -1,0 +1,38 @@
+---
+- name: Install vagrant dependencies
+  dnf:
+    name: libxcrypt-compat
+    state: latest
+  become: yes
+  become_method: sudo
+  when: ansible_os_family == "RedHat"
+
+- name: Check vagrant installed
+  stat: path=/usr/local/bin/vagrant
+  register: vagrant_bin
+
+- name: Install vagrant
+  unarchive:
+    src: 'https://releases.hashicorp.com/vagrant/2.2.4/vagrant_2.2.4_linux_amd64.zip'
+    dest: /usr/local/bin
+    remote_src: yes
+  become: yes
+  become_method: sudo
+  when: vagrant_bin.stat.exists == False
+
+- name: Install virtualization packages
+  dnf:
+    name: "@virtualization"
+    state: latest
+  become: yes
+  become_method: sudo
+  when: ansible_os_family == "RedHat"
+
+- name: Enable virtualization service
+  systemd:
+    name: libvirtd
+    enabled: yes
+    state: started
+  become: yes
+  become_method: sudo
+  when: ansible_os_family == "RedHat"

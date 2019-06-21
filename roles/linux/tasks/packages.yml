@@ -10,6 +10,7 @@
     - ripgrep
     - fzf
     - direnv
+    - "https://downloads.slack-edge.com/linux_releases/slack-3.4.2-0.1.fc21.x86_64.rpm"
 
 - name: Install alacritty COPR repo
   shell: dnf copr --assumeyes enable pschyska/alacritty
@@ -42,7 +43,6 @@
     src: "{{ dotfiles_root }}/roles/linux/files/alacritty.yml"
     dest: "{{ dotfiles_home }}/.config/alacritty/alacritty.yml"
     state: link
-
 
 - name: Install kitty COPR repo
   shell: dnf copr --assumeyes enable gagbo/kitty-latest
