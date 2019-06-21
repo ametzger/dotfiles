@@ -29,11 +29,11 @@
     dest: "{{ dotfiles_home }}/.{{ item }}"
     state: link
     force: yes
-    loop:
-      - zlogout
-      - zsh.d
-      - zshenv
-      - zshrc
+  loop:
+    - zlogout
+    - zsh.d
+    - zshenv
+    - zshrc
 
 - name: Generate Antibody package
   shell: antibody bundle < {{ dotfiles_root }}/roles/zsh/files/zsh.d/plugins.txt
@@ -52,7 +52,7 @@
   file:
     path: "{{ dotfiles_home }}/.z"
     state: file
-    when: z_dir.stat.exists == False
+  when: z_dir.stat.exists == False
 
 - name: Find ZSH path
   shell: which zsh
@@ -62,4 +62,4 @@
   user:
     name: "{{ ansible_env.USER }}"
     shell: "{{ zsh_path.stdout }}"
-    become: yes
+  become: yes
