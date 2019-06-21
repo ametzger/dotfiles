@@ -6,4 +6,5 @@
   become: yes
   become_method: sudo
 
+- import_tasks: packages.yml
 - import_tasks: gnome.yml
