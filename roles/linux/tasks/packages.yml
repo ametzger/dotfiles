@@ -42,3 +42,20 @@
     src: "{{ dotfiles_root }}/roles/linux/files/alacritty.yml"
     dest: "{{ dotfiles_home }}/.config/alacritty/alacritty.yml"
     state: link
+
+
+- name: Install kitty COPR repo
+  shell: dnf copr --assumeyes enable gagbo/kitty-latest
+  args:
+    warn: no
+  become: yes
+  become_method: sudo
+  when: ansible_os_family == "RedHat"
+
+- name: Install kitty
+  dnf:
+    name: kitty
+    state: latest
+  become: yes
+  become_method: sudo
+  when: ansible_os_family == "RedHat"
