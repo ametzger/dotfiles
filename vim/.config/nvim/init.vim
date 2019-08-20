@@ -165,3 +165,6 @@ let g:CommandTCursorRightMap = ['<Right>', '<C-f>']
 let g:CommandTBackspaceMap   = ['<BS>',    '<C-h>']
 let g:CommandTDeleteMap      = ['<Del>',   '<C-d>']
 
+" NERDCommenter
+let g:NERDDefaultAlign = 'left'
+let g:NERDSpaceDelims = 1
