@@ -1,0 +1,19 @@
+---
+- name: Check nvm install
+  stat: path="{{ dotfiles_home }}/.nvm"
+  register: nvm_dir
+
+- name: Install nvm
+  git:
+    repo: 'https://github.com/nvm-sh/nvm.git'
+    dest: "{{ dotfiles_home }}/.nvm"
+  when: nvm_dir.stat.exists == False
+
+- name: Install Node (latest)
+  shell: |
+    export PATH="{{ dotfiles_home }}/.nvm/bin:$PATH"
+    . {{ dotfiles_home }}/.nvm/nvm.sh
+    nvm install node
+    nvm alias default node
+  args:
+    executable: /bin/bash
