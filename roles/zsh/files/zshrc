@@ -31,8 +31,8 @@ if command -v bat >/dev/null 2>&1; then
   alias cat='bat'
 fi
 
-alias em='emacsclient -n'
-alias e='nvim'
+alias em='emacsclient -nc'
+alias e='emacsclient -nw'
 alias vim='nvim'
 alias p='pipenv run'
 alias m='p python manage.py'
