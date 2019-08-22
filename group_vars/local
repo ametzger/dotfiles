@@ -22,3 +22,7 @@ python_global: 3.7.1
 ruby_versions:
   - 2.6.0
 ruby_global: 2.6.0
+
+elixir_versions:
+  - 1.9.1
+elixir_global: 1.9.1

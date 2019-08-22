@@ -13,6 +13,12 @@ if [[ -d ~/.pyenv ]]; then
   export PATH="$PYENV_ROOT/bin:$PATH"
 fi
 
+# exenv
+if [[ -d ~/.exenv ]]; then
+  export EXENV_ROOT="$HOME/.exenv"
+  export PATH="$EXENV_ROOT/bin:$PATH"
+fi
+
 # nvm
 if [[ -d ~/.nvm ]]; then
   export NVM_DIR="$HOME/.nvm"

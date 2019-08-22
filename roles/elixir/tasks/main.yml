@@ -1,0 +1,46 @@
+---
+- name: Install elixir-build dependencies
+  dnf:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - erlang
+  become: yes
+  become_method: sudo
+
+- name: Check exenv install
+  stat: path="{{ dotfiles_home }}/.exenv"
+  register: exenv_dir
+
+- name: Install exenv
+  git:
+    repo: 'https://github.com/exenv/exenv.git'
+    dest: "{{ dotfiles_home }}/.exenv"
+  when: exenv_dir.stat.exists == False
+
+- name: Check elixir-build install
+  stat: path="{{ dotfiles_home }}/.exenv/plugins/elixir-build"
+  register: elixir_build_dir
+
+- name: Install elixir-build plugin
+  git:
+    repo: 'git://github.com/mururu/elixir-build.git'
+    dest: "{{ dotfiles_home }}/.exenv/plugins/elixir-build"
+  when: elixir_build_dir.stat.exists == False
+
+- name: Install Elixir versions
+  shell: |
+    export PATH="{{ dotfiles_home }}/.exenv/bin:$PATH"
+    eval "$(exenv init -)"
+    exenv install {{ item }} || true
+  args:
+    executable: /bin/bash
+  loop: '{{ elixir_versions }}'
+
+- name: Set Elixir global version
+  shell: |
+    export PATH="{{ dotfiles_home }}/.exenv/bin:$PATH"
+    eval "$(exenv init -)"
+    exenv global {{ elixir_global }}
+  args:
+    executable: /bin/bash
