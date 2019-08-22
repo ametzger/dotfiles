@@ -24,4 +24,8 @@ fi
 
 echo "==> Setting up workstation..."
 cd "${DOTFILES_ROOT}"
+
+# TODO: Remove this
+git checkout ansible
+
 bash "${DOTFILES_ROOT}/bin/setup"
