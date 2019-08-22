@@ -1,11 +1,12 @@
 - name: Set up workstation
   hosts: local
   roles:
-    - { role: git, tags: ['git'] }
-    - { role: zsh, tags: ['zsh'] }
-    - { role: tmux, tags: ['tmux'] }
-    - { role: vim, tags: ['vim'] }
-    - { role: docker, tags: ['docker'] }
+    # - { role: git, tags: ['git'] }
+    # - { role: zsh, tags: ['zsh'] }
+    # - { role: tmux, tags: ['tmux'] }
+    # - { role: vim, tags: ['vim'] }
+    # - { role: docker, tags: ['docker'] }
     - { role: emacs, tags: ['emacs'] }
-    - { role: linux, tags: ['linux'] }
-    - { role: python, tags: ['python'] }
+    # - { role: linux, tags: ['linux'] }
+    # - { role: python, tags: ['python'] }
+    # - { role: ruby, tags: ['ruby'] }

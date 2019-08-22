@@ -16,3 +16,5 @@
     state: link
     force: yes
 
+# - name: Install all-the-icons fonts
+#   shell: emacs --batch --execute '(all-the-icons-install-fonts t)'

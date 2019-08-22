@@ -1,0 +1,45 @@
+---
+- name: Install ruby-build dependencies
+  dnf:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - bzip2
+    - openssl-devel
+    - libyaml-devel
+    - libffi-devel
+    - readline-devel
+    - zlib-devel
+    - gdbm-devel
+    - ncurses-devel
+  become: yes
+  become_method: sudo
+
+- name: Check rbenv install
+  stat: path="{{ dotfiles_home }}/.rbenv"
+  register: rbenv_dir
+
+- name: Install rbenv
+  git:
+    repo: 'https://github.com/rbenv/rbenv.git'
+    dest: "{{ dotfiles_home }}/.rbenv"
+  when: rbenv_dir.stat.exists == False
+
+- name: Check ruby-build install
+  stat: path="{{ dotfiles_home }}/.rbenv/plugins/ruby-build"
+  register: ruby_build_dir
+
+- name: Install ruby-build plugin
+  git:
+    repo: 'https://github.com/rbenv/ruby-build.git'
+    dest: "{{ dotfiles_home }}/.rbenv/plugins/ruby-build"
+  when: rbenv_dir.stat.exists == False
+
+- name: Install Ruby
+  shell: |
+    export PATH="{{ dotfiles_home }}/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+    rbenv install 2.6.0
+    rbenv global 2.6.0
+  args:
+    executable: /bin/bash
