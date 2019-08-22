@@ -39,7 +39,7 @@
   shell: |
     export PATH="{{ dotfiles_home }}/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
-    rbenv install {{ item }} || true # Ignore already installed versions
+    rbenv install --skip-existing {{ item }}
   args:
     executable: /bin/bash
   loop: '{{ ruby_versions }}'

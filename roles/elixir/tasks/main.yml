@@ -32,7 +32,7 @@
   shell: |
     export PATH="{{ dotfiles_home }}/.exenv/bin:$PATH"
     eval "$(exenv init -)"
-    exenv install {{ item }} || true
+    exenv install {{ item }}
   args:
     executable: /bin/bash
   loop: '{{ elixir_versions }}'

@@ -31,7 +31,7 @@
   shell: |
     export PATH="{{ dotfiles_home }}/.pyenv/bin:$PATH"
     eval "$(pyenv init -)"
-    pyenv install {{ item }}
+    pyenv install --skip-existing {{ item }}
   args:
     executable: /bin/bash
   loop: '{{ python_versions }}'
