@@ -15,4 +15,5 @@
     src: "{{ dotfiles_root }}/roles/misc/files/ssh-config"
     dest: "{{ dotfiles_home }}/.ssh/config"
     state: link
+    mode: 0744
     force: yes
