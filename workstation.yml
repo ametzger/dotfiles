@@ -1,13 +1,13 @@
 - name: Set up workstation
   hosts: local
   roles:
+    - { role: linux, tags: ['linux'], when: ansible_os_family == "RedHat" }
     - { role: git, tags: ['git'] }
     - { role: zsh, tags: ['zsh'] }
     - { role: tmux, tags: ['tmux'] }
     - { role: vim, tags: ['vim'] }
     - { role: docker, tags: ['docker'] }
     - { role: emacs, tags: ['emacs'] }
-    - { role: linux, tags: ['linux'] }
     - { role: python, tags: ['python'] }
     - { role: elixir, tags: ['elixir'] }
     - { role: ruby, tags: ['ruby'] }

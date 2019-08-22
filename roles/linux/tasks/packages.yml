@@ -12,6 +12,38 @@
     - direnv
     - "https://downloads.slack-edge.com/linux_releases/slack-3.4.2-0.1.fc21.x86_64.rpm"
     - racket
+    - postgresql # postgres clients
+    - postgresql-server
+
+- name: Check postgres initialized
+  find: paths="/var/lib/pgsql/data" file_type=directory patterns="*"
+  register: postgres_data
+  become: yes
+  become_method: sudo
+
+- name: Bootstrap postgres
+  shell: |
+    /usr/bin/postgresql-setup --initdb
+  become: yes
+  become_method: sudo
+  when: postgres_data.matched|int == 0
+
+- name: Enable PostgreSQL service
+  systemd:
+    name: postgresql
+    enabled: yes
+    state: started
+  become: yes
+  become_method: sudo
+
+- name: Configure postgres
+  shell: |
+    psql postgres -c "CREATE ROLE {{ ansible_env.USER }} PASSWORD '' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;"
+    /usr/bin/createdb "{{ ansible_env.USER }}"
+  become: yes
+  become_method: sudo
+  become_user: postgres
+  when: postgres_data.matched|int == 0
 
 - name: Install alacritty COPR repo
   shell: dnf copr --assumeyes enable pschyska/alacritty
