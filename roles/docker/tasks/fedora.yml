@@ -27,7 +27,6 @@
     name: "{{ item }}"
     state: latest
     update_cache: yes
-    releasever: 29 # HACK: Docker haven't updated for Fedora 3-
   loop:
     - docker-ce
     - docker-ce-cli
@@ -45,4 +44,10 @@
     name: "{{ ansible_env.USER }}"
     groups: docker
     append: yes
+  become: yes
+
+- name: Install MicroK8S
+  snap:
+    name: microk8s
+    classic: yes
   become: yes
