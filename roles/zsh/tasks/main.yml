@@ -52,7 +52,7 @@
   file:
     path: "{{ dotfiles_home }}/.z"
     state: file
-  when: z_dir.stat.exists == False
+  when: z_file.stat.exists == False
 
 - name: Find ZSH path
   shell: which zsh
