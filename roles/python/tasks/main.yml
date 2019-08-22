@@ -27,13 +27,19 @@
     repo: 'https://github.com/pyenv/pyenv.git'
     dest: "{{ dotfiles_home }}/.pyenv"
 
-- name: Install Python
+- name: Install Python versions
   shell: |
     export PATH="{{ dotfiles_home }}/.pyenv/bin:$PATH"
     eval "$(pyenv init -)"
-    pyenv install 3.7.2
-    pyenv install 3.7.1
-    pyenv global 3.7.2
+    pyenv install {{ item }}
+  args:
+    executable: /bin/bash
+  loop: '{{ python_versions }}'
+
+- name: Set Python global version
+  shell: |
+    export PATH="{{ dotfiles_home }}/.pyenv/bin:$PATH"
+    pyenv global {{ python_global }}
   args:
     executable: /bin/bash
 

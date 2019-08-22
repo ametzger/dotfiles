@@ -35,11 +35,19 @@
     dest: "{{ dotfiles_home }}/.rbenv/plugins/ruby-build"
   when: rbenv_dir.stat.exists == False
 
-- name: Install Ruby
+- name: Install Ruby versions
   shell: |
     export PATH="{{ dotfiles_home }}/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
-    rbenv install 2.6.0
-    rbenv global 2.6.0
+    rbenv install {{ item }}
+  args:
+    executable: /bin/bash
+  loop: '{{ ruby_versions }}'
+
+- name: Set Ruby global version
+  shell: |
+    export PATH="{{ dotfiles_home }}/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+    rbenv global {{ ruby_global }}
   args:
     executable: /bin/bash
