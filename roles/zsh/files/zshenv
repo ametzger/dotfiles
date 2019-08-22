@@ -20,9 +20,9 @@ if [[ -d ~/.exenv ]]; then
 fi
 
 # nvm
-if [[ -d ~/.nvm ]]; then
-  export NVM_DIR="$HOME/.nvm"
-fi
+# if [[ -d ~/.nvm ]]; then
+#   export NVM_DIR="$HOME/.nvm"
+# fi
 
 # golang
 if [[ -d ~/proj/go ]]; then
