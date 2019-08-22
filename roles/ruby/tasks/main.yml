@@ -33,13 +33,13 @@
   git:
     repo: 'https://github.com/rbenv/ruby-build.git'
     dest: "{{ dotfiles_home }}/.rbenv/plugins/ruby-build"
-  when: rbenv_dir.stat.exists == False
+  when: ruby_build_dir.stat.exists == False
 
 - name: Install Ruby versions
   shell: |
     export PATH="{{ dotfiles_home }}/.rbenv/bin:$PATH"
     eval "$(rbenv init -)"
-    rbenv install {{ item }}
+    rbenv install {{ item }} || true # Ignore already installed versions
   args:
     executable: /bin/bash
   loop: '{{ ruby_versions }}'
@@ -51,3 +51,25 @@
     rbenv global {{ ruby_global }}
   args:
     executable: /bin/bash
+
+- name: Install Ruby tools
+  shell: |
+    export PATH="{{ dotfiles_home }}/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+    gem install {{ item }}
+    rbenv rehash
+  args:
+    executable: /bin/bash
+  loop:
+    - pry
+    - rake
+
+- name: Link ruby config files
+  file:
+    src: "{{ dotfiles_root }}/roles/ruby/files/{{ item }}"
+    dest: "{{ dotfiles_home }}/.{{ item }}"
+    state: link
+    force: yes
+  loop:
+    - gemrc
+    - irbrc
