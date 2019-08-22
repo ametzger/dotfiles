@@ -12,4 +12,5 @@
     - { role: elixir, tags: ['elixir'] }
     - { role: ruby, tags: ['ruby'] }
     - { role: rust, tags: ['rust'] }
-    - { role: node, tags: ['node'] }
+    - { role: go, tags: ['go'] }
+    # - { role: node, tags: ['node'] }

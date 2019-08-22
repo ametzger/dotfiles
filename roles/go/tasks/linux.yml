@@ -1,0 +1,20 @@
+---
+- name: Check Go installed
+  stat: path=/usr/local/go/bin/go
+  register: go_command
+
+- name: Install Go
+  unarchive:
+    src: "https://dl.google.com/go/go{{ go_version }}.linux-amd64.tar.gz"
+    dest: /usr/local
+    remote_src: yes
+  when: go_command.stat.exists == False
+  become: yes
+  become_method: sudo
+
+- name: Setup global GOPATH
+  copy:
+    content: export GOROOT=/usr/local/go
+    dest: /etc/profile.d/go.sh
+  become: yes
+  become_method: sudo

@@ -26,3 +26,5 @@ ruby_global: 2.6.0
 elixir_versions:
   - 1.9.1
 elixir_global: 1.9.1
+
+go_version: 1.12.9
