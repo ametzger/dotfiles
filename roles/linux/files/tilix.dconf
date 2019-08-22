@@ -1,14 +1,16 @@
 [/]
 terminal-title-style='normal'
-theme-variant='dark'
+theme-variant='light'
 
 [profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
-background-color='#2E3440'
+background-color='#FDF6E3'
 badge-color-set=false
 bold-color-set=false
 cursor-colors-set=false
-foreground-color='#D8DEE9'
+font='Operator Mono Semi-Light 12'
+foreground-color='#657B83'
 highlight-colors-set=false
-palette=['#3B4252', '#BF616A', '#A3BE8C', '#EBCB8B', '#81A1C1', '#B48EAD', '#88C0D0', '#E5E9F0', '#4C566A', '#BF616A', '#A3BE8C', '#EBCB8B', '#81A1C1', '#B48EAD', '#8FBCBB', '#ECEFF4']
+palette=['#073642', '#DC322F', '#859900', '#B58900', '#268BD2', '#D33682', '#2AA198', '#EEE8D5', '#002B36', '#CB4B16', '#586E75', '#657B83', '#839496', '#6C71C4', '#93A1A1', '#FDF6E3']
+use-system-font=false
 use-theme-colors=false
 visible-name='Default'
