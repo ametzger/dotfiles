@@ -1,0 +1,18 @@
+---
+- name: Link miscellaneous dotfiles
+  file:
+    src: "{{ dotfiles_root }}/roles/misc/files/{{ item }}"
+    dest: "{{ dotfiles_home }}/.{{ item }}"
+    state: link
+    force: yes
+  with_items:
+    - editorconfig
+    - hyper.js
+    - psqlrc
+
+- name: Link SSH config
+  file:
+    src: "{{ dotfiles_root }}/roles/misc/files/ssh-config"
+    dest: "{{ dotfiles_home }}/.ssh/config"
+    state: link
+    force: yes

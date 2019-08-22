@@ -14,3 +14,4 @@
     - { role: rust, tags: ['rust'] }
     - { role: go, tags: ['go'] }
     # - { role: node, tags: ['node'] }
+    - { role: misc, tags: ['misc'] }
