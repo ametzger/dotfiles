@@ -35,8 +35,9 @@
 
 - name: Start Docker
   systemd:
-    state: started
     name: docker
+    enabled: yes
+    state: started
   become: yes
 
 - name: Add user to Docker group
@@ -46,8 +47,8 @@
     append: yes
   become: yes
 
-- name: Install MicroK8S
-  snap:
-    name: microk8s
-    classic: yes
-  become: yes
+# - name: Install MicroK8S
+#   snap:
+#     name: microk8s
+#     classic: yes
+#   become: yes
