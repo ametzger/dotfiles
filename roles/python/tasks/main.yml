@@ -18,11 +18,11 @@
   become: yes
   become_method: sudo
 
-- name: Check pyenv install
+- name: Check pyenv installed
   stat: path="{{ dotfiles_home }}/.pyenv"
   register: pyenv_dir
 
-- name: Clone pyenv
+- name: Install pyenv
   git:
     repo: 'https://github.com/pyenv/pyenv.git'
     dest: "{{ dotfiles_home }}/.pyenv"
@@ -43,7 +43,7 @@
   args:
     executable: /bin/bash
 
-- name: Install Python Dependencies
+- name: Install Python tools
   shell: |
     export PATH="{{ dotfiles_home }}/.pyenv/bin:$PATH"
     eval "$(pyenv init -)"
