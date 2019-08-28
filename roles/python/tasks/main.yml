@@ -47,7 +47,7 @@
   shell: |
     export PATH="{{ dotfiles_home }}/.pyenv/bin:$PATH"
     eval "$(pyenv init -)"
-    pip install -U setuptools pip pipenv flake8 mypy pylint
+    pip install -U setuptools pip pipenv flake8 mypy pylint awscli
   args:
     executable: /bin/bash
 
