@@ -10,4 +10,4 @@
  '(font-lock-doc-face ((t (:foreground "#6d7a96" :slant italic))))
  '(font-lock-keyword-face ((t (:foreground "#81A1C1" :slant italic)))))
 
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-solarized-light)
