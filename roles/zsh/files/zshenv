@@ -39,6 +39,10 @@ if [[ -d ~/.tfenv ]]; then
   export PATH="$HOME/.tfenv/bin:$PATH"
 fi
 
+if [[ -d ~/dotnet ]]; then
+  export PATH="$HOME/dotnet/bin:$PATH"
+fi
+
 ## editor
 export EDITOR='nvim'
 export VISUAL='nvim'
