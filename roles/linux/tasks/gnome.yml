@@ -18,6 +18,21 @@
     key: /org/gnome/desktop/interface/gtk-theme
     value: "'Arc'"
 
+- name: Check Tela icon theme exists
+  stat: path="{{ dotfiles_home }}/proj/vendor/tela-icons"
+  register: tela_icon_repo
+
+- name: Clone Tela icon theme
+  git:
+    repo: 'https://github.com/vinceliuice/Tela-icon-theme.git'
+    dest: "{{ dotfiles_home }}/proj/vendor/tela-icons"
+  when: tela_icon_repo.stat.exists == False
+
+- name: Set GNOME icon theme
+  dconf:
+    key: /org/gnome/desktop/interface/icon-theme
+    value: "'Tela-blue'"
+
 - name: Set wallpaper location
   dconf:
     key: /org/gnome/desktop/background/picture-uri
@@ -53,7 +68,7 @@
     dest: "{{ dotfiles_home }}/proj/vendor/nord-tilix"
   when: nord_tilix_repo.stat.exists == False
 
-- name: Create nord config dir
+- name: Create Nord config dir
   file:
     dest: "{{ dotfiles_home }}/.config/tilix/schemes"
     state: directory
@@ -83,3 +98,4 @@
 
 - name: show battery percentage in top bar
   shell: gsettings set org.gnome.desktop.interface show-battery-percentage "true"
+
