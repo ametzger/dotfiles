@@ -55,8 +55,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'chr4/nginx.vim'
 " Plug 'dracula/vim', { 'as': 'dracula' }
-" Plug 'arcticicestudio/nord-vim'
-Plug 'altercation/vim-colors-solarized'
+Plug 'arcticicestudio/nord-vim'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'PeterRincker/vim-argumentative'
 Plug '/usr/local/opt/fzf'
 Plug 'tpope/vim-abolish'
@@ -79,13 +79,14 @@ map g# <Plug>(incsearch-nohl-g#)
 
 nnoremap <C-p> :FZF<Cr>
 
-set background=light
 " colorscheme zellner
 " let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 if has('gui_running')
     try
-        colorscheme solarized
+        " set background=light
+        " colorscheme solarized
+        colorscheme nord
     catch
     endtry
 
@@ -94,7 +95,7 @@ if has('gui_running')
     catch
     endtry
 else
-    colorscheme solarized
+    colorscheme nord
 endif
 
 filetype plugin indent on
