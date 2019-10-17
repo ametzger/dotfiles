@@ -13,13 +13,13 @@ export CLICOLOR=true
 ## force readline keybinds
 bindkey -e
 
+## Pure prompt
+export PURE_GIT_PULL=0
+
 ## antigen
 # To manage plugins, update `zsh.d/plugins.txt` then run `bin/antigen`
 # to regenerate this file.
 source ~/.zsh.d/plugins.zsh
-
-## Pure prompt
-PURE_GIT_PULL=0
 
 autoload -U compinit && compinit
 
