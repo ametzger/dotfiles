@@ -21,6 +21,9 @@ ignore =
     E303
     # Disable W503: line break before binary operator
     W503
+    E702
+    E701
+    E231
 
 #### IGNORED FILES #############################################################
 exclude =
