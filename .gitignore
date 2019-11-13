@@ -11,3 +11,4 @@
 *.private
 fish/.config/fish/functions/fisher.fish
 /fish/.config/fish/fish_variables
+/tmux/.tmuxinator.yml
