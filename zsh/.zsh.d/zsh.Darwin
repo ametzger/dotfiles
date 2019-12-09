@@ -22,3 +22,6 @@ if type brew &>/dev/null; then
   export PKG_CONFIG_PATH="$BREWROOT/lib/pkgconfig:$BREWROOT/opt/openssl/lib/pkgconfig:$BREWROOT/opt/zlib/lib/pkgconfig"
   alias bu="brew update && brew upgrade"
 fi
+
+# Use `say` to have the computer say done/error when a command completes
+alias a='f() { {eval "$@" && say done} || say error };f'
