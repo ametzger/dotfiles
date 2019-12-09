@@ -92,3 +92,6 @@ flycheck_*.el
 # jetbrains crap
 .idea
 /.envrc
+
+# direnv
+.envrc
