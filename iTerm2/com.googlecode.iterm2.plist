@@ -685,12 +685,16 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>366 515 928 394 0 0 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 1867 3360 1412 0 0 3360 1867 </string>
+	<string>0 764 3360 1104 0 0 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>247 132 650 452 0 0 1920 1178 </string>
 	<key>NeverWarnAboutMeta</key>
 	<true/>
 	<key>NeverWarnAboutMeta_selection</key>
+	<integer>0</integer>
+	<key>NeverWarnAboutShortLivedSessions_452AD399-09F1-4A03-AA1C-C0DC1EB42765</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_452AD399-09F1-4A03-AA1C-C0DC1EB42765_selection</key>
 	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
@@ -2287,14 +2291,14 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.3.0</string>
 		<string>3.3.6</string>
+		<string>3.3.4</string>
 		<string>3.3.1</string>
 		<string>3.3.3</string>
 		<string>3.3.5</string>
-		<string>3.2.9</string>
+		<string>3.3.0</string>
 		<string>3.3.2</string>
-		<string>3.3.4</string>
+		<string>3.2.9</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
@@ -2314,7 +2318,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>5B31EDAE-2CA3-4033-B8F6-EA78B8F53A3C</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>9</integer>
+	<integer>12</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3092,7 +3096,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-10-17T18:40:27Z</date>
+	<date>2019-11-12T19:47:40Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
