@@ -1,7 +1,7 @@
 ;;; ~/.doom.d/config.el -*- lexical-binding: t; -*-
 
 (let ((font-size (if (eq system-type 'darwin)
-                     17
+                     18
                    13)))
   (setq doom-font (format "Operator Mono Medium %d" font-size)))
 
@@ -11,3 +11,6 @@
  '(font-lock-keyword-face ((t (:foreground "#81A1C1" :slant italic)))))
 
 (setq doom-theme 'doom-nord)
+
+(setq default-directory "~/"
+      avy-all-windows t)
