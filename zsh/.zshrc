@@ -5,6 +5,15 @@
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
 ## profiling: uncomment to enable profiling
+# zmodload zsh/datetime
+# setopt PROMPT_SUBST
+# PS4='+$EPOCHREALTIME %N:%i> '
+
+# logfile=$(mktemp zsh_profile.XXXXXXXX)
+# echo "Logging to $logfile"
+# exec 3>&2 2>$logfile
+
+# setopt XTRACE
 # zmodload zsh/zprof
 
 export LSCOLORS='exfxcxdxbxegedabagacad'
@@ -64,3 +73,7 @@ fi
 
 ## extra env vars
 [ -f $HOME/.localrc ] && source ~/.localrc
+
+# More profiling, see top of file
+# unsetopt XTRACE
+# exec 2>&3 3>&-
