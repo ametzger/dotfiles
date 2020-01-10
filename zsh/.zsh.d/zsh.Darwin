@@ -5,9 +5,9 @@ if type vagrant &>/dev/null; then
 fi
 
 # XCode funkiness
-if command -v xcrun >/dev/null 2>&1; then
-  export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
-fi
+# if command -v xcrun >/dev/null 2>&1; then
+#   export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+# fi
 
 # Homebrew
 if type brew &>/dev/null; then
