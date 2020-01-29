@@ -1,11 +1,6 @@
 robbyrussell/oh-my-zsh path:lib/history.zsh
-
-# mafredri/zsh-async
 rupa/z
 zsh-users/zsh-completions
-
-# these should be at last!
-# sindresorhus/pure
-zdharma/fast-syntax-highlighting
 zsh-users/zsh-history-substring-search
 zsh-users/zsh-autosuggestions
+zdharma/fast-syntax-highlighting

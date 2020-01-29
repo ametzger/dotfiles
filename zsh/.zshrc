@@ -15,19 +15,12 @@
 
 # setopt XTRACE
 
-# zmodload zsh/zprof
-
 ## various interactive-only config
 export LSCOLORS='exfxcxdxbxegedabagacad'
 export CLICOLOR=true
 
-## force readline keybinds
+# force readline keybinds
 bindkey -e
-
-## antigen
-# To manage plugins, update `zsh.d/plugins.txt` then run `bin/antigen`
-# to regenerate this file.
-source ~/.zsh.d/plugins.zsh
 
 autoload -U compinit && compinit
 
@@ -51,7 +44,7 @@ zmodload zsh/datetime
 export PS1='
 %{$fg[blue]%}%~%{$reset_color%} %F{242%}%{$vcs_info_msg_0_%}%f%u
 %{%(?.$fg[magenta].$fg[red])%}❯%{$reset_color%} '
-RPROMPT=%*
+RPROMPT='%F{242}%*%f'
 
 ## aliases
 if command -v exa >/dev/null 2>&1; then
@@ -94,6 +87,11 @@ fi
 
 ## extra env vars
 [ -f $HOME/.localrc ] && source ~/.localrc
+
+## antigen
+# To manage plugins, update `zsh.d/plugins.txt` then run `bin/antigen`
+# to regenerate this file.
+source ~/.zsh.d/plugins.zsh
 
 # More profiling, see top of file
 # unsetopt XTRACE
