@@ -14,16 +14,15 @@
 # exec 3>&2 2>$logfile
 
 # setopt XTRACE
+
 # zmodload zsh/zprof
 
+## various interactive-only config
 export LSCOLORS='exfxcxdxbxegedabagacad'
 export CLICOLOR=true
 
 ## force readline keybinds
 bindkey -e
-
-## Pure prompt
-export PURE_GIT_PULL=0
 
 ## antigen
 # To manage plugins, update `zsh.d/plugins.txt` then run `bin/antigen`
@@ -31,6 +30,28 @@ export PURE_GIT_PULL=0
 source ~/.zsh.d/plugins.zsh
 
 autoload -U compinit && compinit
+
+## prompt
+# VCS integration setup
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats '%b'
+
+# Enable colors in prompt
+autoload -U colors && colors
+zmodload zsh/datetime
+
+# Based on https://github.com/sindresorhus/pure but with less
+# functionality
+# TODO: Pure has a nice timer function that fires if a command runs
+# for more than 5 seconds, adding the timestamp seems to be a workable
+# solution but might be nice to add that back in
+export PS1='
+%{$fg[blue]%}%~%{$reset_color%} %F{242%}%{$vcs_info_msg_0_%}%f%u
+%{%(?.$fg[magenta].$fg[red])%}❯%{$reset_color%} '
+RPROMPT=%*
 
 ## aliases
 if command -v exa >/dev/null 2>&1; then
