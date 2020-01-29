@@ -679,13 +679,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1996 379 807 77 0 0 3360 1867 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>1370 1106 620 392 0 0 3360 1867 </string>
+	<string>-1270 588 620 392 -1920 0 1920 1177 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>269 126 606 469 0 0 3360 1867 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>366 515 928 394 0 0 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 764 3360 1104 0 0 3360 1867 </string>
+	<string>0 1867 3360 1054 0 0 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>247 132 650 452 0 0 1920 1178 </string>
 	<key>NeverWarnAboutMeta</key>
@@ -2191,7 +2191,7 @@
 			<key>Non-ASCII Ligatures</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SFMono-Regular 18</string>
+			<string>JetBrainsMono-Regular 18</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Place Prompt at First Column</key>
@@ -2296,20 +2296,21 @@
 		<string>3.3.1</string>
 		<string>3.3.3</string>
 		<string>3.3.5</string>
+		<string>3.3.7</string>
 		<string>3.3.0</string>
-		<string>3.3.2</string>
 		<string>3.2.9</string>
+		<string>3.3.2</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
-		<string>SF Mono</string>
+		<string>JetBrains Mono</string>
 	</array>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1920, 1200}}</string>
+		<string>{{0, 0}, {3360, 1890}}</string>
 		<key>topLeft</key>
-		<string>{92, 878}</string>
+		<string>{103, 797}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -2318,7 +2319,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>5B31EDAE-2CA3-4033-B8F6-EA78B8F53A3C</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>12</integer>
+	<integer>18</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2639,6 +2640,14 @@
 				<key>isTerminal</key>
 				<true/>
 				<key>name</key>
+				<string>currentTab.iterm2.localhostName</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
 				<string>style</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
@@ -2851,6 +2860,14 @@
 				<true/>
 				<key>name</key>
 				<string>currentSession.presentationName</string>
+				<key>nonterminalContext</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>isTerminal</key>
+				<true/>
+				<key>name</key>
+				<string>iterm2.localhostName</string>
 				<key>nonterminalContext</key>
 				<integer>0</integer>
 			</dict>
@@ -3096,7 +3113,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-11-12T19:47:40Z</date>
+	<date>2020-01-29T17:00:27Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -3107,6 +3124,8 @@
 	<false/>
 	<key>SoundForEsc</key>
 	<false/>
+	<key>StartDebugLoggingAutomatically</key>
+	<false/>
 	<key>StretchTabsToFillBar</key>
 	<true/>
 	<key>TabStyle</key>
@@ -3116,6 +3135,8 @@
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>UseBorder</key>
+	<false/>
+	<key>UseMetal</key>
 	<false/>
 	<key>UseSystemCursorWhenPossible</key>
 	<true/>
@@ -3128,7 +3149,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.6</string>
+	<string>3.3.7</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
