@@ -36,6 +36,7 @@ zstyle ':vcs_info:git:*' formats '%b'
 autoload -U colors && colors
 zmodload zsh/datetime
 
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 # Based on https://github.com/sindresorhus/pure but with less
 # functionality
 # TODO: Pure has a nice timer function that fires if a command runs
