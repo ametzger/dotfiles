@@ -689,7 +689,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>366 515 928 394 0 0 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 1867 3360 1054 0 0 3360 1867 </string>
+	<string>0 814 3360 1054 0 0 3360 1867 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>247 132 650 452 0 0 1920 1178 </string>
 	<key>NeverWarnAboutMeta</key>
@@ -3062,7 +3062,7 @@
 	<key>OpenNoWindowsAtStartup</key>
 	<true/>
 	<key>OpenTmuxWindowsIn</key>
-	<integer>2</integer>
+	<integer>0</integer>
 	<key>OptionClickMovesCursor</key>
 	<false/>
 	<key>PMPrintingExpandedStateForPrint2</key>
@@ -3117,7 +3117,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-02-19T16:43:18Z</date>
+	<date>2020-02-20T16:43:18Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
