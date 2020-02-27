@@ -95,3 +95,4 @@ flycheck_*.el
 
 # direnv
 .envrc
+.env

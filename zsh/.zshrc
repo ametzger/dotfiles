@@ -62,14 +62,14 @@ alias em='emacsclient -nc'
 alias e='emacsclient -nw'
 alias vim='nvim'
 alias p='pipenv run'
-# alias m='p python manage.py'
+alias m='python manage.py'
 alias sp='m shell_plus'
 alias tf='terraform'
 
 ## tools
-if command -v rbenv >/dev/null 2>&1; then
-  eval "$(rbenv init -)"
-fi
+# if command -v rbenv >/dev/null 2>&1; then
+#   eval "$(rbenv init -)"
+# fi
 
 if command -v pyenv >/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -80,9 +80,9 @@ if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
-if [[ -d $NVM_DIR ]]; then
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-fi
+# if [[ -d $NVM_DIR ]]; then
+#   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# fi
 
 [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
 
