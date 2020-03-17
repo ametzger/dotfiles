@@ -55,8 +55,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'chr4/nginx.vim'
 " Plug 'dracula/vim', { 'as': 'dracula' }
-" Plug 'arcticicestudio/nord-vim'
-Plug 'altercation/vim-colors-solarized'
+Plug 'arcticicestudio/nord-vim'
+" Plug 'altercation/vim-colors-solarized'
 Plug 'PeterRincker/vim-argumentative'
 Plug '/usr/local/opt/fzf'
 Plug 'tpope/vim-abolish'
@@ -85,7 +85,7 @@ set background=light
 " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 if has('gui_running')
     try
-        colorscheme solarized
+        colorscheme nord
     catch
     endtry
 
@@ -94,7 +94,7 @@ if has('gui_running')
     catch
     endtry
 else
-    colorscheme solarized
+    colorscheme nord
 endif
 
 filetype plugin indent on
