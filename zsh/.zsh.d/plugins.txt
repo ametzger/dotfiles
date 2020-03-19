@@ -1,5 +1,4 @@
 robbyrussell/oh-my-zsh path:lib/history.zsh
-rupa/z
 zsh-users/zsh-completions
 zsh-users/zsh-history-substring-search
 zsh-users/zsh-autosuggestions

@@ -53,6 +53,10 @@ if command -v exa >/dev/null 2>&1; then
   alias ll='exa -lah'
 fi
 
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
+
 if command -v bat >/dev/null 2>&1; then
   export BAT_THEME="ansi-dark"
   alias cat='bat'
