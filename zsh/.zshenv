@@ -33,6 +33,10 @@ if [[ -d ~/.tfenv ]]; then
   export PATH="$HOME/.tfenv/bin:$PATH"
 fi
 
+if [[ -d ~/.node-versions ]]; then
+  export NODE_VERSIONS="$HOME/.node-versions"
+fi
+
 ## editor
 export EDITOR='nvim'
 export VISUAL='nvim'
