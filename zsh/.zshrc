@@ -66,7 +66,7 @@ alias em='emacsclient -nc'
 alias e='emacsclient -nw'
 alias vim='nvim'
 alias p='pipenv run'
-alias m='python manage.py'
+alias m='p python manage.py'
 alias sp='m shell_plus'
 alias tf='terraform'
 
