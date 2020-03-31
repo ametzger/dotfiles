@@ -38,6 +38,7 @@
 	recent = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 	mine = !git lg --author=\"Alex Metzger\"
 	restore = "!f() { git checkout $(git rev-list -n 1 HEAD -- $1)~1 -- $(git diff --name-status $(git rev-list -n 1 HEAD -- $1)~1 | grep ^D | cut -f 2); }; f"
+  rmu = !git status -s|grep '??'|sed -e 's/?? //'|xargs rm
 [pull]
 	ff = only
 [branch]
