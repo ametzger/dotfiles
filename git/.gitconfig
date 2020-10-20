@@ -15,6 +15,7 @@
 	whitespace = trailing-space,space-before-tab,-indent-with-non-tab
 	filemode = false
 	excludesfile = ~/.gitignore_global
+  attributesfile = ~/.gitattributes
 [push]
 	default = simple
 # [help]
