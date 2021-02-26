@@ -48,15 +48,11 @@ set inccommand=nosplit
 call plug#begin('~/.vim/plugged')
 
 Plug 'haya14busa/incsearch.vim'
-"Plug 'vim-scripts/indentpython.vim'
-"Plug 'kien/ctrlp.vim'
-"Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'chr4/nginx.vim'
-" Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'arcticicestudio/nord-vim'
-" Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 Plug 'PeterRincker/vim-argumentative'
 Plug '/usr/local/opt/fzf'
 Plug 'tpope/vim-abolish'
@@ -84,9 +80,9 @@ nnoremap <C-p> :FZF<Cr>
 " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 if has('gui_running')
     try
-        " set background=light
-        " colorscheme solarized
-        colorscheme nord
+        set background=light
+        colorscheme solarized
+        " colorscheme nord
     catch
     endtry
 
@@ -129,6 +125,8 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
+
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
