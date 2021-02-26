@@ -45,7 +45,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 export PS1='
 %{$fg[blue]%}%~%{$reset_color%} %F{242%}%{$vcs_info_msg_0_%}%f%u
 %{%(?.$fg[magenta].$fg[red])%}❯%{$reset_color%} '
-RPROMPT='%F{242}%*%f'
 
 ## aliases
 if command -v exa >/dev/null 2>&1; then
