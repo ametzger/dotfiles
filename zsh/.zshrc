@@ -57,7 +57,7 @@ if command -v zoxide >/dev/null 2>&1; then
 fi
 
 if command -v bat >/dev/null 2>&1; then
-  export BAT_THEME="ansi-dark"
+  export BAT_THEME="nord"
   alias cat='bat'
 fi
 
