@@ -14,3 +14,6 @@ fi
 export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+export DIRENV_LOG_FORMAT=''
+eval "$(direnv hook bash)"
