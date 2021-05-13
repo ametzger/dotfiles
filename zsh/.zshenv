@@ -50,6 +50,7 @@ export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 export PYTHONIOENCODING='UTF-8'
 export DOCKER_BUILDKIT=1
+export DOCKER_SCAN_SUGGEST=false
 
 ## platform-specific
 OS=$(uname -s); export OS
