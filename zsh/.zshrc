@@ -92,6 +92,9 @@ fi
 ## extra env vars
 [ -f $HOME/.localrc ] && source ~/.localrc
 
+## asdf
+[ -d $HOME/.asdf ] && source ~/.asdf/asdf.sh
+
 ## antigen
 # To manage plugins, update `zsh.d/plugins.txt` then run `bin/antigen`
 # to regenerate this file.

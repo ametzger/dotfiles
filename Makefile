@@ -44,3 +44,8 @@ pyenv: ## Install pyenv
 	@echo '$(COLOR_GREEN)==> Installing pyenv...$(COLOR_NONE)'
 	@git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 	@echo '$(COLOR_GREEN)==> Done!$(COLOR_NONE)'
+
+asdf: ## Install asdf
+	@echo '$(COLOR_GREEN)==> Installing asdf...$(COLOR_NONE)'
+	@git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+	@echo '$(COLOR_GREEN)==> Done!$(COLOR_NONE)'
