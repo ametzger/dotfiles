@@ -1,7 +1,7 @@
 set nocompatible
 filetype off
 
-let mapleader=","
+let mapleader=" "
 
 set tabstop=2
 set shiftwidth=2
@@ -57,6 +57,11 @@ Plug 'PeterRincker/vim-argumentative'
 Plug '/usr/local/opt/fzf'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
@@ -74,6 +79,12 @@ map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
 nnoremap <C-p> :FZF<Cr>
+
+" telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " colorscheme zellner
 " let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
