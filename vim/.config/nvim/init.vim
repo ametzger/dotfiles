@@ -68,6 +68,11 @@ endif
 
 call plug#end()
 
+" rg
+" if executable('rg') 
+"     set grepprg=rg\ --vimgrep\ --hidden\ —glob ‘!.git’
+" endif
+
 " incsearch
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -140,12 +145,6 @@ cmap <C-e> <End>
 cnoremap <C-d> <Del>
 cnoremap <C-h> <BS>
 cnoremap <C-k> <C-f>D<C-c><C-c>:<Up>
-
-" command-T window
-let g:CommandTCursorLeftMap  = ['<Left>',  '<C-b>']
-let g:CommandTCursorRightMap = ['<Right>', '<C-f>']
-let g:CommandTBackspaceMap   = ['<BS>',    '<C-h>']
-let g:CommandTDeleteMap      = ['<Del>',   '<C-d>']
 
 " NERDCommenter
 let g:NERDDefaultAlign = 'left'
