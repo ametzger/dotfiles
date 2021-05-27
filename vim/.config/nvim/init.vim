@@ -48,20 +48,23 @@ set inccommand=nosplit
 call plug#begin('~/.vim/plugged')
 
 Plug 'haya14busa/incsearch.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'chr4/nginx.vim'
 Plug 'arcticicestudio/nord-vim'
-Plug 'altercation/vim-colors-solarized'
 Plug 'PeterRincker/vim-argumentative'
-Plug '/usr/local/opt/fzf'
 Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-unimpaired'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'neovim/nvim-lspconfig'
+Plug 'tpope/vim-surround'
+" Plug 'lambdalisue/vim-gita', {'on': ['Gita']}
+Plug 'jreybert/vimagit', {'on': ['Magit']}
+Plug 'ruanyl/vim-gh-line'
+
+" these require neovim nightly
+if has('nvim-0.5')
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'nvim-lua/popup.nvim'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'neovim/nvim-lspconfig'
+endif
 
 call plug#end()
 
@@ -78,64 +81,32 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-nnoremap <C-p> :FZF<Cr>
-
 " telescope
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+if has('nvim-0.5')
+  nnoremap <C-p> <cmd>Telescope find_files<cr>
+  nnoremap <leader>ff <cmd>Telescope find_files<cr>
+  nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+  nnoremap <leader>fb <cmd>Telescope buffers<cr>
+  nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+endif
+
+" vim-gh-line
+let g:gh_use_canonical = 1
 
 " colorscheme zellner
 " let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+colorscheme nord
 if has('gui_running')
-    try
-        set background=light
-        colorscheme solarized
-        " colorscheme nord
-    catch
-    endtry
-
     try
         set guifont=Operator\ Mono\ Book:h17
     catch
     endtry
-else
-    colorscheme nord
 endif
 
 filetype plugin indent on
 
 set encoding=utf-8
-
-try
-    let NERDTreeIgnore=['\.pyc$', '\~$']
-    map <C-n> :NERDTreeToggle<CR>
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-catch
-endtry
-
-" autoreload vimrc
-if has ('autocmd') " Remain compatible with earlier versions
- augroup vimrc     " Source vim configuration upon save
-    autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
-    autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
-    autocmd! BufWritePost vimrc source $MYVIMRC | echom "Reloaded " . $MYVIMRC | redraw
-  augroup END
-endif " has autocmd
-
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
 
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
@@ -143,8 +114,9 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
+autocmd FileType html setlocal shiftwidth=4 tabstop=4
 
-" insert mode
+" emacs insert mode: old habits die hard
 imap <C-b> <Left>
 imap <C-f> <Right>
 imap <C-a> <Home>
