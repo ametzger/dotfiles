@@ -42,9 +42,15 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # TODO: Pure has a nice timer function that fires if a command runs
 # for more than 5 seconds, adding the timestamp seems to be a workable
 # solution but might be nice to add that back in
-export PS1='
+if [[ -n ${SSH_CONNECTION-}${SSH_CLIENT-}${SSH_TTY-} ]]; then
+  export PS1='
+%{$fg[red]%}%m%{$reset_color%} %{$fg[blue]%}%~%{$reset_color%} %F{242%}%{$vcs_info_msg_0_%}%f%u
+%{%(?.$fg[magenta].$fg[red])%}❯%{$reset_color%} '
+else
+  export PS1='
 %{$fg[blue]%}%~%{$reset_color%} %F{242%}%{$vcs_info_msg_0_%}%f%u
 %{%(?.$fg[magenta].$fg[red])%}❯%{$reset_color%} '
+fi
 
 ## aliases
 if command -v exa >/dev/null 2>&1; then
