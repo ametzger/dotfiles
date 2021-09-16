@@ -70,3 +70,4 @@ fi
 
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ '
 [[ ! $TERM == "dumb" ]] && TERM=xterm-256color
+[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"

@@ -1,0 +1,66 @@
+- clean:
+  - '~'
+
+- create:
+  - ~/.config/alacritty
+  - ~/.config/fish
+  - ~/.config/git
+  - ~/.config/kitty
+  - ~/.config/nvim
+  - ~/.local/share
+  - ~/.ssh
+  - ~/.tmux
+  - ~/.tmux/plugins
+  - ~/proj
+  - ~/tmp
+
+- link:
+    ~/.asdfrc:                         etc/asdfrc
+    ~/.bashrc:                         etc/bashrc
+    ~/.config/alacritty/alacritty.yml: etc/alacritty.yml
+    ~/.config/fish/config.fish:        etc/config.fish
+    ~/.config/fish/functions:          etc/fish-functions
+    ~/.config/flake8:                  etc/flake8
+    ~/.config/git/config:              etc/gitconfig
+    ~/.config/kitty/kitty.conf:        etc/kitty.conf
+    ~/.config/nvim/init.vim:           etc/nvim.vim
+    ~/.direnvrc:                       etc/direnvrc
+    ~/.doom.d:                         etc/doom-emacs
+    ~/.editorconfig:                   etc/editorconfig
+    # ~/.emacs.d:                      etc/emacs-prelude
+    ~/.gemrc:                          etc/gemrc
+    ~/.gitattributes:                  etc/gitattributes
+    ~/.gitignore_global:               etc/gitignore_global
+    ~/.hyper.js:                       etc/hyper.js
+    ~/.irbrc:                          etc/irbrc
+    ~/.psqlrc:                         etc/psqlrc
+    ~/.pylintrc:                       etc/pylintrc
+    # ~/.ripgreprc:                      etc/ripgreprc
+    ~/.spacemacs:                      etc/spacemacs
+    ~/.ssh/config:                     etc/sshconfig
+    ~/.tmux.conf:                      etc/tmux.conf
+    ~/.tmuxinator.yml:                 etc/tmuxinator.yml
+    ~/.tool-versions:                  etc/tool-versions
+    ~/.zlogout:                        etc/zlogout
+    ~/.zsh.d:                          etc/zsh.d
+    ~/.zshrc:                          etc/zshrc
+    ~/.zshenv:                         etc/zshenv
+
+- shell:
+  - |
+    OS_CONFIG="os/$(uname | tr '[:upper:]' '[:lower:]')/default.yml"
+    if [[ -f $OS_CONFIG ]]; then
+      ./submodules/dotbot/bin/dotbot -c $OS_CONFIG
+    fi
+  - curl -sfLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  - |
+    [ -d ~/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  - |
+    [ -d ~/.pyenv ] || git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+  - |
+    [ -d ~/.asdf ] || git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+    ~/.asdf/bin/asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+    ~/.asdf/bin/asdf plugin-add terraform https://github.com/asdf-community/asdf-hashicorp.git
+    ~/.asdf/bin/asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+  - chmod 0700 ~/.ssh
+  - chmod 0600 ~/.ssh/config

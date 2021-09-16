@@ -69,7 +69,7 @@ endif
 call plug#end()
 
 " rg
-" if executable('rg') 
+" if executable('rg')
 "     set grepprg=rg\ --vimgrep\ --hidden\ —glob ‘!.git’
 " endif
 
