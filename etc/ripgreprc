@@ -1,0 +1,6 @@
+--smart-case
+--sort=path
+--glob='!*/migrations/*.py'
+--glob=!package-lock.json
+--glob=!Pipfile.lock
+--glob=!*.ipynb

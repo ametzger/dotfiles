@@ -35,7 +35,7 @@
     ~/.irbrc:                          etc/irbrc
     ~/.psqlrc:                         etc/psqlrc
     ~/.pylintrc:                       etc/pylintrc
-    # ~/.ripgreprc:                      etc/ripgreprc
+    ~/.ripgreprc:                      etc/ripgreprc
     ~/.spacemacs:                      etc/spacemacs
     ~/.ssh/config:                     etc/sshconfig
     ~/.tmux.conf:                      etc/tmux.conf
