@@ -149,3 +149,8 @@ cnoremap <C-k> <C-f>D<C-c><C-c>:<Up>
 " NERDCommenter
 let g:NERDDefaultAlign = 'left'
 let g:NERDSpaceDelims = 1
+
+" lua << EOF
+" require'lspconfig'.pyright.setup{}
+" EOF
+
