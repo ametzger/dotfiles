@@ -3,6 +3,7 @@
 [user]
 	name = Alex Metzger
 	email = asm@asm.io
+	signingkey = 974B7213E1816927
 [github]
 	user = ametzger
 [gitlab]
