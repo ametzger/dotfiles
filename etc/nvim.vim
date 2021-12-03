@@ -53,9 +53,10 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
+Plug 'hashivim/vim-terraform'
 " Plug 'lambdalisue/vim-gita', {'on': ['Gita']}
-Plug 'jreybert/vimagit', {'on': ['Magit']}
-Plug 'ruanyl/vim-gh-line'
+" Plug 'jreybert/vimagit', {'on': ['Magit']}
+" Plug 'ruanyl/vim-gh-line'
 
 " these require neovim nightly
 if has('nvim-0.5')
