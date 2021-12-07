@@ -33,7 +33,7 @@ notify_internal () {
   command=$1
   res=$2
 
-  osascript -e 'display notification "'$res': '$command'" with title "Command '$res'"'
+  # osascript -e 'display notification "'$res': '$command'" with title "Command '$res'"'
   say $res
 }
 
