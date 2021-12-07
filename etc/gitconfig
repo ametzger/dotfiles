@@ -59,3 +59,5 @@
 	autoStash = true
 [merge]
 	tool = p4merge
+[init]
+	defaultBranch = main
