@@ -5,6 +5,8 @@
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
 ## profiling: uncomment to enable profiling
+# zmodload zsh/zprof
+
 # zmodload zsh/datetime
 # setopt PROMPT_SUBST
 # PS4='+$EPOCHREALTIME %N:%i> '
@@ -110,5 +112,7 @@ source ~/.zsh.d/plugins.zsh
 zle_highlight+=(paste:none)
 
 # More profiling, see top of file
+# zprof
+
 # unsetopt XTRACE
 # exec 2>&3 3>&-
