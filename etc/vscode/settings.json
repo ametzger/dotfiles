@@ -7,7 +7,7 @@
     //     100
     // ],
     "window.title": "${activeEditorLong}${separator}${folderName}${separator}${dirty}",
-    "workbench.colorTheme": "Solarized Light+",
+    "workbench.colorTheme": "Nord",
     "workbench.startupEditor": "newUntitledFile",
     "files.associations": {
         "zshrc": "shellscript",

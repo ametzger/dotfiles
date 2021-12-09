@@ -1,6 +1,11 @@
 - create:
     - ~/Library/KeyBindings
+    - '~/Library/Application Support/Sublime Text/Packages/User'
+    - '~/Library/Application Support/Code/User'
 
 - link:
     ~/Library/KeyBindings/DefaultKeyBinding.dict: DefaultKeybinding.dict
     '~/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings': ../../etc/sublime-text
+    '~/Library/Application Support/Code/User/settings.json': ../../etc/vscode/settings.json
+    '~/Library/Application Support/Code/User/keybinds.json': ../../etc/vscode/keybindings.json
+    '~/Library/Application Support/Code/User/snippets': ../../etc/vscode/snippets
