@@ -76,6 +76,7 @@ alias p='pipenv run'
 alias m='p python manage.py'
 alias sp='m shell_plus'
 alias tf='terraform'
+alias paws='aws --profile=personal'
 
 ## tools
 # if command -v rbenv >/dev/null 2>&1; then
