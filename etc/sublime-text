@@ -1,5 +1,4 @@
 {
-	"color_scheme": "Packages/nord-sublime-text/Nord.tmTheme",
 	"folder_exclude_patterns":
 	[
 		"__pycache__"
@@ -8,7 +7,8 @@
 	"font_size": 16,
 	"ignored_packages":
 	[
-		"Vintage"
+		"Vintage",
 	],
-	"theme": "Soda Dark 3.sublime-theme"
+	"theme": "Soda Dark 3.sublime-theme",
+	"color_scheme": "Nord.sublime-color-scheme",
 }

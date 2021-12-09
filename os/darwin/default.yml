@@ -3,3 +3,4 @@
 
 - link:
     ~/Library/KeyBindings/DefaultKeyBinding.dict: DefaultKeybinding.dict
+    '~/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings': ../../etc/sublime-text
