@@ -54,9 +54,12 @@ Plug 'PeterRincker/vim-argumentative'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
 Plug 'hashivim/vim-terraform'
-" Plug 'lambdalisue/vim-gita', {'on': ['Gita']}
-" Plug 'jreybert/vimagit', {'on': ['Magit']}
+Plug 'lukas-reineke/indent-blankline.nvim'
+" Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+" Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 " Plug 'ruanyl/vim-gh-line'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 " these require neovim nightly
 if has('nvim-0.5')
@@ -65,9 +68,14 @@ if has('nvim-0.5')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'neovim/nvim-lspconfig'
+  Plug 'ray-x/lsp_signature.nvim'
+  Plug 'ray-x/navigator.lua'
 endif
 
 call plug#end()
+
+" coq
+let g:coq_settings = { 'auto_start': 'shut-up' }
 
 " rg
 " if executable('rg')
