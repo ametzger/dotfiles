@@ -10,11 +10,14 @@ fi
 # fi
 
 # Homebrew
-if type brew &>/dev/null; then
-  export HOMEBREW_NO_ANALYTICS=1
-  export HOMEBREW_INSTALL_CLEANUP=1
-  export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_INSTALL_CLEANUP=1
+export HOMEBREW_NO_ENV_HINTS=1
 
+if [ -d /opt/homebrew ] && [[ "$(arch)" == 'arm64' ]]; then
+  alias brew='/opt/homebrew/bin/brew'
+  alias bu="brew update && brew upgrade"
+elif type brew &>/dev/null; then
   BREWROOT="$(brew --prefix)"
   FPATH="$$BREWROOT/share/zsh/site-functions:$FPATH"
   export PATH="$BREWROOT/sbin:$PATH"
