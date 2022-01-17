@@ -2,22 +2,9 @@
   Lovingly crafted, artisinal configuration files for the finest software
   available.
 
-** Overview
-   These are various config files I've accumulated over the
-   years.  Most files are broken up into sub-directories based on
-   subject, with various utility scripts contained in the =bin=
-   directory.
-
-** MacOS
-   To bootstrap a new Mac, use [[https://github.com/MikeMcQuaid/strap][MikeMcQuaid/strap]] with this repo and
-   [[https://github.com/ametzger/homebrew-brewfile][ametzger/homebrew-brewfile]]. Alternatively, the =bin/setup= script
-   will perform much of the work.
-
-** Windows
-   Configuration for Windows is piecemeal and has aged as I've stopped
-   using Windows for work. Some good places to start are
-   [[https://github.com/ametzger/dotfiles/blob/master/winders/choco-packages-work.ps1][choco-packages-work.ps1]] and [[https://github.com/ametzger/dotfiles/blob/master/winders/init-powershell.ps1][init-powershell.ps1]]. There are other
-   assorted bits and bobs in the [[https://github.com/ametzger/dotfiles/tree/master/winders][winders subdirectory]] of the repo.
+** Installation
+   To install, clone the repo and run =./install=. This should install
+   dotbot and get everything linked.
 
 ** Emacs
    Everyone's favorite text editor. I've moved my Emacs configuration
