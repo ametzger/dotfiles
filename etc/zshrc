@@ -48,6 +48,10 @@ if [[ -n ${SSH_CONNECTION-}${SSH_CLIENT-}${SSH_TTY-} ]]; then
   export PS1='
 %{$fg[red]%}%m%{$reset_color%} %{$fg[blue]%}%~%{$reset_color%} %F{242%}%{$vcs_info_msg_0_%}%f%u
 %{%(?.$fg[magenta].$fg[red])%}❯%{$reset_color%} '
+elif [[ "$HOSTNAME" == 'toolbox' ]]; then
+  export PS1='
+%{$fg[blue]%}%~%{$reset_color%} (toolbox) %F{242%}%{$vcs_info_msg_0_%}%f%u
+%{%(?.$fg[magenta].$fg[red])%}❯%{$reset_color%} '
 else
   export PS1='
 %{$fg[blue]%}%~%{$reset_color%} %F{242%}%{$vcs_info_msg_0_%}%f%u
