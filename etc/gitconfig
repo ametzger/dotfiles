@@ -61,3 +61,5 @@
 	tool = p4merge
 [init]
 	defaultBranch = main
+[advice]
+	detachedHead = false
