@@ -11,6 +11,7 @@ brew-packages:
 	brew install antibody
 	brew install awscli
 	brew install bat
+	brew install clojure
 	brew install consul
 	brew install coreutils
 	brew install cowsay
@@ -32,9 +33,9 @@ brew-packages:
 	brew install kakoune
 	brew install kops
 	brew install lapack
+	brew install libvterm
 	brew install libxmlsec1
 	brew install macvim
-	brew install make
 	brew install markdown
 	brew install mas
 	brew install minikube
@@ -44,6 +45,7 @@ brew-packages:
 	brew install nmap
 	brew install node
 	brew install openblas
+	brew install openssl@3
 	brew install packer
 	brew install pgbouncer
 	brew install pipx
@@ -56,6 +58,7 @@ brew-packages:
 	brew install ripgrep
 	brew install ruby-install
 	brew install semgrep
+	brew install starship
 	brew install tmuxinator
 	brew install tokei
 	brew install transmission-cli
