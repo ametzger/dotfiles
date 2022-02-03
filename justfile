@@ -77,6 +77,9 @@ brew-packages:
 	brew tap d12frosted/emacs-plus
 	brew install d12frosted/emacs-plus/emacs-plus@27 --with-modern-papirus-icon
 
+	brew tap qmk/qmk
+	brew install qmk/qmk/qmk
+
 	brew tap homebrew/cask-fonts
 	brew install --cask font-go-mono-nerd-font
 	brew install --cask font-jetbrains-mono

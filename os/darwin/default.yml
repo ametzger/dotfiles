@@ -2,6 +2,7 @@
     - ~/Library/KeyBindings
     - '~/Library/Application Support/Sublime Text/Packages/User'
     - '~/Library/Application Support/Code/User'
+    - '~/Library/Application Support/qmk'
 
 - link:
     ~/Library/KeyBindings/DefaultKeyBinding.dict: DefaultKeybinding.dict
@@ -9,3 +10,4 @@
     '~/Library/Application Support/Code/User/settings.json': ../../etc/vscode/settings.json
     '~/Library/Application Support/Code/User/keybinds.json': ../../etc/vscode/keybindings.json
     '~/Library/Application Support/Code/User/snippets': ../../etc/vscode/snippets
+    '~/Library/Application Support/qmk/qmk.ini': ../../etc/qmk.ini
