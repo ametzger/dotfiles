@@ -1,8 +1,6 @@
 # -*- shell-script -*-
 # Vagrant
-if type vagrant &>/dev/null; then
-  export VAGRANT_DEFAULT_PROVIDER="vmware_desktop"
-fi
+export VAGRANT_DEFAULT_PROVIDER="vmware_desktop"
 
 # XCode funkiness
 # if command -v xcrun >/dev/null 2>&1; then
