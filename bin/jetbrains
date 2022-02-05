@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-mkdir -p ~/Library/Preferences/colors
-ln -s ~/proj/vendor/dracula-theme/jetbrains/Dracula.icls ~/Library/Preferences/colors/Dracula.icls

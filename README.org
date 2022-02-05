@@ -8,6 +8,6 @@
 
 ** Emacs
    Everyone's favorite text editor. I've moved my Emacs configuration
-   to a separate [[https://github.com/ametzger/emacs.d][emacs.d repository]], although this repo has some
-   configurations I've used with Emacs Prelude and Spacemacs in the
-   [[https://github.com/ametzger/dotfiles/tree/master/emacs][emacs subdirectory]].
+   to a separate [[https://github.com/ametzger/emacs.d][emacs.d repository]]. This repository still contains
+   some configuration related to Emacs Prelude, Spacemacs, and Doom
+   Emacs.
