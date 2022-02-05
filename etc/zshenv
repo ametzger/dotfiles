@@ -55,8 +55,8 @@ export GPG_TTY=$(tty)
 
 ## platform-specific
 OS=$(uname -s); export OS
-if [[ -f ~/.zsh.d/zsh.${OS} ]]; then
-    source ~/.zsh.d/zsh.${OS}
+if [[ -f ~/.zsh.d/${OS}/zshenv ]]; then
+    source ~/.zsh.d/${OS}/zshenv
 fi
 
 ## $PATH manipulation

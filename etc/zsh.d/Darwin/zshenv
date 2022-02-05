@@ -1,0 +1,15 @@
+# -*- shell-script -*-
+# Vagrant
+if type vagrant &>/dev/null; then
+  export VAGRANT_DEFAULT_PROVIDER="vmware_desktop"
+fi
+
+# XCode funkiness
+# if command -v xcrun >/dev/null 2>&1; then
+#   export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+# fi
+
+# Homebrew
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_INSTALL_CLEANUP=1
+export HOMEBREW_NO_ENV_HINTS=1

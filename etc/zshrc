@@ -117,6 +117,12 @@ source ~/.zsh.d/plugins.zsh
 # do not highlight pasted text
 zle_highlight+=(paste:none)
 
+# platform specific
+OS=$(uname -s); export OS
+if [[ -f ~/.zsh.d/${OS}/zshrc ]]; then
+    source ~/.zsh.d/${OS}/zshrc
+fi
+
 # More profiling, see top of file
 # zprof
 
