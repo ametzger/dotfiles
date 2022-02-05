@@ -81,7 +81,11 @@ brew-packages:
 	brew install qmk/qmk/qmk
 
 	brew tap homebrew/cask-fonts
+	brew install --cask font-cascadia-code
+	brew install --cask font-go
 	brew install --cask font-go-mono-nerd-font
+	brew install --cask font-ibm-plex
+	brew install --cask font-input
 	brew install --cask font-jetbrains-mono
 
 	brew install --cask 1password
