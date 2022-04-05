@@ -83,10 +83,6 @@ alias tf='terraform'
 alias paws='aws --profile=personal'
 
 ## tools
-# if command -v rbenv >/dev/null 2>&1; then
-#   eval "$(rbenv init -)"
-# fi
-
 if command -v pyenv >/dev/null 2>&1; then
   eval "$(pyenv init --path)"
 fi
@@ -96,10 +92,10 @@ if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
 fi
 
-if [[ -d $NVM_DIR ]]; then
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
+# if [[ -d $NVM_DIR ]]; then
+#   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+#   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# fi
 
 [ -f $HOME/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -107,7 +103,7 @@ fi
 [ -f $HOME/.localrc ] && source ~/.localrc
 
 ## asdf
-# [ -d $HOME/.asdf ] && source ~/.asdf/asdf.sh
+[ -d $HOME/.asdf ] && source ~/.asdf/asdf.sh
 
 ## antigen
 # To manage plugins, update `zsh.d/plugins.txt` then run `bin/antigen`
