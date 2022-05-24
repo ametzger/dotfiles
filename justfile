@@ -12,6 +12,7 @@ brew-packages:
 	brew install awscli
 	brew install bat
 	brew install clojure
+	brew install cmake
 	brew install consul
 	brew install coreutils
 	brew install cowsay
@@ -75,7 +76,8 @@ brew-packages:
 	brew install zsh-completions
 
 	brew tap d12frosted/emacs-plus
-	brew install d12frosted/emacs-plus/emacs-plus@27 --with-modern-papirus-icon
+	brew install d12frosted/emacs-plus/emacs-plus@28 --with-nobu417-big-sur-icon
+	ln -s /usr/local/opt/emacs-plus@28/Emacs.app /Applications
 
 	brew tap qmk/qmk
 	brew install qmk/qmk/qmk
@@ -142,6 +144,8 @@ crates:
 	cargo install tokei
 	cargo install hyperfine
 
+# TODO(asm,2022-05-23): apparently antibody has been abandoned, need
+# to replace with something newer
 zsh:
 	antibody bundle < ~/.zsh.d/plugins.txt > ~/.zsh.d/plugins.zsh
 
