@@ -111,7 +111,6 @@ brew-packages:
 	brew install --cask transmission
 	brew install --cask vagrant
 	brew install --cask vimr
-	brew install --cask viscosity
 	brew install --cask zoom
 
 brew-services:
