@@ -85,6 +85,7 @@ alias paws='aws --profile=personal'
 ## tools
 if command -v pyenv >/dev/null 2>&1; then
   eval "$(pyenv init --path)"
+  eval "$(pyenv virtualenv-init -)"
 fi
 
 if command -v direnv >/dev/null 2>&1; then
@@ -102,8 +103,6 @@ fi
 ## extra env vars
 [ -f $HOME/.localrc ] && source ~/.localrc
 
-## asdf
-[ -d $HOME/.asdf ] && source ~/.asdf/asdf.sh
 
 ## antigen
 # To manage plugins, update `zsh.d/plugins.txt` then run `bin/antigen`
@@ -118,6 +117,9 @@ OS=$(uname -s); export OS
 if [[ -f ~/.zsh.d/${OS}/zshrc ]]; then
     source ~/.zsh.d/${OS}/zshrc
 fi
+
+## asdf
+[ -d $HOME/.asdf ] && source ~/.asdf/asdf.sh
 
 # More profiling, see top of file
 # zprof
