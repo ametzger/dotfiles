@@ -1,10 +1,5 @@
-# -*- makefile -*-
-
 help:
 	just --list
-
-brew:
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew-packages:
 	brew install amazon-ecs-cli

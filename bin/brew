@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# -*- shell-script -*-
+
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Install `just` out-of-band so the justfile works
+brew install just
