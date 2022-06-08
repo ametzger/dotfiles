@@ -1,16 +1,14 @@
 help:
 	just --list
 
+# Install baseline Homebrew packages
 brew-packages:
 	brew install amazon-ecs-cli
 	brew install antibody
 	brew install awscli
 	brew install bat
-	brew install clojure
 	brew install cmake
-	brew install consul
 	brew install coreutils
-	brew install cowsay
 	brew install curl
 	brew install direnv
 	brew install elixir
@@ -23,18 +21,13 @@ brew-packages:
 	brew install gnupg
 	brew install go
 	brew install httpie
-	brew install hugo
 	brew install hyperfine
 	brew install jq
 	brew install kakoune
-	brew install kops
 	brew install lapack
 	brew install libvterm
 	brew install libxmlsec1
-	brew install macvim
-	brew install markdown
 	brew install mas
-	brew install minikube
 	brew install mitmproxy
 	brew install mtr
 	brew install neovim
@@ -42,7 +35,6 @@ brew-packages:
 	brew install node
 	brew install openblas
 	brew install openssl@3
-	brew install packer
 	brew install pgbouncer
 	brew install pipx
 	brew install postgresql
@@ -57,13 +49,9 @@ brew-packages:
 	brew install starship
 	brew install tmuxinator
 	brew install tokei
-	brew install transmission-cli
 	brew install tree
-	brew install vault
-	brew install watchman
 	brew install wget
 	brew install wrk
-	brew install yajl
 	brew install z
 	brew install zlib
 	brew install zoxide
@@ -71,11 +59,8 @@ brew-packages:
 	brew install zsh-completions
 
 	brew tap d12frosted/emacs-plus
-	brew install d12frosted/emacs-plus/emacs-plus@28 --with-nobu417-big-sur-icon
-	ln -s /usr/local/opt/emacs-plus@28/Emacs.app /Applications
-
-	brew tap qmk/qmk
-	brew install qmk/qmk/qmk
+	brew install d12frosted/emacs-plus/emacs-plus@28 --with-modern-alecive-flatwoken-icon
+	if test ! -d '/Applications/Emacs.app'; then ln -s "$(brew --cellar emacs-plus)/Emacs.app" /Applications; fi
 
 	brew tap homebrew/cask-fonts
 	brew install --cask font-cascadia-code
@@ -85,30 +70,39 @@ brew-packages:
 	brew install --cask font-input
 	brew install --cask font-jetbrains-mono
 
-	brew install --cask 1password
+# Some of these packages are already installed on some machines
+# (e.g. by MDM), in that case don't confuse brew by trying to install
+# them.
+	if test ! -d '/Applications/1Password 7.app'; then brew install --cask 1password; fi
 	brew install --cask 1password-cli
 	brew install --cask alacritty
 	brew install --cask alfred
 	brew install --cask appcleaner
 	brew install --cask datagrip
-	brew install --cask discord
 	brew install --cask docker
-	brew install --cask dropbox
 	brew install --cask fantastical
 	brew install --cask firefox
-	brew install --cask google-chrome
+	if test ! -d '/Applications/Google Chrome.app'; then brew install --cask google-chrome; fi
 	brew install --cask iterm2
-	brew install --cask ngrok
-	brew install --cask omnifocus
 	brew install --cask pycharm
-	brew install --cask session-manager-plugin
-	brew install --cask slack
+	if test ! -d '/Applications/Slack.app'; then brew install --cask slack; fi
 	brew install --cask spotify
-	brew install --cask sublime-text
+	brew install --cask vimr
+	if test ! -d '/Applications/zoom.us.app'; then brew install --cask zoom; fi
+
+brew-packages-extra:
+	brew install clojure
+	brew install cowsay
+
+	brew tap qmk/qmk
+	brew install qmk/qmk/qmk
+
+	brew install --cask discord
+	brew install --cask dropbox
+	brew install --cask ngrok
 	brew install --cask transmission
 	brew install --cask vagrant
-	brew install --cask vimr
-	brew install --cask zoom
+
 
 brew-services:
 	brew services start postgresql
@@ -126,22 +120,15 @@ rust:
 	rustup component add rust-src
 
 crates:
-	cargo install bat
 	cargo install cargo-check
 	cargo install cargo-edit
 	cargo install cargo-outdated
 	cargo install cargo-watch
-	cargo install exa
-	cargo install fd-find
-	cargo install just
-	cargo install ripgrep
-	cargo install src
 	cargo install tokei
-	cargo install hyperfine
 
+zsh:
 # TODO(asm,2022-05-23): apparently antibody has been abandoned, need
 # to replace with something newer
-zsh:
 	antibody bundle < ~/.zsh.d/plugins.txt > ~/.zsh.d/plugins.zsh
 
 fish:
