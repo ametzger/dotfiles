@@ -47,6 +47,7 @@ set inccommand=nosplit
 
 call plug#begin('~/.vim/plugged')
 Plug 'haya14busa/incsearch.vim'
+Plug 'NoahTheDuke/vim-just'
 Plug 'scrooloose/nerdcommenter'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 " Plug 'arcticicestudio/nord-vim'
