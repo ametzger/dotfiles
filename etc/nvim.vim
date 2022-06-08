@@ -46,10 +46,10 @@ set inccommand=nosplit
 "noremap _ ddkP
 
 call plug#begin('~/.vim/plugged')
-
 Plug 'haya14busa/incsearch.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'arcticicestudio/nord-vim'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+" Plug 'arcticicestudio/nord-vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-surround'
@@ -110,7 +110,11 @@ let g:gh_use_canonical = 1
 " colorscheme zellner
 " let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme nord
+
+let g:catppuccin_flavour = "macchiato"
+colorscheme catppuccin
+
+" colorscheme nord
 if has('gui_running')
     try
         set guifont=Operator\ Mono\ Book:h17
