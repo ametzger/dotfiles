@@ -104,6 +104,12 @@ brew-packages-extra:
 	brew install --cask transmission
 	brew install --cask vagrant
 
+mas:
+    mas install 1289583905  # Pixelmator Pro
+    mas install 1475387142  # Tailscale
+    mas install 1055511498  # Day One
+    mas install 904280696   # Things
+    mas install 1435957248  # Drafts
 
 brew-services:
 	brew services start postgresql
