@@ -70,9 +70,9 @@ brew-packages:
 	brew install --cask font-input
 	brew install --cask font-jetbrains-mono
 
-# Some of these packages are already installed on some machines
-# (e.g. by MDM), in that case don't confuse brew by trying to install
-# them.
+	# Some of these packages are already installed on some machines
+	# (e.g. by MDM), in that case don't confuse brew by trying to install
+	# them.
 	if test ! -d '/Applications/1Password 7.app'; then brew install --cask 1password; fi
 	brew install --cask 1password-cli
 	brew install --cask alacritty
