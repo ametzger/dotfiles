@@ -85,6 +85,7 @@ brew-packages:
 	if test ! -d '/Applications/Google Chrome.app'; then brew install --cask google-chrome; fi
 	brew install --cask iterm2
 	brew install --cask pycharm
+	brew install --cask rectangle
 	if test ! -d '/Applications/Slack.app'; then brew install --cask slack; fi
 	brew install --cask spotify
 	brew install --cask vimr
