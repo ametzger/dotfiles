@@ -4,7 +4,6 @@ help:
 # Install baseline Homebrew packages
 brew-packages:
 	brew install amazon-ecs-cli
-	brew install antibody
 	brew install awscli
 	brew install bat
 	brew install cmake
@@ -132,11 +131,6 @@ crates:
 	cargo install cargo-outdated
 	cargo install cargo-watch
 	cargo install tokei
-
-zsh:
-# TODO(asm,2022-05-23): apparently antibody has been abandoned, need
-# to replace with something newer
-	antibody bundle < ~/.zsh.d/plugins.txt > ~/.zsh.d/plugins.zsh
 
 fish:
 	curl -sL https://get.oh-my.fish | fish

@@ -43,6 +43,7 @@
     ~/.tool-versions:                  etc/tool-versions
     ~/.zlogout:                        etc/zlogout
     ~/.zsh.d:                          etc/zsh.d
+    ~/.zsh_plugins.txt:                etc/zsh_plugins.txt
     ~/.zshrc:                          etc/zshrc
     ~/.zshenv:                         etc/zshenv
 

@@ -103,11 +103,22 @@ fi
 ## extra env vars
 [ -f $HOME/.localrc ] && source ~/.localrc
 
+# antidote
+# clone antidote if necessary and generate a static plugin file
+zhome=${ZDOTDIR:-$HOME}
+if [[ ! $zhome/.zsh_plugins.zsh -nt $zhome/.zsh_plugins.txt ]]; then
+  [[ -e $zhome/.antidote ]] \
+    || git clone --depth=1 https://github.com/mattmc3/antidote.git $zhome/.antidote
+  [[ -e $zhome/.zsh_plugins.txt ]] || touch $zhome/.zsh_plugins.txt
+  (
+    source $zhome/.antidote/antidote.zsh
+    antidote bundle <$zhome/.zsh_plugins.txt >$zhome/.zsh_plugins.zsh
+  )
+fi
 
-## antigen
-# To manage plugins, update `zsh.d/plugins.txt` then run `bin/antigen`
-# to regenerate this file.
-source ~/.zsh.d/plugins.zsh
+# source static plugins file
+source $zhome/.zsh_plugins.zsh
+unset zhome
 
 # do not highlight pasted text
 zle_highlight+=(paste:none)
