@@ -18,6 +18,7 @@
     ~/.asdfrc:                         etc/asdfrc
     ~/.bashrc:                         etc/bashrc
     ~/.config/alacritty/alacritty.yml: etc/alacritty.yml
+    ~/.config/black:                   etc/black
     ~/.config/fish/config.fish:        etc/config.fish
     ~/.config/fish/functions:          etc/fish-functions
     ~/.config/flake8:                  etc/flake8
