@@ -120,6 +120,10 @@ fi
 source $zhome/.zsh_plugins.zsh
 unset zhome
 
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
 # do not highlight pasted text
 zle_highlight+=(paste:none)
 
