@@ -15,6 +15,7 @@
   - ~/tmp
 
 - link:
+    ~/bin:                             scripts
     ~/.asdfrc:                         etc/asdfrc
     ~/.bashrc:                         etc/bashrc
     ~/.config/alacritty/alacritty.yml: etc/alacritty.yml
