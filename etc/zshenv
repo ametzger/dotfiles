@@ -37,6 +37,9 @@ if [[ -d ~/.node-versions ]]; then
   export NODE_VERSIONS="$HOME/.node-versions"
 fi
 
+# aws
+export AWS_PAGER=''
+
 ## editor
 export EDITOR='nvim'
 export VISUAL='nvim'
