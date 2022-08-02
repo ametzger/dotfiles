@@ -21,6 +21,11 @@ windows:
       layout: even-horizontal
       panes:
         - # shell
+  - devtool:
+      root: ~/proj/devtool
+      layout: even-horizontal
+      panes:
+        - # shell
   - misc:
       root: ~/proj/dotfiles
       layout: even-horizontal

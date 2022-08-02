@@ -58,6 +58,12 @@ else
 %{%(?.$fg[magenta].$fg[red])%}❯%{$reset_color%} '
 fi
 
+# platform specific
+OS=$(uname -s); export OS
+if [[ -f ~/.zsh.d/${OS}/zshrc ]]; then
+    source ~/.zsh.d/${OS}/zshrc
+fi
+
 ## aliases
 if command -v exa >/dev/null 2>&1; then
   alias ls='exa'
@@ -126,12 +132,6 @@ bindkey "^X^E" edit-command-line
 
 # do not highlight pasted text
 zle_highlight+=(paste:none)
-
-# platform specific
-OS=$(uname -s); export OS
-if [[ -f ~/.zsh.d/${OS}/zshrc ]]; then
-    source ~/.zsh.d/${OS}/zshrc
-fi
 
 ## asdf
 [ -d $HOME/.asdf ] && source ~/.asdf/asdf.sh
