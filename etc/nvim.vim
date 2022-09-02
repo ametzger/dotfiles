@@ -105,6 +105,8 @@ if has('nvim-0.5')
   nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 endif
 
+:command! -bar -bang Q quit<bang>
+
 " vim-gh-line
 let g:gh_use_canonical = 1
 
