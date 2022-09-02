@@ -24,8 +24,6 @@ export CLICOLOR=true
 # force readline keybinds
 bindkey -e
 
-autoload -U compinit && compinit
-
 ## prompt
 # VCS integration setup
 autoload -Uz vcs_info
@@ -63,6 +61,8 @@ OS=$(uname -s); export OS
 if [[ -f ~/.zsh.d/${OS}/zshrc ]]; then
     source ~/.zsh.d/${OS}/zshrc
 fi
+
+autoload -U compinit && compinit
 
 ## aliases
 if command -v exa >/dev/null 2>&1; then

@@ -4,6 +4,7 @@ if [ -d /opt/homebrew ] && [[ "$(arch)" == 'arm64' ]]; then
   alias bu="brew update && brew upgrade"
   # export PATH="/opt/homebrew/bin:$PATH"
   eval "$(/opt/homebrew/bin/brew shellenv)"
+  export FPATH="/opt/homebrew/share/zsh/site-functions:$FPATH"
 elif type brew &>/dev/null; then
   BREWROOT="$(brew --prefix)"
   FPATH="$$BREWROOT/share/zsh/site-functions:$FPATH"
