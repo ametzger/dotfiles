@@ -39,6 +39,7 @@ fi
 
 # aws
 export AWS_PAGER=''
+export AWS_DEFAULT_REGION='us-east-1'
 
 ## editor
 export EDITOR='nvim'
