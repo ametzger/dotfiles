@@ -77,6 +77,7 @@ brew-packages:
 	brew install --cask alacritty
 	brew install --cask alfred
 	brew install --cask appcleaner
+	brew install --cask brave-browser
 	brew install --cask datagrip
 	brew install --cask docker
 	brew install --cask fantastical
