@@ -1,28 +1,29 @@
 name: default
 root: ~
 
-startup_window: srv
+startup_window: jellyfish
 
 windows:
   - srv:
-      root: ~/proj/
+      root: ~/proj/jellyfish
       layout: 1829,304x49,0,0{152x49,0,0,0,151x49,153,0[151x24,153,0,1,151x24,153,25,2]}
       panes:
-        - devtool authorizer run
-        - devtool core run
-        - cd web && yarn start
-  - core:
-      root: ~/proj/core
+        - m runserver
+        - npm start
+        - scripts/notebook orthogonal-networks
+  # - srv2:
+  #     root: ~/proj/jellyfish
+  #     layout: even-horizontal
+  #     panes:
+  #       - # shell
+  #       - # shell
+  - jellyfish:
+      root: ~/proj/jellyfish
       layout: even-horizontal
       panes:
         - # shell
   - infra:
       root: ~/proj/infra
-      layout: even-horizontal
-      panes:
-        - # shell
-  - devtool:
-      root: ~/proj/devtool
       layout: even-horizontal
       panes:
         - # shell
