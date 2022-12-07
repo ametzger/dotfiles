@@ -89,10 +89,10 @@ alias tf='terraform'
 alias paws='aws --profile=personal'
 
 ## tools
-if command -v pyenv >/dev/null 2>&1; then
-  eval "$(pyenv init --path)"
-  eval "$(pyenv virtualenv-init -)"
-fi
+# if command -v pyenv >/dev/null 2>&1; then
+#   eval "$(pyenv init --path)"
+#   eval "$(pyenv virtualenv-init -)"
+# fi
 
 if command -v direnv >/dev/null 2>&1; then
   export DIRENV_LOG_FORMAT=''
