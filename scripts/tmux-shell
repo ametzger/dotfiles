@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# HACK(asm,2022-12-07): trying to get tmux to play nicely with arm64/rosetta terminals
+if [ -d /opt/homebrew ] && [[ "$(arch)" == 'arm64' ]]; then
+  /opt/homebrew/bin/zsh
+else
+  /usr/local/bin/zsh
+fi
