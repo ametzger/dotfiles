@@ -132,6 +132,7 @@ crates:
 	cargo install cargo-outdated
 	cargo install cargo-watch
 	cargo install tokei
+	cargo install --locked zellij
 
 fish:
 	curl -sL https://get.oh-my.fish | fish

@@ -7,6 +7,7 @@
   - ~/.config/git
   - ~/.config/kitty
   - ~/.config/nvim
+  - ~/.config/zellij
   - ~/.local/share
   - ~/.ssh
   - ~/.tmux
@@ -26,6 +27,7 @@
     ~/.config/git/config:              etc/gitconfig
     ~/.config/kitty/kitty.conf:        etc/kitty.conf
     ~/.config/nvim/init.vim:           etc/nvim.vim
+    ~/.config/zellij/config.kdl:       etc/zellij.kdl
     ~/.direnvrc:                       etc/direnvrc
     ~/.doom.d:                         etc/doom-emacs
     ~/.editorconfig:                   etc/editorconfig
