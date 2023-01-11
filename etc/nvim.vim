@@ -61,6 +61,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 " Plug 'ruanyl/vim-gh-line'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
+Plug 'LnL7/vim-nix'
 
 " these require neovim nightly
 if has('nvim-0.5')

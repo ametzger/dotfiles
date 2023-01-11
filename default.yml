@@ -26,6 +26,7 @@
     ~/.config/flake8:                  etc/flake8
     ~/.config/git/config:              etc/gitconfig
     ~/.config/kitty/kitty.conf:        etc/kitty.conf
+    ~/.config/nixpkgs:                 etc/nixpkgs
     ~/.config/nvim/init.vim:           etc/nvim.vim
     ~/.config/zellij/config.kdl:       etc/zellij.kdl
     ~/.direnvrc:                       etc/direnvrc

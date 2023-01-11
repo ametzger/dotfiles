@@ -37,6 +37,8 @@ if [[ -d ~/.node-versions ]]; then
   export NODE_VERSIONS="$HOME/.node-versions"
 fi
 
+export NIX_PATH=${NIX_PATH:+$NIX_PATH:}$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels
+
 # aws
 export AWS_PAGER=''
 export AWS_DEFAULT_REGION='us-east-1'
