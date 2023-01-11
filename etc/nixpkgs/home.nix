@@ -18,4 +18,10 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  home.packages = [
+    pkgs.hello
+  ];
+
+  home.file.".config/nvim/init.vim".source = ../nvim.vim;
 }
