@@ -4,7 +4,6 @@
 - create:
   - ~/.config/alacritty
   - ~/.config/fish
-  - ~/.config/git
   - ~/.config/kitty
   - ~/.config/nvim
   - ~/.config/zellij
@@ -24,7 +23,6 @@
     ~/.config/fish/config.fish:        etc/config.fish
     ~/.config/fish/functions:          etc/fish-functions
     ~/.config/flake8:                  etc/flake8
-    ~/.config/git/config:              etc/gitconfig
     ~/.config/kitty/kitty.conf:        etc/kitty.conf
     ~/.config/nix:                     etc/nix
     ~/.config/nixpkgs:                 etc/nixpkgs
@@ -35,8 +33,6 @@
     ~/.editorconfig:                   etc/editorconfig
     # ~/.emacs.d:                      etc/emacs-prelude
     ~/.gemrc:                          etc/gemrc
-    ~/.gitattributes:                  etc/gitattributes
-    ~/.gitignore_global:               etc/gitignore_global
     ~/.hyper.js:                       etc/hyper.js
     ~/.irbrc:                          etc/irbrc
     ~/.psqlrc:                         etc/psqlrc

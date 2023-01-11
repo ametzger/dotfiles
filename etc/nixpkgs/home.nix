@@ -19,9 +19,15 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.packages = [
-    pkgs.hello
-  ];
+  # extra nix setup
+  # nix.extraOptions =
+  #   ''
+  #     auto-optimise-store = true
+  #     experimental-features = nix-command flakes
+  #     extra-platforms = x86_64-darwin aarch64-darwin
+  #   '';
 
-  home.file.".config/nvim/init.vim".source = ../nvim.vim;
+  imports = [
+    ./modules/packages.nix
+  ];
 }
