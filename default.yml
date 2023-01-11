@@ -2,11 +2,6 @@
   - '~'
 
 - create:
-  - ~/.config/alacritty
-  - ~/.config/fish
-  - ~/.config/kitty
-  - ~/.config/nvim
-  - ~/.config/zellij
   - ~/.local/share
   - ~/.ssh
   - ~/.tmux
@@ -16,33 +11,10 @@
 
 - link:
     ~/bin:                             scripts
-    ~/.asdfrc:                         etc/asdfrc
-    ~/.bashrc:                         etc/bashrc
-    ~/.config/alacritty/alacritty.yml: etc/alacritty.yml
-    ~/.config/black:                   etc/black
-    ~/.config/fish/config.fish:        etc/config.fish
-    ~/.config/fish/functions:          etc/fish-functions
-    ~/.config/flake8:                  etc/flake8
-    ~/.config/kitty/kitty.conf:        etc/kitty.conf
     ~/.config/nix:                     etc/nix
     ~/.config/nixpkgs:                 etc/nixpkgs
-    # ~/.config/nvim/init.vim:           etc/nvim.vim
-    ~/.config/zellij/config.kdl:       etc/zellij.kdl
-    ~/.direnvrc:                       etc/direnvrc
     ~/.doom.d:                         etc/doom-emacs
-    ~/.editorconfig:                   etc/editorconfig
     # ~/.emacs.d:                      etc/emacs-prelude
-    ~/.gemrc:                          etc/gemrc
-    ~/.hyper.js:                       etc/hyper.js
-    ~/.irbrc:                          etc/irbrc
-    ~/.psqlrc:                         etc/psqlrc
-    ~/.pylintrc:                       etc/pylintrc
-    ~/.ripgreprc:                      etc/ripgreprc
-    ~/.spacemacs:                      etc/spacemacs
-    ~/.ssh/config:                     etc/sshconfig
-    ~/.tmux.conf:                      etc/tmux.conf
-    ~/.tmuxinator.yml:                 etc/tmuxinator.yml
-    ~/.tool-versions:                  etc/tool-versions
     ~/.zlogout:                        etc/zlogout
     ~/.zsh.d:                          etc/zsh.d
     ~/.zsh_plugins.txt:                etc/zsh_plugins.txt
