@@ -71,7 +71,8 @@ autoload -U compinit && compinit
 
 ## aliases
 if command -v exa >/dev/null 2>&1; then
-  alias ls='exa --long --no-user --git --git-ignore --classify --octal-permissions'
+  alias ls='exa --git --git-ignore'
+  # alias ls='exa --long --no-user --git --git-ignore --classify --octal-permissions'
   alias ll='exa -lah'
 fi
 
