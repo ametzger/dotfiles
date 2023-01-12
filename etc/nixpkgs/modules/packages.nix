@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./git.nix
+    ./tmux.nix
   ];
 
   home.packages = with pkgs;
@@ -44,7 +45,6 @@
       ripgrep
       ruby
       starship
-      tmuxinator
       tokei
       tree
       wget
@@ -80,8 +80,5 @@
   home.file.".ripgreprc".source = ../../ripgreprc;
   home.file.".spacemacs".source = ../../spacemacs;
   home.file.".ssh/config".source = ../../sshconfig;
-  home.file.".tmux.conf".source = ../../tmux.conf;
-  home.file.".tmuxinator.yml".source = ../../tmuxinator.yml;
   home.file.".tool-versions".source = ../../tool-versions;
-
 }
