@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./git.nix
+    ./ssh.nix
     ./tmux.nix
   ];
 
@@ -79,6 +80,5 @@
   home.file.".pylintrc".source = ../../pylintrc;
   home.file.".ripgreprc".source = ../../ripgreprc;
   home.file.".spacemacs".source = ../../spacemacs;
-  home.file.".ssh/config".source = ../../sshconfig;
   home.file.".tool-versions".source = ../../tool-versions;
 }

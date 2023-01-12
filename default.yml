@@ -3,7 +3,6 @@
 
 - create:
   - ~/.local/share
-  - ~/.ssh
   - ~/proj
   - ~/tmp
 
@@ -33,5 +32,3 @@
   - ~/.asdf/bin/asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git || exit 0
   - ~/.asdf/bin/asdf plugin-add terraform https://github.com/asdf-community/asdf-hashicorp.git || exit 0
   - ~/.asdf/bin/asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git || exit 0
-  - chmod 0700 ~/.ssh
-  - chmod 0600 ~/.ssh/config
