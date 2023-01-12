@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./fish.nix
     ./git.nix
     ./ssh.nix
     ./tmux.nix
@@ -19,10 +20,7 @@
       curl
       direnv
       elixir
-      exa
       fd
-      fish
-      fzf
       gnused
       gnupg
       go
@@ -54,6 +52,19 @@
       zsh
     ];
 
+  programs.exa = {
+    enable = true;
+    enableAliases = true;
+  };
+
+  programs.fzf = {
+    enable = true;
+    defaultCommand = "rg --files --hidden --no-heading --height 40%";
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+    enableZshIntegration = true;
+  };
+
   programs.zoxide = {
     enable = true;
     enableBashIntegration = true;
@@ -65,8 +76,6 @@
   home.file.".bashrc".source = ../../bashrc;
   home.file.".config/alacritty/alacritty.yml".source = ../../alacritty.yml;
   home.file.".config/black".source = ../../black;
-  home.file.".config/fish/config.fish".source = ../../config.fish;
-  # home.file.".config/fish/functions".source = ../../fish-functions;
   home.file.".config/flake8".source = ../../flake8;
   home.file.".config/kitty/kitty.conf".source = ../../kitty.conf;
   home.file.".config/nvim/init.vim".source = ../../nvim.vim;
