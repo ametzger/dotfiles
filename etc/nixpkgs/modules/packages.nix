@@ -50,9 +50,15 @@
       wget
       wrk
       zlib
-      zoxide
       zsh
     ];
+
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    enableFishIntegration = true;
+  };
 
   home.file.".asdfrc".source = ../../asdfrc;
   home.file.".bashrc".source = ../../bashrc;
