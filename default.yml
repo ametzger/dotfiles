@@ -12,11 +12,6 @@
     ~/.config/nixpkgs:                 etc/nixpkgs
     ~/.doom.d:                         etc/doom-emacs
     # ~/.emacs.d:                      etc/emacs-prelude
-    ~/.zlogout:                        etc/zlogout
-    ~/.zsh.d:                          etc/zsh.d
-    ~/.zsh_plugins.txt:                etc/zsh_plugins.txt
-    ~/.zshrc:                          etc/zshrc
-    ~/.zshenv:                         etc/zshenv
 
 - shell:
   - |

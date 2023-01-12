@@ -30,5 +30,6 @@
   imports = [
     ./modules/packages
     ./modules/files.nix
+    ./modules/environment.nix
   ];
 }

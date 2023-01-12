@@ -4,6 +4,11 @@
   config,
   ...
 }: {
+  home.file.bin = {
+    source = ../../../scripts;
+    recursive = true;
+  };
+
   home.file.".asdfrc".source = ../../asdfrc;
   home.file.".config/alacritty/alacritty.yml".source = ../../alacritty.yml;
   home.file.".config/black".source = ../../black;
