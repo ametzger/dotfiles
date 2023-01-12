@@ -28,6 +28,7 @@
   #   '';
 
   imports = [
-    ./modules/packages.nix
+    ./modules/packages
+    ./modules/files.nix
   ];
 }

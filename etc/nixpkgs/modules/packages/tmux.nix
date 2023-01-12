@@ -128,5 +128,5 @@
       '';
   };
 
-  home.file.".tmuxinator.yml".source = ../../tmuxinator.yml;
+  home.file.".tmuxinator.yml".source = ../../../tmuxinator.yml;
 }
