@@ -31,6 +31,7 @@ in {
     AWS_PAGER="";
     AWS_DEFAULT_REGION="us-east-1";
     CLICOLOR = "true";
+    DIRENV_LOG_FORMAT="";
     DOCKER_BUILDKIT="1";
     DOCKER_SCAN_SUGGEST="false";
     DOTNET_CLI_TELEMETRY_OPTOUT="true";
@@ -46,5 +47,17 @@ in {
     SSH_KEY_PATH="$HOME/.ssh/rsa_id";
     VIRTUAL_ENV_DISABLE_PROMPT = "1";
     VISUAL="nvim";
+    RTX_MISSING_RUNTIME_BEHAVIOR="ignore";
+  };
+
+  home.shellAliases = {
+    cat = "bat";
+    tf = "terraform";
+    bu = "brew update && brew upgrade";
+    m = "p python manage.py";
+    p = "pipenv run";
+    sp = "EDITOR=emacs m shell_plus";
+    t = "p env DJANGO_SETTINGS_MODULE=jellyfish.settings.test python manage.py test";
+    vim = "nvim";
   };
 }

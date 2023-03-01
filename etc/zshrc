@@ -62,10 +62,6 @@ if [[ -f ~/.zsh.d/${OS}/zshrc ]]; then
     source ~/.zsh.d/${OS}/zshrc
 fi
 
-# Nix
-if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-fi
 
 autoload -U compinit && compinit
 
@@ -90,7 +86,8 @@ alias e='emacsclient -nw'
 alias vim='nvim'
 alias p='pipenv run'
 alias m='p python manage.py'
-alias sp='m shell_plus'
+alias t='p env DJANGO_SETTINGS_MODULE=jellyfish.settings.test python manage.py test'
+alias sp='EDITOR=emacs m shell_plus'
 alias tf='terraform'
 alias paws='aws --profile=personal'
 
@@ -141,6 +138,18 @@ zle_highlight+=(paste:none)
 
 ## asdf
 [ -d $HOME/.asdf ] && source ~/.asdf/asdf.sh
+
+# Nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
+# 
+# HACK(asm,2023-02-23): make sure pyenv is preferred to Nix stuff
+if [[ -d ~/.pyenv ]]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH"
+fi
 
 # More profiling, see top of file
 # zprof

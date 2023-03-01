@@ -2,13 +2,6 @@
   programs.fish = {
     enable = true;
 
-    shellAliases = {
-      p = "pipenv run";
-      m = "pipenv run python manage.py";
-      sp = "pipenv run python manage.py shell_plus";
-      tf = "terraform";
-    };
-
     functions = {
       bu =
         ''
