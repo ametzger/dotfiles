@@ -95,7 +95,12 @@
         zle_highlight+=(paste:none)
 
         ## asdf
-        [ -d $HOME/.asdf ] && source ~/.asdf/asdf.sh
+        # [ -d $HOME/.asdf ] && source ~/.asdf/asdf.sh
+
+        ## rtx
+        if [[ -f "$HOME/bin/rtx" ]]; then
+          eval "$(~/bin/rtx activate zsh)"
+        fi
       '';
   };
 }
