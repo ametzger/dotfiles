@@ -10,9 +10,9 @@ in {
     [
       "${config.home.homeDirectory}/.asdf/bin"
       "${config.home.homeDirectory}/.asdf/shims"
-      "${config.home.homeDirectory}/.cargo/bin"
       "${config.home.homeDirectory}/.pyenv/bin"
       "${config.home.homeDirectory}/.pyenv/shims"
+      "${config.home.homeDirectory}/.cargo/bin"
       "${config.home.homeDirectory}/.nix-profile/bin"
       "${config.home.homeDirectory}/.local/bin"
       "/usr/local/bin"
