@@ -1,10 +1,9 @@
 { config, lib, pkgs, ... }:
-let
-  pkgsUnstable = import <unstable> {};
-in {
+
+{
   programs.git = {
     enable = true;
-    package = pkgsUnstable.git;
+    package = pkgs.git;
 
     userName = "Alex Metzger";
     userEmail = "asm@asm.io";
