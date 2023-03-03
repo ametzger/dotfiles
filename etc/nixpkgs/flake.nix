@@ -10,13 +10,18 @@
   };
 
   outputs = { nixpkgs, home-manager, ... }: let
-    arch = "aarch64-darwin";
   in {
-    defaultPackage.${arch} = home-manager.defaultPackage.${arch};
+    defaultPackage.aarch64-darwin = home-manager.defaultPackage.aarch64-darwin;
+    defaultPackage.x86_64-darwin = home-manager.defaultPackage.x86_64-darwin;
+
+    homeConfigurations."asm@asm-mbp-16" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-darwin;
+      modules = [ ./home.nix ];
+    };
 
     homeConfigurations.asm = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${arch};
-        modules = [ ./home.nix ];
-      };
+      pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+      modules = [ ./home.nix ];
     };
+  };
 }
