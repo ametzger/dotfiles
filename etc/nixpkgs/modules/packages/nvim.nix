@@ -16,10 +16,7 @@
 
     plugins = with pkgs.vimPlugins; [
       Navigator-nvim
-      # TODO(asm,2023-03-01): this seems to bug out due to the read-only-ness of nix and the fact
-      # that catppuccin wants to compile itself to a temporary directory.
-      # catppuccin-nvim
-      gruvbox-nvim
+      catppuccin-nvim
       incsearch-vim
       indent-blankline-nvim
       lsp_signature-nvim
@@ -92,9 +89,15 @@
 
         :command! -bar -bang Q quit<bang>
 
-        let g:catppuccin_flavour = "macchiato"
-        " colorscheme catppuccin
-        colorscheme gruvbox
+        " HACK(asm,2023-03-02): catppuccin wants to compile itself when it is called with
+        " colorscheme, but since we're using nix the directory it is installed to is read-only. This
+        " is a clumsy workaround, there's probably something more clever that could work here.
+        lua <<EOF
+        require("catppuccin").setup({
+            compile_path = "~/.local/share/nvim/catppuccin"
+        })
+        EOF
+        colorscheme catppuccin-macchiato
 
         if has('gui_running')
             try
