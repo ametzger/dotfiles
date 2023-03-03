@@ -17,8 +17,8 @@
     plugins = with pkgs.vimPlugins; [
       Navigator-nvim
       catppuccin-nvim
-      incsearch-vim
       indent-blankline-nvim
+      is-vim
       lsp_signature-nvim
       nerdcommenter
       nvim-lspconfig
@@ -33,127 +33,97 @@
       vim-terraform
     ];
 
-    extraConfig =
+    extraLuaConfig =
       ''
-        set nocompatible
-        let mapleader=" "
 
-        set tabstop=2
-        set shiftwidth=2
+        vim.g.mapleader = ' '
 
-        set mouse=a
-        " set cursorline                  " Highlight the current line
-        set lazyredraw                  " Faster scrolling
-        set number relativenumber       " Show line number
-        set showcmd                     " Show current command
-        set showmode                    " Show current mode
-        set wildmode=longest:list,full  " Autocomplete
-        set wildignore=*.o,*.obj,*~     " Ignore file
-        set showmatch                   " highlight matching braces
-        set ignorecase                  " ignore case while searching
-        set smartcase                   " unless uppercase explicitly mentioned
-        set smartindent                 " indent smartly
-        set nowrap                      " Don't wrap text
-        set laststatus=2                " Always show statusbar
-        set scrolloff=5                 " Minimum space on bottom/top of window
-        set sidescrolloff=7             " Minimum space on side
-        set sidescroll=1
-        set expandtab                   " Spaces > tabs
-        set nofoldenable                " Disable folding
-        set clipboard+=unnamed          " Use system clipboard
-        set nobackup
-        set ruler
-        set undodir=~/.vim-undo
-        set undofile
-        set undolevels=1000  "max number of changes that can be undone
-        set undoreload=10000 "max number lines to save for undo on buffer reload
-        set shortmess+=A
-        set splitbelow
-        set splitright
-        set incsearch
-        set hlsearch
-        set inccommand=nosplit
+        vim.opt.backup         = false
+        vim.opt.clipboard      = 'unnamedplus'
+        vim.opt.compatible     = false
+        vim.opt.encoding       = 'utf-8'
+        vim.opt.expandtab      = true
+        vim.opt.foldenable     = false
+        vim.opt.hlsearch       = true
+        vim.opt.ignorecase     = true
+        vim.opt.inccommand     = 'nosplit'
+        vim.opt.incsearch      = true
+        vim.opt.laststatus     = 2
+        vim.opt.lazyredraw     = true
+        vim.opt.mouse          = 'a'
+        vim.opt.number         = true
+        vim.opt.relativenumber = true
+        vim.opt.ruler          = true
+        vim.opt.scrolloff      = 5
+        vim.opt.shiftwidth     = 2
+        vim.opt.shortmess      = 'A'
+        vim.opt.showcmd        = true
+        vim.opt.showmatch      = true
+        vim.opt.showmode       = true
+        vim.opt.sidescroll     = 1
+        vim.opt.sidescrolloff  = 7
+        vim.opt.smartcase      = true
+        vim.opt.smartindent    = true
+        vim.opt.splitbelow     = true
+        vim.opt.splitright     = true
+        vim.opt.tabstop        = 2
+        vim.opt.undodir        = '~/.vim-undo'
+        vim.opt.undofile       = true
+        vim.opt.undolevels     = 1000
+        vim.opt.undoreload     = 10000
+        vim.opt.wildignore     = '*.o,*.obj,*~'
+        vim.opt.wildmode       = 'longest:list,full'
+        vim.opt.wrap           = false
 
-        " incsearch
-        map /  <Plug>(incsearch-forward)
-        map ?  <Plug>(incsearch-backward)
-        map g/ <Plug>(incsearch-stay)
-        set hlsearch
-        let g:incsearch#auto_nohlsearch = 1
-        map n  <Plug>(incsearch-nohl-n)
-        map N  <Plug>(incsearch-nohl-N)
-        map *  <Plug>(incsearch-nohl-*)
-        map #  <Plug>(incsearch-nohl-#)
-        map g* <Plug>(incsearch-nohl-g*)
-        map g# <Plug>(incsearch-nohl-g#)
-
-        :command! -bar -bang Q quit<bang>
-
-        " HACK(asm,2023-03-02): catppuccin wants to compile itself when it is called with
-        " colorscheme, but since we're using nix the directory it is installed to is read-only. This
-        " is a clumsy workaround, there's probably something more clever that could work here.
-        lua <<EOF
+        -- HACK(asm,2023-03-02): catppuccin wants to compile itself when it is called with
+        -- colorscheme, but since we're using nix the directory it is installed to is read-only. This
+        -- is a clumsy workaround, there's probably something more clever that could work here.
         require("catppuccin").setup({
             compile_path = "~/.local/share/nvim/catppuccin"
         })
-        EOF
-        colorscheme catppuccin-macchiato
+        vim.cmd[[colorscheme catppuccin-macchiato]]
 
-        if has('gui_running')
-            try
-                set guifont=Operator\ Mono\ Book:h17
-            catch
-            endtry
-        endif
+        -- keybinds
+        vim.cmd[[command! -bar -bang Q quit<bang>]]
 
-        filetype plugin indent on
+        vim.api.nvim_set_keymap("i", "<C-b>", "<Left>", { noremap = false })
+        vim.api.nvim_set_keymap("i", "<C-f>", "<Right>", { noremap = false })
+        vim.api.nvim_set_keymap("i", "<C-a>", "<Home>", { noremap = false })
+        vim.api.nvim_set_keymap("i", "<C-e>", "<End>", { noremap = false })
+        vim.api.nvim_set_keymap("i", "<C-d>", "<Del>", { noremap = false })
+        vim.api.nvim_set_keymap("i", "<C-h>", "<BS>", { noremap = false })
+        vim.api.nvim_set_keymap("i", "<C-w>", "<Esc>ddi", { noremap = false })
+        vim.api.nvim_set_keymap("i", "<C-_>", "<Esc>ui", { noremap = false })
+        vim.api.nvim_set_keymap("i", "<M-d>", "<Esc>dwi", { noremap = false })
+        vim.api.nvim_set_keymap("i", "<M-b>", "<Esc>bi", { noremap = false })
+        vim.api.nvim_set_keymap("i", "<M-f>", "<Esc>wi", { noremap = false })
+        vim.api.nvim_set_keymap("i", "<C-k>", "l<Esc>d$a", { noremap = true })
 
-        set encoding=utf-8
+        vim.api.nvim_set_keymap("c", "<C-p>", "<Up>", { noremap = false })
+        vim.api.nvim_set_keymap("c", "<C-n>", "<Down>", { noremap = false })
+        vim.api.nvim_set_keymap("c", "<C-b>", "<Left>", { noremap = false })
+        vim.api.nvim_set_keymap("c", "<C-f>", "<Right>", { noremap = false })
+        vim.api.nvim_set_keymap("c", "<C-a>", "<Home>", { noremap = false })
+        vim.api.nvim_set_keymap("c", "<C-e>", "<End>", { noremap = false })
+        vim.api.nvim_set_keymap("c", "<C-d>", "<Del>", { noremap = true })
+        vim.api.nvim_set_keymap("c", "<C-h>", "<BS>", { noremap = true })
+        vim.api.nvim_set_keymap("c", "<C-k>", "<C-f>D<C-c><C-c>:<Up>", { noremap = true })
 
-        vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+        -- indentation
+        vim.cmd[[autocmd FileType ruby setlocal shiftwidth=2 tabstop=2]]
+        vim.cmd[[autocmd FileType python setlocal shiftwidth=4 tabstop=4]]
+        vim.cmd[[autocmd FileType html setlocal shiftwidth=4 tabstop=4]]
 
-        nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+        -- telescope
+        vim.api.nvim_set_keymap("n", "<C-p>", "<cmd>Telescope find_files<cr>", { noremap = true })
+        vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { noremap = true })
+        vim.api.nvim_set_keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { noremap = true })
+        vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { noremap = true })
+        vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { noremap = true })
 
-        autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
-        autocmd FileType python setlocal shiftwidth=4 tabstop=4
-        autocmd FileType html setlocal shiftwidth=4 tabstop=4
-
-        " emacs insert mode: old habits die hard
-        imap <C-b> <Left>
-        imap <C-f> <Right>
-        imap <C-a> <Home>
-        imap <C-e> <End>
-        imap <C-d> <Del>
-        imap <C-h> <BS>
-        imap <C-w> <Esc>ddi
-        imap <C-_> <Esc>ui
-        imap <M-d> <Esc>dwi
-        imap <M-b> <Esc>bi
-        imap <M-f> <Esc>wi
-        inoremap <C-k> l<Esc>d$a
-
-        " command line mode
-        cmap <C-p> <Up>
-        cmap <C-n> <Down>
-        cmap <C-b> <Left>
-        cmap <C-f> <Right>
-        cmap <C-a> <Home>
-        cmap <C-e> <End>
-        cnoremap <C-d> <Del>
-        cnoremap <C-h> <BS>
-        cnoremap <C-k> <C-f>D<C-c><C-c>:<Up>
-
-        " NERDCommenter
-        let g:NERDDefaultAlign = 'left'
-        let g:NERDSpaceDelims = 1
-
-        if has('nvim-0.5')
-          nnoremap <C-p> <cmd>Telescope find_files<cr>
-          nnoremap <leader>ff <cmd>Telescope find_files<cr>
-          nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-          nnoremap <leader>fb <cmd>Telescope buffers<cr>
-          nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-        endif
+        -- NERDCommenter
+        vim.g.NERDDefaultAlign = 'left'
+        vim.g.NERDSpaceDelims = 1
       '';
   };
 }
