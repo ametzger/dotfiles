@@ -94,12 +94,9 @@
         # do not highlight pasted text
         zle_highlight+=(paste:none)
 
-        ## asdf
-        # [ -d $HOME/.asdf ] && source ~/.asdf/asdf.sh
-
         ## rtx
-        if [[ -f "$HOME/bin/rtx" ]]; then
-          eval "$(~/bin/rtx activate zsh)"
+        if [ -x "$(command -v rtx)" ]; then
+          eval "$(rtx activate zsh)"
         fi
       '';
   };

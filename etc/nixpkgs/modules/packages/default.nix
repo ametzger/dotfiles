@@ -3,7 +3,9 @@
   lib,
   config,
   ...
-}: {
+}: let
+  rtx = pkgs.callPackage ./rtx.nix { };
+in {
   imports = [
     ./fish.nix
     ./git.nix
@@ -39,6 +41,7 @@
       reattach-to-user-namespace
       redis
       ripgrep
+      rtx
       ruby
       starship
       tokei
