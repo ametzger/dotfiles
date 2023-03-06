@@ -37,6 +37,7 @@ in {
       pgbouncer
       postgresql
       python310Full
+      python310Packages.pipx
       rabbitmq-server
       reattach-to-user-namespace
       redis
