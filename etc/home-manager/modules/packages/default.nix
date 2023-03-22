@@ -27,6 +27,7 @@ in {
       gnused
       httpie
       hyperfine
+      infracost
       jq
       just
       mtr
