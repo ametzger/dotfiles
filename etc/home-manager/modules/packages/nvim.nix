@@ -75,12 +75,6 @@
         vim.opt.wildmode       = 'longest:list,full'
         vim.opt.wrap           = false
 
-        -- HACK(asm,2023-03-02): catppuccin wants to compile itself when it is called with
-        -- colorscheme, but since we're using nix the directory it is installed to is read-only. This
-        -- is a clumsy workaround, there's probably something more clever that could work here.
-        require("catppuccin").setup({
-            compile_path = "~/.local/share/nvim/catppuccin"
-        })
         vim.cmd[[colorscheme catppuccin-macchiato]]
 
         -- keybinds
