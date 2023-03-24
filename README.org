@@ -1,16 +1,11 @@
 * Dotfiles
-  Lovingly crafted, artisinal configuration files for the finest software
-  available.
+  Lovingly crafted, artisinal configuration files for the finest software available.
+
+  Currently going nix mode, based and reproducibilitypilled. Shellscriptcels seething.
 
 ** Installation
-   To install, clone the repo and run =./install=. This should install
-   dotbot and get everything linked.
+   To install, clone the repo and run =./install=. This should install dotbot and get everything
+   linked.
 
-   If on a mac, run =bin/brew= followed by =just brew-packages= to
-   install packages.
-
-** Emacs
-   Everyone's favorite text editor. I've moved my Emacs configuration
-   to a separate [[https://github.com/ametzger/emacs.d][emacs.d repository]]. This repository still contains
-   some configuration related to Emacs Prelude, Spacemacs, and Doom
-   Emacs.
+   After that, install nix using the determinate nix installer, `cd etc/home-manager` and then do
+   `nix run . switch`
