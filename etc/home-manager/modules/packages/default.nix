@@ -45,6 +45,7 @@ in {
       ripgrep
       rtx
       ruby
+      ruff
       starship
       tokei
       tree
