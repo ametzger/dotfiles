@@ -48,6 +48,7 @@ in {
       starship
       tokei
       tree
+      trufflehog
       wget
       wrk
       xmlsec
