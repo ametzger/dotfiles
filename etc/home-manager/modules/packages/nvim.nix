@@ -80,6 +80,17 @@
         -- keybinds
         vim.cmd[[command! -bar -bang Q quit<bang>]]
 
+        -- windmove-like shift-arrow movements
+        vim.api.nvim_set_keymap("i", "<S-Left>", "<Esc><C-w>h", { noremap = true })
+        vim.api.nvim_set_keymap("i", "<S-Up>", "<Esc><C-w>j", { noremap = true })
+        vim.api.nvim_set_keymap("i", "<S-Down>", "<Esc><C-w>k", { noremap = true })
+        vim.api.nvim_set_keymap("i", "<S-Right>", "<Esc><C-w>l", { noremap = true })
+        vim.api.nvim_set_keymap("n", "<S-Left>", "<C-w>h", { noremap = true })
+        vim.api.nvim_set_keymap("n", "<S-Up>", "<C-w>j", { noremap = true })
+        vim.api.nvim_set_keymap("n", "<S-Down>", "<C-w>k", { noremap = true })
+        vim.api.nvim_set_keymap("n", "<S-Right>", "<C-w>l", { noremap = true })
+
+        -- emacs binds in insert mode
         vim.api.nvim_set_keymap("i", "<C-b>", "<Left>", { noremap = false })
         vim.api.nvim_set_keymap("i", "<C-f>", "<Right>", { noremap = false })
         vim.api.nvim_set_keymap("i", "<C-a>", "<Home>", { noremap = false })
@@ -93,6 +104,7 @@
         vim.api.nvim_set_keymap("i", "<M-f>", "<Esc>wi", { noremap = false })
         vim.api.nvim_set_keymap("i", "<C-k>", "l<Esc>d$a", { noremap = true })
 
+        -- emacs binds in command mode
         vim.api.nvim_set_keymap("c", "<C-p>", "<Up>", { noremap = false })
         vim.api.nvim_set_keymap("c", "<C-n>", "<Down>", { noremap = false })
         vim.api.nvim_set_keymap("c", "<C-b>", "<Left>", { noremap = false })
