@@ -41,34 +41,31 @@
         }
     );
 
-    nurModules = import nur {
-      nurpkgs = legacyPackages.x86_64-darwin;
-      pkgs = legacyPackages.x86_64-darwin;
-    };
+    nurModules = forAllSystems (
+      system:
+      import nur {
+        nurpkgs = legacyPackages.x86_64-darwin;
+        pkgs = legacyPackages.x86_64-darwin;
+      }
+    );
+
+    homeManagerConfigs = forAllSystems (
+      system: {
+        pkgs = legacyPackages."${system}";
+        modules = [
+          {
+            imports = [ nurModules."${system}".repos.rycee.hmModules.emacs-init ];
+            home.packages = [devenv.packages."${system}".devenv];
+          }
+          ./home.nix
+        ];
+      });
  in {
-    homeConfigurations."asm@asm-mbp-16" = home-manager.lib.homeManagerConfiguration {
-      pkgs = legacyPackages."x86_64-darwin";
-      modules = [
-        ./home.nix
-        {
-          imports = [ nurModules.repos.rycee.hmModules.emacs-init ];
-        }
-      ];
-    };
+    homeConfigurations."asm@asm-mbp-16" = home-manager.lib.homeManagerConfiguration homeManagerConfigs."x86_64-darwin";
+    homeConfigurations.asm = home-manager.lib.homeManagerConfiguration homeManagerConfigs."aarch64-darwin";
 
-    homeConfigurations.asm = home-manager.lib.homeManagerConfiguration {
-      pkgs = legacyPackages."aarch64-darwin";
-
-      modules = [
-        ./home.nix
-        {
-          home = {
-            packages = [devenv.packages.aarch64-darwin.devenv];
-          };
-        }
-      ];
-    };
-
+    # TODO(asm,2023-03-24): This is a little hokey, but it means running `home-manager switch` or
+    # `nix run . switch` works without specifying a flake path every time.
     defaultPackage.aarch64-darwin = self.homeConfigurations.asm.activationPackage;
     defaultPackage.x86_64-darwin = self.homeConfigurations."asm@asm-mbp-16".activationPackage;
   };
