@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
-
-{
+let
+in {
   home.username = "asm";
   home.homeDirectory = "/Users/asm";
   home.stateVersion = "22.11";
