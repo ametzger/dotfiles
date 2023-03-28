@@ -7,7 +7,7 @@
   rtx = pkgs.callPackage ./rtx.nix { };
 in {
   imports = [
-    ./emacs
+    # ./emacs # wip
     ./fish.nix
     ./git.nix
     ./nvim.nix
