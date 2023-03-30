@@ -31,6 +31,7 @@ in {
       infracost
       jq
       just
+      magic-wormhole
       mtr
       nmap
       nodejs
@@ -47,7 +48,7 @@ in {
       rtx
       ruby
       ruff
-      starship
+      sops
       tokei
       tree
       trufflehog
