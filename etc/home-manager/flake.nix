@@ -44,8 +44,8 @@
     nurModules = forAllSystems (
       system:
       import nur {
-        nurpkgs = legacyPackages.x86_64-darwin;
-        pkgs = legacyPackages.x86_64-darwin;
+        nurpkgs = legacyPackages."${system}";
+        pkgs = legacyPackages."${system}";
       }
     );
 
