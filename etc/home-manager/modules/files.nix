@@ -10,7 +10,11 @@
   };
 
   home.file.".asdfrc".source = ../../asdfrc;
-  home.file.".config/alacritty/alacritty.yml".source = ../../alacritty.yml;
+  home.file.".config/alacritty/alacritty.yml".source = pkgs.substituteAll {
+    name = "alacritty.yml";
+    src = ../../alacritty.yml;
+    zsh = "${pkgs.zsh}";
+  };
   home.file.".config/black".source = ../../black;
   home.file.".config/flake8".source = ../../flake8;
   home.file.".config/kitty/kitty.conf".source = ../../kitty.conf;
