@@ -181,5 +181,6 @@
     # direnv
     .envrc
     .env
+    .direnv
     '';
 }
