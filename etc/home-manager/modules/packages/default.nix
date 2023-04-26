@@ -22,6 +22,7 @@ in {
       black
       coreutils
       curl
+      detect-secrets
       elixir
       fd
       gnupg
@@ -35,6 +36,7 @@ in {
       mtr
       nmap
       nodejs
+      nodePackages.pyright
       openblas
       openssl
       pgbouncer
@@ -48,6 +50,7 @@ in {
       rtx
       ruby
       ruff
+      socat
       sops
       tokei
       tree
