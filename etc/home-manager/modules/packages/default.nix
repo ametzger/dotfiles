@@ -43,6 +43,7 @@ in {
       postgresql
       python310Full
       python310Packages.pipx
+      python310Packages.mypy
       rabbitmq-server
       reattach-to-user-namespace
       redis
