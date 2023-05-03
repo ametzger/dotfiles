@@ -7,15 +7,26 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    devenv.url = "github:cachix/devenv/latest";
+    flake-utils.url = "github:numtide/flake-utils";
+    devenv = {
+      url = "github:cachix/devenv/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay/702b1724ead7b6eec28bfc5e1404c26a57a3b248";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
     nur.url = "github:nix-community/NUR";
+    rtx-flake = {
+      url = "github:jdxcode/rtx";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, devenv, emacs-overlay, nur, ... } @ inputs: let
+  outputs = { self, nixpkgs, home-manager, flake-utils, devenv, emacs-overlay, nur, rtx-flake, ... } @ inputs: let
     inherit (nixpkgs.lib) optionalAttrs singleton optionals;
 
     supportedSystems = ["x86_64-darwin" "aarch64-darwin"];
@@ -28,7 +39,7 @@
           inherit (final.pkgs-x86);
         })
       )
-      ++ [emacs-overlay.overlay];
+      ++ [emacs-overlay.overlay rtx-flake.overlay];
 
     legacyPackages = forAllSystems (
       system:

@@ -3,9 +3,7 @@
   lib,
   config,
   ...
-}: let
-  rtx = pkgs.callPackage ./rtx.nix { };
-in {
+}: {
   imports = [
     # ./emacs # wip
     ./fish.nix
