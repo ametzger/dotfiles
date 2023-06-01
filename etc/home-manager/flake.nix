@@ -11,7 +11,6 @@
     devenv = {
       url = "github:cachix/devenv/latest";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
     };
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay/702b1724ead7b6eec28bfc5e1404c26a57a3b248";
