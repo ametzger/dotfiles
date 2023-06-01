@@ -40,8 +40,9 @@
       pgbouncer
       postgresql
       python310Full
-      python310Packages.pipx
+      python310Packages.ruff-lsp
       python310Packages.mypy
+      python310Packages.pipx
       rabbitmq-server
       reattach-to-user-namespace
       redis
