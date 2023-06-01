@@ -67,7 +67,7 @@
         vim.opt.splitbelow     = true
         vim.opt.splitright     = true
         vim.opt.tabstop        = 2
-        vim.opt.undodir        = '~/.vim-undo'
+        vim.opt.undodir        = vim.fn.expand('~/.vim-undo')
         vim.opt.undofile       = true
         vim.opt.undolevels     = 1000
         vim.opt.undoreload     = 10000
