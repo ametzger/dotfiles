@@ -50,6 +50,7 @@
       rtx
       ruby
       ruff
+      shellcheck
       socat
       sops
       tokei
