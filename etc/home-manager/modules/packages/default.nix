@@ -23,6 +23,7 @@
       detect-secrets
       elixir
       fd
+      figlet
       gnupg
       gnused
       httpie
