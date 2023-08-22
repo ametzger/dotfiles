@@ -75,7 +75,7 @@
         vim.opt.wildmode       = 'longest:list,full'
         vim.opt.wrap           = false
 
-        vim.cmd[[colorscheme catppuccin-latte]]
+        vim.cmd[[colorscheme catppuccin-macchiato]]
 
         -- keybinds
         vim.cmd[[command! -bar -bang Q quit<bang>]]
