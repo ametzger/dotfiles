@@ -51,6 +51,7 @@
       ''
         # Handle dumb terms
         [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+        fpath+=($HOME/.zfunc)
       '';
 
     initExtra =
