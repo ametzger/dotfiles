@@ -16,11 +16,11 @@
 
     plugins = with pkgs.vimPlugins; [
       Navigator-nvim
-      catppuccin-nvim
       indent-blankline-nvim
       is-vim
       lsp_signature-nvim
       nerdcommenter
+      nord-nvim
       nvim-lspconfig
       nvim-treesitter
       plenary-nvim
@@ -75,7 +75,10 @@
         vim.opt.wildmode       = 'longest:list,full'
         vim.opt.wrap           = false
 
-        vim.cmd[[colorscheme catppuccin-macchiato]]
+        -- vim.cmd[[colorscheme nord]]
+        vim.g.nord_bold = false
+        vim.g.nord_italic = false
+        require('nord').set()
 
         -- keybinds
         vim.cmd[[command! -bar -bang Q quit<bang>]]
