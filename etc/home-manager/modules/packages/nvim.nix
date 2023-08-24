@@ -19,6 +19,7 @@
       indent-blankline-nvim
       is-vim
       lsp_signature-nvim
+      neogit
       nerdcommenter
       nord-nvim
       nvim-lspconfig
@@ -133,6 +134,11 @@
         -- NERDCommenter
         vim.g.NERDDefaultAlign = 'left'
         vim.g.NERDSpaceDelims = 1
+
+        -- neogit
+        local neogit = require('neogit')
+        neogit.setup {}
+        vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>Neogit<cr>", { noremap = true})
       '';
   };
 }
