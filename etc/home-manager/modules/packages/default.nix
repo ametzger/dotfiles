@@ -18,6 +18,7 @@
     [
       awscli
       black
+      colima
       coreutils
       curl
       detect-secrets
