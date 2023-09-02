@@ -53,7 +53,7 @@ in {
     tf = "terraform";
     bu = "brew update && brew upgrade";
     m = "p python manage.py";
-    p = "pipenv run";
+    p = "pdm run";
     sp = "EDITOR=emacs m shell_plus";
     t = "p env DJANGO_SETTINGS_MODULE=jellyfish.settings.test python manage.py test";
     vim = "nvim";
