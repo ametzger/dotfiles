@@ -23,7 +23,20 @@
       nerdcommenter
       nord-nvim
       nvim-lspconfig
-      nvim-treesitter
+      (nvim-treesitter.withPlugins (
+        plugins: with plugins; [
+          tree-sitter-dockerfile
+          tree-sitter-elixir
+          tree-sitter-html
+          tree-sitter-json
+          tree-sitter-lua
+          tree-sitter-nix
+          tree-sitter-python
+          tree-sitter-rust
+          tree-sitter-toml
+          tree-sitter-yaml
+        ]
+      ))
       plenary-nvim
       popup-nvim
       telescope-nvim
@@ -67,6 +80,7 @@
         vim.opt.smartindent    = true
         vim.opt.splitbelow     = true
         vim.opt.splitright     = true
+        vim.opt.syntax         = off
         vim.opt.tabstop        = 2
         vim.opt.undodir        = vim.fn.expand('~/.vim-undo')
         vim.opt.undofile       = true
@@ -139,6 +153,55 @@
         local neogit = require('neogit')
         neogit.setup {}
         vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>Neogit<cr>", { noremap = true})
+
+        -- treesitter
+
+        require('nvim-treesitter.configs').setup {
+          highlight = {
+            enable = true,              -- false will disable the whole extension
+            -- disable = { "c", "rust" },  -- list of language that will be disabled
+            -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+            -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+            -- Using this option may slow down your editor, and you may see some duplicate highlights.
+            -- Instead of true it can also be a list of languages
+            additional_vim_regex_highlighting = false,
+          },
+        }
+
+        -- lsp
+        -- `on_attach` callback will be called after a language server
+        -- instance has been attached to an open buffer with matching filetype
+        -- here we're setting key mappings for hover documentation, goto definitions, goto references, etc
+        -- you may set those key mappings based on your own preference
+        local on_attach = function(client, bufnr)
+          local opts = { noremap=true, silent=true }
+
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>cd', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+        end
+
+        local lspconfig = require('lspconfig')
+
+        -- setting up the elixir language server
+        -- you have to manually specify the entrypoint cmd for elixir-ls
+        lspconfig.elixirls.setup {
+          cmd = { "${pkgs.elixir-ls}/lib/language_server.sh" },
+          on_attach = on_attach
+        }
+
+        lspconfig.pyright.setup {
+          on_attach = on_attach
+        }
       '';
   };
 }

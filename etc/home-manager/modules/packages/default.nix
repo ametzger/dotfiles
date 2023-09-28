@@ -23,6 +23,7 @@
       curl
       detect-secrets
       elixir
+      elixir-ls
       fd
       figlet
       gnupg
@@ -42,7 +43,7 @@
       pgbouncer
       postgresql
       python310Full
-      python310Packages.ruff-lsp
+      # python310Packages.ruff-lsp
       python310Packages.mypy
       python310Packages.pipx
       rabbitmq-server
@@ -51,7 +52,7 @@
       ripgrep
       rtx
       ruby
-      ruff
+      # ruff
       shellcheck
       socat
       sops
