@@ -84,7 +84,7 @@ fi
 alias em='emacsclient -nc'
 alias e='emacsclient -nw'
 alias vim='nvim'
-alias p='pipenv run'
+alias p='pdm run'
 alias m='p python manage.py'
 alias t='p env DJANGO_SETTINGS_MODULE=jellyfish.settings.test python manage.py test'
 alias sp='EDITOR=emacs m shell_plus'
@@ -144,7 +144,7 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
 
-# 
+#
 # HACK(asm,2023-02-23): make sure pyenv is preferred to Nix stuff
 if [[ -d ~/.pyenv ]]; then
   export PYENV_ROOT="$HOME/.pyenv"
