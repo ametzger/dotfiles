@@ -138,6 +138,19 @@
         vim.cmd[[autocmd FileType python setlocal shiftwidth=4 tabstop=4]]
         vim.cmd[[autocmd FileType html setlocal shiftwidth=4 tabstop=4]]
 
+        -- auto-resize when switching tmux panes
+        local wr_group = vim.api.nvim_create_augroup('WinResize', { clear = true })
+
+        vim.api.nvim_create_autocmd(
+            'VimResized',
+            {
+                group = wr_group,
+                pattern = '*',
+                command = 'wincmd =',
+                desc = 'Automatically resize windows when the host window size changes.'
+            }
+        )
+
         -- telescope
         vim.api.nvim_set_keymap("n", "<C-p>", "<cmd>Telescope find_files<cr>", { noremap = true })
         vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { noremap = true })
