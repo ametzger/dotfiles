@@ -138,9 +138,19 @@
         vim.cmd[[autocmd FileType python setlocal shiftwidth=4 tabstop=4]]
         vim.cmd[[autocmd FileType html setlocal shiftwidth=4 tabstop=4]]
 
+        -- swap between vertical/horizontal splits
+        -- C-w - : vertical to horizontal ( | -> -- )
+        vim.api.nvim_set_keymap("i", "<C-w>-", "<Esc><C-w>t<C-w>K", { noremap = true })
+        vim.api.nvim_set_keymap("n", "<C-w>-", "<C-w>t<C-w>K", { noremap = true })
+
+        -- C-w | or C-w \ : horizontal to vertical ( -- -> | )
+        vim.api.nvim_set_keymap("i", "<C-w>|", "<Esc><C-w>t<C-w>H", { noremap = true })
+        vim.api.nvim_set_keymap("n", "<C-w>|", "<C-w>t<C-w>H", { noremap = true })
+        vim.api.nvim_set_keymap("i", "<C-w>\\", "<Esc><C-w>t<C-w>H", { noremap = true })
+        vim.api.nvim_set_keymap("n", "<C-w>\\", "<C-w>t<C-w>H", { noremap = true })
+
         -- auto-resize when switching tmux panes
         local wr_group = vim.api.nvim_create_augroup('WinResize', { clear = true })
-
         vim.api.nvim_create_autocmd(
             'VimResized',
             {
