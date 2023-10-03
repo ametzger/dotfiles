@@ -3822,7 +3822,7 @@
 			<key>Non-ASCII Ligatures</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>OperatorMono-Medium 20</string>
+			<string>FantasqueSansMono-Regular 22</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Place Prompt at First Column</key>
