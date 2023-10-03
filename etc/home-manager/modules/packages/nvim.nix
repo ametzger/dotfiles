@@ -236,12 +236,15 @@
         lspconfig.terraformls.setup {
           cmd = { "${pkgs.terraform-ls}/bin/terraform-ls", "serve" },
           on_attach = on_attach,
-          flags = { debounce_text_changes = 150 },
         }
 
         lspconfig.terraform_lsp.setup {
           cmd = { "${pkgs.terraform-lsp}/bin/terraform-lsp" },
           on_attach = on_attach
+        }
+
+        lspconfig.tflint.setup {
+          cmd = { '${pkgs.tflint}/bin/tflint', '--langserver' }
         }
       '';
   };

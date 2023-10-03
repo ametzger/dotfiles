@@ -56,6 +56,7 @@
       shellcheck
       socat
       sops
+      tflint
       terraform-ls
       terraform-lsp
       tokei
