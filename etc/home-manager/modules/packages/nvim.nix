@@ -16,6 +16,7 @@
 
     plugins = with pkgs.vimPlugins; [
       Navigator-nvim
+      gitlinker-nvim
       indent-blankline-nvim
       is-vim
       lsp_signature-nvim
@@ -247,6 +248,9 @@
         lspconfig.tflint.setup {
           cmd = { '${pkgs.tflint}/bin/tflint', '--langserver' }
         }
+
+        -- gitlinker
+        require('gitlinker').setup()
       '';
   };
 }
