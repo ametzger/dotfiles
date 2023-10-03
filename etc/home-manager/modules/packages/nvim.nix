@@ -46,6 +46,7 @@
       vim-argumentative
       vim-nix
       vim-surround
+      vim-terraform
       vim-tmux-navigator
     ];
 
@@ -192,6 +193,10 @@
             additional_vim_regex_highlighting = false,
           },
         }
+
+        -- vim-terraform
+        vim.cmd([[let g:terraform_fmt_on_save=1]])
+        vim.cmd([[let g:terraform_align=1]])
 
         -- lsp
         -- `on_attach` callback will be called after a language server
