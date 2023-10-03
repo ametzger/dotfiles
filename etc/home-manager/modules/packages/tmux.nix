@@ -53,10 +53,16 @@
       bind c new-window -c "#{pane_current_path}"
 
       # Emacs-ier movement
-      bind -n S-Left  select-pane -L
-      bind -n S-Right select-pane -R
-      bind -n S-Up    select-pane -U
-      bind -n S-Down  select-pane -D
+      is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+          | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|l?n?vim?x?|fzf)(diff)?$'"
+      bind-key -n 'S-Left' if-shell "$is_vim" 'send-keys S-Left'  'select-pane -L'
+      bind-key -n 'S-Right' if-shell "$is_vim" 'send-keys S-Right'  'select-pane -R'
+      bind-key -n 'S-Up' if-shell "$is_vim" 'send-keys S-Up'  'select-pane -U'
+      bind-key -n 'S-Down' if-shell "$is_vim" 'send-keys S-Down'  'select-pane -D'
+      # bind -n S-Left  select-pane -L
+      # bind -n S-Right select-pane -R
+      # bind -n S-Up    select-pane -U
+      # bind -n S-Down  select-pane -D
 
       # Move panes with C-S-left/right
       bind -n C-S-Left swap-pane -U
