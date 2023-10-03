@@ -102,14 +102,15 @@
         vim.cmd[[command! -bar -bang Q quit<bang>]]
 
         -- windmove-like shift-arrow movements
-        vim.api.nvim_set_keymap("i", "<S-Left>", "<Esc>:<C-U>TmuxNavigateLeft<cr>", { noremap = true })
-        vim.api.nvim_set_keymap("i", "<S-Right>", "<Esc>:<C-U>TmuxNavigateRight<cr>", { noremap = true })
-        vim.api.nvim_set_keymap("i", "<S-Up>", "<Esc>:<C-U>TmuxNavigateUp<cr>", { noremap = true })
-        vim.api.nvim_set_keymap("i", "<S-Down>", "<Esc>:<C-U>TmuxNavigateDown<cr>", { noremap = true })
-        vim.api.nvim_set_keymap("n", "<S-Left>", ":<C-U>TmuxNavigateLeft<cr>", { noremap = true })
-        vim.api.nvim_set_keymap("n", "<S-Right>", ":<C-U>TmuxNavigateRight<cr>", { noremap = true })
-        vim.api.nvim_set_keymap("n", "<S-Up>", ":<C-U>TmuxNavigateUp<cr>", { noremap = true })
-        vim.api.nvim_set_keymap("n", "<S-Down>", ":<C-U>TmuxNavigateDown<cr>", { noremap = true })
+        local noremap_silent = { noremap = true, silent = true }
+        vim.api.nvim_set_keymap("i", "<S-Left>", "<Esc>:<C-U>TmuxNavigateLeft<cr>", noremap_silent)
+        vim.api.nvim_set_keymap("i", "<S-Right>", "<Esc>:<C-U>TmuxNavigateRight<cr>", noremap_silent)
+        vim.api.nvim_set_keymap("i", "<S-Up>", "<Esc>:<C-U>TmuxNavigateUp<cr>", noremap_silent)
+        vim.api.nvim_set_keymap("i", "<S-Down>", "<Esc>:<C-U>TmuxNavigateDown<cr>", noremap_silent)
+        vim.api.nvim_set_keymap("n", "<S-Left>", ":<C-U>TmuxNavigateLeft<cr>", noremap_silent)
+        vim.api.nvim_set_keymap("n", "<S-Right>", ":<C-U>TmuxNavigateRight<cr>", noremap_silent)
+        vim.api.nvim_set_keymap("n", "<S-Up>", ":<C-U>TmuxNavigateUp<cr>", noremap_silent)
+        vim.api.nvim_set_keymap("n", "<S-Down>", ":<C-U>TmuxNavigateDown<cr>", noremap_silent)
 
         -- emacs binds in insert mode
         vim.api.nvim_set_keymap("i", "<C-b>", "<Left>", { noremap = false })
