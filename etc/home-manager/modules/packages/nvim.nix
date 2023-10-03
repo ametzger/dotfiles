@@ -28,6 +28,7 @@
           tree-sitter-dockerfile
           tree-sitter-elixir
           tree-sitter-html
+          tree-sitter-hcl
           tree-sitter-json
           tree-sitter-lua
           tree-sitter-nix
@@ -37,6 +38,7 @@
           tree-sitter-yaml
         ]
       ))
+      nvim-treesitter-parsers.terraform
       plenary-nvim
       popup-nvim
       telescope-nvim
@@ -44,7 +46,6 @@
       vim-argumentative
       vim-nix
       vim-surround
-      vim-terraform
     ];
 
     extraLuaConfig =
@@ -223,6 +224,17 @@
         }
 
         lspconfig.pyright.setup {
+          on_attach = on_attach
+        }
+
+        lspconfig.terraformls.setup {
+          cmd = { "${pkgs.terraform-ls}/bin/terraform-ls", "serve" },
+          on_attach = on_attach,
+          flags = { debounce_text_changes = 150 },
+        }
+
+        lspconfig.terraform_lsp.setup {
+          cmd = { "${pkgs.terraform-lsp}/bin/terraform-lsp" },
           on_attach = on_attach
         }
       '';

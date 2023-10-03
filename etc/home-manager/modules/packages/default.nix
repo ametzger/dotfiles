@@ -56,6 +56,8 @@
       shellcheck
       socat
       sops
+      terraform-ls
+      terraform-lsp
       tokei
       tree
       trufflehog
