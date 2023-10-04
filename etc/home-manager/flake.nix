@@ -25,23 +25,25 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, flake-utils, devenv, emacs-overlay, nur, rtx-flake, ... } @ inputs: let
-    inherit (nixpkgs.lib) optionalAttrs singleton optionals;
+  outputs = { self, nixpkgs, home-manager, flake-utils, devenv, emacs-overlay, nur, rtx-flake, ... } @ inputs:
+    let
+      inherit (nixpkgs.lib) optionalAttrs singleton optionals;
 
-    supportedSystems = ["x86_64-darwin" "aarch64-darwin"];
-    forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
+      supportedSystems = [ "x86_64-darwin" "aarch64-darwin" ];
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
 
-    overlays =
-      singleton (
-        # Sub in x86 version of packages that don't build on Apple Silicon yet
-        final: prev: (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
-          inherit (final.pkgs-x86);
-        })
-      )
-      ++ [emacs-overlay.overlay rtx-flake.overlay];
+      overlays =
+        singleton
+          (
+            # Sub in x86 version of packages that don't build on Apple Silicon yet
+            final: prev: (optionalAttrs (prev.stdenv.system == "aarch64-darwin") {
+              inherit (final.pkgs-x86);
+            })
+          )
+        ++ [ emacs-overlay.overlay rtx-flake.overlay ];
 
-    legacyPackages = forAllSystems (
-      system:
+      legacyPackages = forAllSystems (
+        system:
         import nixpkgs {
           inherit system;
           overlays = overlays;
@@ -49,34 +51,36 @@
             allowUnfree = true;
           };
         }
-    );
+      );
 
-    nurModules = forAllSystems (
-      system:
-      import nur {
-        nurpkgs = legacyPackages."${system}";
-        pkgs = legacyPackages."${system}";
-      }
-    );
+      nurModules = forAllSystems (
+        system:
+        import nur {
+          nurpkgs = legacyPackages."${system}";
+          pkgs = legacyPackages."${system}";
+        }
+      );
 
-    homeManagerConfigs = forAllSystems (
-      system: {
-        pkgs = legacyPackages."${system}";
-        modules = [
-          {
-            imports = [ nurModules."${system}".repos.rycee.hmModules.emacs-init ];
-            home.packages = [devenv.packages."${system}".devenv];
-          }
-          ./home.nix
-        ];
-      });
- in {
-    homeConfigurations."asm@asm-mbp-16" = home-manager.lib.homeManagerConfiguration homeManagerConfigs."x86_64-darwin";
-    homeConfigurations.asm = home-manager.lib.homeManagerConfiguration homeManagerConfigs."aarch64-darwin";
+      homeManagerConfigs = forAllSystems (
+        system: {
+          pkgs = legacyPackages."${system}";
+          modules = [
+            {
+              imports = [ nurModules."${system}".repos.rycee.hmModules.emacs-init ];
+              home.packages = [ devenv.packages."${system}".devenv ];
+            }
+            ./home.nix
+          ];
+        }
+      );
+    in
+    {
+      homeConfigurations."asm@asm-mbp-16" = home-manager.lib.homeManagerConfiguration homeManagerConfigs."x86_64-darwin";
+      homeConfigurations.asm = home-manager.lib.homeManagerConfiguration homeManagerConfigs."aarch64-darwin";
 
-    # TODO(asm,2023-03-24): This is a little hokey, but it means running `home-manager switch` or
-    # `nix run . switch` works without specifying a flake path every time.
-    defaultPackage.aarch64-darwin = self.homeConfigurations.asm.activationPackage;
-    defaultPackage.x86_64-darwin = self.homeConfigurations."asm@asm-mbp-16".activationPackage;
-  };
+      # TODO(asm,2023-03-24): This is a little hokey, but it means running `home-manager switch` or
+      # `nix run . switch` works without specifying a flake path every time.
+      defaultPackage.aarch64-darwin = self.homeConfigurations.asm.activationPackage;
+      defaultPackage.x86_64-darwin = self.homeConfigurations."asm@asm-mbp-16".activationPackage;
+    };
 }

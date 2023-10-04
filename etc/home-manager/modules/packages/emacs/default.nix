@@ -4,7 +4,7 @@
 
     package = with pkgs; pkgs.emacsPgtk.overrideAttrs (old: {
       patches =
-        (old.patches or [])
+        (old.patches or [ ])
         ++ [
           # Fix OS window role (needed for window managers like yabai)
           (fetchpatch {
@@ -326,7 +326,7 @@
                   doom-modeline-env-version nil)
           '';
         };
-        
+
         winner = {
           enable = true;
           diminish = [ "winner-mode" ];

@@ -1,11 +1,12 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: let
+{ pkgs
+, lib
+, config
+, ...
+}:
+let
   concatSessionList = builtins.concatStringsSep ":";
-in {
+in
+{
   home.sessionPath =
     [
       "${config.home.homeDirectory}/.pyenv/bin"
@@ -26,26 +27,26 @@ in {
     ];
 
   home.sessionVariables = {
-    AWS_PAGER="";
-    AWS_DEFAULT_REGION="us-east-1";
+    AWS_PAGER = "";
+    AWS_DEFAULT_REGION = "us-east-1";
     CLICOLOR = "true";
-    DIRENV_LOG_FORMAT="";
-    DOCKER_BUILDKIT="1";
-    DOCKER_SCAN_SUGGEST="false";
-    DOTNET_CLI_TELEMETRY_OPTOUT="true";
-    EDITOR="nvim";
-    LANG="en_US.UTF-8";
-    LESS="-R";
+    DIRENV_LOG_FORMAT = "";
+    DOCKER_BUILDKIT = "1";
+    DOCKER_SCAN_SUGGEST = "false";
+    DOTNET_CLI_TELEMETRY_OPTOUT = "true";
+    EDITOR = "nvim";
+    LANG = "en_US.UTF-8";
+    LESS = "-R";
     LSCOLORS = "exfxcxdxbxegedabagacad";
     NIX_PATH = concatSessionList ([
       "${config.home.homeDirectory}/.nix-defexpr/channels"
       "/nix/var/nix/profiles/per-user/root/channels"
     ]);
-    PYTHONIOENCODING="UTF-8";
-    SSH_KEY_PATH="$HOME/.ssh/rsa_id";
+    PYTHONIOENCODING = "UTF-8";
+    SSH_KEY_PATH = "$HOME/.ssh/rsa_id";
     VIRTUAL_ENV_DISABLE_PROMPT = "1";
-    VISUAL="nvim";
-    RTX_MISSING_RUNTIME_BEHAVIOR="ignore";
+    VISUAL = "nvim";
+    RTX_MISSING_RUNTIME_BEHAVIOR = "ignore";
   };
 
   home.shellAliases = {

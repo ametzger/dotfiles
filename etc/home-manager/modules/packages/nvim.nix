@@ -1,8 +1,7 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
+{ pkgs
+, lib
+, config
+, ...
 }: {
   programs.neovim = {
     enable = true;
@@ -12,7 +11,7 @@
     withNodeJs = true;
     withRuby = true;
     withPython3 = true;
-    coc = {enable = false;};
+    coc = { enable = false; };
 
     plugins = with pkgs.vimPlugins; [
       Navigator-nvim
