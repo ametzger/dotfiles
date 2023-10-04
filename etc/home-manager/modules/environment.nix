@@ -56,6 +56,7 @@ in
     m = "p python manage.py";
     nix-cleanup = "nix-collect-garbage --delete-old";
     p = "pdm run";
+    scratch = "nvim ~/scratch.txt";
     sp = "EDITOR=emacs m shell_plus";
     t = "p env DJANGO_SETTINGS_MODULE=jellyfish.settings.test python manage.py test";
     vim = "nvim";

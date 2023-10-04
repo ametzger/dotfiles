@@ -1,8 +1,4 @@
-{ pkgs
-, lib
-, config
-, ...
-}: {
+{ pkgs, ... }: {
   imports = [
     # ./emacs # wip
     ./fish.nix
