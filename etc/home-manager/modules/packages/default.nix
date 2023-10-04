@@ -35,6 +35,8 @@
       just
       magic-wormhole
       mtr
+      nil
+      nixpkgs-fmt
       nmap
       nodejs
       nodePackages.pyright

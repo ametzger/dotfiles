@@ -222,6 +222,9 @@
           vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
         end
 
+        -- auto format on save
+        vim.cmd [[autocmd BufWritePre *.nix lua vim.lsp.buf.format()]]
+
         local lspconfig = require('lspconfig')
 
         -- setting up the elixir language server
@@ -247,6 +250,17 @@
 
         lspconfig.tflint.setup {
           cmd = { '${pkgs.tflint}/bin/tflint', '--langserver' }
+        }
+
+        lspconfig.nil_ls.setup {
+          cmd = { '${pkgs.nil}/bin/nil' },
+          settings = {
+            ['nil'] = {
+              formatting = {
+                command = { "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt" },
+              },
+            }
+          }
         }
 
         -- gitlinker
