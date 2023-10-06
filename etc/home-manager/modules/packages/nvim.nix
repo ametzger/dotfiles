@@ -199,6 +199,9 @@
         vim.cmd([[let g:terraform_fmt_on_save=1]])
         vim.cmd([[let g:terraform_align=1]])
 
+        -- python
+        vim.cmd [[autocmd BufWritePost *.py silent! !~/.local/bin/black --quiet <afile>]]
+
         -- lsp
         -- `on_attach` callback will be called after a language server
         -- instance has been attached to an open buffer with matching filetype
