@@ -13,6 +13,7 @@
     [
       awscli
       black
+      cascadia-code
       colima
       coreutils
       curl
@@ -21,11 +22,16 @@
       elixir-ls
       fd
       figlet
+      fantasque-sans-mono
       gnupg
       gnused
       httpie
       hyperfine
+      ibm-plex
       infracost
+      # NOTE(asm,2023-10-05): this requires some extra license/nonfree weirdness
+      # input-fonts
+      jetbrains-mono
       jq
       just
       magic-wormhole
