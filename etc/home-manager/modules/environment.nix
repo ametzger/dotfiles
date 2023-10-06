@@ -53,6 +53,8 @@ in
     cat = "bat";
     tf = "terraform";
     bu = "brew update && brew upgrade";
+    ls = "eza";
+    exa = "eza";
     m = "p python manage.py";
     nix-cleanup = "nix-collect-garbage --delete-old";
     p = "pdm run";

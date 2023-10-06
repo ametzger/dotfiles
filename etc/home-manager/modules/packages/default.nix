@@ -20,6 +20,7 @@
       detect-secrets
       elixir
       elixir-ls
+      eza
       fd
       figlet
       fantasque-sans-mono
@@ -91,10 +92,10 @@
     nix-direnv.enable = true;
   };
 
-  programs.exa = {
-    enable = true;
-    enableAliases = true;
-  };
+  # programs.exa = {
+  #   enable = true;
+  #   enableAliases = true;
+  # };
 
   programs.fzf = {
     enable = true;
