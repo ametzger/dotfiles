@@ -69,6 +69,7 @@
       wget
       wrk
       xmlsec
+      xsv
       zlib
       zsh
     ];
