@@ -9,6 +9,8 @@
         UseKeychain yes
       '';
 
+    includes = [ "~/.ssh/config.private" ];
+
     matchBlocks = {
       "i-*" = {
         proxyCommand =

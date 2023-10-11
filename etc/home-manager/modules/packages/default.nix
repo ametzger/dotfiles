@@ -60,6 +60,7 @@
       shellcheck
       socat
       sops
+      ssm-session-manager-plugin
       tflint
       terraform-ls
       terraform-lsp
