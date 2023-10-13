@@ -1,8 +1,4 @@
-{ pkgs
-, lib
-, config
-, ...
-}: {
+{ pkgs, ... }: {
   home.file.bin = {
     source = ../../../scripts;
     recursive = true;
@@ -26,8 +22,4 @@
   home.file.".ripgreprc".source = ../../ripgreprc;
   home.file.".spacemacs".source = ../../spacemacs;
   home.file.".tool-versions".source = ../../tool-versions;
-  home.file.".zfunc/_docker".source = builtins.fetchurl {
-    url = "https://raw.githubusercontent.com/docker/cli/a46f8504351c67fe00c610a279706d72d812f1a4/contrib/completion/zsh/_docker";
-    sha256 = "0fj3niy4zw9yknjjfyv5j8xw5lx83pdq3xcm56g3mjqashjq26vj";
-  };
 }
