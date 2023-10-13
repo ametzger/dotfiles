@@ -18,6 +18,7 @@
       coreutils
       curl
       detect-secrets
+      docker-client
       elixir
       elixir-ls
       eza
