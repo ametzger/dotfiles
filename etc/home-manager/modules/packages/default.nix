@@ -18,6 +18,7 @@
       coreutils
       curl
       detect-secrets
+      dogdns
       elixir
       elixir-ls
       eza
